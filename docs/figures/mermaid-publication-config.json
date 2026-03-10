@@ -1,0 +1,13 @@
+{
+  "theme": "neutral",
+  "fontFamily": "Arial",
+  "fontSize": 28,
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "linear",
+    "nodeSpacing": 80,
+    "rankSpacing": 120,
+    "padding": 30,
+    "diagramPadding": 40
+  }
+}

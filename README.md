@@ -46,7 +46,9 @@ See full architecture diagram:
 
 [docs/figures/ai-agent-governance-stack.md](docs/figures/ai-agent-governance-stack.md)
 
-## FDO Integration
+## FDO -> Agent Governance Architecture
+
+![FDO Agent Governance Stack](docs/figures/fdo-agent-governance-stack.svg)
 
 See extended architecture:
 
