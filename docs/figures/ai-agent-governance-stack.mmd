@@ -1,0 +1,23 @@
+flowchart TB
+
+User --> Persona
+
+Persona[Persona Layer<br>POP]
+
+Persona --> Runtime
+
+Runtime[Agent Runtime<br>CrewAI]
+
+Runtime --> Trace
+
+Trace[Execution Trace]
+
+Trace --> Audit
+
+Audit[Audit Evidence<br>ARO]
+
+Audit --> Governance
+
+Governance[Governance Controls<br>Token Governor]
+
+Governance --> Output[Evidence / Logs]

@@ -40,6 +40,12 @@ See detailed explanation:
 
 [docs/architecture.md](docs/architecture.md)
 
+## Architecture (Research View)
+
+See full architecture diagram:
+
+[docs/figures/ai-agent-governance-stack.md](docs/figures/ai-agent-governance-stack.md)
+
 ## Framework Integration
 
 This demo can run with CrewAI.
