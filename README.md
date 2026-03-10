@@ -22,7 +22,21 @@ Output example:
 
 ## Architecture
 
-See architecture overview:
+### Architecture Diagram
+
+```mermaid
+flowchart TD
+
+A[Persona Object<br>POP] --> B[Agent Runtime<br>CrewAI]
+
+B --> C[Execution Trace]
+
+C --> D[Audit Evidence<br>ARO Record]
+
+D --> E[Evidence JSON Output]
+```
+
+See detailed explanation:
 
 [docs/architecture.md](docs/architecture.md)
 
