@@ -30,6 +30,12 @@ Output example:
 
 `evidence/example_audit.json`
 
+## Architecture
+
+See architecture overview:
+
+[docs/architecture.md](docs/architecture.md)
+
 ## Framework Integration
 
 This demo can run with CrewAI.
