@@ -13,6 +13,12 @@ Execution -> Agent runtime
 Audit -> ARO evidence record
 Governance -> Token Governor
 
+Demo architecture:
+
+Persona (POP)
+-> Agent execution
+-> Audit evidence (ARO compatible)
+
 Demo flow:
 
 1. Agent receives task

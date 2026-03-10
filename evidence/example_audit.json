@@ -1,6 +1,26 @@
 {
+  "schema": "aro-demo-v0",
   "task": "test task",
   "result": "task completed",
-  "timestamp": 1773171937.0756102,
-  "agent_id": "demo-agent-001"
+  "persona": {
+    "id": "demo-persona",
+    "role": "research-agent",
+    "permissions": [
+      "write_evidence"
+    ]
+  },
+  "timestamp": 1773172073.63595,
+  "agent_id": "demo-agent-001",
+  "execution": {
+    "status": "completed",
+    "trace": [
+      "persona loaded",
+      "agent action executed",
+      "audit evidence generated"
+    ]
+  },
+  "audit": {
+    "record_type": "ARO-compatible",
+    "evidence_path": "evidence/example_audit.json"
+  }
 }
