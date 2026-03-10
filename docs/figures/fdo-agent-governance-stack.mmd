@@ -1,0 +1,17 @@
+flowchart TB
+
+FDO[FAIR Digital Objects<br>Global Dataspace]
+
+FDO --> VDO[Verifiable Digital Objects]
+
+VDO --> POP[Persona Layer<br>POP]
+
+POP --> Runtime[Agent Runtime<br>CrewAI]
+
+Runtime --> Trace[Execution Trace]
+
+Trace --> Audit[Audit Evidence<br>ARO]
+
+Audit --> Governance[Governance Controls<br>Token Governor]
+
+Governance --> Output[Verifiable Digital Evidence]

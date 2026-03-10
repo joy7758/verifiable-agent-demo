@@ -46,6 +46,12 @@ See full architecture diagram:
 
 [docs/figures/ai-agent-governance-stack.md](docs/figures/ai-agent-governance-stack.md)
 
+## FDO Integration
+
+See extended architecture:
+
+[docs/figures/fdo-agent-governance-stack.md](docs/figures/fdo-agent-governance-stack.md)
+
 ## Framework Integration
 
 This demo can run with CrewAI.
