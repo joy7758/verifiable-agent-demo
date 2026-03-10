@@ -29,3 +29,26 @@ Demo flow:
 Output example:
 
 `evidence/example_audit.json`
+
+## Framework Integration
+
+This demo can run with CrewAI.
+
+CrewAI currently requires Python `<3.14`, so this repository uses a local `venv`
+with Python 3.13 for the integration example.
+
+Setup:
+
+```bash
+python3.13 -m venv venv
+venv/bin/pip install crewai
+```
+
+Example:
+
+```bash
+venv/bin/python crew/crew_demo.py
+```
+
+The CrewAI example uses a deterministic local mock LLM so the governance
+pipeline can run without external API keys.

@@ -1,6 +1,6 @@
 {
   "schema": "aro-demo-v0",
-  "task": "test task",
+  "task": "analyze a simple task",
   "result": "task completed",
   "persona": {
     "id": "demo-persona",
@@ -9,20 +9,24 @@
       "write_evidence"
     ]
   },
-  "timestamp": 1773172609.1262112,
-  "agent_id": "demo-agent-001",
-  "framework": "demo-agent",
+  "timestamp": 1773172609.669965,
+  "agent_id": "crew-demo-agent-001",
+  "framework": "CrewAI",
   "execution": {
     "status": "completed",
     "trace": [
       "persona loaded",
-      "agent action executed",
+      "CrewAI agent executed task",
       "audit evidence generated"
     ]
   },
   "audit": {
     "record_type": "ARO-compatible",
-    "evidence_path": "evidence/example_audit.json"
+    "evidence_path": "evidence/crew_demo_audit.json"
   },
-  "metadata": {}
+  "metadata": {
+    "llm_model": "mock-crewai-local",
+    "task_description": "analyze a simple task",
+    "expected_output": "task completed"
+  }
 }

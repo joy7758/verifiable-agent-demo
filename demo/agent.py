@@ -1,29 +1,24 @@
 import json
 import time
-from pathlib import Path
 
-from integration.aro_adapter import build_audit_record
+from integration.aro_adapter import generate_audit, write_audit_record
 from integration.pop_adapter import load_persona
-
-
-ROOT_DIR = Path(__file__).resolve().parents[1]
-EVIDENCE_PATH = ROOT_DIR / "evidence" / "example_audit.json"
 
 
 def run_agent(task):
     persona = load_persona()
     timestamp = time.time()
     result = "task completed"
-    audit_record = build_audit_record(
+    audit_record = generate_audit(
         task=task,
         result=result,
         persona=persona,
         timestamp=timestamp,
         agent_id="demo-agent-001",
+        evidence_path="evidence/example_audit.json",
     )
 
-    EVIDENCE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    EVIDENCE_PATH.write_text(json.dumps(audit_record, indent=2) + "\n", encoding="utf-8")
+    write_audit_record(audit_record, "evidence/example_audit.json")
 
     return audit_record
 
