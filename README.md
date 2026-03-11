@@ -100,3 +100,4 @@ Environment notes:
 - [Independent Verification](docs/independent-verification.md)
 - [Architecture](docs/architecture.md)
 - [Demo Artifacts](docs/demo-artifacts.md)
+<!-- render-refresh: 20260311T205242Z -->
