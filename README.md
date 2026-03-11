@@ -1,160 +1,81 @@
 # Verifiable Agent Demo
 
-An early-stage minimal reference implementation for agent runtime trace and
-audit evidence.
+The minimal end-to-end demonstration for the Digital Biosphere Architecture stack.
 
-This repository shows how a bounded agent run can carry persona context, emit
-an execution trace, and leave behind exportable audit artifacts. It keeps the
-original demo paths intact while adding a minimal SDK surface, schemas, a
-single adapter shell, and a runnable example.
-
-## What It Is
-
-- an early-stage minimal reference implementation, not a full SDK or
-  production-grade integration
-- a small reusable surface across `verifiable_agent/`, `schemas/`,
-  `docs/spec/`, `adapters/`, and `examples/`
-- a repository that still preserves the original `demo/` and `crew/` paths
-
-## Why It Matters
-
-- it gives a concrete review surface for agent runtime trace and audit evidence
-- it turns the repository from a single demo into a reusable, inspectable
-  reference point
-- it creates a small but stable base for future packaging, schema, and adapter
-  hardening
-
-## Quick Start
-
-- Minimal reference path: `python3 examples/minimal_audit_flow/run.py`
-- Existing demo path: `bash scripts/run_demo.sh`
-- Existing CrewAI demo path: `venv/bin/python crew/crew_demo.py`
+This repository connects persona, runtime governance context, execution traceability, and audit evidence into one walkthrough. It is a demo and reference path rather than a general-purpose framework.
 
 ![Verifiable Agent Demo stack](docs/figures/ai-agent-governance-stack.svg)
 
-## Minimal Reference Implementation Scope
+## What this demo proves
 
-This repository keeps the original demo, docs, landing page, poster, and
-evidence artifacts, and now adds a minimal reference implementation shell
-around them.
+- a portable persona-oriented entry point can be projected into runtime
+- execution steps can be recorded as inspectable evidence
+- audit-facing artifacts can be exported as bounded outputs
+- the demo exists to show cross-layer coherence, not benchmark superiority
 
-The additive reference surface includes:
+## Architecture Path in this Demo
 
-- `verifiable_agent/` for a minimal reusable SDK shell
-- `schemas/` for early-stage JSON schema files
-- `docs/spec/` for schema notes and minimal example payloads
-- `adapters/crewai.py` for a minimal CrewAI bridge
-- `examples/minimal_audit_flow/` for the smallest reference-implementation path
+- Persona Layer -> POP-aligned persona context carried into the run
+- Governance Layer -> referenced as the control context for runtime policy and budget constraints
+- Execution Integrity Layer -> runtime execution trace and verifiable execution context
+- Audit Evidence Layer -> ARO-style exported evidence artifacts
 
-This is an early-stage minimal reference implementation. It is not yet a full
-SDK, final standard, or production-grade framework integration.
+This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack.
 
-## Repository Structure
+## Expected Artifacts
 
-- `demo/` and `crew/` keep the original runnable demo entry points
-- `integration/` keeps the current helper code used by the existing demo paths
-- `verifiable_agent/` provides a minimal importable SDK shell
-- `schemas/` defines the minimal trace and audit record shapes
-- `docs/spec/` explains the early-stage schema scope
-- `adapters/` contains a single minimal framework adapter shell
-- `examples/` contains the minimal reference-implementation example
-- `docs/`, `poster/`, and `outreach/` keep the supporting documentation assets
+- persona projection or runtime persona attachment context
+- execution trace or runtime record
+- audit evidence record
+- human-readable summary and walkthrough material
 
-## Run in 5 Minutes
+Current concrete examples in this repository include:
 
-### Environment requirements
+- `evidence/example_audit.json`
+- `evidence/crew_demo_audit.json`
+- `docs/quick-walkthrough.md`
+- `docs/shortest-validation-loop.md`
 
-- Python 3 for the minimal local demo.
-- The CrewAI example uses the existing local `venv/` in this repository.
-- CrewAI currently requires Python `<3.14`; the current working example uses Python 3.13.
+## Run the Demo
 
-### Shortest run command
+### Fastest local path
+
+```bash
+python3 examples/minimal_audit_flow/run.py
+```
+
+### Scripted wrapper
 
 ```bash
 bash scripts/run_demo.sh
 ```
 
-Optional CrewAI path:
+### Existing CrewAI demo path
 
 ```bash
 venv/bin/python crew/crew_demo.py
 ```
 
-### What you will see after running
+Environment notes:
 
-- JSON evidence printed to stdout.
-- `evidence/example_audit.json` refreshed by the minimal demo path.
-- `evidence/crew_demo_audit.json` refreshed by the CrewAI path.
+- Python 3 is sufficient for the minimal local path.
+- The CrewAI path uses the local `venv/` already present in this repository.
+- CrewAI currently requires Python `<3.14`; the current working example uses Python 3.13.
 
-## Shortest Validation Loop
+## Related Repositories
 
-1. apply persona context
-2. run a bounded action
-3. emit trace and evidence
-4. inspect the artifact
-5. independently review the result
+- [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture) -- system overview and canonical architecture hub
+- [persona-object-protocol](https://github.com/joy7758/persona-object-protocol) -- portable persona object layer
+- [token-governor](https://github.com/joy7758/token-governor) -- runtime governance and budget-policy control layer
+- [aro-audit](https://github.com/joy7758/aro-audit) -- audit evidence and conformance-oriented verification layer
 
-See [docs/shortest-validation-loop.md](docs/shortest-validation-loop.md).
+## Minimal Reference Surface
 
-## Generated Artifacts
-
-- `evidence/example_audit.json` — minimal ARO-compatible audit record with persona attachment, execution trace, and evidence pointer.
-- `evidence/crew_demo_audit.json` — CrewAI-backed audit record with framework metadata, task details, execution trace, and evidence pointer.
-
-These artifacts are the review surface for the shortest validation loop.
-
-## Demo Assets
-
-- `docs/figures/ai-agent-governance-stack.svg` — compact architecture figure for the demo stack.
-- `docs/figures/fdo-agent-governance-stack.svg` — extended research framing from FDO to agent governance.
-- `poster/index.md` — poster-style outreach page for the demo.
-- `outreach/community-post.md` — short community-facing introduction.
-- `evidence/example_audit.json` — minimal evidence output.
-- `evidence/crew_demo_audit.json` — CrewAI evidence output.
-
-## Architecture
-
-### Architecture Diagram
-
-```mermaid
-flowchart TD
-
-A[Persona Object<br>POP] --> B[Agent Runtime<br>CrewAI]
-
-B --> C[Execution Trace]
-
-C --> D[Audit Evidence<br>ARO Record]
-
-D --> E[Evidence JSON Output]
-```
-
-See the compact architecture explanation in [docs/architecture.md](docs/architecture.md).
-
-## Why this demo is part of Digital Biosphere Architecture
-
-This repository is the fastest execution-facing entry point into the
-[Digital Biosphere Architecture](https://github.com/joy7758/digital-biosphere-architecture)
-ecosystem.
-It shows how persona attachment, runtime behavior, execution trace, and audit
-evidence fit together in one inspectable demo, while the parent repository
-explains the broader architecture and layer boundaries.
-
-## Technical Paths
-
-### Minimal local demo
-
-- Entry point: `python3 -m demo.agent`
-- Wrapper script: `bash scripts/run_demo.sh`
-- Output: `evidence/example_audit.json`
-
-### CrewAI integration
-
-- Entry point: `venv/bin/python crew/crew_demo.py`
-- Runtime: CrewAI with a deterministic local mock LLM
-- Output: `evidence/crew_demo_audit.json`
-
-The CrewAI example uses a deterministic local mock LLM so the governance
-pipeline can run without external API keys.
+- `examples/minimal_audit_flow/` for the shortest runnable path
+- `demo/` and `crew/` for preserved demo entry points
+- `schemas/` for minimal trace and audit record shapes
+- `docs/spec/` for schema notes and example payloads
+- `adapters/` for a minimal framework adapter shell
 
 ## Further Reading
 
@@ -162,5 +83,4 @@ pipeline can run without external API keys.
 - [Shortest Validation Loop](docs/shortest-validation-loop.md)
 - [Independent Verification](docs/independent-verification.md)
 - [Architecture](docs/architecture.md)
-- [Research View Diagram](docs/figures/ai-agent-governance-stack.md)
-- [FDO -> Agent Governance Architecture](docs/figures/fdo-agent-governance-stack.md)
+- [Demo Artifacts](docs/demo-artifacts.md)
