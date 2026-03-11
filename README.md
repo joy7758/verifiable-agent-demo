@@ -41,10 +41,22 @@ venv/bin/python crew/crew_demo.py
 - `evidence/example_audit.json` refreshed by the minimal demo path.
 - `evidence/crew_demo_audit.json` refreshed by the CrewAI path.
 
+## Shortest Validation Loop
+
+1. apply persona context
+2. run a bounded action
+3. emit trace and evidence
+4. inspect the artifact
+5. independently review the result
+
+See [docs/shortest-validation-loop.md](docs/shortest-validation-loop.md).
+
 ## Generated Artifacts
 
 - `evidence/example_audit.json` — minimal ARO-compatible audit record with persona attachment, execution trace, and evidence pointer.
 - `evidence/crew_demo_audit.json` — CrewAI-backed audit record with framework metadata, task details, execution trace, and evidence pointer.
+
+These artifacts are the review surface for the shortest validation loop.
 
 ## Demo Assets
 
@@ -102,6 +114,8 @@ pipeline can run without external API keys.
 ## Further Reading
 
 - [Quick Walkthrough](docs/quick-walkthrough.md)
+- [Shortest Validation Loop](docs/shortest-validation-loop.md)
+- [Independent Verification](docs/independent-verification.md)
 - [Architecture](docs/architecture.md)
 - [Research View Diagram](docs/figures/ai-agent-governance-stack.md)
 - [FDO -> Agent Governance Architecture](docs/figures/fdo-agent-governance-stack.md)
