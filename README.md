@@ -1,19 +1,36 @@
 # Verifiable Agent Demo
 
-This demo proves that a compact AI agent workflow can carry persona context,
-execute a runtime action, emit an execution trace, and leave behind exportable
-evidence.
-It matters because verifiable agent systems need more than model output: they
-need identity, runtime facts, and audit artifacts that other people can inspect.
+An early-stage minimal reference implementation for agent runtime trace and
+audit evidence.
+
+This repository shows how a bounded agent run can carry persona context, emit
+an execution trace, and leave behind exportable audit artifacts. It keeps the
+original demo paths intact while adding a minimal SDK surface, schemas, a
+single adapter shell, and a runnable example.
+
+## What It Is
+
+- an early-stage minimal reference implementation, not a full SDK or
+  production-grade integration
+- a small reusable surface across `verifiable_agent/`, `schemas/`,
+  `docs/spec/`, `adapters/`, and `examples/`
+- a repository that still preserves the original `demo/` and `crew/` paths
+
+## Why It Matters
+
+- it gives a concrete review surface for agent runtime trace and audit evidence
+- it turns the repository from a single demo into a reusable, inspectable
+  reference point
+- it creates a small but stable base for future packaging, schema, and adapter
+  hardening
+
+## Quick Start
+
+- Minimal reference path: `python3 examples/minimal_audit_flow/run.py`
+- Existing demo path: `bash scripts/run_demo.sh`
+- Existing CrewAI demo path: `venv/bin/python crew/crew_demo.py`
 
 ![Verifiable Agent Demo stack](docs/figures/ai-agent-governance-stack.svg)
-
-## What you will see
-
-1. persona attached
-2. runtime action
-3. execution trace
-4. evidence output
 
 ## Minimal Reference Implementation Scope
 
@@ -42,12 +59,6 @@ SDK, final standard, or production-grade framework integration.
 - `adapters/` contains a single minimal framework adapter shell
 - `examples/` contains the minimal reference-implementation example
 - `docs/`, `poster/`, and `outreach/` keep the supporting documentation assets
-
-## Quick Start
-
-- Existing demo path: `bash scripts/run_demo.sh`
-- Existing CrewAI demo path: `venv/bin/python crew/crew_demo.py`
-- Minimal reference-implementation path: `python3 examples/minimal_audit_flow/run.py`
 
 ## Run in 5 Minutes
 
