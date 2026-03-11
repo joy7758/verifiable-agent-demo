@@ -1,24 +1,59 @@
-# Verifiable Agent Execution Demo
+# Verifiable Agent Demo
 
-Minimal governance pipeline for AI agents.
+This demo proves that a compact AI agent workflow can carry persona context,
+execute a runtime action, emit an execution trace, and leave behind exportable
+evidence.
+It matters because verifiable agent systems need more than model output: they
+need identity, runtime facts, and audit artifacts that other people can inspect.
 
-Architecture:
+![Verifiable Agent Demo stack](docs/figures/ai-agent-governance-stack.svg)
 
-Persona (POP)
--> Agent Runtime
--> Execution Trace
--> Audit Evidence (ARO)
+## What you will see
 
-Demo flow:
+1. persona attached
+2. runtime action
+3. execution trace
+4. evidence output
 
-1. Agent receives task
-2. Agent executes action
-3. Execution trace recorded
-4. Evidence bundle generated
+## Run in 5 Minutes
 
-Output example:
+### Environment requirements
 
-`evidence/example_audit.json`
+- Python 3 for the minimal local demo.
+- The CrewAI example uses the existing local `venv/` in this repository.
+- CrewAI currently requires Python `<3.14`; the current working example uses Python 3.13.
+
+### Shortest run command
+
+```bash
+bash scripts/run_demo.sh
+```
+
+Optional CrewAI path:
+
+```bash
+venv/bin/python crew/crew_demo.py
+```
+
+### What you will see after running
+
+- JSON evidence printed to stdout.
+- `evidence/example_audit.json` refreshed by the minimal demo path.
+- `evidence/crew_demo_audit.json` refreshed by the CrewAI path.
+
+## Generated Artifacts
+
+- `evidence/example_audit.json` — minimal ARO-compatible audit record with persona attachment, execution trace, and evidence pointer.
+- `evidence/crew_demo_audit.json` — CrewAI-backed audit record with framework metadata, task details, execution trace, and evidence pointer.
+
+## Demo Assets
+
+- `docs/figures/ai-agent-governance-stack.svg` — compact architecture figure for the demo stack.
+- `docs/figures/fdo-agent-governance-stack.svg` — extended research framing from FDO to agent governance.
+- `poster/index.md` — poster-style outreach page for the demo.
+- `outreach/community-post.md` — short community-facing introduction.
+- `evidence/example_audit.json` — minimal evidence output.
+- `evidence/crew_demo_audit.json` — CrewAI evidence output.
 
 ## Architecture
 
@@ -36,43 +71,37 @@ C --> D[Audit Evidence<br>ARO Record]
 D --> E[Evidence JSON Output]
 ```
 
-See detailed explanation:
+See the compact architecture explanation in [docs/architecture.md](docs/architecture.md).
 
-[docs/architecture.md](docs/architecture.md)
+## Why this demo is part of Digital Biosphere Architecture
 
-## Architecture (Research View)
+This repository is the fastest execution-facing entry point into the
+[Digital Biosphere Architecture](https://github.com/joy7758/digital-biosphere-architecture)
+ecosystem.
+It shows how persona attachment, runtime behavior, execution trace, and audit
+evidence fit together in one inspectable demo, while the parent repository
+explains the broader architecture and layer boundaries.
 
-See full architecture diagram:
+## Technical Paths
 
-[docs/figures/ai-agent-governance-stack.md](docs/figures/ai-agent-governance-stack.md)
+### Minimal local demo
 
-## FDO -> Agent Governance Architecture
+- Entry point: `python3 -m demo.agent`
+- Wrapper script: `bash scripts/run_demo.sh`
+- Output: `evidence/example_audit.json`
 
-![FDO Agent Governance Stack](docs/figures/fdo-agent-governance-stack.svg)
+### CrewAI integration
 
-See extended architecture:
-
-[docs/figures/fdo-agent-governance-stack.md](docs/figures/fdo-agent-governance-stack.md)
-
-## Framework Integration
-
-This demo can run with CrewAI.
-
-CrewAI currently requires Python `<3.14`, so this repository uses a local `venv`
-with Python 3.13 for the integration example.
-
-Setup:
-
-```bash
-python3.13 -m venv venv
-venv/bin/pip install crewai
-```
-
-Example:
-
-```bash
-venv/bin/python crew/crew_demo.py
-```
+- Entry point: `venv/bin/python crew/crew_demo.py`
+- Runtime: CrewAI with a deterministic local mock LLM
+- Output: `evidence/crew_demo_audit.json`
 
 The CrewAI example uses a deterministic local mock LLM so the governance
 pipeline can run without external API keys.
+
+## Further Reading
+
+- [Quick Walkthrough](docs/quick-walkthrough.md)
+- [Architecture](docs/architecture.md)
+- [Research View Diagram](docs/figures/ai-agent-governance-stack.md)
+- [FDO -> Agent Governance Architecture](docs/figures/fdo-agent-governance-stack.md)
