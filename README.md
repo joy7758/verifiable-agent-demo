@@ -22,6 +22,10 @@ This repository connects persona, runtime governance context, execution traceabi
 
 This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack.
 
+## How to read this demo
+
+This demo is a guided path across layers. It is not the normative specification for each layer, and it points outward to the canonical repositories for those layers: [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture), [persona-object-protocol](https://github.com/joy7758/persona-object-protocol), [token-governor](https://github.com/joy7758/token-governor), and [aro-audit](https://github.com/joy7758/aro-audit).
+
 ## Expected Artifacts
 
 - persona projection or runtime persona attachment context
