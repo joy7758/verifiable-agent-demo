@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/verifiable-agent-demo/schemas/audit-record.schema.json",
+  "title": "AuditRecord",
+  "description": "Early-stage minimal audit record schema supporting the current reference implementation.",
+  "type": "object",
+  "required": [
+    "schema",
+    "task",
+    "result",
+    "persona",
+    "timestamp",
+    "agent_id",
+    "framework",
+    "execution",
+    "audit"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string"
+    },
+    "persona": {
+      "type": "object",
+      "required": ["id", "role", "permissions"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "timestamp": {
+      "type": "number"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string"
+    },
+    "execution": {
+      "type": "object",
+      "required": ["status", "trace"],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "trace": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["message"],
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              },
+              "data": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": ["record_type"],
+      "properties": {
+        "record_type": {
+          "type": "string"
+        },
+        "evidence_path": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

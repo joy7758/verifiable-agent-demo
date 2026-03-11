@@ -15,6 +15,40 @@ need identity, runtime facts, and audit artifacts that other people can inspect.
 3. execution trace
 4. evidence output
 
+## Minimal Reference Implementation Scope
+
+This repository keeps the original demo, docs, landing page, poster, and
+evidence artifacts, and now adds a minimal reference implementation shell
+around them.
+
+The additive reference surface includes:
+
+- `verifiable_agent/` for a minimal reusable SDK shell
+- `schemas/` for early-stage JSON schema files
+- `docs/spec/` for schema notes and minimal example payloads
+- `adapters/crewai.py` for a minimal CrewAI bridge
+- `examples/minimal_audit_flow/` for the smallest reference-implementation path
+
+This is an early-stage minimal reference implementation. It is not yet a full
+SDK, final standard, or production-grade framework integration.
+
+## Repository Structure
+
+- `demo/` and `crew/` keep the original runnable demo entry points
+- `integration/` keeps the current helper code used by the existing demo paths
+- `verifiable_agent/` provides a minimal importable SDK shell
+- `schemas/` defines the minimal trace and audit record shapes
+- `docs/spec/` explains the early-stage schema scope
+- `adapters/` contains a single minimal framework adapter shell
+- `examples/` contains the minimal reference-implementation example
+- `docs/`, `poster/`, and `outreach/` keep the supporting documentation assets
+
+## Quick Start
+
+- Existing demo path: `bash scripts/run_demo.sh`
+- Existing CrewAI demo path: `venv/bin/python crew/crew_demo.py`
+- Minimal reference-implementation path: `python3 examples/minimal_audit_flow/run.py`
+
 ## Run in 5 Minutes
 
 ### Environment requirements
