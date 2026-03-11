@@ -16,6 +16,12 @@ from crewai.events.listeners.tracing.utils import set_suppress_tracing_messages
 from crewai.llms.base_llm import BaseLLM
 
 from integration.aro_adapter import generate_audit, write_audit_record
+from integration.intent_adapter import (
+    build_action,
+    build_intent,
+    build_result,
+    write_json_artifact,
+)
 from integration.pop_adapter import load_persona
 
 
@@ -42,6 +48,7 @@ class MockCrewAILLM(BaseLLM):
 
 def run_crewai_demo():
     persona = load_persona()
+    correlation_id = "crew-demo-001"
     llm = MockCrewAILLM()
     set_suppress_tracing_messages(True)
 
@@ -58,6 +65,20 @@ def run_crewai_demo():
         expected_output="task completed",
         agent=agent,
     )
+
+    intent_object = build_intent(task.description, persona, correlation_id)
+    action_object = build_action(
+        task.description,
+        persona,
+        correlation_id,
+        parameters={
+            "task": task.description,
+            "expected_output": task.expected_output,
+            "framework": "CrewAI",
+        },
+    )
+    write_json_artifact(intent_object, "interaction/intent.json")
+    write_json_artifact(action_object, "interaction/action.json")
 
     crew = Crew(
         agents=[agent],
@@ -86,11 +107,32 @@ def run_crewai_demo():
             "llm_model": llm.model,
             "task_description": task.description,
             "expected_output": task.expected_output,
+            "intent_ref": "interaction/intent.json",
+            "action_ref": "interaction/action.json",
+            "governance_checkpoint_ref": "governor://checkpoints/demo-local-001",
+            "correlation_id": correlation_id,
         },
     )
     write_audit_record(audit, "evidence/crew_demo_audit.json")
 
-    return result_text, audit
+    result_object = build_result(
+        persona,
+        correlation_id,
+        output_refs=["artifact://demo/task-result/crew-demo-001"],
+        evidence_refs=[
+            "evidence/crew_demo_audit.json",
+            "evidence/result.json",
+        ],
+    )
+    write_json_artifact(result_object, "interaction/result.json")
+    write_json_artifact(result_object, "evidence/result.json")
+
+    return result_text, {
+        "intent": intent_object,
+        "action": action_object,
+        "result": result_object,
+        "audit": audit,
+    }
 
 
 if __name__ == "__main__":

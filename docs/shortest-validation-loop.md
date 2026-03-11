@@ -1,13 +1,10 @@
 # Shortest Validation Loop
 
-This document compresses the demo into the smallest review loop that still maps
-to real files in the repository. The current loop is a working draft and a
-bounded verification surface, not the whole stack.
+This document compresses the demo into the smallest review loop that still maps to real files in the repository. The current loop is a working draft and a bounded verification surface, not the whole stack.
 
-## Step 1: apply persona or policy context
+## Step 1: apply persona context
 
-The minimal path applies persona context by loading the local object in
-`integration/pop_adapter.py` before the action runs.
+The minimal path applies persona context by loading the local object in `integration/pop_adapter.py` before the action runs.
 
 Practical entry point:
 
@@ -17,12 +14,11 @@ python3 -m demo.agent
 
 Review surface after this step:
 
-- `evidence/example_audit.json` under `persona`
+- `interaction/intent.json` under `actor_ref`
 
-## Step 2: run a bounded action
+## Step 2: emit intent and action objects
 
-The bounded action is the deterministic task in `demo/agent.py`. The wrapper
-script keeps the loop short:
+The bounded action is first expressed as interaction objects in `demo/agent.py`. The wrapper script keeps the loop short:
 
 ```bash
 bash scripts/run_demo.sh
@@ -34,40 +30,55 @@ The CrewAI path is also available:
 venv/bin/python crew/crew_demo.py
 ```
 
-## Step 3: emit trace / receipt / evidence
+Review surface after this step:
 
-The demo writes its review artifact into the repository:
+- `interaction/intent.json`
+- `interaction/action.json`
 
+## Step 3: execute the bounded task
+
+The runtime executes a deterministic local task after the interaction objects are emitted.
+
+## Step 4: emit trace, result, and evidence
+
+The demo writes its review artifacts into the repository:
+
+- `interaction/result.json`
 - `evidence/example_audit.json`
+- `evidence/result.json`
 - `evidence/crew_demo_audit.json`
 
-The key review fields are `task`, `result`, `execution.trace`, and
-`audit.evidence_path`.
+The key review fields are `status`, `execution.trace`, `audit.evidence_path`, and `governance_decision_ref`.
 
-## Step 4: export or inspect the artifact
+## Step 5: export or inspect the artifact
 
-The artifact can be inspected without the rest of the runtime:
+The result object can be inspected without the rest of the runtime:
+
+```bash
+python3 -m json.tool interaction/result.json
+```
+
+The audit-facing record remains available:
 
 ```bash
 python3 -m json.tool evidence/example_audit.json
 ```
 
-Or for the CrewAI path:
+For the CrewAI path:
 
 ```bash
 python3 -m json.tool evidence/crew_demo_audit.json
 ```
 
-## Step 5: independently verify the result
+## Step 6: independently verify the result
 
-Independent verification in this repository means checking the emitted record
-as a bounded verification surface.
+Independent verification in this repository means checking the emitted record as a bounded verification surface.
 
-The reviewer does not need to understand the whole system. They only need to
-check that:
+The reviewer does not need to understand the whole system. They only need to check that:
 
-- `persona` shows the attached identity object
-- `task` and `result` match the bounded action
+- `actor_ref` shows the attached identity-bearing actor
+- `intent` and `action` match the bounded task
+- `status` and `evidence_refs` match the emitted outcome
 - `execution.trace` shows the minimal ordered flow
 - `audit.evidence_path` matches the file being reviewed
 

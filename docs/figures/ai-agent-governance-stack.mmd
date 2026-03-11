@@ -4,11 +4,15 @@ User --> Persona
 
 Persona[Persona Layer<br>POP]
 
-Persona --> Runtime
+Persona --> Interaction
 
-Runtime[Agent Runtime<br>CrewAI]
+Interaction[Interaction Layer<br>Agent Intent Protocol]
 
-Runtime --> Trace
+Interaction --> Governance
+
+Governance[Governance Check<br>Token Governor Context]
+
+Governance --> Trace
 
 Trace[Execution Trace]
 
@@ -16,8 +20,4 @@ Trace --> Audit
 
 Audit[Audit Evidence<br>ARO]
 
-Audit --> Governance
-
-Governance[Governance Controls<br>Token Governor]
-
-Governance --> Output[Evidence / Logs]
+Audit --> Output[Evidence / Logs]

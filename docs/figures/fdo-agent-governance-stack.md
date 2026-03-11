@@ -14,10 +14,10 @@ Objects that contain provenance and execution metadata.
 Agent Governance Stack
 
 - Persona (POP)
-- Execution Runtime
+- Interaction Objects (AIP)
+- Governance Checkpoint (Token Governor)
 - Execution Trace
 - Audit Evidence (ARO)
-- Governance Controls (Token Governor)
 
 Purpose:
 

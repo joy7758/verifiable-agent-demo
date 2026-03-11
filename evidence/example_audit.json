@@ -9,7 +9,7 @@
       "write_evidence"
     ]
   },
-  "timestamp": 1773172609.1262112,
+  "timestamp": 1773261564.422378,
   "agent_id": "demo-agent-001",
   "framework": "demo-agent",
   "execution": {
@@ -24,5 +24,10 @@
     "record_type": "ARO-compatible",
     "evidence_path": "evidence/example_audit.json"
   },
-  "metadata": {}
+  "metadata": {
+    "intent_ref": "interaction/intent.json",
+    "action_ref": "interaction/action.json",
+    "governance_checkpoint_ref": "governor://checkpoints/demo-local-001",
+    "correlation_id": "demo-run-001"
+  }
 }

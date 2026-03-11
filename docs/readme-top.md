@@ -2,21 +2,27 @@
 
 Minimal infrastructure for auditable AI agent systems.
 
-This repository demonstrates a governance pipeline for AI agents built on three layers:
+This repository demonstrates a governance pipeline for AI agents built on five layers:
 
-Identity -> Execution -> Audit
+Persona -> Interaction -> Governance -> Execution Integrity -> Audit Evidence
 
 Architecture:
 
 POP (Persona Object Protocol)
 Portable persona layer defining agent identity and permissions.
 
-Agent Runtime
-Task execution using CrewAI.
+AIP (Agent Intent Protocol)
+Semantic interaction objects for intent, action, and result exchange.
+
+Governance Check
+Policy checkpoint reference before execution.
+
+Execution Runtime
+Task execution using deterministic local mock logic or CrewAI.
 
 ARO (Audit Record Object)
 Evidence generator producing append-only audit records.
 
 Output:
 
-`evidence/*.json`
+`interaction/*.json` and `evidence/*.json`

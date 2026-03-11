@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0-draft",
+  "object_type": "agent_action",
+  "action": {
+    "name": "execute_local_demo_task",
+    "summary": "Run the deterministic demo task: test task"
+  },
+  "actor_ref": "pop://personas/demo-persona",
+  "execution_mode": "direct",
+  "tool_ref": "runtime://local-demo/mock-task-runner",
+  "parameters": {
+    "task": "test task"
+  },
+  "side_effect_class": "read_only",
+  "policy_checkpoint_ref": "governor://checkpoints/demo-local-001",
+  "correlation_id": "demo-run-001"
+}

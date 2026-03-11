@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0-draft",
+  "object_type": "agent_intent",
+  "intent": {
+    "operation": "execute_demo_task",
+    "summary": "test task"
+  },
+  "actor_ref": "pop://personas/demo-persona",
+  "constraints": {
+    "max_steps": 1,
+    "network_access": "disabled",
+    "deterministic_local_mock": true
+  },
+  "target_ref": "runtime://local-demo/task-runner",
+  "expected_result": {
+    "summary": "task completed"
+  },
+  "policy_context_ref": "governor://checkpoints/demo-local-001",
+  "correlation_id": "demo-run-001"
+}

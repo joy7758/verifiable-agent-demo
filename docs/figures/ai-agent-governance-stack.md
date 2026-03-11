@@ -7,17 +7,17 @@ Layers:
 1. Persona Layer
    Identity and permission model for agents.
 
-2. Execution Layer
-   Agent runtime and task orchestration.
+2. Interaction Layer
+   Intent, action, and result objects for agent coordination.
 
-3. Trace Layer
-   Structured execution traces for debugging.
+3. Governance Layer
+   Runtime policy and checkpoint controls before execution.
 
-4. Audit Layer
+4. Execution Integrity Layer
+   Structured execution traces and runtime truth.
+
+5. Audit Evidence Layer
    Evidence records for verifiable execution.
-
-5. Governance Layer
-   Runtime policy and cost controls.
 
 This diagram is used in:
 

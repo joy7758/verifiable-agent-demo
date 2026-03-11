@@ -9,7 +9,7 @@
       "write_evidence"
     ]
   },
-  "timestamp": 1773172609.669965,
+  "timestamp": 1773261546.1382022,
   "agent_id": "crew-demo-agent-001",
   "framework": "CrewAI",
   "execution": {
@@ -27,6 +27,10 @@
   "metadata": {
     "llm_model": "mock-crewai-local",
     "task_description": "analyze a simple task",
-    "expected_output": "task completed"
+    "expected_output": "task completed",
+    "intent_ref": "interaction/intent.json",
+    "action_ref": "interaction/action.json",
+    "governance_checkpoint_ref": "governor://checkpoints/demo-local-001",
+    "correlation_id": "crew-demo-001"
   }
 }

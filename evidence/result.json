@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0-draft",
+  "object_type": "agent_result",
+  "status": "completed",
+  "actor_ref": "pop://personas/demo-persona",
+  "correlation_id": "demo-run-001",
+  "output_refs": [
+    "artifact://demo/task-result/demo-run-001"
+  ],
+  "evidence_refs": [
+    "evidence/example_audit.json",
+    "evidence/result.json"
+  ],
+  "execution_trace_ref": "trace://demo/demo-run-001",
+  "governance_decision_ref": "governor://checkpoints/demo-local-001"
+}
