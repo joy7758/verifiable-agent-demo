@@ -38,9 +38,9 @@ MODE_PROFILES: dict[str, ModeProfile] = {
     ),
     "external_baseline": ModeProfile(
         name="external_baseline",
-        label="CrewAI-like native logging baseline",
+        label="Minimal live CrewAI baseline",
         trace_style="crewai_native_log",
-        framework_label="crewai-like-native-surface",
+        framework_label="crewai-live-native-surface",
         intent_captured=False,
         policy_checked=False,
         policy_enforced=False,
@@ -49,8 +49,8 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         receipt_exported=False,
         carries_raw_task_snapshot=True,
         notes=(
-            "Thin deterministic adapter that preserves a CrewAI-like task/agent/logging evidence shape.",
-            "This is not a deep live CrewAI integration; it is a local compatibility shim aligned to the existing CrewAI demo.",
+            "Minimal live CrewAI execution with a deterministic local mock LLM.",
+            "The exported five-file bundle is still normalized by the paper harness rather than emitted natively by CrewAI.",
         ),
     ),
     "no_intent": ModeProfile(

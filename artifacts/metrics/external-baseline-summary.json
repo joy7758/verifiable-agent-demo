@@ -1,5 +1,5 @@
 {
-  "description": "Generated from actual artifacts comparing the CrewAI-like native logging baseline against the full evidence chain.",
+  "description": "Generated from actual artifacts comparing a minimal live CrewAI baseline against the full evidence chain.",
   "modes": [
     {
       "average_audit_boundedness": 2.0,

@@ -10,7 +10,7 @@ eval-evidence:
 
 eval-external-baseline: eval-evidence
 	$(PYTHON) scripts/run_paper_eval.py --mode external_baseline
-	$(PYTHON) scripts/compare_runs.py --modes external_baseline evidence_chain --output-stem external-baseline-summary --title "External Baseline vs Evidence Chain" --description "Generated from actual artifacts comparing the CrewAI-like native logging baseline against the full evidence chain." --doc-reference docs/paper_support/external-baseline.md
+	$(PYTHON) scripts/compare_runs.py --modes external_baseline evidence_chain --output-stem external-baseline-summary --title "External Baseline vs Evidence Chain" --description "Generated from actual artifacts comparing a minimal live CrewAI baseline against the full evidence chain." --doc-reference docs/paper_support/external-baseline.md
 
 eval-ablation: eval-baseline eval-external-baseline eval-evidence
 	$(PYTHON) scripts/run_paper_eval.py --mode no_intent

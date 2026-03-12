@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import json
+import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
-from .common import EXPORTED_FILES, RUNS_DIR, SCHEMA_VERSION, mutate_digest, relative_to_root, reset_directory, sha256_digest, stable_timestamp, write_json
+from .common import EXPORTED_FILES, ROOT_DIR, RUNS_DIR, SCHEMA_VERSION, mutate_digest, relative_to_root, reset_directory, sha256_digest, stable_timestamp, write_json
 from .modes import get_mode_profile, list_modes
 from .suite import find_task, load_tasks, validate_task_suite
 
@@ -60,11 +63,11 @@ def run_task(task: dict[str, Any], mode: str) -> Path:
     return run_dir
 
 
-def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[str, str]:
+def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[str, Any]:
     task_id = task["task_id"]
     run_id = f"{task_id}-{mode}"
     profile = get_mode_profile(mode)
-    return {
+    context: dict[str, Any] = {
         "run_id": run_id,
         "task_id": task_id,
         "mode": mode,
@@ -75,9 +78,34 @@ def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[st
         "receipt_ref": f"aro://paper-eval/receipts/{run_id}",
         "framework_label": profile.framework_label,
     }
+    if mode == "external_baseline":
+        context["native_runtime"] = run_live_crewai_baseline(task)
+    return context
 
 
-def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, str]) -> dict[str, Any]:
+def run_live_crewai_baseline(task: dict[str, Any]) -> dict[str, Any]:
+    helper = ROOT_DIR / "scripts" / "crewai_live_baseline.py"
+    venv_python = ROOT_DIR / "venv" / "bin" / "python"
+    if not helper.exists():
+        raise FileNotFoundError(f"missing CrewAI baseline helper: {helper}")
+    if not venv_python.exists():
+        raise FileNotFoundError(f"missing CrewAI runtime python: {venv_python}")
+
+    completed = subprocess.run(
+        [str(venv_python), str(helper)],
+        input=json.dumps(task, sort_keys=True, ensure_ascii=False),
+        text=True,
+        capture_output=True,
+        check=True,
+        cwd=ROOT_DIR,
+    )
+    try:
+        return json.loads(completed.stdout)
+    except json.JSONDecodeError as exc:  # pragma: no cover - defensive
+        raise RuntimeError(f"CrewAI baseline helper returned invalid JSON: {completed.stdout}") from exc
+
+
+def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, Any]) -> dict[str, Any]:
     profile = get_mode_profile(mode)
     budget_policy = task["budget_policy"]
     approval_policy = task["approval_policy"]
@@ -94,7 +122,7 @@ def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, str]) ->
     if not profile.policy_checked:
         if mode == "external_baseline":
             status = "framework_default"
-            reasons = ["CrewAI-like default execution logs do not persist governance checkpoints or budget decisions."]
+            reasons = ["Minimal live CrewAI execution logs do not persist governance checkpoints or budget decisions."]
         elif mode == "no_governance":
             status = "not_recorded"
             reasons = ["Governance layer is ablated in this mode, so policy is neither persisted nor enforced."]
@@ -135,9 +163,10 @@ def determine_status(task: dict[str, Any], mode: str, policy: dict[str, Any]) ->
     return "completed"
 
 
-def build_intent(task: dict[str, Any], mode: str, context: dict[str, str]) -> dict[str, Any]:
+def build_intent(task: dict[str, Any], mode: str, context: dict[str, Any]) -> dict[str, Any]:
     profile = get_mode_profile(mode)
     captured = profile.intent_captured
+    native_runtime = context.get("native_runtime", {})
     payload: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "file_type": "intent",
@@ -166,19 +195,21 @@ def build_intent(task: dict[str, Any], mode: str, context: dict[str, str]) -> di
         payload["notes"].append("Explicit intent object persisted before execution.")
     elif profile.carries_raw_task_snapshot:
         payload["intent"] = {
-            "framework_task_prompt": task["title"],
-            "agent_role": "research agent",
+            "framework_task_prompt": native_runtime.get("task_description", task["title"]),
+            "agent_role": native_runtime.get("agent_role", "research agent"),
             "input_payload_snapshot": task["input_payload"],
-            "source": profile.framework_label,
+            "source": native_runtime.get("framework", profile.framework_label),
+            "native_surface": native_runtime.get("native_surface", {}),
         }
-        payload["notes"].append("Framework-native task configuration was captured, but not as an explicit intent object.")
+        payload["notes"].append("Framework-native task configuration was captured from a live CrewAI run, but not as an explicit intent object.")
     else:
         payload["notes"].append("This mode does not persist an explicit intent object.")
     return payload
 
 
-def build_action(task: dict[str, Any], mode: str, context: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
+def build_action(task: dict[str, Any], mode: str, context: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any]:
     profile = get_mode_profile(mode)
+    native_runtime = context.get("native_runtime", {})
     authorization_state = policy["status"]
     if not profile.policy_checked:
         authorization_state = {
@@ -207,19 +238,23 @@ def build_action(task: dict[str, Any], mode: str, context: dict[str, str], polic
             "reasons": policy["reasons"],
         }
 
+    requested_action = {
+        "name": task["input_payload"]["operation"],
+        "summary": task["title"],
+        "tool_ref": f"runtime://paper-eval/{task['input_payload']['requested_tool']}",
+        "parameters": task["input_payload"],
+        "side_effect_class": task["input_payload"]["side_effect_class"],
+    }
+    if native_runtime:
+        requested_action["framework_runtime"] = native_runtime.get("framework", profile.framework_label)
+
     return {
         "schema_version": SCHEMA_VERSION,
         "file_type": "action",
         "task_id": context["task_id"],
         "mode": context["mode"],
         "run_id": context["run_id"],
-        "requested_action": {
-            "name": task["input_payload"]["operation"],
-            "summary": task["title"],
-            "tool_ref": f"runtime://paper-eval/{task['input_payload']['requested_tool']}",
-            "parameters": task["input_payload"],
-            "side_effect_class": task["input_payload"]["side_effect_class"],
-        },
+        "requested_action": requested_action,
         "authorization_state": authorization_state,
         "policy": policy_bundle,
     }
@@ -228,17 +263,28 @@ def build_action(task: dict[str, Any], mode: str, context: dict[str, str], polic
 def build_result(
     task: dict[str, Any],
     mode: str,
-    context: dict[str, str],
+    context: dict[str, Any],
     policy: dict[str, Any],
     status: str,
 ) -> dict[str, Any]:
     profile = get_mode_profile(mode)
+    native_runtime = context.get("native_runtime", {})
     summary = {
         "completed": f"Completed deterministic local run for {task['title']}.",
         "blocked_budget": f"Blocked by budget policy before execution for {task['title']}.",
         "blocked_approval": f"Blocked by approval policy before execution for {task['title']}.",
         "tamper_detected": f"Detected a tamper condition while verifying {task['title']}.",
     }[status]
+
+    outputs = {
+        "summary": summary,
+        "simulated_response": build_simulated_response(task, status),
+        "artifact_directory": context["run_dir"],
+        "expected_artifacts": EXPORTED_FILES,
+        "runtime_surface": profile.framework_label,
+    }
+    if native_runtime:
+        outputs["framework_result"] = native_runtime.get("result_text")
 
     return {
         "schema_version": SCHEMA_VERSION,
@@ -248,13 +294,7 @@ def build_result(
         "run_id": context["run_id"],
         "status": status,
         "goal_satisfied": status == "completed",
-        "outputs": {
-            "summary": summary,
-            "simulated_response": build_simulated_response(task, status),
-            "artifact_directory": context["run_dir"],
-            "expected_artifacts": EXPORTED_FILES,
-            "runtime_surface": profile.framework_label,
-        },
+        "outputs": outputs,
         "policy_outcome_ref": "action.json#/policy/decision",
         "execution_trace_ref": "trace.json",
         "evidence_refs": EXPORTED_FILES,
@@ -285,12 +325,13 @@ def build_simulated_response(task: dict[str, Any], status: str) -> dict[str, Any
 def build_trace(
     task: dict[str, Any],
     mode: str,
-    context: dict[str, str],
+    context: dict[str, Any],
     policy: dict[str, Any],
     status: str,
     subject_digests: dict[str, str],
 ) -> dict[str, Any]:
     profile = get_mode_profile(mode)
+    native_runtime = context.get("native_runtime", {})
     performed = status in {"completed", "tamper_detected"} and not (
         profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}
     )
@@ -336,6 +377,19 @@ def build_trace(
         }
     )
 
+    execution_payload = {
+        "attempted": True,
+        "performed": performed,
+        "tool_ref": f"runtime://paper-eval/{task['input_payload']['requested_tool']}",
+        "deterministic_seed": context["run_id"],
+        "started_at": stable_timestamp(context["task_id"], mode, 0),
+        "finished_at": stable_timestamp(context["task_id"], mode, 5),
+        "framework": native_runtime.get("framework", profile.framework_label),
+    }
+    if native_runtime:
+        execution_payload["framework_live_run"] = bool(native_runtime.get("live_framework"))
+        execution_payload["framework_result"] = native_runtime.get("result_text")
+
     return {
         "schema_version": SCHEMA_VERSION,
         "file_type": "trace",
@@ -344,15 +398,7 @@ def build_trace(
         "run_id": context["run_id"],
         "trace_style": profile.trace_style,
         "executed_steps": steps,
-        "execution": {
-            "attempted": True,
-            "performed": performed,
-            "tool_ref": f"runtime://paper-eval/{task['input_payload']['requested_tool']}",
-            "deterministic_seed": context["run_id"],
-            "started_at": stable_timestamp(context["task_id"], mode, 0),
-            "finished_at": stable_timestamp(context["task_id"], mode, 5),
-            "framework": profile.framework_label,
-        },
+        "execution": execution_payload,
         "integrity": integrity,
         "evidence_produced": EXPORTED_FILES if profile.receipt_exported else ["action.json", "result.json", "trace.json"],
     }
@@ -415,7 +461,7 @@ def build_checkpoints(run_id: str, digests: list[str]) -> list[str]:
 def build_receipt(
     task: dict[str, Any],
     mode: str,
-    context: dict[str, str],
+    context: dict[str, Any],
     policy: dict[str, Any],
     status: str,
     subject_digests: dict[str, str],
@@ -475,30 +521,27 @@ def build_receipt(
 
 
 def build_external_baseline_steps(
-    task: dict[str, Any], mode: str, context: dict[str, str], status: str
+    task: dict[str, Any], mode: str, context: dict[str, Any], status: str
 ) -> list[dict[str, str]]:
-    return [
-        {
-            "step": "crew_agent_initialized",
-            "at": stable_timestamp(context["task_id"], mode, 0),
-            "detail": "research agent",
-        },
-        {
-            "step": "crew_task_dispatched",
-            "at": stable_timestamp(context["task_id"], mode, 1),
-            "detail": task["title"],
-        },
-        {
-            "step": "native_callback_logged",
-            "at": stable_timestamp(context["task_id"], mode, 2),
-            "detail": task["input_payload"]["operation"],
-        },
-        {
-            "step": "crew_task_completed",
-            "at": stable_timestamp(context["task_id"], mode, 3),
-            "detail": status,
-        },
-    ]
+    native_runtime = context.get("native_runtime", {})
+    events = native_runtime.get("events")
+    if not events:
+        events = [
+            {"step": "crewai_agent_initialized", "detail": "paper evaluation agent"},
+            {"step": "crewai_task_built", "detail": task["title"]},
+            {"step": "crewai_kickoff_started", "detail": task["input_payload"]["operation"]},
+            {"step": "crewai_kickoff_finished", "detail": status},
+        ]
+    steps = []
+    for index, event in enumerate(events):
+        steps.append(
+            {
+                "step": event["step"],
+                "at": stable_timestamp(context["task_id"], mode, index),
+                "detail": event["detail"],
+            }
+        )
+    return steps
 
 
 def build_receipt_question_map(mode: str, exported: bool) -> dict[str, str]:

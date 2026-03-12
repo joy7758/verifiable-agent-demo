@@ -1,6 +1,6 @@
 # External Baseline vs Evidence Chain
 
-Generated from actual artifacts comparing the CrewAI-like native logging baseline against the full evidence chain.
+Generated from actual artifacts comparing a minimal live CrewAI baseline against the full evidence chain.
 
 | mode | total_tasks | intent_captured_true | policy_checked_true | execution_verified_true | receipt_exported_true | avg_explicitness | avg_replayability | avg_tamper_sensitivity | avg_audit_boundedness | avg_integration_surface |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |

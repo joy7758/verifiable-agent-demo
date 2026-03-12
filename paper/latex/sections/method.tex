@@ -99,7 +99,7 @@ We evaluate seven conditions:
 The baseline is a local trace-oriented path with minimal evidence semantics. It approximates trace-only export without explicit intent capture, governance persistence, integrity validation, or bounded receipts.
 
 \paragraph{External baseline.}
-The external baseline is a framework-shaped default observability approximation implemented as a deterministic local adapter. It preserves a framework-style evidence surface based on agent initialization, task dispatch, callbacks, and task completion, but it does not claim live end-to-end governance or receipt support.
+The external baseline is a minimal live CrewAI execution path driven by a deterministic local mock LLM. It preserves framework-native evidence such as agent initialization, task construction, crew kickoff, and task completion, but it still does not claim live end-to-end governance, integrity, or receipt support. The five exported files remain normalized by the paper harness so that the review contract stays comparable across conditions.
 
 \paragraph{Evidence chain.}
 The evidence-chain condition is the full proposed architecture, including explicit intent capture, policy persistence, integrity validation, and bounded receipt export.

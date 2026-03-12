@@ -11,11 +11,11 @@ The metric changes are large. Average explicitness rises from 1.0 to 5.0, replay
 
 \subsection{External baseline comparison}
 
-Table~\ref{tab:external-comparison} compares the framework-shaped external baseline with the full evidence chain. The external baseline improves replayability relative to the local baseline, reaching an average score of 4.0, because the adapter preserves a somewhat richer default execution surface. However, it leaves explicit intent capture, policy persistence, integrity verification, and receipt export absent. As a result, explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure remain at 1.0, 0.0, 2.0, and 1.0 respectively.
+Table~\ref{tab:external-comparison} compares the minimal live CrewAI baseline with the full evidence chain. The external baseline improves replayability relative to the local baseline, reaching an average score of 4.0, because a real CrewAI runtime now produces the task execution surface that is later normalized into the five-file bundle. However, it still leaves explicit intent capture, policy persistence, integrity verification, and receipt export absent. As a result, explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure remain at 1.0, 0.0, 2.0, and 1.0 respectively.
 
 \input{tables/external_comparison}
 
-This comparison only partially addresses the straw-baseline concern. Because the adapter is lightweight and not a deep live integration, the result should be read as evidence that a framework-shaped default logging surface still leaves major evidence gaps by default, not as a definitive benchmark against every production framework.
+This comparison only partially addresses the straw-baseline concern. Because the baseline is a minimal live integration rather than a full production benchmark, the result should be read as evidence that a framework-native default logging surface still leaves major evidence gaps by default, not as a definitive benchmark against every production framework.
 
 \subsection{Ablation results}
 

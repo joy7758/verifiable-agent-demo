@@ -18,7 +18,7 @@ The metrics are evidence-shape metrics rather than semantic task-quality metrics
 The harness is deterministic and local. That improves reproducibility, but it also means that the system does not exercise the nondeterminism, service failures, and integration drift of production agent stacks.
 
 \paragraph{External validity.}
-The external baseline is a framework-shaped observability approximation, not a deep live integration. This makes the comparison reproducible and honest, but it limits how far the result can be generalized to all framework-native logging surfaces.
+The external baseline is a minimal live CrewAI integration, not a full production benchmark. This makes the comparison stronger than a pure shape-mimic baseline, but it still limits how far the result can be generalized to all framework-native logging surfaces.
 
 \paragraph{Human-review validity.}
 The current human-review workflow is a blinded kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not yet support claims about reviewer performance, statistical significance, or organizational adoption.
