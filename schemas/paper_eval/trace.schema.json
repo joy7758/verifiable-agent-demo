@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/verifiable-agent-demo/schemas/paper_eval/trace.schema.json",
+  "title": "PaperEvalTrace",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "task_id",
+    "mode",
+    "run_id",
+    "trace_style",
+    "executed_steps",
+    "execution",
+    "integrity",
+    "evidence_produced"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "paper-eval.v1"
+    },
+    "file_type": {
+      "const": "trace"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "evidence_chain"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "trace_style": {
+      "type": "string"
+    },
+    "executed_steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step",
+          "at",
+          "detail"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "at": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "attempted",
+        "performed",
+        "tool_ref",
+        "deterministic_seed",
+        "started_at",
+        "finished_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "attempted": {
+          "type": "boolean"
+        },
+        "performed": {
+          "type": "boolean"
+        },
+        "tool_ref": {
+          "type": "string"
+        },
+        "deterministic_seed": {
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string"
+        },
+        "finished_at": {
+          "type": "string"
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "checked",
+        "method",
+        "verification_status",
+        "subject_digests",
+        "expected_digests",
+        "checkpoints",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "checked": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "string"
+        },
+        "verification_status": {
+          "type": "string"
+        },
+        "subject_digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "expected_digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "checkpoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence_produced": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

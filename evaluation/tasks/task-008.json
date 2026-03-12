@@ -1,0 +1,37 @@
+{
+  "task_id": "task-008",
+  "category": "tool_call",
+  "title": "Prepare local audit bundle manifest",
+  "goal": "Call a mock manifest tool to show how a concrete action maps to bounded audit export fields.",
+  "input_payload": {
+    "operation": "prepare_manifest",
+    "requested_tool": "manifest_builder",
+    "target": "local://audit-bundle",
+    "side_effect_class": "state_change",
+    "estimated_cost_usd": 0.008,
+    "estimated_tokens": 260,
+    "arguments": {
+      "profile": "paper-eval-bounded-receipt-v1"
+    }
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-tool-standard-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "tool_call",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "This is the only tool_call task with a state-change class, which keeps the category from collapsing to pure reads."
+}

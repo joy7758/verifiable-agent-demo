@@ -1,0 +1,35 @@
+{
+  "task_id": "task-003",
+  "category": "read_only_query",
+  "title": "Inspect local interaction schema example",
+  "goal": "Read the local interaction examples and report which fields make intent explicit.",
+  "input_payload": {
+    "operation": "inspect_interaction_example",
+    "requested_tool": "repo_reader",
+    "target": "interaction/intent.json",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.004,
+    "estimated_tokens": 180,
+    "expected_answer": "schema_version, object_type, intent, actor_ref, constraints"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-none-readonly-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Anchors the paper harness to the repo's existing interaction-object examples."
+}

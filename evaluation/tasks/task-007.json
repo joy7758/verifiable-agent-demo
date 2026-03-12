@@ -1,0 +1,42 @@
+{
+  "task_id": "task-007",
+  "category": "tool_call",
+  "title": "Build local receipt summary",
+  "goal": "Invoke a local mock tool that summarizes receipt fields required by an external reviewer.",
+  "input_payload": {
+    "operation": "summarize_receipt_fields",
+    "requested_tool": "receipt_summarizer",
+    "target": "local://receipt-contract",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.007,
+    "estimated_tokens": 240,
+    "arguments": {
+      "fields": [
+        "intent",
+        "policy",
+        "execution",
+        "receipt"
+      ]
+    }
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-tool-standard-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "tool_call",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Pairs a tool call with paper-facing reviewer concepts instead of general repo inspection."
+}

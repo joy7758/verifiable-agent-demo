@@ -1,0 +1,38 @@
+{
+  "task_id": "task-016",
+  "category": "tamper_scenario",
+  "title": "Detect result payload substitution",
+  "goal": "Simulate a tamper on the result artifact and require the evidence-chain path to fail closed.",
+  "input_payload": {
+    "operation": "tamper_sensitive_run",
+    "requested_tool": "integrity_runner",
+    "target": "local://result-artifact",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.009,
+    "estimated_tokens": 210
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "integrity-check-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": {
+    "tamper_target": "result",
+    "tamper_method": "digest_mismatch",
+    "description": "The expected result digest is modified before verification."
+  },
+  "notes": "Complements task-015 by tampering with the post-execution artifact instead of the action artifact."
+}

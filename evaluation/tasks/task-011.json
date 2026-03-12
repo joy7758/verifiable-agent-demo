@@ -1,0 +1,35 @@
+{
+  "task_id": "task-011",
+  "category": "budget_constrained",
+  "title": "Token-bound tool selection",
+  "goal": "Stay inside a token-only cap while recording the limit that constrained tool use.",
+  "input_payload": {
+    "operation": "token_bound_selection",
+    "requested_tool": "budget_runner",
+    "target": "local://token-cap",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.015,
+    "estimated_tokens": 360,
+    "expected_answer": "selected within token cap"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "token-window-tight-v1",
+    "usd_limit": null,
+    "token_limit": 400,
+    "enforcement": "block"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "budget_window",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Shows that the budget-governor claim is not limited to currency-based caps."
+}

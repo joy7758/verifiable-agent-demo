@@ -76,6 +76,33 @@ Environment notes:
 - CrewAI currently requires Python `<3.14`; the current working example uses Python 3.13.
 - Both demo paths use deterministic local mock data and do not require external API calls.
 
+## Paper Evaluation Harness
+
+This repository now includes a paper-ready evaluation harness for
+`Execution Evidence Architecture for Agentic Software Systems: From Intent Objects to Verifiable Audit Receipts`.
+
+Primary entry points:
+
+- `make eval-baseline`
+- `make eval-evidence`
+- `make review-sample`
+- `make compare`
+- `make paper-eval`
+
+Supporting material:
+
+- [Task Suite](docs/paper_support/task-suite.md)
+- [Export Format](docs/paper_support/export-format.md)
+- [Review Workflow](docs/paper_support/review-workflow.md)
+- [Comparison Workflow](docs/paper_support/comparison-workflow.md)
+
+Generated outputs:
+
+- `artifacts/runs/<task_id>/<mode>/`
+- `docs/paper_support/comparison-summary.md`
+- `docs/paper_support/comparison-summary.csv`
+- `artifacts/metrics/comparison-summary.json`
+
 ## Related Repositories
 
 - [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture) - system overview and canonical architecture hub

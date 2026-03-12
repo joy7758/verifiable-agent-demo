@@ -1,0 +1,35 @@
+{
+  "task_id": "task-010",
+  "category": "budget_constrained",
+  "title": "Budget overflow review",
+  "goal": "Trigger a deterministic budget overflow so the evidence-chain path can block the run explicitly.",
+  "input_payload": {
+    "operation": "budgeted_review",
+    "requested_tool": "budget_runner",
+    "target": "local://large-run",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.041,
+    "estimated_tokens": 640,
+    "expected_answer": "over budget"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-window-small-v1",
+    "usd_limit": 0.03,
+    "token_limit": 500,
+    "enforcement": "block"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "budget_window",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "This is the negative control for budget enforcement and should be blocked only in the evidence-chain path."
+}

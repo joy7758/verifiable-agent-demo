@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/verifiable-agent-demo/schemas/paper_eval/result.schema.json",
+  "title": "PaperEvalResult",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "task_id",
+    "mode",
+    "run_id",
+    "status",
+    "goal_satisfied",
+    "outputs",
+    "policy_outcome_ref",
+    "execution_trace_ref",
+    "evidence_refs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "paper-eval.v1"
+    },
+    "file_type": {
+      "const": "result"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "evidence_chain"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "goal_satisfied": {
+      "type": "boolean"
+    },
+    "outputs": {
+      "type": "object",
+      "required": [
+        "summary",
+        "simulated_response",
+        "artifact_directory",
+        "expected_artifacts"
+      ],
+      "additionalProperties": true
+    },
+    "policy_outcome_ref": {
+      "type": "string"
+    },
+    "execution_trace_ref": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

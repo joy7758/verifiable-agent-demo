@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/verifiable-agent-demo/schemas/paper_eval/action.schema.json",
+  "title": "PaperEvalAction",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "task_id",
+    "mode",
+    "run_id",
+    "requested_action",
+    "authorization_state",
+    "policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "paper-eval.v1"
+    },
+    "file_type": {
+      "const": "action"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "evidence_chain"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "requested_action": {
+      "type": "object",
+      "required": [
+        "name",
+        "tool_ref",
+        "parameters",
+        "side_effect_class"
+      ],
+      "additionalProperties": true
+    },
+    "authorization_state": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "checked",
+        "checkpoint_id",
+        "decision"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

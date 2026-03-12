@@ -1,0 +1,35 @@
+{
+  "task_id": "task-009",
+  "category": "budget_constrained",
+  "title": "Budget-safe local summary",
+  "goal": "Complete a small deterministic run that stays within a declared cost and token budget.",
+  "input_payload": {
+    "operation": "budgeted_summary",
+    "requested_tool": "budget_runner",
+    "target": "local://small-run",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.012,
+    "estimated_tokens": 280,
+    "expected_answer": "within budget"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-window-small-v1",
+    "usd_limit": 0.02,
+    "token_limit": 400,
+    "enforcement": "block"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "budget_window",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Serves as the positive control for budget-aware approval that should pass in the evidence-chain mode."
+}

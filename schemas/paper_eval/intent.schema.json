@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/verifiable-agent-demo/schemas/paper_eval/intent.schema.json",
+  "title": "PaperEvalIntent",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "task_id",
+    "mode",
+    "run_id",
+    "intent_captured",
+    "authorization_scope",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "paper-eval.v1"
+    },
+    "file_type": {
+      "const": "intent"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "evidence_chain"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "intent_captured": {
+      "type": "boolean"
+    },
+    "intent": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "authorization_scope": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent_captured": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "intent": {
+            "type": "object",
+            "required": [
+              "goal",
+              "input_payload_snapshot"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "task-004",
+  "category": "read_only_query",
+  "title": "Compare trace and audit docs",
+  "goal": "Summarize how the trace and audit documentation differ without producing any state change.",
+  "input_payload": {
+    "operation": "compare_local_docs",
+    "requested_tool": "repo_reader",
+    "target": "docs/demo-artifacts.md",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.005,
+    "estimated_tokens": 200,
+    "expected_answer": "trace explains execution steps, audit explains bounded evidence"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-none-readonly-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Completes the read-only set with a cross-document query that still stays local and deterministic."
+}
