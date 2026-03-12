@@ -1,0 +1,28 @@
+\section{Discussion and Threats to Validity}
+\label{sec:discussion}
+
+\subsection{What the results support}
+
+The repository results support a bounded systems claim: execution evidence can be modeled as a distinct layer above runtime observability and below downstream audit interpretation. In the implemented harness, this layer improves pre-execution explicitness, preserves governance outcomes as evidence-bearing states, detects tamper scenarios as explicit review results, and exports bounded receipts that a third party can inspect without reading a full trace transcript.
+
+\subsection{What the results do not support}
+
+The results do not show semantic correctness of model outputs. They do not provide formal verification of arbitrary agent behavior. They do not establish that the current external baseline is a complete representation of any production framework, and they do not yet provide a real human-subject study. The paper should therefore be read as a reference-architecture and reference-implementation study, not as a claim of universal runtime coverage.
+
+\subsection{Threats to validity}
+
+\paragraph{Construct validity.}
+The metrics are evidence-shape metrics rather than semantic task-quality metrics. This is deliberate, because the paper studies reviewability and verifiability surfaces. Still, the conclusions should be limited to those properties.
+
+\paragraph{Internal validity.}
+The harness is deterministic and local. That improves reproducibility, but it also means that the system does not exercise the nondeterminism, service failures, and integration drift of production agent stacks.
+
+\paragraph{External validity.}
+The external baseline is a lightweight CrewAI-like adapter, not a deep live integration. This makes the comparison reproducible and honest, but it limits how far the result can be generalized to all framework-native logging surfaces.
+
+\paragraph{Human-review validity.}
+The current human-review workflow is a blinded kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not yet support claims about reviewer performance, statistical significance, or organizational adoption.
+
+\subsection{Implications for software engineering}
+
+Despite these limits, the reference path is useful. It suggests that software engineering for agentic systems should distinguish between \emph{runtime telemetry}, which helps operators watch a system, and \emph{execution evidence}, which helps reviewers verify what the system claimed to do. That distinction matters in settings where tool use, budgets, approvals, and external outputs need a compact evidence trail rather than an unbounded stream of internal events.

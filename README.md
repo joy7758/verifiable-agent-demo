@@ -113,6 +113,14 @@ Generated outputs:
 - `docs/paper_support/ablation-summary.md`
 - `artifacts/human_review/synthetic-review-summary.json`
 
+## English LaTeX Manuscript Draft
+
+The repository also includes a manuscript draft grounded in the current implemented harness and checked-in metrics:
+
+- [paper/latex/README.md](paper/latex/README.md)
+- `paper/latex/main.tex`
+- `paper/latex/main.pdf` after local compilation
+
 ## Related Repositories
 
 - [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture) - system overview and canonical architecture hub

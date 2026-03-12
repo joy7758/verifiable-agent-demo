@@ -1,0 +1,19 @@
+\section{Related Work}
+
+This work sits at the intersection of three familiar areas in software engineering systems: runtime observability, audit-oriented provenance, and agent or workflow orchestration. Existing observability practice emphasizes logs, traces, callback streams, and runtime telemetry as tools for debugging and operations. Audit-oriented systems, by contrast, emphasize bounded evidence, reproducible records, and post hoc review. Agent runtimes add a further layer of complexity because action planning, tool use, policy gating, and execution outcomes may be split across several framework surfaces.
+
+The contribution of this paper is not to replace those strands, but to connect them. The execution evidence architecture argues that there is a missing layer between runtime visibility and audit review: a stable artifact contract that makes intent, governance, integrity, and receipts legible as first-class exported objects.
+
+The current manuscript intentionally avoids fabricated citations. Before submission, this section should be grounded with verified references covering representative work in:
+
+% TODO: cite representative software observability and distributed tracing systems.
+% TODO: cite representative provenance, audit logging, and accountability systems.
+% TODO: cite representative agent-framework execution tracing and tool-use orchestration work.
+
+\begin{itemize}
+  \item runtime logging, tracing, and callback-based observability;
+  \item provenance, accountable workflows, and audit-receipt style exports;
+  \item agent and workflow runtimes that expose task histories but not full evidence bundles.
+\end{itemize}
+
+With those references in place, the paper's positioning claim is straightforward: observability surfaces and audit surfaces overlap, but they are not interchangeable, and agentic systems need an explicit bridge between them.

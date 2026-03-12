@@ -1,0 +1,115 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem framing}
+
+The goal of this work is to define and evaluate a minimal execution evidence architecture for agentic software systems. The target problem is narrower than model correctness and broader than debugging. We do not attempt to prove that an agent's output is semantically correct, and we do not claim formal verification of arbitrary tool behavior. Instead, we ask a systems question: how should runtime artifacts be organized so that an independent reviewer can determine whether intent was captured, policy was checked, execution was verified, and evidence was exported?
+
+This framing deliberately separates execution evidence from raw observability. Logs and traces remain useful, but they do not by themselves guarantee a stable review surface. The proposed method therefore centers on exported artifact contracts rather than hidden runtime state.
+
+\subsection{Execution evidence architecture}
+
+We define the architecture as a five-stage evidence chain:
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item persona projection,
+  \item intent/action/result objects,
+  \item governance checkpoint,
+  \item execution-integrity validation,
+  \item bounded audit receipt.
+\end{enumerate}
+
+\paragraph{Persona projection.}
+Persona projection provides the runtime-facing identity context of the acting system. In the current repository it functions as an entry-stage semantic anchor rather than as a separate evaluation target. The architecture needs a notion of who or what is acting, even when the downstream evidence metrics focus on later stages.
+
+\paragraph{Intent/action/result objects.}
+Intent, action, and result objects convert a run from an implicit event sequence into structured semantics. The intent object captures the declared goal and expected artifact surface before execution. The action object records the operational step together with authorization-relevant context. The result object captures terminal state, including successful completion, policy blocking, and tamper-detected outcomes.
+
+\paragraph{Governance checkpoint.}
+The governance layer records whether a run was checked against policy. In the current harness this includes budget-aware and approval-aware blocking cases. The key design choice is that a blocked run is still evidence-bearing: policy denial is preserved as an explicit outcome instead of disappearing as missing output.
+
+\paragraph{Execution-integrity validation.}
+The integrity layer records whether the execution path was checked for replay-oriented consistency or tamper-sensitive mismatch. This layer is intentionally bounded. It does not provide a universal proof system; it provides enough structure to distinguish completed runs, non-verified runs, and tamper-detected runs within the artifact bundle.
+
+\paragraph{Bounded audit receipt.}
+The bounded receipt is the review-oriented export surface. Unlike a raw trace, it preserves only the fields needed to answer downstream audit questions. The receipt therefore compresses the run into a stable, third-party-facing representation.
+
+Together these stages convert an agent run from framework-specific observability into a portable evidence bundle.
+
+% TODO: add a figure of the five-stage evidence chain and its five exported files.
+
+\subsection{Reference path}
+
+The architecture is instantiated in the \repo{} repository as a composable reference path. The implementation reuses concepts and naming from adjacent repositories, but keeps the evaluation logic centered in a deterministic local harness. This choice reduces hidden dependencies and makes every condition reproducible from checked-in task specifications and scripts.
+
+For every task run, the harness exports exactly five JSON files:
+
+\begin{itemize}
+  \item \texttt{intent.json},
+  \item \texttt{action.json},
+  \item \texttt{result.json},
+  \item \texttt{trace.json},
+  \item \texttt{receipt.json}.
+\end{itemize}
+
+These files are written under the stable layout \texttt{artifacts/runs/<task\_id>/<mode>/}. The contract is shared across all conditions, including the baselines and ablations. This makes it possible to compare evidence shape directly without writing a framework-specific parser for each runtime condition.
+
+\subsection{Task suite}
+
+The evaluation harness includes 16 machine-readable tasks grouped into five categories:
+
+\begin{itemize}
+  \item four read-only query tasks,
+  \item four tool-call tasks,
+  \item three budget-constrained tasks,
+  \item three approval-required tasks,
+  \item two tamper scenarios.
+\end{itemize}
+
+Each task specification records a task identifier, category, title, goal, input payload, expected artifacts, budget policy, approval policy, tamper case indicator, and notes. The mix of task classes is important because an evidence architecture should represent both positive and negative execution paths. In particular, the budget, approval, and tamper tasks test whether blocked and invalid runs appear as explicit outcomes rather than as absent output.
+
+\subsection{Experimental conditions}
+
+We evaluate seven conditions:
+
+\paragraph{Baseline.}
+The baseline is a local trace-oriented path with minimal evidence semantics. It approximates trace-only export without explicit intent capture, governance persistence, integrity validation, or bounded receipts.
+
+\paragraph{External baseline.}
+The external baseline is a lightweight CrewAI-like native logging baseline implemented as a deterministic local adapter. It preserves a framework-style evidence surface based on agent initialization, task dispatch, callbacks, and task completion, but it does not claim live end-to-end CrewAI governance or receipt support.
+
+\paragraph{Evidence chain.}
+The evidence-chain condition is the full proposed architecture, including explicit intent capture, policy persistence, integrity validation, and bounded receipt export.
+
+\paragraph{Ablations.}
+The four ablations each remove one capability from the evidence chain:
+\texttt{no\_intent}, \texttt{no\_governance}, \texttt{no\_integrity}, and \texttt{no\_receipt}. These conditions isolate whether each stage contributes a distinct review function instead of merely adding redundant metadata.
+
+\subsection{Review logic and metrics}
+
+A third-party review script consumes a run directory and answers four yes/no questions:
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item was intent captured,
+  \item was policy checked,
+  \item was execution verified,
+  \item was a receipt exported.
+\end{enumerate}
+
+The script emits machine-readable verdicts, an overall status, missing-field explanations, and a short summary. This review step operationalizes the minimum independent inspection workflow that the architecture is intended to support.
+
+We compare conditions using five deterministic, rule-based metrics derived from actual generated artifacts:
+
+\begin{itemize}
+  \item \textbf{explicitness}: whether intent, policy, and outcome are directly inspectable;
+  \item \textbf{replayability}: whether the run preserves enough structure for replay-oriented checking;
+  \item \textbf{tamper sensitivity}: whether integrity-relevant violations appear as explicit outcomes;
+  \item \textbf{audit boundedness}: whether the review surface is compact and purpose-oriented;
+  \item \textbf{integration surface}: how completely the harness exposes the intended evidence stages.
+\end{itemize}
+
+Some parts of these metrics are directly measurable from the exported fields, while others are scored by transparent 0--5 rules documented in the repository. The method does not report semantic-quality scores or invented empirical values.
+
+\subsection{Human review scaffold}
+
+In addition to automated review, the repository includes a blinded human-review kit. The kit contains reviewer instructions, blinded bundle manifests, blank review sheets, timing guidance, and a summarizer for completed sheets. The current checked-in results are synthetic smoke-test outputs rather than a completed human-subject study. The role of the kit in this paper is therefore methodological: it demonstrates that the artifact bundle is structured for human inspection and that the workflow is reproducible without requiring a web platform.

@@ -1,0 +1,19 @@
+\section{Reproduction Notes}
+
+The manuscript is grounded in the repository state rather than in a separate private experiment log. The relevant source material includes:
+
+\begin{itemize}
+  \item \texttt{docs/paper\_support/task-suite.md},
+  \item \texttt{docs/paper\_support/export-format.md},
+  \item \texttt{docs/paper\_support/review-workflow.md},
+  \item \texttt{docs/paper\_support/comparison-workflow.md},
+  \item \texttt{docs/paper\_support/external-baseline.md},
+  \item \texttt{docs/paper\_support/ablation-study.md},
+  \item \texttt{docs/paper\_support/human-review-study.md},
+  \item \texttt{artifacts/metrics/comparison-summary.json},
+  \item \texttt{artifacts/metrics/external-baseline-summary.json},
+  \item \texttt{artifacts/metrics/ablation-summary.json},
+  \item \texttt{artifacts/human\_review/synthetic-review-summary.json}.
+\end{itemize}
+
+Within the manuscript directory, \texttt{python3} and the helper script \texttt{scripts/generate\_tables.py} regenerate the checked-in table fragments from the JSON metric summaries. The \texttt{make} target then builds the PDF through \texttt{latexmk}. The current draft intentionally leaves bibliography enrichment as future work, because the repository does not yet carry a verified citation set.

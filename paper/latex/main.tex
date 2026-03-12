@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  urlcolor=blue!50!black,
+  citecolor=blue!50!black
+}
+
+\setlist[itemize]{leftmargin=1.5em}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+\newcommand{\repo}{\texttt{verifiable-agent-demo}}
+
+\title{From Observability to Verifiability: An Execution Evidence Architecture for Agentic Software Systems}
+\author{Anonymous Draft}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\noindent\textbf{Keywords.} agentic software systems, execution evidence, audit receipts, verifiability, runtime governance
+
+\input{sections/introduction}
+\input{sections/method}
+\input{sections/evaluation}
+\input{sections/results}
+\input{sections/related_work}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\appendix
+\input{sections/reproduction}
+
+\end{document}

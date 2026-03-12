@@ -1,0 +1,7 @@
+\section{Conclusion}
+
+This paper presented an execution evidence architecture for agentic software systems and instantiated it as a reproducible reference path in the \repo{} repository. The central claim is that observability alone is not enough: agent runs need structured evidence bundles that make intent, authorization, execution verification, and exported receipts independently reviewable.
+
+The checked-in evaluation harness supports that claim with a deterministic 16-task suite, a stable five-file export contract, a third-party review script, a CrewAI-like external baseline, four ablation modes, and a blinded human-review kit. Across the current summaries, the full evidence chain dominates the trace-oriented baseline on all measured dimensions and shows interpretable degradation under targeted ablations.
+
+Future work should validate the architecture against live framework integrations, extend the integrity layer beyond the current bounded checks, add verified related-work citations, and run a real blinded reviewer study. Even in its current form, the reference implementation shows that execution evidence can be engineered as a first-class systems layer rather than treated as a side effect of logging.

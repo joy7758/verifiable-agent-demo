@@ -1,0 +1,56 @@
+\section{Evaluation Setup}
+\label{sec:evaluation}
+
+\subsection{Study goal}
+
+The evaluation asks whether execution evidence should be treated as a distinct systems layer rather than as an extension of runtime logging. Concretely, we test whether the full evidence chain yields artifact bundles that are more explicit, more replayable, more tamper-sensitive, and more audit-ready than baseline observability surfaces.
+
+\subsection{Repository-grounded setup}
+
+All measurements in this draft come from the checked-in repository state. The harness is implemented in \repo{} and exercised through the top-level make targets documented in the repository \texttt{README}. The evaluation sources are:
+
+\begin{itemize}
+  \item the 16-task suite under \texttt{evaluation/tasks/},
+  \item the five-file export contract under \texttt{artifacts/runs/<task\_id>/<mode>/},
+  \item comparison summaries under \texttt{artifacts/metrics/},
+  \item paper-support documentation under \texttt{docs/paper\_support/},
+  \item the human-review kit under \texttt{evaluation/human\_review/}.
+\end{itemize}
+
+The repository currently supports the following relevant workflows:
+
+\begin{itemize}
+  \item \texttt{make paper-eval},
+  \item \texttt{make eval-external-baseline},
+  \item \texttt{make eval-ablation},
+  \item \texttt{make human-review-kit},
+  \item \texttt{make top-journal-pack}.
+\end{itemize}
+
+\subsection{Task distribution}
+
+The task suite is intentionally heterogeneous. Read-only and tool-call tasks cover ordinary successful runs. Budget-constrained and approval-required tasks exercise policy gating. Tamper scenarios exercise integrity-sensitive outcomes. Because the same 16 task specifications are used in every condition, differences in score are attributable to the exported evidence surface rather than to different workloads.
+
+\subsection{Conditions compared}
+
+The core automated comparisons are:
+
+\begin{itemize}
+  \item \textbf{baseline} versus \textbf{evidence\_chain},
+  \item \textbf{external\_baseline} versus \textbf{evidence\_chain},
+  \item a seven-mode comparison across baseline, external baseline, four ablations, and the evidence chain.
+\end{itemize}
+
+The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a framework-style default logging surface closes the same gap. The ablation study asks whether removing any one stage causes interpretable degradation.
+
+\subsection{Outcome interpretation}
+
+The review script distinguishes among several outcome classes. A run may be marked \emph{pass} when all four evidence questions are satisfied, \emph{policy\_blocked} when a budget or approval checkpoint blocks the task but still leaves reviewable evidence, \emph{tamper\_detected} when the integrity layer detects mismatch, or \emph{partial} when one or more evidence-chain capabilities are missing.
+
+This outcome model is important because it treats blocked and tampered runs as first-class results. In the full evidence chain, the repository summaries show 11 completed and review-passing runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite.
+
+\subsection{Human-review procedure}
+
+The blinded human-review kit packages eight sample bundles, reviewer instructions, a blank CSV review sheet, and an answer key used only by the summarizer. Reviewers inspect five JSON files per bundle and answer the same four questions used by the automated review script, while recording confidence and time spent. The repository includes a synthetic example sheet and synthetic summary outputs so that the workflow can be smoke-tested end to end.
+
+% TODO: add a compact study-design figure if a final venue benefits from one.
