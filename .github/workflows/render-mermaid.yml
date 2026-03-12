@@ -35,7 +35,8 @@ jobs:
               -w 2800 \
               -H 1800 \
               -b white \
-              -c docs/figures/mermaid-publication-config.json
+              -c docs/figures/mermaid-publication-config.json \
+              -p docs/figures/puppeteer-config.json
           done
 
       - name: Commit generated SVG
