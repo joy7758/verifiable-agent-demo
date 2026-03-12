@@ -97,8 +97,9 @@ def run_falsification_checks(source_mode: str = "evidence_chain") -> dict[str, A
     output = {
         "title": "Falsification Checks",
         "description": (
-            "Negative-control bundles derived from review-passing evidence-chain runs. Each scenario preserves or corrupts "
-            "specific bundle properties to test whether the independent review contract can reject malformed evidence."
+            "Negative-control bundles derived from review-passing and policy-blocked evidence-chain runs. Each scenario "
+            "preserves or corrupts specific bundle properties to test whether the independent review contract can reject "
+            "malformed evidence."
         ),
         "source_mode": source_mode,
         "source_status_counts": {key: len(value) for key, value in scenario_sources.items()},

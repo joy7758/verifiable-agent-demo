@@ -1,6 +1,6 @@
 # Falsification Summary
 
-Negative-control bundles derived from review-passing evidence-chain runs. Each scenario preserves or corrupts specific bundle properties to test whether the independent review contract can reject malformed evidence.
+Negative-control bundles derived from review-passing and policy-blocked evidence-chain runs. Each scenario preserves or corrupts specific bundle properties to test whether the independent review contract can reject malformed evidence.
 
 Source bundles by status:
 
