@@ -60,8 +60,7 @@
     "subject_digests": {
       "action.json": "sha256:c4efa4856895e5880827f2c4a59fc8ae828f9a87d2230f0212076415b73fd66d",
       "intent.json": "sha256:77f2b08aa33bad6e43039a6122c60b2ade216d80cd46417bbe21cff4b894a633",
-      "result.json": "sha256:9fac22d23dcec43ce89b0a250311255a7e8d5d2c806b5727c17bdde4aa557dee",
-      "trace.json": "sha256:c3d1eeca5434b169eee049a67795a8dcf41a6a15541b5bb153bf1c51fa41cc3f"
+      "result.json": "sha256:9fac22d23dcec43ce89b0a250311255a7e8d5d2c806b5727c17bdde4aa557dee"
     },
     "verification_status": "verified"
   },

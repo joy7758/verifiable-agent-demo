@@ -178,11 +178,72 @@ Mode & Explicitness & Replayability & Tamper & Audit & Stage exposure & Intent &
 """
 
 
+def falsification_table() -> str:
+    data = json.loads((METRICS_DIR / "falsification-summary.json").read_text())
+    order = [
+        "missing_intent",
+        "missing_policy",
+        "forged_receipt",
+        "payload_tamper",
+        "false_tamper_claim",
+    ]
+    labels = {
+        "missing_intent": "Missing intent",
+        "missing_policy": "Missing policy",
+        "forged_receipt": "Forged receipt",
+        "payload_tamper": "Payload tamper",
+        "false_tamper_claim": "False tamper claim",
+    }
+    targets = {
+        "missing_intent": "Intent",
+        "missing_policy": "Policy",
+        "forged_receipt": "Receipt",
+        "payload_tamper": "Execution + receipt",
+        "false_tamper_claim": "Tamper claim",
+    }
+    by_name = {entry["scenario"]: entry for entry in data["scenarios"]}
+    rows = []
+    for scenario in order:
+        entry = by_name[scenario]
+        rows.append(
+            "    {label} & {target} & {detected}/{total} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} \\\\".format(
+                label=labels[scenario],
+                target=targets[scenario],
+                detected=entry["detected_bundles"],
+                total=entry["total_bundles"],
+                intent=entry["intent_captured_true"],
+                policy=entry["policy_checked_true"],
+                verified=entry["execution_verified_true"],
+                receipt=entry["receipt_exported_true"],
+            )
+        )
+
+    return r"""
+\begin{table}[t]
+\centering
+\caption{Negative-control bundle checks derived from the 11 review-passing evidence-chain runs. Each scenario is re-reviewed with the same independent bundle contract used in the main study.}
+\label{tab:falsification-summary}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Scenario & Targeted failure & Detected & Intent & Policy & Exec.\ verified & Receipt \\
+\midrule
+""" + "\n".join(rows) + r"""
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+"""
+
+
 def main() -> None:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     write(TABLES_DIR / "main_comparison.tex", main_table())
     write(TABLES_DIR / "external_comparison.tex", external_table())
     write(TABLES_DIR / "ablation_summary.tex", ablation_table())
+    write(TABLES_DIR / "falsification_summary.tex", falsification_table())
 
 
 if __name__ == "__main__":

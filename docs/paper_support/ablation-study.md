@@ -14,6 +14,10 @@ Architectural purpose:
 - `no_integrity` tests whether tamper sensitivity survives without verification.
 - `no_receipt` tests whether audit boundedness survives without a receipt layer.
 
+Review-oriented note:
+
+- The strengthened review script now requires the bounded receipt to answer all four review questions and to carry recomputable artifact digests. As a result, `no_intent` and `no_governance` can still retain much of the evidence shape, but they no longer earn positive receipt-review verdicts because the receipt no longer fully answers the independent review contract.
+
 Scoring:
 
 - The study uses the same deterministic rule-based metrics already defined for the harness:

@@ -46,9 +46,10 @@ def run_task(task: dict[str, Any], mode: str) -> Path:
         "action.json": sha256_digest(action_payload),
         "result.json": sha256_digest(result_payload),
     }
-    trace_payload = build_trace(task, profile.name, context, policy, status, subject_digests)
-    subject_digests["trace.json"] = sha256_digest(trace_payload)
-    receipt_payload = build_receipt(task, profile.name, context, policy, status, subject_digests)
+    trace_payload = build_trace(task, profile.name, context, policy, status, dict(subject_digests))
+    receipt_subject_digests = dict(subject_digests)
+    receipt_subject_digests["trace.json"] = sha256_digest(trace_payload)
+    receipt_payload = build_receipt(task, profile.name, context, policy, status, receipt_subject_digests)
 
     payloads = {
         "intent.json": intent_payload,
@@ -424,13 +425,14 @@ def build_integrity(
             "notes": ["This mode does not emit execution-integrity evidence."],
         }
 
-    expected_digests = dict(subject_digests)
+    current_subject_digests = dict(subject_digests)
+    expected_digests = dict(current_subject_digests)
     tamper_case = task["tamper_case"]
     if tamper_case:
         target_name = f"{tamper_case['tamper_target']}.json"
-        expected_digests[target_name] = mutate_digest(subject_digests[target_name])
+        expected_digests[target_name] = mutate_digest(current_subject_digests[target_name])
 
-    checkpoints = build_checkpoints(run_id, list(subject_digests.values()))
+    checkpoints = build_checkpoints(run_id, list(current_subject_digests.values()))
     if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
         verification_status = "skipped_by_policy"
     elif tamper_case:
@@ -442,7 +444,7 @@ def build_integrity(
         "checked": True,
         "method": "sha256-checkpoint-chain",
         "verification_status": verification_status,
-        "subject_digests": subject_digests,
+        "subject_digests": current_subject_digests,
         "expected_digests": expected_digests,
         "checkpoints": checkpoints,
         "notes": [] if not tamper_case else [tamper_case["description"]],

@@ -1,0 +1,6 @@
+scenario,description,targeted_failure,total_bundles,detected_bundles,detection_rate,intent_captured_true,policy_checked_true,execution_verified_true,receipt_exported_true,status_counts
+missing_intent,Remove the explicit intent object while preserving all downstream digests and receipt artifacts.,intent_captured,11,11,1.0,0,11,11,11,partial=11
+missing_policy,Remove the persisted governance decision while preserving integrity and receipt bindings.,policy_checked,11,11,1.0,11,0,11,11,partial=11
+forged_receipt,Forge one receipt artifact digest while leaving the trace integrity chain untouched.,receipt_exported,11,11,1.0,11,11,11,0,partial=11
+payload_tamper,Modify the executed result payload after export without updating the stored digests.,execution_verified,11,11,1.0,11,11,0,0,partial=11
+false_tamper_claim,Declare a tamper outcome without an independently corroborated digest mismatch.,tamper_claim_rejected,11,11,1.0,11,11,0,11,partial=11

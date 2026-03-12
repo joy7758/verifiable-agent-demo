@@ -1,0 +1,21 @@
+
+\begin{table}[t]
+\centering
+\caption{Negative-control bundle checks derived from the 11 review-passing evidence-chain runs. Each scenario is re-reviewed with the same independent bundle contract used in the main study.}
+\label{tab:falsification-summary}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Scenario & Targeted failure & Detected & Intent & Policy & Exec.\ verified & Receipt \\
+\midrule
+    Missing intent & Intent & 11/11 & 0/11 & 11/11 & 11/11 & 11/11 \\
+    Missing policy & Policy & 11/11 & 11/11 & 0/11 & 11/11 & 11/11 \\
+    Forged receipt & Receipt & 11/11 & 11/11 & 11/11 & 11/11 & 0/11 \\
+    Payload tamper & Execution + receipt & 11/11 & 11/11 & 11/11 & 0/11 & 0/11 \\
+    False tamper claim & Tamper claim & 11/11 & 11/11 & 11/11 & 0/11 & 11/11 \\
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

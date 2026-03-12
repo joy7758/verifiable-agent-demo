@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: eval-baseline eval-evidence eval-external-baseline eval-ablation review-sample compare human-review-kit paper-eval top-journal-pack
+.PHONY: eval-baseline eval-evidence eval-external-baseline eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
 
 eval-baseline:
 	$(PYTHON) scripts/run_paper_eval.py --mode baseline
@@ -19,6 +19,9 @@ eval-ablation: eval-baseline eval-external-baseline eval-evidence
 	$(PYTHON) scripts/run_paper_eval.py --mode no_receipt
 	$(PYTHON) scripts/compare_runs.py --modes baseline external_baseline no_intent no_governance no_integrity no_receipt evidence_chain --output-stem ablation-summary --title "Top-Journal Mode Comparison" --description "Generated from actual artifacts across baseline, external baseline, four ablations, and the full evidence chain." --doc-reference docs/paper_support/ablation-study.md
 
+falsification-checks: eval-evidence
+	$(PYTHON) scripts/run_falsification_checks.py
+
 review-sample: eval-baseline eval-evidence
 	$(PYTHON) scripts/review_bundle.py --run-dir artifacts/runs/task-001/baseline
 	$(PYTHON) scripts/review_bundle.py --run-dir artifacts/runs/task-001/evidence_chain
@@ -32,4 +35,4 @@ human-review-kit: eval-baseline eval-evidence
 
 paper-eval: eval-baseline eval-evidence review-sample compare
 
-top-journal-pack: paper-eval eval-external-baseline eval-ablation human-review-kit
+top-journal-pack: paper-eval eval-external-baseline eval-ablation falsification-checks human-review-kit

@@ -20,8 +20,8 @@ Field contracts:
 - `intent.json` answers what was intended and binds the task goal to a frozen input payload snapshot.
 - `action.json` answers what was authorized and records the policy decision, budget policy, and approval policy.
 - `result.json` answers what outcome occurred, including policy-blocked and tamper-detected cases.
-- `trace.json` answers what was executed and whether integrity verification was performed, skipped, or failed.
-- `receipt.json` answers what evidence was exported and which file digests bound the run bundle.
+- `trace.json` answers what was executed and whether integrity verification was performed, skipped, or failed. Its integrity section binds `intent.json`, `action.json`, and `result.json`.
+- `receipt.json` answers what evidence was exported and which file digests bound the run bundle. Its artifact list carries the digest for `trace.json`, which avoids a self-referential digest inside the trace payload itself.
 
 Schemas live under `schemas/paper_eval/`:
 
@@ -33,3 +33,9 @@ Schemas live under `schemas/paper_eval/`:
 - `receipt.schema.json`
 
 The implementation is intentionally thin: it uses local deterministic shims instead of direct runtime coupling to the reference repositories. The naming aligns lightly with AIP, Token Governor, FDO kernel checkpoints, and ARO receipts.
+
+Review-oriented notes:
+
+- The review script recomputes bundle identity consistency (`task_id`, `run_id`, `mode`) across all five files.
+- The review script recomputes the integrity digests recorded in `trace.json` and the artifact digests recorded in `receipt.json`.
+- A declared tamper condition is only accepted when the stored expected digests independently disagree with the current bundle contents.

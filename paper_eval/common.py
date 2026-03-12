@@ -12,6 +12,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 TASK_DIR = ROOT_DIR / "evaluation" / "tasks"
 RUNS_DIR = ROOT_DIR / "artifacts" / "runs"
 REVIEWS_DIR = ROOT_DIR / "artifacts" / "reviews"
+FALSIFICATION_DIR = REVIEWS_DIR / "falsification"
 METRICS_DIR = ROOT_DIR / "artifacts" / "metrics"
 PAPER_DOCS_DIR = ROOT_DIR / "docs" / "paper_support"
 SCHEMAS_DIR = ROOT_DIR / "schemas" / "paper_eval"

@@ -62,8 +62,7 @@
     "subject_digests": {
       "action.json": "sha256:2718b7d0e80e15e87f2c343eff52666b9f42858c39b18814c2686a0039b0167e",
       "intent.json": "sha256:94188f1227fc03d337568c2ac7baf34d966014475aa3fe27bbcaa1db784678d1",
-      "result.json": "sha256:50aad1a1a6a7b9ec1b20ef3b14cbd4f0db33d15f6bd95f69c16261d2b25abca3",
-      "trace.json": "sha256:2f78e834d345ffdebd69aeedf74346163dba412639e8812f03f8c1644a133430"
+      "result.json": "sha256:50aad1a1a6a7b9ec1b20ef3b14cbd4f0db33d15f6bd95f69c16261d2b25abca3"
     },
     "verification_status": "tamper_detected"
   },

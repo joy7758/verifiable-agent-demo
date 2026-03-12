@@ -23,9 +23,19 @@ Table~\ref{tab:ablation-comparison} summarizes the seven-mode comparison. The ab
 
 \input{tables/ablation_summary}
 
-Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0, while leaving policy, integrity, and receipt behaviors mostly intact. Removing governance lowers explicitness to 2.0, eliminates all positive policy-checked reviews, and changes the task suite behavior by allowing formerly blocked tasks to complete, while tamper sensitivity remains high because integrity checks are still present. Removing integrity leaves explicitness and audit boundedness at evidence-chain levels, but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
+Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0. Under the strengthened review contract it also clears all positive receipt-export verdicts, because the bounded receipt can no longer answer all four review questions once the intent surface is removed. Removing governance lowers explicitness to 2.0, eliminates all positive policy-checked reviews, and changes the task suite behavior by allowing formerly blocked tasks to complete, while tamper sensitivity remains high because integrity checks are still present. Positive receipt-review verdicts also drop to 0 of 16 in that mode, because the bundle can no longer substantiate what was authorized. Removing integrity leaves explicitness and audit boundedness at evidence-chain levels, but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
 
 Taken together, the ablations indicate that each stage contributes a distinct review function. The evidence chain therefore behaves as a layered architecture rather than as a single monolithic switch.
+
+\subsection{Negative-control falsification checks}
+
+Table~\ref{tab:falsification-summary} reports the new negative-control checks derived from the 11 evidence-chain bundles that originally reviewed as \emph{pass}. Every derived bundle is downgraded from \emph{pass} to \emph{partial}, yielding a 1.0 detection rate across all five falsification scenarios.
+
+\input{tables/falsification_summary}
+
+The pattern of failure is selective rather than indiscriminate. Removing the intent object clears only the intent verdict while leaving policy, execution verification, and receipt export positive in all 11 bundles. Removing the persisted policy decision clears only the policy verdict. Forging a receipt digest clears only the receipt verdict. Tampering with the result payload after export breaks execution verification and receipt verification together because the recomputed digests no longer match the stored bundle. Declaring a tamper outcome without a corroborating digest mismatch is also rejected in all 11 cases, showing that the review script does not merely trust a \texttt{tamper\_detected} label.
+
+These checks do not solve the external-benchmark problem, but they do tighten one internal-validity concern. The repository is no longer only scoring architecture-aligned positives against architecture-aligned metrics; it also demonstrates that the same review contract rejects malformed or over-claimed bundles derived from previously valid runs.
 
 \subsection{Human-review scaffold}
 

@@ -119,7 +119,7 @@ A third-party review script consumes a run directory and answers four yes/no que
   \item was a receipt exported.
 \end{enumerate}
 
-The script emits machine-readable verdicts, an overall status, missing-field explanations, and a short summary. This review step operationalizes the minimum independent inspection workflow that the architecture is intended to support.
+The script emits machine-readable verdicts, an overall status, missing-field explanations, and a short summary. In the current revision it also recomputes bundle identity consistency and stored digests rather than trusting the exported status fields alone. This review step operationalizes the minimum independent inspection workflow that the architecture is intended to support.
 
 We compare conditions using five deterministic, rule-based metrics derived from actual generated artifacts:
 

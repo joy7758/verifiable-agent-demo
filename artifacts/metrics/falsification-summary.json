@@ -1,0 +1,1196 @@
+{
+  "description": "Negative-control bundles derived from review-passing evidence-chain runs. Each scenario preserves or corrupts specific bundle properties to test whether the independent review contract can reject malformed evidence.",
+  "per_bundle": [
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured"
+        ],
+        "mode": "falsified_missing_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/missing_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "missing_intent",
+      "source_mode": "evidence_chain",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked"
+        ],
+        "mode": "falsified_missing_policy",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/missing_policy",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "missing_policy",
+      "source_mode": "evidence_chain",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json"
+        ],
+        "mode": "falsified_forged_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/forged_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "forged_receipt",
+      "source_mode": "evidence_chain",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "receipt not exported with verifiable artifact digests",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for result.json",
+          "receipt artifact digest mismatch for result.json"
+        ],
+        "mode": "falsified_payload_tamper",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/payload_tamper",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "payload_tamper",
+      "source_mode": "evidence_chain",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "declared tamper without an independently observed digest mismatch"
+        ],
+        "mode": "falsified_false_tamper_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/false_tamper_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "false_tamper_claim",
+      "source_mode": "evidence_chain",
+      "task_id": "task-013"
+    }
+  ],
+  "scenarios": [
+    {
+      "description": "Remove the explicit intent object while preserving all downstream digests and receipt artifacts.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 11,
+      "intent_captured_true": 0,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 11,
+      "scenario": "missing_intent",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "intent_captured",
+      "total_bundles": 11
+    },
+    {
+      "description": "Remove the persisted governance decision while preserving integrity and receipt bindings.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 11,
+      "intent_captured_true": 11,
+      "policy_checked_true": 0,
+      "receipt_exported_true": 11,
+      "scenario": "missing_policy",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "policy_checked",
+      "total_bundles": 11
+    },
+    {
+      "description": "Forge one receipt artifact digest while leaving the trace integrity chain untouched.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 11,
+      "intent_captured_true": 11,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 0,
+      "scenario": "forged_receipt",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "receipt_exported",
+      "total_bundles": 11
+    },
+    {
+      "description": "Modify the executed result payload after export without updating the stored digests.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 11,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 0,
+      "scenario": "payload_tamper",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "execution_verified",
+      "total_bundles": 11
+    },
+    {
+      "description": "Declare a tamper outcome without an independently corroborated digest mismatch.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 11,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 11,
+      "scenario": "false_tamper_claim",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "tamper_claim_rejected",
+      "total_bundles": 11
+    }
+  ],
+  "source_bundle_count": 11,
+  "source_mode": "evidence_chain",
+  "title": "Falsification Checks"
+}

@@ -36,6 +36,7 @@ The LaTeX tables are generated from these repository files:
 - `../../artifacts/metrics/comparison-summary.json`
 - `../../artifacts/metrics/external-baseline-summary.json`
 - `../../artifacts/metrics/ablation-summary.json`
+- `../../artifacts/metrics/falsification-summary.json`
 
 To refresh them:
 

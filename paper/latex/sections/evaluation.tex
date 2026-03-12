@@ -51,6 +51,12 @@ This outcome model is important because it treats blocked and tampered runs as f
 
 \input{tables/worked_example}
 
+\subsection{Negative-control procedure}
+
+To reduce the risk that the review contract merely accepts the repository's own positive cases, the artifact package also derives a small negative-control suite from the 11 evidence-chain bundles that the review script already marks as \emph{pass}. Five falsification scenarios are generated from those bundles: removing the explicit intent object, removing the persisted policy decision, forging one receipt digest, tampering with the result payload after export, and declaring a tamper outcome without a corroborating digest mismatch.
+
+The first two scenarios are rebound so that the bundle stays internally consistent except for the targeted capability. The latter three intentionally exercise the strengthened review logic, which now recomputes bundle identity consistency and digest bindings rather than trusting stored status fields. These negative controls are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can fail meaningfully.
+
 \subsection{Human-review procedure}
 
 The blinded human-review kit packages eight sample bundles, reviewer instructions, a blank CSV review sheet, and an answer key used only by the summarizer. Reviewers inspect five JSON files per bundle and answer the same four questions used by the automated review script, while recording confidence and time spent. The repository includes a synthetic example sheet and synthetic summary outputs so that the workflow can be smoke-tested end to end.
