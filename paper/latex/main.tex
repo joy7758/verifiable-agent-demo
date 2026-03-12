@@ -10,8 +10,12 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{xcolor}
+
+\usetikzlibrary{arrows.meta,positioning}
 
 \hypersetup{
   colorlinks=true,
@@ -49,5 +53,8 @@
 
 \appendix
 \input{sections/reproduction}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
 
 \end{document}

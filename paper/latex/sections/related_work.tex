@@ -1,19 +1,11 @@
 \section{Related Work}
 
-This work sits at the intersection of three familiar areas in software engineering systems: runtime observability, audit-oriented provenance, and agent or workflow orchestration. Existing observability practice emphasizes logs, traces, callback streams, and runtime telemetry as tools for debugging and operations. Audit-oriented systems, by contrast, emphasize bounded evidence, reproducible records, and post hoc review. Agent runtimes add a further layer of complexity because action planning, tool use, policy gating, and execution outcomes may be split across several framework surfaces.
+This work sits at the intersection of runtime observability, provenance and audit modeling, policy enforcement, and agent-framework execution tooling. The paper does not attempt to replace those lines of work. Instead, it argues that agentic software systems need an additional bridge layer that turns runtime traces into bounded evidence bundles for independent review.
 
-The contribution of this paper is not to replace those strands, but to connect them. The execution evidence architecture argues that there is a missing layer between runtime visibility and audit review: a stable artifact contract that makes intent, governance, integrity, and receipts legible as first-class exported objects.
+Runtime observability systems standardize logs, metrics, and traces as the primary surface for inspection. OpenTelemetry is representative of this design center \cite{opentelemetry}, while framework-specific tooling such as LangSmith observability and CrewAI tracing exposes agent traces, callbacks, and task timelines for debugging and operations \cite{langsmith-observability,crewai-tracing}. These systems make runs inspectable, but they do not by default provide a review contract that explicitly preserves intent capture, policy persistence, integrity status, and receipt export.
 
-The current manuscript intentionally avoids fabricated citations. Before submission, this section should be grounded with verified references covering representative work in:
+Provenance research emphasizes lineage, responsibility, and reproducibility across heterogeneous systems. PROV-O remains a foundational provenance vocabulary for interoperable provenance interchange \cite{prov-o}, and recent work such as PROV-AGENT extends this tradition to agentic workflows by capturing prompts, responses, and decisions as workflow provenance \cite{prov-agent}. Our execution-evidence layer is narrower than full provenance graphs: it compresses the run into a bounded bundle designed specifically for third-party review questions.
 
-% TODO: cite representative software observability and distributed tracing systems.
-% TODO: cite representative provenance, audit logging, and accountability systems.
-% TODO: cite representative agent-framework execution tracing and tool-use orchestration work.
+Policy systems show that authorization can be externalized and made explicit. Open Policy Agent is a widely used example of policy-as-code infrastructure \cite{opa}. Recent receipt-oriented work also argues that lightweight execution receipts can offer a practical middle ground between unstructured logs and heavyweight cryptographic proof systems for interactive agents \cite{tool-receipts}. The present paper adopts that general intuition, but evaluates it at the level of exported run bundles, review logic, and controlled architectural ablations.
 
-\begin{itemize}
-  \item runtime logging, tracing, and callback-based observability;
-  \item provenance, accountable workflows, and audit-receipt style exports;
-  \item agent and workflow runtimes that expose task histories but not full evidence bundles.
-\end{itemize}
-
-With those references in place, the paper's positioning claim is straightforward: observability surfaces and audit surfaces overlap, but they are not interchangeable, and agentic systems need an explicit bridge between them.
+Relative to these strands, the claim of this paper is modest. Observability surfaces, provenance models, and policy engines each solve part of the problem, but they do not automatically yield an evidence bundle that a third party can inspect without reconstructing the original runtime context. The proposed architecture is intended as that missing bridge, not as a replacement for tracing, provenance, or policy tooling.

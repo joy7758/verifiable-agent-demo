@@ -10,7 +10,7 @@ This directory contains the English LaTeX manuscript draft for the execution-evi
 - `tables/`: generated LaTeX table fragments
 - `figures/`: reserved for future verified figures
 - `scripts/generate_tables.py`: regenerates table fragments from repository JSON summaries
-- `refs.bib`: placeholder bibliography file with TODO notes only
+- `refs.bib`: verified minimum bibliography skeleton used by the current draft
 
 ## Compile
 
@@ -46,5 +46,5 @@ python3 scripts/generate_tables.py
 ## Notes
 
 - The manuscript is grounded in the current checked-in repository state.
-- No external citations have been invented. Related-work citation TODOs remain in comments until references are verified.
-- No figures are currently shipped; add only verified figures that match the repository implementation and outputs.
+- The bibliography now contains a small set of verified references from official standards, official framework documentation, and primary papers. It is still intentionally minimal and should be expanded before submission.
+- Figures should continue to match the repository implementation and outputs; the current architecture figure is generated directly in LaTeX.

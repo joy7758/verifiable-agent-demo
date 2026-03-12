@@ -20,7 +20,7 @@ We define the architecture as a five-stage evidence chain:
 \end{enumerate}
 
 \paragraph{Persona projection.}
-Persona projection provides the runtime-facing identity context of the acting system. In the current repository it functions as an entry-stage semantic anchor rather than as a separate evaluation target. The architecture needs a notion of who or what is acting, even when the downstream evidence metrics focus on later stages.
+Persona projection provides the runtime-facing identity context of the acting system. In the current repository it functions as an entry-stage semantic anchor rather than as a separate evaluation target. The architecture needs a notion of who or what is acting, even when the downstream evidence metrics focus on later stages. If a deployment omits persona-level semantics, the remaining four stages still define the operational evidence contract evaluated here; persona projection is retained because accountability-oriented review still benefits from an explicit actor boundary.
 
 \paragraph{Intent/action/result objects.}
 Intent, action, and result objects convert a run from an implicit event sequence into structured semantics. The intent object captures the declared goal and expected artifact surface before execution. The action object records the operational step together with authorization-relevant context. The result object captures terminal state, including successful completion, policy blocking, and tamper-detected outcomes.
@@ -34,9 +34,32 @@ The integrity layer records whether the execution path was checked for replay-or
 \paragraph{Bounded audit receipt.}
 The bounded receipt is the review-oriented export surface. Unlike a raw trace, it preserves only the fields needed to answer downstream audit questions. The receipt therefore compresses the run into a stable, third-party-facing representation.
 
-Together these stages convert an agent run from framework-specific observability into a portable evidence bundle.
+Together these stages convert an agent run from framework-specific observability into a portable evidence bundle. Figure~\ref{fig:evidence-architecture} summarizes the implemented path and the downstream review surface.
 
-% TODO: add a figure of the five-stage evidence chain and its five exported files.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, align=center, text width=2.05cm, minimum height=1.1cm, fill=blue!5, font=\small},
+  widebox/.style={draw, rounded corners, align=center, text width=4.8cm, minimum height=1.1cm, fill=green!6, font=\small},
+  arr/.style={-{Stealth[length=2mm]}, thick}
+]
+\node[box] (persona) at (0, 0) {Persona\\projection};
+\node[box] (iar) at (2.7, 0) {Intent, action,\\result objects};
+\node[box] (gov) at (5.4, 0) {Governance\\checkpoint};
+\node[box] (integrity) at (8.1, 0) {Execution-integrity\\validation};
+\node[box] (receipt) at (10.8, 0) {Bounded audit\\receipt};
+\node[widebox] (bundle) at (5.4, -2.0) {Stable five-file bundle\\\texttt{intent.json}, \texttt{action.json}, \texttt{result.json}, \texttt{trace.json}, \texttt{receipt.json}};
+\node[widebox] (review) at (5.4, -3.9) {Independent review surface\\intent captured, policy checked, execution verified, receipt exported};
+\draw[arr] (persona) -- (iar);
+\draw[arr] (iar) -- (gov);
+\draw[arr] (gov) -- (integrity);
+\draw[arr] (integrity) -- (receipt);
+\draw[arr] (receipt.south) |- (bundle.east);
+\draw[arr] (bundle) -- (review);
+\end{tikzpicture}
+\caption{Execution evidence architecture as implemented in the repository. The five-stage chain produces a stable five-file bundle that can be consumed by an independent review script.}
+\label{fig:evidence-architecture}
+\end{figure}
 
 \subsection{Reference path}
 
