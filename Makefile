@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: eval-baseline eval-evidence eval-external-baseline eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
+.PHONY: eval-baseline eval-evidence eval-external-baseline eval-framework-pair eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
 
 eval-baseline:
 	$(PYTHON) scripts/run_paper_eval.py --mode baseline
@@ -11,6 +11,11 @@ eval-evidence:
 eval-external-baseline: eval-evidence
 	$(PYTHON) scripts/run_paper_eval.py --mode external_baseline
 	$(PYTHON) scripts/compare_runs.py --modes external_baseline evidence_chain --output-stem external-baseline-summary --title "External Baseline vs Evidence Chain" --description "Generated from actual artifacts comparing a minimal live CrewAI baseline against the full evidence chain." --doc-reference docs/paper_support/external-baseline.md
+
+eval-framework-pair:
+	$(PYTHON) scripts/run_paper_eval.py --mode external_baseline
+	$(PYTHON) scripts/run_paper_eval.py --mode external_evidence_chain
+	$(PYTHON) scripts/compare_runs.py --modes external_baseline external_evidence_chain --output-stem framework-pair-summary --title "Same-Framework Comparison" --description "Generated from actual artifacts comparing a minimal live CrewAI baseline with the same live CrewAI path wrapped by the full evidence chain." --doc-reference docs/paper_support/same-framework-comparison.md
 
 eval-ablation: eval-baseline eval-external-baseline eval-evidence
 	$(PYTHON) scripts/run_paper_eval.py --mode no_intent
@@ -35,4 +40,4 @@ human-review-kit: eval-baseline eval-evidence
 
 paper-eval: eval-baseline eval-evidence review-sample compare
 
-top-journal-pack: paper-eval eval-external-baseline eval-ablation falsification-checks human-review-kit
+top-journal-pack: paper-eval eval-external-baseline eval-framework-pair eval-ablation falsification-checks human-review-kit

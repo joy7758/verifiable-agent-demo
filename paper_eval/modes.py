@@ -18,6 +18,7 @@ class ModeProfile:
     integrity_checked: bool
     receipt_exported: bool
     carries_raw_task_snapshot: bool
+    uses_live_framework: bool
     notes: tuple[str, ...]
 
 
@@ -34,6 +35,7 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=False,
         receipt_exported=False,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Trace-only local control path without persisted intent, governance, integrity, or receipt.",),
     ),
     "external_baseline": ModeProfile(
@@ -48,9 +50,28 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=False,
         receipt_exported=False,
         carries_raw_task_snapshot=True,
+        uses_live_framework=True,
         notes=(
             "Minimal live CrewAI execution with a deterministic local mock LLM.",
             "The exported five-file bundle is still normalized by the paper harness rather than emitted natively by CrewAI.",
+        ),
+    ),
+    "external_evidence_chain": ModeProfile(
+        name="external_evidence_chain",
+        label="Live CrewAI plus evidence chain",
+        trace_style="crewai_wrapped_evidence_chain",
+        framework_label="crewai-live-evidence-chain",
+        intent_captured=True,
+        policy_checked=True,
+        policy_enforced=True,
+        policy_visible=True,
+        integrity_checked=True,
+        receipt_exported=True,
+        carries_raw_task_snapshot=False,
+        uses_live_framework=True,
+        notes=(
+            "Minimal live CrewAI execution wrapped by the full evidence chain.",
+            "The same live framework path is preserved, but intent, governance, integrity, and receipt layers are exported by the harness.",
         ),
     ),
     "no_intent": ModeProfile(
@@ -65,6 +86,7 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=True,
         receipt_exported=True,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Ablation mode removes the explicit intent object while preserving other evidence-chain layers.",),
     ),
     "no_governance": ModeProfile(
@@ -79,6 +101,7 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=True,
         receipt_exported=True,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Ablation mode removes policy persistence and enforcement while leaving other layers in place.",),
     ),
     "no_integrity": ModeProfile(
@@ -93,6 +116,7 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=False,
         receipt_exported=True,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Ablation mode removes digest/checkpoint verification while preserving intent, governance, and receipt.",),
     ),
     "no_receipt": ModeProfile(
@@ -107,6 +131,7 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=True,
         receipt_exported=False,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Ablation mode keeps execution evidence but suppresses the bounded audit receipt export.",),
     ),
     "evidence_chain": ModeProfile(
@@ -121,15 +146,18 @@ MODE_PROFILES: dict[str, ModeProfile] = {
         integrity_checked=True,
         receipt_exported=True,
         carries_raw_task_snapshot=False,
+        uses_live_framework=False,
         notes=("Full intent, governance, integrity, and receipt chain.",),
     ),
 }
 
 DEFAULT_COMPARISON_MODES = ["baseline", "evidence_chain"]
 EXTERNAL_COMPARISON_MODES = ["external_baseline", "evidence_chain"]
+FRAMEWORK_PAIR_MODES = ["external_baseline", "external_evidence_chain"]
 TOP_JOURNAL_MODES = [
     "baseline",
     "external_baseline",
+    "external_evidence_chain",
     "no_intent",
     "no_governance",
     "no_integrity",

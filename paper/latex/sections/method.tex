@@ -93,13 +93,16 @@ Each task specification records a task identifier, category, title, goal, input 
 
 \subsection{Experimental conditions}
 
-We evaluate seven conditions:
+We evaluate eight conditions:
 
 \paragraph{Baseline.}
 The baseline is a local trace-oriented path with minimal evidence semantics. It approximates trace-only export without explicit intent capture, governance persistence, integrity validation, or bounded receipts.
 
 \paragraph{External baseline.}
 The external baseline is a minimal live CrewAI execution path driven by a deterministic local mock LLM. It preserves framework-native evidence such as agent initialization, task construction, crew kickoff, and task completion, but it still does not claim live end-to-end governance, integrity, or receipt support. The five exported files remain normalized by the paper harness so that the review contract stays comparable across conditions.
+
+\paragraph{Same-framework wrapped path.}
+The paired same-framework condition uses the same live CrewAI execution helper as the external baseline, but wraps that path with explicit intent capture, governance persistence, integrity validation, and bounded receipt export. In the implementation this mode is named \texttt{external\_evidence\_chain}. Its role is to isolate the effect of the evidence layer while keeping the live runtime fixed.
 
 \paragraph{Evidence chain.}
 The evidence-chain condition is the full proposed architecture, including explicit intent capture, policy persistence, integrity validation, and bounded receipt export.

@@ -9,6 +9,7 @@ The comparison step consumes actual generated artifacts and emits:
 Additional comparison products use the same scoring engine:
 
 - `docs/paper_support/external-baseline-summary.md`
+- `docs/paper_support/framework-pair-summary.md`
 - `docs/paper_support/ablation-summary.md`
 - matching CSV and JSON files
 

@@ -119,6 +119,52 @@ Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayabilit
 """
 
 
+def framework_pair_table() -> str:
+    modes = load_modes("framework-pair-summary.json")
+    order = ["external_baseline", "external_evidence_chain"]
+    labels = {
+        "external_baseline": "CrewAI baseline",
+        "external_evidence_chain": "CrewAI + evidence chain",
+    }
+    rows = []
+    for mode in order:
+      entry = modes[mode]
+      rows.append(
+          "    {label} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} & {explicitness} & {replayability} & {tamper} & {audit} & {integration} \\\\".format(
+              label=labels[mode],
+              intent=entry["intent_captured_true"],
+              policy=entry["policy_checked_true"],
+              verified=entry["execution_verified_true"],
+              receipt=entry["receipt_exported_true"],
+              total=entry["total_tasks"],
+              explicitness=format_score(entry["average_explicitness"]),
+              replayability=format_score(entry["average_replayability"]),
+              tamper=format_score(entry["average_tamper_sensitivity"]),
+              audit=format_score(entry["average_audit_boundedness"]),
+              integration=format_score(entry["average_integration_surface"]),
+          )
+      )
+
+    return r"""
+\begin{table}[t]
+\centering
+\caption{Same-framework comparison under the live CrewAI path. The baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same runtime with the full evidence chain.}
+\label{tab:framework-pair-comparison}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
+\midrule
+""" + "\n".join(rows) + r"""
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+"""
+
+
 def ablation_table() -> str:
     modes = load_modes("ablation-summary.json")
     order = [
@@ -242,6 +288,7 @@ def main() -> None:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     write(TABLES_DIR / "main_comparison.tex", main_table())
     write(TABLES_DIR / "external_comparison.tex", external_table())
+    write(TABLES_DIR / "framework_pair_comparison.tex", framework_pair_table())
     write(TABLES_DIR / "ablation_summary.tex", ablation_table())
     write(TABLES_DIR / "falsification_summary.tex", falsification_table())
 

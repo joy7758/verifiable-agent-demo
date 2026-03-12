@@ -1,0 +1,3 @@
+mode,total_tasks,intent_captured_true,policy_checked_true,execution_verified_true,receipt_exported_true,overall_pass_or_policy_blocked,average_explicitness,average_replayability,average_tamper_sensitivity,average_audit_boundedness,average_integration_surface
+external_baseline,16,0,0,0,0,0,1.0,4.0,0.0,2.0,1.0
+external_evidence_chain,16,16,16,11,16,14,5.0,5.0,4.81,5.0,5.0

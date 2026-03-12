@@ -51,6 +51,7 @@ RUN_MODE_HOURS = {
     "no_integrity": 4,
     "no_receipt": 5,
     "evidence_chain": 6,
+    "external_evidence_chain": 7,
 }
 
 

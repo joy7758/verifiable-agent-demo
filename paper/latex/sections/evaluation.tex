@@ -22,6 +22,7 @@ The repository currently supports the following relevant workflows:
 \begin{itemize}
   \item \texttt{make paper-eval},
   \item \texttt{make eval-external-baseline},
+  \item \texttt{make eval-framework-pair},
   \item \texttt{make eval-ablation},
   \item \texttt{make top-journal-pack}.
 \end{itemize}
@@ -37,10 +38,11 @@ The core automated comparisons are:
 \begin{itemize}
   \item \textbf{baseline} versus \textbf{evidence\_chain},
   \item \textbf{external\_baseline} versus \textbf{evidence\_chain},
+  \item \textbf{external\_baseline} versus \textbf{external\_evidence\_chain} under the same live CrewAI path,
   \item a seven-mode comparison across baseline, external baseline, four ablations, and the evidence chain.
 \end{itemize}
 
-The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a minimal live framework logging surface closes the same gap. The ablation study asks whether removing any one stage causes interpretable degradation.
+The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a minimal live framework logging surface closes the same gap. The paired same-framework comparison asks whether preserving the framework runtime while adding the evidence layer changes the review surface. The ablation study asks whether removing any one stage causes interpretable degradation.
 
 \subsection{Outcome interpretation}
 

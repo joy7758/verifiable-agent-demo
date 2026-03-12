@@ -17,6 +17,14 @@ Table~\ref{tab:external-comparison} compares the minimal live CrewAI baseline wi
 
 This comparison only partially addresses the straw-baseline concern. Because the baseline is a minimal live integration rather than a full production benchmark, the result should be read as evidence that a framework-native default logging surface still leaves major evidence gaps by default, not as a definitive benchmark against every production framework.
 
+\subsection{Same-framework paired comparison}
+
+Table~\ref{tab:framework-pair-comparison} tightens the external-baseline argument by keeping the live runtime fixed. Both modes use the same deterministic CrewAI helper, but only one of them wraps that execution path with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
+
+\input{tables/framework_pair_comparison}
+
+The paired result is stark. The default CrewAI-shaped baseline remains at 1.0 explicitness, 4.0 replayability, 0.0 tamper sensitivity, 2.0 audit boundedness, and 1.0 evidence-stage exposure. The wrapped condition rises to 5.0, 5.0, 4.81, 5.0, and 5.0 while preserving the same live runtime path. This does not eliminate all external-validity concerns, because the integration remains minimal and local, but it materially reduces the claim that the paper only wins by comparing a custom local harness against a weaker framework proxy.
+
 \subsection{Ablation results}
 
 Table~\ref{tab:ablation-comparison} summarizes the seven-mode comparison. The ablations show targeted degradation rather than uniform collapse.

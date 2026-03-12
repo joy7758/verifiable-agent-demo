@@ -86,6 +86,7 @@ Primary entry points:
 - `make eval-baseline`
 - `make eval-evidence`
 - `make eval-external-baseline`
+- `make eval-framework-pair`
 - `make eval-ablation`
 - `make falsification-checks`
 - `make human-review-kit`
@@ -101,6 +102,7 @@ Supporting material:
 - [Review Workflow](docs/paper_support/review-workflow.md)
 - [Comparison Workflow](docs/paper_support/comparison-workflow.md)
 - [External Baseline](docs/paper_support/external-baseline.md)
+- [Same-Framework Comparison](docs/paper_support/same-framework-comparison.md)
 - [Ablation Study](docs/paper_support/ablation-study.md)
 - [Human Review Study](docs/paper_support/human-review-study.md)
 - [Falsification Workflow](docs/paper_support/falsification-workflow.md)
@@ -112,6 +114,7 @@ Generated outputs:
 - `docs/paper_support/comparison-summary.csv`
 - `artifacts/metrics/comparison-summary.json`
 - `docs/paper_support/external-baseline-summary.md`
+- `docs/paper_support/framework-pair-summary.md`
 - `docs/paper_support/ablation-summary.md`
 - `docs/paper_support/falsification-summary.md`
 - `artifacts/human_review/synthetic-review-summary.json`

@@ -37,6 +37,7 @@ def run_task(task: dict[str, Any], mode: str) -> Path:
     context = build_run_context(task, profile.name, run_dir)
     policy = evaluate_policy(task, profile.name, context)
     status = determine_status(task, profile.name, policy)
+    attach_live_runtime_if_needed(task, profile.name, context, policy)
 
     intent_payload = build_intent(task, profile.name, context)
     action_payload = build_action(task, profile.name, context, policy)
@@ -79,9 +80,32 @@ def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[st
         "receipt_ref": f"aro://paper-eval/receipts/{run_id}",
         "framework_label": profile.framework_label,
     }
-    if mode == "external_baseline":
-        context["native_runtime"] = run_live_crewai_baseline(task)
     return context
+
+
+def attach_live_runtime_if_needed(task: dict[str, Any], mode: str, context: dict[str, Any], policy: dict[str, Any]) -> None:
+    profile = get_mode_profile(mode)
+    if not profile.uses_live_framework:
+        return
+    if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
+        context["native_runtime"] = {
+            "framework": "CrewAI",
+            "live_framework": False,
+            "agent_role": "paper evaluation agent",
+            "task_description": task["title"],
+            "result_text": "",
+            "events": [
+                {"step": "crewai_agent_initialized", "detail": "paper evaluation agent"},
+                {"step": "crewai_policy_blocked", "detail": policy["status"]},
+            ],
+            "native_surface": {
+                "framework": "CrewAI",
+                "blocked_before_kickoff": True,
+                "policy_status": policy["status"],
+            },
+        }
+        return
+    context["native_runtime"] = run_live_crewai_baseline(task)
 
 
 def run_live_crewai_baseline(task: dict[str, Any]) -> dict[str, Any]:
@@ -338,8 +362,10 @@ def build_trace(
     )
     integrity = build_integrity(task, mode, status, policy, subject_digests, context["run_id"])
 
-    if mode == "external_baseline":
+    if profile.uses_live_framework and not profile.policy_checked:
         steps = build_external_baseline_steps(task, mode, context, status)
+    elif profile.uses_live_framework:
+        steps = build_framework_wrapped_steps(task, mode, context, policy, status)
     else:
         steps = [
             {"step": "task_loaded", "at": stable_timestamp(context["task_id"], mode, 0), "detail": task["title"]},
@@ -543,6 +569,32 @@ def build_external_baseline_steps(
                 "detail": event["detail"],
             }
         )
+    return steps
+
+
+def build_framework_wrapped_steps(
+    task: dict[str, Any], mode: str, context: dict[str, Any], policy: dict[str, Any], status: str
+) -> list[dict[str, str]]:
+    native_runtime = context.get("native_runtime", {})
+    steps = [
+        {"step": "intent_persisted", "at": stable_timestamp(context["task_id"], mode, 0), "detail": task["title"]},
+        {"step": "policy_evaluated", "at": stable_timestamp(context["task_id"], mode, 1), "detail": policy["status"]},
+    ]
+    for index, event in enumerate(native_runtime.get("events") or [], start=2):
+        steps.append(
+            {
+                "step": event["step"],
+                "at": stable_timestamp(context["task_id"], mode, index),
+                "detail": event["detail"],
+            }
+        )
+    steps.append(
+        {
+            "step": "integrity_evaluated",
+            "at": stable_timestamp(context["task_id"], mode, len(steps)),
+            "detail": status,
+        }
+    )
     return steps
 
 

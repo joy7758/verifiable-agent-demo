@@ -1,0 +1,18 @@
+
+\begin{table}[t]
+\centering
+\caption{Same-framework comparison under the live CrewAI path. The baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same runtime with the full evidence chain.}
+\label{tab:framework-pair-comparison}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
+\midrule
+    CrewAI baseline & 0/16 & 0/16 & 0/16 & 0/16 & 1.0 & 4.0 & 0.0 & 2.0 & 1.0 \\
+    CrewAI + evidence chain & 16/16 & 16/16 & 11/16 & 16/16 & 5.0 & 5.0 & 4.81 & 5.0 & 5.0 \\
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

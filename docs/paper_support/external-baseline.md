@@ -34,3 +34,8 @@ Generated comparison outputs:
 - `docs/paper_support/external-baseline-summary.md`
 - `docs/paper_support/external-baseline-summary.csv`
 - `artifacts/metrics/external-baseline-summary.json`
+
+Paired same-framework path:
+
+- The repository also supports `external_evidence_chain`, which uses the same live CrewAI runtime helper while exporting the full evidence chain around that execution path.
+- Compare the two with `make eval-framework-pair`.
