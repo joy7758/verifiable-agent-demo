@@ -1,13 +1,13 @@
 
 \begin{table}[t]
 \centering
-\caption{Trace-oriented baseline versus full evidence chain. Counts report positive bundle-review verdicts across the 16-task suite; scores are average rule-based metrics on a 0--5 scale.}
+\caption{Trace-oriented baseline versus full evidence chain. Counts report positive bundle-review verdicts across the 16-task suite; scores are average rule-based metrics on a 0--5 scale. The evidence-chain condition includes 11 verified successful executions, 3 policy-blocked reviewable outcomes, and 2 tamper-detected reviewable outcomes.}
 \label{tab:main-comparison}
 \small
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lccccccccc}
 \toprule
-Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Integration \\
+Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
 \midrule
     Baseline & 0/16 & 0/16 & 0/16 & 0/16 & 1.0 & 3.0 & 0.0 & 2.0 & 1.0 \\
     Evidence chain & 16/16 & 16/16 & 11/16 & 16/16 & 5.0 & 5.0 & 4.81 & 5.0 & 5.0 \\

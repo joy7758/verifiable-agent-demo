@@ -7,7 +7,7 @@ The evaluation asks whether execution evidence should be treated as a distinct s
 
 \subsection{Repository-grounded setup}
 
-All measurements in this draft come from the checked-in repository state. The harness is implemented in \repo{} and exercised through the top-level make targets documented in the repository \texttt{README}. The evaluation sources are:
+All measurements in this draft come from the checked-in artifact package. The harness is exercised through the top-level make targets documented in the accompanying artifact notes. The evaluation sources are:
 
 \begin{itemize}
   \item the 16-task suite under \texttt{evaluation/tasks/},
@@ -41,13 +41,15 @@ The core automated comparisons are:
   \item a seven-mode comparison across baseline, external baseline, four ablations, and the evidence chain.
 \end{itemize}
 
-The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a framework-style default logging surface closes the same gap. The ablation study asks whether removing any one stage causes interpretable degradation.
+The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a framework-shaped default logging surface closes the same gap. The ablation study asks whether removing any one stage causes interpretable degradation.
 
 \subsection{Outcome interpretation}
 
 The review script distinguishes among several outcome classes. A run may be marked \emph{pass} when all four evidence questions are satisfied, \emph{policy\_blocked} when a budget or approval checkpoint blocks the task but still leaves reviewable evidence, \emph{tamper\_detected} when the integrity layer detects mismatch, or \emph{partial} when one or more evidence-chain capabilities are missing.
 
-This outcome model is important because it treats blocked and tampered runs as first-class results. In the full evidence chain, the repository summaries show 11 completed and review-passing runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite.
+This outcome model is important because it treats blocked and tampered runs as first-class results. In the full evidence chain, the artifact summaries show 11 completed and review-passing runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite. Table~\ref{tab:worked-example} gives a worked example from a policy-blocked bundle to show how a non-success outcome remains independently reviewable.
+
+\input{tables/worked_example}
 
 \subsection{Human-review procedure}
 

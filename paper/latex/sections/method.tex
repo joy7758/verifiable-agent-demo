@@ -63,7 +63,7 @@ Together these stages convert an agent run from framework-specific observability
 
 \subsection{Reference path}
 
-The architecture is instantiated in the \repo{} repository as a composable reference path. The implementation reuses concepts and naming from adjacent repositories, but keeps the evaluation logic centered in a deterministic local harness. This choice reduces hidden dependencies and makes every condition reproducible from checked-in task specifications and scripts.
+The architecture is instantiated in an artifact package omitted here for double-blind review as a composable reference path. The implementation reuses concepts and naming from adjacent repositories, but keeps the evaluation logic centered in a deterministic local harness. This choice reduces hidden dependencies and makes every condition reproducible from checked-in task specifications and scripts.
 
 For every task run, the harness exports exactly five JSON files:
 
@@ -99,7 +99,7 @@ We evaluate seven conditions:
 The baseline is a local trace-oriented path with minimal evidence semantics. It approximates trace-only export without explicit intent capture, governance persistence, integrity validation, or bounded receipts.
 
 \paragraph{External baseline.}
-The external baseline is a lightweight CrewAI-like native logging baseline implemented as a deterministic local adapter. It preserves a framework-style evidence surface based on agent initialization, task dispatch, callbacks, and task completion, but it does not claim live end-to-end CrewAI governance or receipt support.
+The external baseline is a framework-shaped default observability approximation implemented as a deterministic local adapter. It preserves a framework-style evidence surface based on agent initialization, task dispatch, callbacks, and task completion, but it does not claim live end-to-end governance or receipt support.
 
 \paragraph{Evidence chain.}
 The evidence-chain condition is the full proposed architecture, including explicit intent capture, policy persistence, integrity validation, and bounded receipt export.
@@ -128,7 +128,7 @@ We compare conditions using five deterministic, rule-based metrics derived from 
   \item \textbf{replayability}: whether the run preserves enough structure for replay-oriented checking;
   \item \textbf{tamper sensitivity}: whether integrity-relevant violations appear as explicit outcomes;
   \item \textbf{audit boundedness}: whether the review surface is compact and purpose-oriented;
-  \item \textbf{integration surface}: how completely the harness exposes the intended evidence stages.
+  \item \textbf{evidence-stage exposure}: how completely the harness exposes the intended evidence stages (repository field name: \texttt{integration\_surface}).
 \end{itemize}
 
 Some parts of these metrics are directly measurable from the exported fields, while others are scored by transparent 0--5 rules documented in the repository. The method does not report semantic-quality scores or invented empirical values.

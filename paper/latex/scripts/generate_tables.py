@@ -56,13 +56,13 @@ def main_table() -> str:
     return r"""
 \begin{table}[t]
 \centering
-\caption{Trace-oriented baseline versus full evidence chain. Counts report positive bundle-review verdicts across the 16-task suite; scores are average rule-based metrics on a 0--5 scale.}
+\caption{Trace-oriented baseline versus full evidence chain. Counts report positive bundle-review verdicts across the 16-task suite; scores are average rule-based metrics on a 0--5 scale. The evidence-chain condition includes 11 verified successful executions, 3 policy-blocked reviewable outcomes, and 2 tamper-detected reviewable outcomes.}
 \label{tab:main-comparison}
 \small
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lccccccccc}
 \toprule
-Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Integration \\
+Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
 \midrule
 """ + "\n".join(rows) + r"""
 \\
@@ -102,13 +102,13 @@ def external_table() -> str:
     return r"""
 \begin{table}[t]
 \centering
-\caption{CrewAI-like external baseline versus the full evidence chain. The external baseline preserves a richer default execution surface than the local trace baseline, but does not add explicit evidence-chain semantics.}
+\caption{Framework-shaped external baseline versus the full evidence chain. The external baseline preserves a richer default execution surface than the local trace baseline, but does not add explicit evidence-chain semantics.}
 \label{tab:external-comparison}
 \small
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lccccccccc}
 \toprule
-Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Integration \\
+Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
 \midrule
 """ + "\n".join(rows) + r"""
 \\
@@ -167,7 +167,7 @@ def ablation_table() -> str:
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lccccccccc}
 \toprule
-Mode & Explicitness & Replayability & Tamper & Audit & Integration & Intent & Policy & Exec.\ verified & Receipt \\
+Mode & Explicitness & Replayability & Tamper & Audit & Stage exposure & Intent & Policy & Exec.\ verified & Receipt \\
 \midrule
 """ + "\n".join(rows) + r"""
 \\

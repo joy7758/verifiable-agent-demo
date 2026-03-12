@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Worked bundle example from task-010, a budget-blocked run that remains independently reviewable.}
+\label{tab:worked-example}
+\small
+\begin{tabularx}{\linewidth}{>{\ttfamily}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+File & Key field/value & Review role \\
+\midrule
+\textnormal{intent.json} & \texttt{intent.goal =} ``Trigger a deterministic budget overflow \ldots'' & Captures pre-execution intent before any policy decision. \\
+\textnormal{action.json} & \texttt{authorization\_state = blocked\_budget} & Persists the governance verdict as an explicit authorization outcome. \\
+\textnormal{result.json} & \texttt{status = blocked\_budget} & Records the terminal state as policy-blocked rather than missing. \\
+\textnormal{trace.json} & \texttt{integrity.verification\_status = skipped\_by\_policy} & Distinguishes a reviewable non-execution outcome from a verified completion. \\
+\textnormal{receipt.json} & \texttt{questions\_answered} maps intent, authorization, execution, and evidence & Exports a bounded review surface even though execution was blocked. \\
+\bottomrule
+\end{tabularx}
+\end{table}

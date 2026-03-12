@@ -1,4 +1,5 @@
 \section{Related Work}
+\label{sec:related-work}
 
 This work sits at the intersection of runtime observability, provenance and audit modeling, policy enforcement, and agent-framework execution tooling. The paper does not attempt to replace those lines of work. Instead, it argues that agentic software systems need an additional bridge layer that turns runtime traces into bounded evidence bundles for independent review.
 
@@ -8,4 +9,4 @@ Provenance research emphasizes lineage, responsibility, and reproducibility acro
 
 Policy systems show that authorization can be externalized and made explicit. Open Policy Agent is a widely used example of policy-as-code infrastructure \cite{opa}. Recent receipt-oriented work also argues that lightweight execution receipts can offer a practical middle ground between unstructured logs and heavyweight cryptographic proof systems for interactive agents \cite{tool-receipts}. The present paper adopts that general intuition, but evaluates it at the level of exported run bundles, review logic, and controlled architectural ablations.
 
-Relative to these strands, the claim of this paper is modest. Observability surfaces, provenance models, and policy engines each solve part of the problem, but they do not automatically yield an evidence bundle that a third party can inspect without reconstructing the original runtime context. The proposed architecture is intended as that missing bridge, not as a replacement for tracing, provenance, or policy tooling.
+Relative to these strands, the claim of this paper is modest. Observability surfaces, provenance models, and policy engines each solve part of the problem, but they do not automatically yield a bounded review bundle that a third party can inspect without reconstructing the original runtime context. The operational novelty claimed here is therefore not telemetry, provenance, or policy evaluation in isolation; it is the combination of a stable five-file review bundle, a four-question independent review contract, and a controlled ablation study that separates the stages. The proposed architecture is intended as that bridge, not as a replacement for tracing, provenance, or policy tooling.

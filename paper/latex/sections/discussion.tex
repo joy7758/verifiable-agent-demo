@@ -18,7 +18,7 @@ The metrics are evidence-shape metrics rather than semantic task-quality metrics
 The harness is deterministic and local. That improves reproducibility, but it also means that the system does not exercise the nondeterminism, service failures, and integration drift of production agent stacks.
 
 \paragraph{External validity.}
-The external baseline is a lightweight CrewAI-like adapter, not a deep live integration. This makes the comparison reproducible and honest, but it limits how far the result can be generalized to all framework-native logging surfaces.
+The external baseline is a framework-shaped observability approximation, not a deep live integration. This makes the comparison reproducible and honest, but it limits how far the result can be generalized to all framework-native logging surfaces.
 
 \paragraph{Human-review validity.}
 The current human-review workflow is a blinded kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not yet support claims about reviewer performance, statistical significance, or organizational adoption.
@@ -27,7 +27,7 @@ The current human-review workflow is a blinded kit plus a synthetic smoke test. 
 The harness includes explicit tamper scenarios, but these are still repository-defined conditions rather than open-ended adversarial campaigns. Future work should add hidden field omission, receipt forgery, cross-run replay mismatch, and policy-bypass cases that test whether the review logic itself can fail under pressure.
 
 \paragraph{Architectural scope of persona projection.}
-Persona projection is the least validated stage in the current implementation. It is retained because a review bundle still needs an actor boundary, but the present experiments do not establish an independent causal effect of persona semantics. A future revision should either evaluate this layer directly or collapse the operational claim to the latter four stages.
+Persona projection is the least validated stage in the current implementation. It is retained because a review bundle still needs an actor boundary, but the present experiments do not establish an independent causal effect of persona semantics. For that reason, the paper's operational claim is intentionally narrower than the full five-stage architecture: the controlled evidence evaluation directly supports the latter four stages.
 
 \subsection{Implications for software engineering}
 

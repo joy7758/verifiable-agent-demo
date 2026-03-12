@@ -3,15 +3,15 @@
 
 \subsection{Baseline versus full evidence chain}
 
-Table~\ref{tab:main-comparison} reports the main baseline comparison. The full evidence chain improves every measured dimension over the trace-oriented baseline. Intent capture, policy checking, and receipt export all move from zero observed positive reviews in the baseline to 16 of 16 tasks in the evidence chain. Execution verification rises from 0 of 16 to 11 of 16 because the remaining five tasks are intentionally represented as three policy-blocked outcomes and two tamper-detected outcomes rather than as successful verified completions.
+Table~\ref{tab:main-comparison} reports the main baseline comparison. The full evidence chain improves every measured dimension over the trace-oriented baseline. Intent capture, policy checking, and receipt export all move from zero observed positive reviews in the baseline to 16 of 16 tasks in the evidence chain. The repository metric records \emph{execution verified} as 11 of 16, but that count should be read in two layers: among the 13 runs that reached the execution stage, 11 completed with verification success and 2 ended as explicit tamper-detected outcomes; the remaining 3 tasks are reviewable policy-blocked outcomes rather than missing bundles.
 
 \input{tables/main_comparison}
 
-The metric changes are large. Average explicitness rises from 1.0 to 5.0, replayability from 3.0 to 5.0, tamper sensitivity from 0.0 to 4.81, audit boundedness from 2.0 to 5.0, and integration surface from 1.0 to 5.0. This pattern supports the central claim of the paper: the full evidence chain is not merely a richer trace, but a different review surface.
+The metric changes are large. Average explicitness rises from 1.0 to 5.0, replayability from 3.0 to 5.0, tamper sensitivity from 0.0 to 4.81, audit boundedness from 2.0 to 5.0, and evidence-stage exposure from 1.0 to 5.0. This pattern supports the paper's narrower claim: within a stable exported-bundle contract, the evidence-chain surface preserves review questions that the trace-oriented surface does not explicitly retain.
 
 \subsection{External baseline comparison}
 
-Table~\ref{tab:external-comparison} compares the CrewAI-like external baseline with the full evidence chain. The external baseline improves replayability relative to the local baseline, reaching an average score of 4.0, because the framework-style adapter preserves a somewhat richer default execution surface. However, it leaves explicit intent capture, policy persistence, integrity verification, and receipt export absent. As a result, explicitness, tamper sensitivity, audit boundedness, and integration surface remain at 1.0, 0.0, 2.0, and 1.0 respectively.
+Table~\ref{tab:external-comparison} compares the framework-shaped external baseline with the full evidence chain. The external baseline improves replayability relative to the local baseline, reaching an average score of 4.0, because the adapter preserves a somewhat richer default execution surface. However, it leaves explicit intent capture, policy persistence, integrity verification, and receipt export absent. As a result, explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure remain at 1.0, 0.0, 2.0, and 1.0 respectively.
 
 \input{tables/external_comparison}
 
@@ -23,12 +23,10 @@ Table~\ref{tab:ablation-comparison} summarizes the seven-mode comparison. The ab
 
 \input{tables/ablation_summary}
 
-Removing intent capture lowers explicitness from 5.0 to 3.0 and integration surface from 5.0 to 4.0, while leaving policy, integrity, and receipt behaviors mostly intact. Removing governance lowers explicitness to 2.0, eliminates all positive policy-checked reviews, and changes the task suite behavior by allowing formerly blocked tasks to complete, while tamper sensitivity remains high because integrity checks are still present. Removing integrity leaves explicitness and audit boundedness at evidence-chain levels, but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
+Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0, while leaving policy, integrity, and receipt behaviors mostly intact. Removing governance lowers explicitness to 2.0, eliminates all positive policy-checked reviews, and changes the task suite behavior by allowing formerly blocked tasks to complete, while tamper sensitivity remains high because integrity checks are still present. Removing integrity leaves explicitness and audit boundedness at evidence-chain levels, but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
 
 Taken together, the ablations indicate that each stage contributes a distinct review function. The evidence chain therefore behaves as a layered architecture rather than as a single monolithic switch.
 
-\subsection{Human-review kit observations}
+\subsection{Human-review scaffold}
 
-The repository's human-review result is currently a synthetic smoke test rather than a real reviewer study, so it should be interpreted as a workflow check, not as a behavioral claim about human subjects. The synthetic summary covers eight blinded bundle reviews, split evenly between baseline and evidence-chain conditions. In that synthetic example, both conditions reach question accuracy 0.9375, mean confidence 3.5, and the only recurring error class is execution verification. Mean review time is 117.5 seconds for baseline bundles and 161.5 seconds for evidence-chain bundles.
-
-These numbers are not offered as empirical user-study findings. They show only that the blinded review workflow, answer key, and summarizer operate end to end, and that execution verification is a plausible stress point for future human evaluation.
+The blinded human-review kit is retained as workflow infrastructure rather than as a main empirical result. Because the checked-in sheet is synthetic, the paper does not use those values as evidence of usability or reviewer performance. We therefore treat the human-review component as protocol readiness only and defer the smoke-test details to Appendix~\ref{sec:appendix-human-review}.
