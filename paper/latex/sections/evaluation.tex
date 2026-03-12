@@ -23,7 +23,6 @@ The repository currently supports the following relevant workflows:
   \item \texttt{make paper-eval},
   \item \texttt{make eval-external-baseline},
   \item \texttt{make eval-ablation},
-  \item \texttt{make human-review-kit},
   \item \texttt{make top-journal-pack}.
 \end{itemize}
 
@@ -57,8 +56,8 @@ To reduce the risk that the review contract merely accepts the repository's own 
 
 The first two scenarios are rebound so that the bundle stays internally consistent except for the targeted capability. The latter three intentionally exercise the strengthened review logic, which now recomputes bundle identity consistency and digest bindings rather than trusting stored status fields. These negative controls are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can fail meaningfully.
 
-\subsection{Human-review procedure}
+\subsection{Appendix-only reviewer workflow}
 
-The blinded human-review kit packages eight sample bundles, reviewer instructions, a blank CSV review sheet, and an answer key used only by the summarizer. Reviewers inspect five JSON files per bundle and answer the same four questions used by the automated review script, while recording confidence and time spent. The repository includes a synthetic example sheet and synthetic summary outputs so that the workflow can be smoke-tested end to end.
+The artifact package also includes a blinded reviewer workflow, but the current manuscript does not treat it as part of the main empirical evaluation. Its checked-in outputs are synthetic smoke-test artifacts rather than human-subject results, so we confine it to the appendix and use it only as reproducibility scaffolding.
 
 % TODO: add a compact study-design figure if a final venue benefits from one.

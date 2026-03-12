@@ -20,8 +20,8 @@ The harness is deterministic and local. That improves reproducibility, but it al
 \paragraph{External validity.}
 The external baseline is a minimal live CrewAI integration, not a full production benchmark. This makes the comparison stronger than a pure shape-mimic baseline, but it still limits how far the result can be generalized to all framework-native logging surfaces.
 
-\paragraph{Human-review validity.}
-The current human-review workflow is a blinded kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not yet support claims about reviewer performance, statistical significance, or organizational adoption.
+\paragraph{Appendix-only reviewer workflow.}
+The current blinded reviewer workflow is a kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not support claims about reviewer performance, statistical significance, or organizational adoption. For that reason, the main paper treats it as appendix material rather than as part of the empirical result core.
 
 \paragraph{Adversarial validity.}
 The current revision is stronger than a pure positive-only harness because it now includes repository-defined negative controls: hidden field omission, receipt forgery, payload tampering, and false tamper claims are all derived from previously valid bundles and re-reviewed with the same contract. However, these are still controlled repository scenarios rather than open-ended adversarial campaigns. Future work should add cross-run replay mismatch, policy-bypass attempts against live services, and independently authored malformed bundles that test whether the review logic itself can fail under pressure.
