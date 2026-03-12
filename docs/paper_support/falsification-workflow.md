@@ -28,12 +28,16 @@ Current scenarios:
 - `forged_receipt`: alters one receipt digest after export so that the receipt no longer matches the bundle it claims to summarize.
 - `payload_tamper`: changes the exported result payload after the trace and receipt digests have already been bound.
 - `false_tamper_claim`: declares a tamper outcome without an independently corroborating digest mismatch.
+- `cross_run_replay_mismatch`: swaps in a trace from a different review-passing run while rebinding the receipt to the current bundle.
+- `cross_bundle_receipt_swap`: swaps in a receipt from a different review-passing bundle without updating its artifact digests.
+- `policy_bypass_claim`: rewrites a policy-blocked bundle to claim successful completion while leaving the blocked policy decision in place.
 
 Design intent:
 
-- The source bundles are only the `evidence_chain` runs that the review script already marks as `pass`.
+- Most scenarios derive from the `evidence_chain` runs that the review script already marks as `pass`; `policy_bypass_claim` derives from the reviewable `policy_blocked` runs.
 - Single-surface removals (`missing_intent`, `missing_policy`) are rebound so that the bundle stays internally consistent except for the targeted capability.
-- Tamper-oriented scenarios (`forged_receipt`, `payload_tamper`, `false_tamper_claim`) are designed to show that the review script does more than check field presence.
+- Tamper-oriented and replay-oriented scenarios (`forged_receipt`, `payload_tamper`, `false_tamper_claim`, `cross_run_replay_mismatch`, `cross_bundle_receipt_swap`) are designed to show that the review script does more than check field presence.
+- Policy-result contradiction is tested by `policy_bypass_claim`, which now depends on cross-file coherence checks rather than on digest mismatch alone.
 
 Interpretation rules:
 
@@ -44,6 +48,9 @@ Interpretation rules:
   - `forged_receipt` should clear only `receipt_exported`.
   - `payload_tamper` should break execution verification and receipt verification together.
   - `false_tamper_claim` should be rejected as `partial`, not accepted as a true tamper detection.
+  - `cross_run_replay_mismatch` should clear execution verification while leaving the receipt correctly bound to the mutated bundle.
+  - `cross_bundle_receipt_swap` should clear only `receipt_exported`.
+  - `policy_bypass_claim` should be rejected because the claimed completed result contradicts the persisted blocked policy decision.
 
 Limits:
 

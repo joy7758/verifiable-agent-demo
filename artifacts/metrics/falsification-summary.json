@@ -18,6 +18,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-001"
     },
     {
@@ -37,6 +38,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-002"
     },
     {
@@ -56,6 +58,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-003"
     },
     {
@@ -75,6 +78,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-004"
     },
     {
@@ -94,6 +98,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-005"
     },
     {
@@ -113,6 +118,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-006"
     },
     {
@@ -132,6 +138,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-007"
     },
     {
@@ -151,6 +158,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-008"
     },
     {
@@ -170,6 +178,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-009"
     },
     {
@@ -189,6 +198,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-011"
     },
     {
@@ -208,6 +218,7 @@
       },
       "scenario": "missing_intent",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-013"
     },
     {
@@ -227,6 +238,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-001"
     },
     {
@@ -246,6 +258,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-002"
     },
     {
@@ -265,6 +278,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-003"
     },
     {
@@ -284,6 +298,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-004"
     },
     {
@@ -303,6 +318,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-005"
     },
     {
@@ -322,6 +338,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-006"
     },
     {
@@ -341,6 +358,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-007"
     },
     {
@@ -360,6 +378,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-008"
     },
     {
@@ -379,6 +398,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-009"
     },
     {
@@ -398,6 +418,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-011"
     },
     {
@@ -417,6 +438,7 @@
       },
       "scenario": "missing_policy",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-013"
     },
     {
@@ -437,6 +459,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-001"
     },
     {
@@ -457,6 +480,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-002"
     },
     {
@@ -477,6 +501,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-003"
     },
     {
@@ -497,6 +522,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-004"
     },
     {
@@ -517,6 +543,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-005"
     },
     {
@@ -537,6 +564,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-006"
     },
     {
@@ -557,6 +585,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-007"
     },
     {
@@ -577,6 +606,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-008"
     },
     {
@@ -597,6 +627,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-009"
     },
     {
@@ -617,6 +648,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-011"
     },
     {
@@ -637,6 +669,7 @@
       },
       "scenario": "forged_receipt",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-013"
     },
     {
@@ -660,6 +693,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-001"
     },
     {
@@ -683,6 +717,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-002"
     },
     {
@@ -706,6 +741,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-003"
     },
     {
@@ -729,6 +765,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-004"
     },
     {
@@ -752,6 +789,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-005"
     },
     {
@@ -775,6 +813,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-006"
     },
     {
@@ -798,6 +837,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-007"
     },
     {
@@ -821,6 +861,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-008"
     },
     {
@@ -844,6 +885,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-009"
     },
     {
@@ -867,6 +909,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-011"
     },
     {
@@ -890,6 +933,7 @@
       },
       "scenario": "payload_tamper",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-013"
     },
     {
@@ -910,6 +954,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-001"
     },
     {
@@ -930,6 +975,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-002"
     },
     {
@@ -950,6 +996,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-003"
     },
     {
@@ -970,6 +1017,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-004"
     },
     {
@@ -990,6 +1038,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-005"
     },
     {
@@ -1010,6 +1059,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-006"
     },
     {
@@ -1030,6 +1080,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-007"
     },
     {
@@ -1050,6 +1101,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-008"
     },
     {
@@ -1070,6 +1122,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-009"
     },
     {
@@ -1090,6 +1143,7 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-011"
     },
     {
@@ -1110,7 +1164,648 @@
       },
       "scenario": "false_tamper_claim",
       "source_mode": "evidence_chain",
+      "source_status": "pass",
       "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: verified",
+          "integrity subject digest mismatch for action.json",
+          "integrity subject digest mismatch for intent.json",
+          "integrity subject digest mismatch for result.json",
+          "integrity expected digest mismatch for action.json",
+          "integrity expected digest mismatch for intent.json",
+          "integrity expected digest mismatch for result.json",
+          "trace tool contradicts action request",
+          "trace deterministic seed does not match run_id"
+        ],
+        "mode": "falsified_cross_run_replay_mismatch",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/cross_run_replay_mismatch",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "cross_run_replay_mismatch",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-001"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-002"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-003"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-004"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-005"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-006"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-007"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-008"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-009"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-011"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests",
+          "receipt artifact digest mismatch for intent.json",
+          "receipt artifact digest mismatch for action.json",
+          "receipt artifact digest mismatch for result.json",
+          "receipt artifact digest mismatch for trace.json"
+        ],
+        "mode": "falsified_cross_bundle_receipt_swap",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/cross_bundle_receipt_swap",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "scenario": "cross_bundle_receipt_swap",
+      "source_mode": "evidence_chain",
+      "source_status": "pass",
+      "task_id": "task-013"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "result status contradicts blocked policy decision",
+          "trace execution contradicts blocked policy decision",
+          "integrity status contradicts blocked policy decision",
+          "receipt integrity summary contradicts blocked policy decision",
+          "completed outcome contradicts blocked policy decision"
+        ],
+        "mode": "falsified_policy_bypass_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-010/policy_bypass_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "scenario": "policy_bypass_claim",
+      "source_mode": "evidence_chain",
+      "source_status": "policy_blocked",
+      "task_id": "task-010"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "result status contradicts blocked policy decision",
+          "trace execution contradicts blocked policy decision",
+          "integrity status contradicts blocked policy decision",
+          "receipt integrity summary contradicts blocked policy decision",
+          "completed outcome contradicts blocked policy decision"
+        ],
+        "mode": "falsified_policy_bypass_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-012/policy_bypass_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "scenario": "policy_bypass_claim",
+      "source_mode": "evidence_chain",
+      "source_status": "policy_blocked",
+      "task_id": "task-012"
+    },
+    {
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "result status contradicts blocked policy decision",
+          "trace execution contradicts blocked policy decision",
+          "integrity status contradicts blocked policy decision",
+          "receipt integrity summary contradicts blocked policy decision",
+          "completed outcome contradicts blocked policy decision"
+        ],
+        "mode": "falsified_policy_bypass_claim",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-014/policy_bypass_claim",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "scenario": "policy_bypass_claim",
+      "source_mode": "evidence_chain",
+      "source_status": "policy_blocked",
+      "task_id": "task-014"
     }
   ],
   "scenarios": [
@@ -1123,6 +1818,7 @@
       "policy_checked_true": 11,
       "receipt_exported_true": 11,
       "scenario": "missing_intent",
+      "source_status": "pass",
       "status_counts": {
         "partial": 11
       },
@@ -1138,6 +1834,7 @@
       "policy_checked_true": 0,
       "receipt_exported_true": 11,
       "scenario": "missing_policy",
+      "source_status": "pass",
       "status_counts": {
         "partial": 11
       },
@@ -1153,6 +1850,7 @@
       "policy_checked_true": 11,
       "receipt_exported_true": 0,
       "scenario": "forged_receipt",
+      "source_status": "pass",
       "status_counts": {
         "partial": 11
       },
@@ -1168,6 +1866,7 @@
       "policy_checked_true": 11,
       "receipt_exported_true": 0,
       "scenario": "payload_tamper",
+      "source_status": "pass",
       "status_counts": {
         "partial": 11
       },
@@ -1183,14 +1882,66 @@
       "policy_checked_true": 11,
       "receipt_exported_true": 11,
       "scenario": "false_tamper_claim",
+      "source_status": "pass",
       "status_counts": {
         "partial": 11
       },
       "targeted_failure": "tamper_claim_rejected",
       "total_bundles": 11
+    },
+    {
+      "description": "Replace the trace with one from a different review-passing run while rebinding the receipt to the current bundle.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 11,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 11,
+      "scenario": "cross_run_replay_mismatch",
+      "source_status": "pass",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "execution_verified",
+      "total_bundles": 11
+    },
+    {
+      "description": "Swap in a receipt from a different review-passing bundle without updating its artifact digests.",
+      "detected_bundles": 11,
+      "detection_rate": 1.0,
+      "execution_verified_true": 11,
+      "intent_captured_true": 11,
+      "policy_checked_true": 11,
+      "receipt_exported_true": 0,
+      "scenario": "cross_bundle_receipt_swap",
+      "source_status": "pass",
+      "status_counts": {
+        "partial": 11
+      },
+      "targeted_failure": "receipt_exported",
+      "total_bundles": 11
+    },
+    {
+      "description": "Rewrite a policy-blocked bundle to claim successful completion while leaving the blocked policy decision in place.",
+      "detected_bundles": 3,
+      "detection_rate": 1.0,
+      "execution_verified_true": 3,
+      "intent_captured_true": 3,
+      "policy_checked_true": 3,
+      "receipt_exported_true": 3,
+      "scenario": "policy_bypass_claim",
+      "source_status": "policy_blocked",
+      "status_counts": {
+        "partial": 3
+      },
+      "targeted_failure": "policy_result_consistency",
+      "total_bundles": 3
     }
   ],
-  "source_bundle_count": 11,
   "source_mode": "evidence_chain",
+  "source_status_counts": {
+    "pass": 11,
+    "policy_blocked": 3
+  },
   "title": "Falsification Checks"
 }

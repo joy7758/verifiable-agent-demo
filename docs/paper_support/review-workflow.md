@@ -27,6 +27,7 @@ Decision rules are deterministic and combine field checks with independent bundl
 - `policy_checked` requires `action.json.policy.checked == true` and a persisted decision object.
 - `execution_verified` requires `trace.json.integrity.checked == true`, `verification_status == "verified"`, consistent bundle identity fields, and integrity digests that recompute against the current bundle.
 - `receipt_exported` requires `receipt.json.receipt_exported == true`, the bounded four-artifact digest list, and receipt digests that recompute against the current bundle.
+- The review also checks cross-file coherence, including policy/result consistency, action/result operation consistency, tool consistency, and `trace.execution.deterministic_seed == run_id`.
 
 Expected outcomes:
 

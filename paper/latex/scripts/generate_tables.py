@@ -234,6 +234,9 @@ def falsification_table() -> str:
         "forged_receipt",
         "payload_tamper",
         "false_tamper_claim",
+        "cross_run_replay_mismatch",
+        "cross_bundle_receipt_swap",
+        "policy_bypass_claim",
     ]
     labels = {
         "missing_intent": "Missing intent",
@@ -241,6 +244,13 @@ def falsification_table() -> str:
         "forged_receipt": "Forged receipt",
         "payload_tamper": "Payload tamper",
         "false_tamper_claim": "False tamper claim",
+        "cross_run_replay_mismatch": "Cross-run replay mismatch",
+        "cross_bundle_receipt_swap": "Cross-bundle receipt swap",
+        "policy_bypass_claim": "Policy bypass claim",
+    }
+    source_labels = {
+        "pass": "Pass",
+        "policy_blocked": "Policy-blocked",
     }
     targets = {
         "missing_intent": "Intent",
@@ -248,14 +258,18 @@ def falsification_table() -> str:
         "forged_receipt": "Receipt",
         "payload_tamper": "Execution + receipt",
         "false_tamper_claim": "Tamper claim",
+        "cross_run_replay_mismatch": "Replay chain",
+        "cross_bundle_receipt_swap": "Receipt binding",
+        "policy_bypass_claim": "Policy/result coherence",
     }
     by_name = {entry["scenario"]: entry for entry in data["scenarios"]}
     rows = []
     for scenario in order:
         entry = by_name[scenario]
         rows.append(
-            "    {label} & {target} & {detected}/{total} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} \\\\".format(
+            "    {label} & {source} & {target} & {detected}/{total} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} \\\\".format(
                 label=labels[scenario],
+                source=source_labels.get(entry["source_status"], entry["source_status"].replace("_", "-")),
                 target=targets[scenario],
                 detected=entry["detected_bundles"],
                 total=entry["total_bundles"],
@@ -269,13 +283,13 @@ def falsification_table() -> str:
     return r"""
 \begin{table}[t]
 \centering
-\caption{Negative-control bundle checks derived from the 11 review-passing evidence-chain runs. Each scenario is re-reviewed with the same independent bundle contract used in the main study.}
+\caption{Negative-control bundle checks derived from review-passing and policy-blocked evidence-chain runs. Each scenario is re-reviewed with the same independent bundle contract used in the main study.}
 \label{tab:falsification-summary}
 \small
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lcccccc}
+\begin{tabular}{llcccccc}
 \toprule
-Scenario & Targeted failure & Detected & Intent & Policy & Exec.\ verified & Receipt \\
+Scenario & Source & Targeted failure & Detected & Intent & Policy & Exec.\ verified & Receipt \\
 \midrule
 """ + "\n".join(rows) + r"""
 \\

@@ -97,6 +97,7 @@ def review_run_directory(run_dir: str | Path) -> dict[str, Any]:
     failed_checks.extend(consistency["subject_digest_issues"])
     failed_checks.extend(consistency["expected_digest_issues"])
     failed_checks.extend(consistency["receipt_issues"])
+    failed_checks.extend(consistency["coherence_issues"])
     failed_checks = dedupe_preserve_order(failed_checks)
 
     result_status = result.get("status")
@@ -108,6 +109,7 @@ def review_run_directory(run_dir: str | Path) -> dict[str, Any]:
         and consistency["identity_consistent"]
         and consistency["subject_digests_valid"]
         and consistency["tamper_confirmed"]
+        and consistency["coherence_valid"]
     ):
         overall_status = "tamper_detected"
     elif (
@@ -118,6 +120,7 @@ def review_run_directory(run_dir: str | Path) -> dict[str, Any]:
         and consistency["identity_consistent"]
         and consistency["subject_digests_valid"]
         and consistency["expected_state_valid"]
+        and consistency["coherence_valid"]
     ):
         overall_status = "policy_blocked"
     elif not failed_checks:
@@ -153,6 +156,7 @@ def inspect_bundle(
         trace.get("integrity") or {}, actual_digests
     )
     receipt_issues, receipt_valid = inspect_receipt(receipt, actual_digests)
+    coherence_issues = inspect_coherence(intent, action, result, trace, receipt)
 
     return {
         "identity_consistent": not identity_issues,
@@ -164,6 +168,8 @@ def inspect_bundle(
         "receipt_valid": receipt_valid,
         "receipt_issues": receipt_issues,
         "tamper_confirmed": tamper_confirmed,
+        "coherence_valid": not coherence_issues,
+        "coherence_issues": coherence_issues,
     }
 
 
@@ -268,6 +274,79 @@ def inspect_receipt(receipt: dict[str, Any], actual_digests: dict[str, str]) -> 
     if len(audit_receipt.get("questions_answered") or {}) != 4:
         issues.append("receipt does not answer all four review questions")
     return issues, not issues
+
+
+def inspect_coherence(
+    intent: dict[str, Any],
+    action: dict[str, Any],
+    result: dict[str, Any],
+    trace: dict[str, Any],
+    receipt: dict[str, Any],
+) -> list[str]:
+    issues: list[str] = []
+    action_request = action.get("requested_action") or {}
+    result_outputs = result.get("outputs") or {}
+    simulated_response = result_outputs.get("simulated_response") or {}
+    execution = trace.get("execution") or {}
+    integrity = trace.get("integrity") or {}
+    policy_decision = ((action.get("policy") or {}).get("decision")) or {}
+    receipt_integrity = ((receipt.get("audit_receipt") or {}).get("integrity_summary")) or {}
+
+    action_name = action_request.get("name")
+    result_operation = simulated_response.get("operation")
+    if action_name and result_operation and action_name != result_operation:
+        issues.append("result operation contradicts action request")
+
+    action_tool_ref = action_request.get("tool_ref") or ""
+    action_tool = action_tool_ref.rsplit("/", 1)[-1] if action_tool_ref else None
+    trace_tool_ref = execution.get("tool_ref") or ""
+    trace_tool = trace_tool_ref.rsplit("/", 1)[-1] if trace_tool_ref else None
+    result_tool = simulated_response.get("requested_tool")
+    if action_tool and result_tool and action_tool != result_tool:
+        issues.append("result tool contradicts action request")
+    if action_tool and trace_tool and action_tool != trace_tool:
+        issues.append("trace tool contradicts action request")
+
+    deterministic_seed = execution.get("deterministic_seed")
+    run_id = trace.get("run_id")
+    if deterministic_seed and run_id and deterministic_seed != run_id:
+        issues.append("trace deterministic seed does not match run_id")
+
+    policy_status = policy_decision.get("status")
+    result_status = result.get("status")
+    verification_status = integrity.get("verification_status")
+    receipt_verification_status = receipt_integrity.get("verification_status")
+    execution_performed = execution.get("performed")
+
+    if policy_status in {"blocked_budget", "blocked_approval"}:
+        if result_status != policy_status:
+            issues.append("result status contradicts blocked policy decision")
+        if execution_performed is not False:
+            issues.append("trace execution contradicts blocked policy decision")
+        if integrity.get("checked") and verification_status != "skipped_by_policy":
+            issues.append("integrity status contradicts blocked policy decision")
+        if receipt.get("receipt_exported") and receipt_verification_status != "skipped_by_policy":
+            issues.append("receipt integrity summary contradicts blocked policy decision")
+    elif result_status in {"blocked_budget", "blocked_approval"} and policy_status != result_status:
+        issues.append("blocked result does not match policy decision")
+
+    if result_status == "completed":
+        if policy_status in {"blocked_budget", "blocked_approval"}:
+            issues.append("completed outcome contradicts blocked policy decision")
+        if integrity.get("checked") and verification_status != "verified":
+            issues.append("completed result does not have verified integrity status")
+        if receipt.get("receipt_exported") and receipt_verification_status not in {None, "verified"}:
+            issues.append("receipt integrity summary contradicts completed result")
+
+    if result_status == "tamper_detected":
+        if verification_status != "tamper_detected":
+            issues.append("tamper result is not corroborated by integrity status")
+        if receipt.get("receipt_exported") and receipt_integrity.get("tamper_detected") is not True:
+            issues.append("receipt integrity summary does not corroborate tamper detection")
+        if receipt.get("receipt_exported") and receipt_verification_status not in {None, "tamper_detected"}:
+            issues.append("receipt integrity summary contradicts tamper result")
+
+    return issues
 
 
 def dedupe_preserve_order(items: list[str]) -> list[str]:
