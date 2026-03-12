@@ -1,0 +1,44 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": false,
+  "mode": "evidence_chain",
+  "notes": [
+    "Budget policy would be exceeded.",
+    "Full intent, governance, integrity, and receipt chain."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-010/evidence_chain",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "runtime_surface": "paper-local-evidence-chain",
+    "simulated_response": {
+      "answer": "over budget",
+      "category": "budget_constrained",
+      "estimated_cost_usd": 0.041,
+      "estimated_tokens": 640,
+      "operation": "budgeted_review",
+      "requested_tool": "budget_runner",
+      "status": "blocked_budget",
+      "target": "local://large-run"
+    },
+    "summary": "Blocked by budget policy before execution for Budget overflow review."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-010-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "status": "blocked_budget",
+  "task_id": "task-010"
+}

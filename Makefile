@@ -1,12 +1,23 @@
 PYTHON ?= python3
 
-.PHONY: eval-baseline eval-evidence review-sample compare paper-eval
+.PHONY: eval-baseline eval-evidence eval-external-baseline eval-ablation review-sample compare human-review-kit paper-eval top-journal-pack
 
 eval-baseline:
 	$(PYTHON) scripts/run_paper_eval.py --mode baseline
 
 eval-evidence:
 	$(PYTHON) scripts/run_paper_eval.py --mode evidence_chain
+
+eval-external-baseline: eval-evidence
+	$(PYTHON) scripts/run_paper_eval.py --mode external_baseline
+	$(PYTHON) scripts/compare_runs.py --modes external_baseline evidence_chain --output-stem external-baseline-summary --title "External Baseline vs Evidence Chain" --description "Generated from actual artifacts comparing the CrewAI-like native logging baseline against the full evidence chain." --doc-reference docs/paper_support/external-baseline.md
+
+eval-ablation: eval-baseline eval-external-baseline eval-evidence
+	$(PYTHON) scripts/run_paper_eval.py --mode no_intent
+	$(PYTHON) scripts/run_paper_eval.py --mode no_governance
+	$(PYTHON) scripts/run_paper_eval.py --mode no_integrity
+	$(PYTHON) scripts/run_paper_eval.py --mode no_receipt
+	$(PYTHON) scripts/compare_runs.py --modes baseline external_baseline no_intent no_governance no_integrity no_receipt evidence_chain --output-stem ablation-summary --title "Top-Journal Mode Comparison" --description "Generated from actual artifacts across baseline, external baseline, four ablations, and the full evidence chain." --doc-reference docs/paper_support/ablation-study.md
 
 review-sample: eval-baseline eval-evidence
 	$(PYTHON) scripts/review_bundle.py --run-dir artifacts/runs/task-001/baseline
@@ -15,4 +26,10 @@ review-sample: eval-baseline eval-evidence
 compare: eval-baseline eval-evidence
 	$(PYTHON) scripts/compare_runs.py
 
+human-review-kit: eval-baseline eval-evidence
+	$(PYTHON) scripts/generate_human_review_kit.py
+	$(PYTHON) scripts/summarize_human_review.py --sheet evaluation/human_review/examples/synthetic_review_sheet.csv --output-prefix artifacts/human_review/synthetic-review-summary
+
 paper-eval: eval-baseline eval-evidence review-sample compare
+
+top-journal-pack: paper-eval eval-external-baseline eval-ablation human-review-kit

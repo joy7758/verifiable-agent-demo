@@ -1,0 +1,44 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": true,
+  "mode": "baseline",
+  "notes": [
+    "Baseline mode exports a trace-only bundle without a persisted governance checkpoint.",
+    "Trace-only local control path without persisted intent, governance, integrity, or receipt."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-010/baseline",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "runtime_surface": "paper-local-baseline",
+    "simulated_response": {
+      "answer": "over budget",
+      "category": "budget_constrained",
+      "estimated_cost_usd": 0.041,
+      "estimated_tokens": 640,
+      "operation": "budgeted_review",
+      "requested_tool": "budget_runner",
+      "status": "completed",
+      "target": "local://large-run"
+    },
+    "summary": "Completed deterministic local run for Budget overflow review."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-010-baseline",
+  "schema_version": "paper-eval.v1",
+  "status": "completed",
+  "task_id": "task-010"
+}

@@ -1,0 +1,24 @@
+{
+  "authorization_scope": {
+    "approval_policy_ref": "none",
+    "budget_policy_ref": "budget-none-readonly-v1",
+    "expected_exports": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ]
+  },
+  "file_type": "intent",
+  "intent": null,
+  "intent_captured": false,
+  "mode": "baseline",
+  "notes": [
+    "Trace-only local control path without persisted intent, governance, integrity, or receipt.",
+    "This mode does not persist an explicit intent object."
+  ],
+  "run_id": "task-001-baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

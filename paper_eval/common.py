@@ -15,6 +15,8 @@ REVIEWS_DIR = ROOT_DIR / "artifacts" / "reviews"
 METRICS_DIR = ROOT_DIR / "artifacts" / "metrics"
 PAPER_DOCS_DIR = ROOT_DIR / "docs" / "paper_support"
 SCHEMAS_DIR = ROOT_DIR / "schemas" / "paper_eval"
+HUMAN_REVIEW_DIR = ROOT_DIR / "evaluation" / "human_review"
+HUMAN_REVIEW_ARTIFACTS_DIR = ROOT_DIR / "artifacts" / "human_review"
 
 SCHEMA_VERSION = "paper-eval.v1"
 EXPORTED_FILES = [
@@ -31,6 +33,23 @@ EXPECTED_CATEGORY_COUNTS = {
     "budget_constrained": 3,
     "approval_required": 3,
     "tamper_scenario": 2,
+}
+
+REVIEW_QUESTIONS = [
+    "was_intent_captured",
+    "was_policy_checked",
+    "was_execution_verified",
+    "was_receipt_exported",
+]
+
+RUN_MODE_HOURS = {
+    "baseline": 0,
+    "external_baseline": 1,
+    "no_intent": 2,
+    "no_governance": 3,
+    "no_integrity": 4,
+    "no_receipt": 5,
+    "evidence_chain": 6,
 }
 
 
@@ -67,9 +86,10 @@ def mutate_digest(digest: str) -> str:
 
 def stable_timestamp(task_id: str, mode: str, second_offset: int = 0) -> str:
     task_number = int(task_id.split("-")[-1])
-    mode_offset = 0 if mode == "baseline" else 30
-    second = mode_offset + second_offset
-    return f"2026-03-01T00:{task_number:02d}:{second:02d}Z"
+    hour = RUN_MODE_HOURS.get(mode, 23)
+    minute = task_number
+    second = second_offset
+    return f"2026-03-01T{hour:02d}:{minute:02d}:{second:02d}Z"
 
 
 def relative_to_root(path: Path) -> str:

@@ -12,12 +12,12 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from paper_eval import run_suite
+from paper_eval import list_modes, run_suite
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the paper evaluation harness.")
-    parser.add_argument("--mode", required=True, choices=["baseline", "evidence_chain"])
+    parser.add_argument("--mode", required=True, choices=list_modes())
     parser.add_argument("--task-id", help="Optional single task id.")
     args = parser.parse_args()
 

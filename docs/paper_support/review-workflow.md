@@ -31,6 +31,8 @@ Decision rules are deterministic and based on file presence plus field checks:
 Expected outcomes:
 
 - Baseline runs should typically review as `partial`.
+- External baseline runs should typically review as `partial`.
+- Ablation runs should typically review as `partial`, except where a policy block or tamper detection remains explicit.
 - Evidence-chain runs should review as `pass`, `policy_blocked`, or `tamper_detected`.
 
 Make target:

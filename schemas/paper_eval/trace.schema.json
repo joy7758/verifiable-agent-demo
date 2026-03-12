@@ -29,6 +29,11 @@
       "type": "string",
       "enum": [
         "baseline",
+        "external_baseline",
+        "no_intent",
+        "no_governance",
+        "no_integrity",
+        "no_receipt",
         "evidence_chain"
       ]
     },
@@ -89,6 +94,9 @@
           "type": "string"
         },
         "finished_at": {
+          "type": "string"
+        },
+        "framework": {
           "type": "string"
         }
       }

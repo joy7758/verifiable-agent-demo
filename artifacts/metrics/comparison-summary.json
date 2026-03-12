@@ -1,4 +1,5 @@
 {
+  "description": "Generated from actual artifacts under `artifacts/runs/` using deterministic rule-based scoring.",
   "modes": [
     {
       "average_audit_boundedness": 2.0,
@@ -920,5 +921,6 @@
       },
       "task_id": "task-016"
     }
-  ]
+  ],
+  "title": "Comparison Summary"
 }

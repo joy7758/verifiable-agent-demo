@@ -1,0 +1,48 @@
+{
+  "authorization_state": "blocked_budget",
+  "file_type": "action",
+  "mode": "evidence_chain",
+  "policy": {
+    "approval_policy": {
+      "approval_scope": "budget_window",
+      "approval_token": null,
+      "requires_approval": false
+    },
+    "budget_policy": {
+      "enforcement": "block",
+      "policy_id": "budget-window-small-v1",
+      "token_limit": 500,
+      "usd_limit": 0.03
+    },
+    "checked": true,
+    "checkpoint_id": "governor://paper-eval/checkpoints/task-010-evidence_chain",
+    "decision": {
+      "approval_satisfied": true,
+      "budget_within_limit": false,
+      "estimated_cost_usd": 0.041,
+      "estimated_tokens": 640,
+      "reasons": [
+        "Budget policy would be exceeded."
+      ],
+      "status": "blocked_budget"
+    }
+  },
+  "requested_action": {
+    "name": "budgeted_review",
+    "parameters": {
+      "estimated_cost_usd": 0.041,
+      "estimated_tokens": 640,
+      "expected_answer": "over budget",
+      "operation": "budgeted_review",
+      "requested_tool": "budget_runner",
+      "side_effect_class": "read_only",
+      "target": "local://large-run"
+    },
+    "side_effect_class": "read_only",
+    "summary": "Budget overflow review",
+    "tool_ref": "runtime://paper-eval/budget_runner"
+  },
+  "run_id": "task-010-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-010"
+}

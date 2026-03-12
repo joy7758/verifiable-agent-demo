@@ -85,9 +85,13 @@ Primary entry points:
 
 - `make eval-baseline`
 - `make eval-evidence`
+- `make eval-external-baseline`
+- `make eval-ablation`
+- `make human-review-kit`
 - `make review-sample`
 - `make compare`
 - `make paper-eval`
+- `make top-journal-pack`
 
 Supporting material:
 
@@ -95,6 +99,9 @@ Supporting material:
 - [Export Format](docs/paper_support/export-format.md)
 - [Review Workflow](docs/paper_support/review-workflow.md)
 - [Comparison Workflow](docs/paper_support/comparison-workflow.md)
+- [External Baseline](docs/paper_support/external-baseline.md)
+- [Ablation Study](docs/paper_support/ablation-study.md)
+- [Human Review Study](docs/paper_support/human-review-study.md)
 
 Generated outputs:
 
@@ -102,6 +109,9 @@ Generated outputs:
 - `docs/paper_support/comparison-summary.md`
 - `docs/paper_support/comparison-summary.csv`
 - `artifacts/metrics/comparison-summary.json`
+- `docs/paper_support/external-baseline-summary.md`
+- `docs/paper_support/ablation-summary.md`
+- `artifacts/human_review/synthetic-review-summary.json`
 
 ## Related Repositories
 

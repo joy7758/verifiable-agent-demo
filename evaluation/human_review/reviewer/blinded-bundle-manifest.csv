@@ -1,0 +1,9 @@
+bundle_id,bundle_path,task_focus
+bundle-001,blinded_bundles/bundle-001,read-only control
+bundle-002,blinded_bundles/bundle-002,tool-call control
+bundle-003,blinded_bundles/bundle-003,budget overflow control
+bundle-004,blinded_bundles/bundle-004,tamper control
+bundle-005,blinded_bundles/bundle-005,read-only evidence chain
+bundle-006,blinded_bundles/bundle-006,tool-call evidence chain
+bundle-007,blinded_bundles/bundle-007,budget block evidence chain
+bundle-008,blinded_bundles/bundle-008,tamper-detected evidence chain

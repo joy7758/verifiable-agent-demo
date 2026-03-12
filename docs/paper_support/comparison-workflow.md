@@ -6,10 +6,22 @@ The comparison step consumes actual generated artifacts and emits:
 - `docs/paper_support/comparison-summary.csv`
 - `artifacts/metrics/comparison-summary.json`
 
+Additional comparison products use the same scoring engine:
+
+- `docs/paper_support/external-baseline-summary.md`
+- `docs/paper_support/ablation-summary.md`
+- matching CSV and JSON files
+
 Run it with:
 
 ```bash
 make compare
+```
+
+Or call the generic comparison CLI directly:
+
+```bash
+python3 scripts/compare_runs.py --modes baseline evidence_chain
 ```
 
 Scoring rules are deterministic and rule-based. Each metric is scored on a 0-5 integer scale per run, then averaged per mode.

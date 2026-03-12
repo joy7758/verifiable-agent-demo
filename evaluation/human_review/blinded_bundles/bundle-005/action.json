@@ -1,0 +1,48 @@
+{
+  "authorization_state": "approved",
+  "file_type": "action",
+  "mode": "evidence_chain",
+  "policy": {
+    "approval_policy": {
+      "approval_scope": "none",
+      "approval_token": null,
+      "requires_approval": false
+    },
+    "budget_policy": {
+      "enforcement": "informational",
+      "policy_id": "budget-none-readonly-v1",
+      "token_limit": null,
+      "usd_limit": null
+    },
+    "checked": true,
+    "checkpoint_id": "governor://paper-eval/checkpoints/task-001-evidence_chain",
+    "decision": {
+      "approval_satisfied": true,
+      "budget_within_limit": true,
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "reasons": [
+        "Budget and approval checks passed."
+      ],
+      "status": "approved"
+    }
+  },
+  "requested_action": {
+    "name": "read_local_summary",
+    "parameters": {
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "expected_answer": "Persona, Intent, Governance, Trace, Audit",
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "side_effect_class": "read_only",
+      "target": "README.md"
+    },
+    "side_effect_class": "read_only",
+    "summary": "Summarize architecture path",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "run_id": "task-001-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

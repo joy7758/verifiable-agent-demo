@@ -1,0 +1,73 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T06:10:00Z",
+      "detail": "Budget overflow review",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T06:10:01Z",
+      "detail": "blocked_budget",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T06:10:02Z",
+      "detail": "budgeted_review",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T06:10:03Z",
+      "detail": "blocked_budget",
+      "step": "execution_skipped"
+    },
+    {
+      "at": "2026-03-01T06:10:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-010-evidence_chain",
+    "finished_at": "2026-03-01T06:10:05Z",
+    "framework": "paper-local-evidence-chain",
+    "performed": false,
+    "started_at": "2026-03-01T06:10:00Z",
+    "tool_ref": "runtime://paper-eval/budget_runner"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:a1de5c11edc5cf3cedc2bba5eee55fa6bb5e8ba1d0f2de247078b2f99dd0aa1a",
+      "sha256:27b1d5dc1a8faa56c14643d418822450ec25f8da7cad49c3e3fd80b021dfbab1",
+      "sha256:c676c15e061a4cd5f8f1bf1e563d662eda7f598ad2dbc86c6f371999b615a6fc"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:0ea7c49c5a65fad9408df0c1343494a5fc00df188b544eff7e6fc4d02fec6250",
+      "intent.json": "sha256:1a3fd73baef07e4c41f6de58b87d8b6f05fa1a8d49043e7e8942797cca8cc9e5",
+      "result.json": "sha256:ecb0ea0e1fe351840c84d3f039229c27bc4c491e23dcf9164d0999f308a0dd01"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:0ea7c49c5a65fad9408df0c1343494a5fc00df188b544eff7e6fc4d02fec6250",
+      "intent.json": "sha256:1a3fd73baef07e4c41f6de58b87d8b6f05fa1a8d49043e7e8942797cca8cc9e5",
+      "result.json": "sha256:ecb0ea0e1fe351840c84d3f039229c27bc4c491e23dcf9164d0999f308a0dd01",
+      "trace.json": "sha256:395acd835cc26188df61e55e6c5b99dd51d88204fc64574c087d68c247f509b3"
+    },
+    "verification_status": "skipped_by_policy"
+  },
+  "mode": "evidence_chain",
+  "run_id": "task-010-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-010",
+  "trace_style": "evidence_chain"
+}

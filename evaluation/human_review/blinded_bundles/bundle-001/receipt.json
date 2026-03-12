@@ -1,0 +1,36 @@
+{
+  "audit_receipt": {
+    "artifacts": [],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 0,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": false,
+      "policy_checked": false,
+      "tamper_detected": false,
+      "verification_status": "not_performed"
+    },
+    "notes": [
+      "Trace-only local control path without persisted intent, governance, integrity, or receipt.",
+      "This mode leaves receipt export as an empty placeholder for file-shape parity."
+    ],
+    "profile": "paper-local-baseline-placeholder",
+    "questions_answered": {},
+    "scope": "bounded_run_bundle",
+    "status": "not_exported"
+  },
+  "file_type": "receipt",
+  "mode": "baseline",
+  "receipt_exported": false,
+  "run_id": "task-001-baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

@@ -1,0 +1,60 @@
+{
+  "evidence_produced": [
+    "action.json",
+    "result.json",
+    "trace.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T00:15:00Z",
+      "detail": "Detect action digest mismatch",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T00:15:01Z",
+      "detail": "unchecked",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T00:15:02Z",
+      "detail": "tamper_sensitive_run",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T00:15:03Z",
+      "detail": "integrity_runner",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T00:15:04Z",
+      "detail": "trace_only placeholders",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-015-baseline",
+    "finished_at": "2026-03-01T00:15:05Z",
+    "framework": "paper-local-baseline",
+    "performed": true,
+    "started_at": "2026-03-01T00:15:00Z",
+    "tool_ref": "runtime://paper-eval/integrity_runner"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": false,
+    "checkpoints": [],
+    "expected_digests": {},
+    "method": "none",
+    "notes": [
+      "This mode does not emit execution-integrity evidence."
+    ],
+    "subject_digests": {},
+    "verification_status": "not_performed"
+  },
+  "mode": "baseline",
+  "run_id": "task-015-baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-015",
+  "trace_style": "trace_only"
+}

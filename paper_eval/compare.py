@@ -1,31 +1,36 @@
-"""Comparison pipeline for baseline vs evidence-chain runs."""
+"""Comparison pipeline for run bundles produced by the paper evaluation harness."""
 
 from __future__ import annotations
 
 import csv
-import json
 from pathlib import Path
 from typing import Any
 
 from .common import EXPORTED_FILES, METRICS_DIR, PAPER_DOCS_DIR, RUNS_DIR, load_json, write_json
+from .modes import DEFAULT_COMPARISON_MODES, TOP_JOURNAL_MODES
 from .review import review_run_directory
 from .suite import load_tasks, validate_task_suite
 
 
-def compare_runs() -> dict[str, Any]:
+def compare_runs(
+    modes: list[str] | None = None,
+    *,
+    output_stem: str = "comparison-summary",
+    title: str = "Comparison Summary",
+    description: str = "Generated from actual artifacts under `artifacts/runs/` using deterministic rule-based scoring.",
+    doc_reference: str = "docs/paper_support/comparison-workflow.md",
+) -> dict[str, Any]:
+    selected_modes = modes or DEFAULT_COMPARISON_MODES
     tasks = load_tasks()
     validation = validate_task_suite(tasks)
     if not validation["valid"]:
         raise ValueError(f"task suite is invalid: {validation['errors']}")
 
     per_task: list[dict[str, Any]] = []
-    summaries = {
-        "baseline": _empty_summary("baseline"),
-        "evidence_chain": _empty_summary("evidence_chain"),
-    }
+    summaries = {mode: _empty_summary(mode) for mode in selected_modes}
 
     for task in tasks:
-        for mode in ("baseline", "evidence_chain"):
+        for mode in selected_modes:
             run_dir = RUNS_DIR / task["task_id"] / mode
             row = evaluate_run(task, mode, run_dir)
             per_task.append(row)
@@ -35,11 +40,26 @@ def compare_runs() -> dict[str, Any]:
         finalize_summary(summary)
 
     output = {
-        "modes": [summaries["baseline"], summaries["evidence_chain"]],
+        "title": title,
+        "description": description,
+        "modes": [summaries[mode] for mode in selected_modes],
         "per_task": per_task,
     }
-    write_outputs(output)
+    write_outputs(output, output_stem=output_stem, doc_reference=doc_reference)
     return output
+
+
+def compare_top_journal_pack() -> dict[str, Any]:
+    return compare_runs(
+        TOP_JOURNAL_MODES,
+        output_stem="ablation-summary",
+        title="Top-Journal Mode Comparison",
+        description=(
+            "Generated from actual artifacts across baseline, external baseline, ablations, and the full evidence chain "
+            "using deterministic rule-based scoring."
+        ),
+        doc_reference="docs/paper_support/ablation-study.md",
+    )
 
 
 def evaluate_run(task: dict[str, Any], mode: str, run_dir: Path) -> dict[str, Any]:
@@ -192,19 +212,19 @@ def finalize_summary(summary: dict[str, Any]) -> None:
         summary[field] = round(summary[field] / total, 2)
 
 
-def write_outputs(output: dict[str, Any]) -> None:
+def write_outputs(output: dict[str, Any], *, output_stem: str, doc_reference: str) -> None:
     PAPER_DOCS_DIR.mkdir(parents=True, exist_ok=True)
     METRICS_DIR.mkdir(parents=True, exist_ok=True)
 
-    markdown_path = PAPER_DOCS_DIR / "comparison-summary.md"
-    csv_path = PAPER_DOCS_DIR / "comparison-summary.csv"
-    json_path = METRICS_DIR / "comparison-summary.json"
+    markdown_path = PAPER_DOCS_DIR / f"{output_stem}.md"
+    csv_path = PAPER_DOCS_DIR / f"{output_stem}.csv"
+    json_path = METRICS_DIR / f"{output_stem}.json"
 
     modes = output["modes"]
     markdown_lines = [
-        "# Comparison Summary",
+        f"# {output['title']}",
         "",
-        "Generated from actual artifacts under `artifacts/runs/` using deterministic rule-based scoring.",
+        output["description"],
         "",
         "| mode | total_tasks | intent_captured_true | policy_checked_true | execution_verified_true | receipt_exported_true | avg_explicitness | avg_replayability | avg_tamper_sensitivity | avg_audit_boundedness | avg_integration_surface |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -219,7 +239,7 @@ def write_outputs(output: dict[str, Any]) -> None:
     markdown_lines.extend(
         [
             "",
-            "Heuristic definitions are documented in `docs/paper_support/comparison-workflow.md`.",
+            f"Heuristic definitions are documented in `{doc_reference}`.",
         ]
     )
     markdown_path.write_text("\n".join(markdown_lines) + "\n", encoding="utf-8")

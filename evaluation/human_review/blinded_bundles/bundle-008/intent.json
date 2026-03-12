@@ -1,0 +1,45 @@
+{
+  "authorization_scope": {
+    "approval_policy_ref": "none",
+    "budget_policy_ref": "integrity-check-v1",
+    "expected_exports": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ]
+  },
+  "file_type": "intent",
+  "intent": {
+    "actor_ref": "pop://personas/paper-eval-agent",
+    "category": "tamper_scenario",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "goal": "Simulate a post-authorization tamper on the action artifact and require the evidence-chain path to flag it.",
+    "input_payload_snapshot": {
+      "estimated_cost_usd": 0.009,
+      "estimated_tokens": 200,
+      "operation": "tamper_sensitive_run",
+      "requested_tool": "integrity_runner",
+      "side_effect_class": "read_only",
+      "target": "local://action-artifact"
+    },
+    "target_ref": "runtime://paper-eval/tasks/task-015",
+    "title": "Detect action digest mismatch"
+  },
+  "intent_captured": true,
+  "mode": "evidence_chain",
+  "notes": [
+    "Full intent, governance, integrity, and receipt chain.",
+    "Explicit intent object persisted before execution."
+  ],
+  "run_id": "task-015-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-015"
+}

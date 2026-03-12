@@ -1,0 +1,51 @@
+{
+  "authorization_state": "unchecked",
+  "file_type": "action",
+  "mode": "baseline",
+  "policy": {
+    "approval_policy": {
+      "approval_scope": "tool_call",
+      "approval_token": null,
+      "requires_approval": false
+    },
+    "budget_policy": {
+      "enforcement": "informational",
+      "policy_id": "budget-tool-standard-v1",
+      "token_limit": null,
+      "usd_limit": null
+    },
+    "checked": false,
+    "checkpoint_id": "governor://paper-eval/checkpoints/task-005-baseline",
+    "decision": {
+      "approval_satisfied": true,
+      "budget_within_limit": true,
+      "estimated_cost_usd": 0.006,
+      "estimated_tokens": 210,
+      "reasons": [
+        "Baseline mode exports a trace-only bundle without a persisted governance checkpoint."
+      ],
+      "status": "unchecked"
+    }
+  },
+  "requested_action": {
+    "name": "normalize_payload",
+    "parameters": {
+      "arguments": {
+        "max_steps": 2,
+        "summary": "book flight"
+      },
+      "estimated_cost_usd": 0.006,
+      "estimated_tokens": 210,
+      "operation": "normalize_payload",
+      "requested_tool": "payload_normalizer",
+      "side_effect_class": "read_only",
+      "target": "local://intent-payload"
+    },
+    "side_effect_class": "read_only",
+    "summary": "Normalize an intent payload",
+    "tool_ref": "runtime://paper-eval/payload_normalizer"
+  },
+  "run_id": "task-005-baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-005"
+}

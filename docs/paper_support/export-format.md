@@ -11,6 +11,8 @@ Each run exports exactly five JSON files under `artifacts/runs/<task_id>/<mode>/
 Modes:
 
 - `baseline` is a trace-only approximation. The file set is present for deterministic comparison, but `intent_captured`, `policy.checked`, and `receipt_exported` remain false.
+- `external_baseline` is a CrewAI-like native logging baseline. It may preserve a raw task snapshot for replayability, but it does not claim explicit intent, governance, integrity, or receipt support.
+- `no_intent`, `no_governance`, `no_integrity`, and `no_receipt` are ablations that keep the same five-file contract while explicitly neutralizing one capability.
 - `evidence_chain` persists explicit intent, a governance decision, an execution-integrity result, and a bounded receipt.
 
 Field contracts:

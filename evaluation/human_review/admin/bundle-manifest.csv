@@ -1,0 +1,9 @@
+bundle_id,source_task_id,hidden_condition,task_focus
+bundle-001,task-001,baseline,read-only control
+bundle-002,task-005,baseline,tool-call control
+bundle-003,task-010,baseline,budget overflow control
+bundle-004,task-015,baseline,tamper control
+bundle-005,task-001,evidence_chain,read-only evidence chain
+bundle-006,task-005,evidence_chain,tool-call evidence chain
+bundle-007,task-010,evidence_chain,budget block evidence chain
+bundle-008,task-015,evidence_chain,tamper-detected evidence chain

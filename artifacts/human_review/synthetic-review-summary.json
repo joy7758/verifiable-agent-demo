@@ -1,0 +1,45 @@
+{
+  "answer_key": "/Users/zhangbin/GitHub/verifiable-agent-demo/evaluation/human_review/admin/answer-key.json",
+  "by_condition": [
+    {
+      "bundle_reviews": 4,
+      "condition": "baseline",
+      "error_count": 1,
+      "mean_confidence": 3.5,
+      "mean_review_time_seconds": 117.5,
+      "question_accuracy": 0.9375,
+      "question_errors": {
+        "was_execution_verified": 1,
+        "was_intent_captured": 0,
+        "was_policy_checked": 0,
+        "was_receipt_exported": 0
+      }
+    },
+    {
+      "bundle_reviews": 4,
+      "condition": "evidence_chain",
+      "error_count": 1,
+      "mean_confidence": 3.5,
+      "mean_review_time_seconds": 161.5,
+      "question_accuracy": 0.9375,
+      "question_errors": {
+        "was_execution_verified": 1,
+        "was_intent_captured": 0,
+        "was_policy_checked": 0,
+        "was_receipt_exported": 0
+      }
+    }
+  ],
+  "overall_error_counts": {
+    "was_execution_verified": 2,
+    "was_intent_captured": 0,
+    "was_policy_checked": 0,
+    "was_receipt_exported": 0
+  },
+  "row_count": 8,
+  "sheet_count": 1,
+  "source_sheets": [
+    "/Users/zhangbin/GitHub/verifiable-agent-demo/evaluation/human_review/examples/synthetic_review_sheet.csv"
+  ],
+  "synthetic_example": true
+}

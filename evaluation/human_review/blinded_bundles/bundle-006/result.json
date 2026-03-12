@@ -1,0 +1,47 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": true,
+  "mode": "evidence_chain",
+  "notes": [
+    "Budget and approval checks passed.",
+    "Full intent, governance, integrity, and receipt chain."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-005/evidence_chain",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "runtime_surface": "paper-local-evidence-chain",
+    "simulated_response": {
+      "arguments": {
+        "max_steps": 2,
+        "summary": "book flight"
+      },
+      "category": "tool_call",
+      "estimated_cost_usd": 0.006,
+      "estimated_tokens": 210,
+      "operation": "normalize_payload",
+      "requested_tool": "payload_normalizer",
+      "status": "completed",
+      "target": "local://intent-payload"
+    },
+    "summary": "Completed deterministic local run for Normalize an intent payload."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-005-evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "status": "completed",
+  "task_id": "task-005"
+}

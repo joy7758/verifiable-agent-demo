@@ -7,45 +7,45 @@ from pathlib import Path
 from typing import Any
 
 from .common import EXPORTED_FILES, RUNS_DIR, SCHEMA_VERSION, mutate_digest, relative_to_root, reset_directory, sha256_digest, stable_timestamp, write_json
+from .modes import get_mode_profile, list_modes
 from .suite import find_task, load_tasks, validate_task_suite
 
 
 def run_suite(mode: str, task_id: str | None = None) -> dict[str, Any]:
+    profile = get_mode_profile(mode)
     tasks = load_tasks()
     validation = validate_task_suite(tasks)
     if not validation["valid"]:
         raise ValueError(f"task suite is invalid: {validation['errors']}")
 
     selected_tasks = [find_task(task_id, tasks)] if task_id else tasks
-    run_dirs = [run_task(task, mode) for task in selected_tasks]
+    run_dirs = [run_task(task, profile.name) for task in selected_tasks]
     return {
-        "mode": mode,
+        "mode": profile.name,
         "task_count": len(run_dirs),
         "run_directories": [relative_to_root(path) for path in run_dirs],
     }
 
 
 def run_task(task: dict[str, Any], mode: str) -> Path:
-    if mode not in {"baseline", "evidence_chain"}:
-        raise ValueError(f"unsupported mode: {mode}")
-
+    profile = get_mode_profile(mode)
     task_id = task["task_id"]
     run_dir = reset_directory(RUNS_DIR / task_id / mode)
-    context = build_run_context(task, mode, run_dir)
-    policy = evaluate_policy(task, mode, context)
-    status = determine_status(task, mode, policy)
+    context = build_run_context(task, profile.name, run_dir)
+    policy = evaluate_policy(task, profile.name, context)
+    status = determine_status(task, profile.name, policy)
 
-    intent_payload = build_intent(task, mode, context)
-    action_payload = build_action(task, mode, context, policy)
-    result_payload = build_result(task, mode, context, policy, status)
+    intent_payload = build_intent(task, profile.name, context)
+    action_payload = build_action(task, profile.name, context, policy)
+    result_payload = build_result(task, profile.name, context, policy, status)
     subject_digests = {
         "intent.json": sha256_digest(intent_payload),
         "action.json": sha256_digest(action_payload),
         "result.json": sha256_digest(result_payload),
     }
-    trace_payload = build_trace(task, mode, context, policy, status, subject_digests)
+    trace_payload = build_trace(task, profile.name, context, policy, status, subject_digests)
     subject_digests["trace.json"] = sha256_digest(trace_payload)
-    receipt_payload = build_receipt(task, mode, context, policy, status, subject_digests)
+    receipt_payload = build_receipt(task, profile.name, context, policy, status, subject_digests)
 
     payloads = {
         "intent.json": intent_payload,
@@ -63,6 +63,7 @@ def run_task(task: dict[str, Any], mode: str) -> Path:
 def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[str, str]:
     task_id = task["task_id"]
     run_id = f"{task_id}-{mode}"
+    profile = get_mode_profile(mode)
     return {
         "run_id": run_id,
         "task_id": task_id,
@@ -72,10 +73,12 @@ def build_run_context(task: dict[str, Any], mode: str, run_dir: Path) -> dict[st
         "policy_checkpoint_ref": f"governor://paper-eval/checkpoints/{run_id}",
         "trace_ref": f"trace://paper-eval/{run_id}",
         "receipt_ref": f"aro://paper-eval/receipts/{run_id}",
+        "framework_label": profile.framework_label,
     }
 
 
 def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, str]) -> dict[str, Any]:
+    profile = get_mode_profile(mode)
     budget_policy = task["budget_policy"]
     approval_policy = task["approval_policy"]
     input_payload = task["input_payload"]
@@ -88,21 +91,29 @@ def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, str]) ->
     tokens_within_limit = token_limit is None or estimated_tokens <= int(token_limit)
     approval_satisfied = (not approval_policy.get("requires_approval")) or bool(approval_policy.get("approval_token"))
 
-    if mode == "baseline":
-        status = "unchecked"
-        reasons = ["baseline mode exports a trace-only bundle without a persisted governance checkpoint"]
+    if not profile.policy_checked:
+        if mode == "external_baseline":
+            status = "framework_default"
+            reasons = ["CrewAI-like default execution logs do not persist governance checkpoints or budget decisions."]
+        elif mode == "no_governance":
+            status = "not_recorded"
+            reasons = ["Governance layer is ablated in this mode, so policy is neither persisted nor enforced."]
+        else:
+            status = "unchecked"
+            reasons = ["Baseline mode exports a trace-only bundle without a persisted governance checkpoint."]
     elif not cost_within_limit or not tokens_within_limit:
         status = "blocked_budget"
-        reasons = ["budget policy would be exceeded"]
+        reasons = ["Budget policy would be exceeded."]
     elif not approval_satisfied:
         status = "blocked_approval"
-        reasons = ["approval token is required but missing"]
+        reasons = ["Approval token is required but missing."]
     else:
         status = "approved"
-        reasons = ["budget and approval checks passed"]
+        reasons = ["Budget and approval checks passed."]
 
     return {
-        "checked": mode == "evidence_chain",
+        "checked": profile.policy_checked,
+        "enforced": profile.policy_enforced,
         "checkpoint_id": context["policy_checkpoint_ref"],
         "status": status,
         "budget_within_limit": cost_within_limit and tokens_within_limit,
@@ -112,19 +123,21 @@ def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, str]) ->
         "reasons": reasons,
         "budget_policy": budget_policy,
         "approval_policy": approval_policy,
-    }
+}
 
 
 def determine_status(task: dict[str, Any], mode: str, policy: dict[str, Any]) -> str:
-    if mode == "evidence_chain" and policy["status"] in {"blocked_budget", "blocked_approval"}:
+    profile = get_mode_profile(mode)
+    if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
         return policy["status"]
-    if task["tamper_case"] and mode == "evidence_chain":
+    if task["tamper_case"] and profile.integrity_checked:
         return "tamper_detected"
     return "completed"
 
 
 def build_intent(task: dict[str, Any], mode: str, context: dict[str, str]) -> dict[str, Any]:
-    captured = mode == "evidence_chain"
+    profile = get_mode_profile(mode)
+    captured = profile.intent_captured
     payload: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "file_type": "intent",
@@ -138,7 +151,7 @@ def build_intent(task: dict[str, Any], mode: str, context: dict[str, str]) -> di
             "approval_policy_ref": task["approval_policy"]["approval_scope"],
             "expected_exports": EXPORTED_FILES,
         },
-        "notes": [],
+        "notes": list(profile.notes),
     }
     if captured:
         payload["intent"] = {
@@ -151,12 +164,49 @@ def build_intent(task: dict[str, Any], mode: str, context: dict[str, str]) -> di
             "expected_artifacts": task["expected_artifacts"],
         }
         payload["notes"].append("Explicit intent object persisted before execution.")
+    elif profile.carries_raw_task_snapshot:
+        payload["intent"] = {
+            "framework_task_prompt": task["title"],
+            "agent_role": "research agent",
+            "input_payload_snapshot": task["input_payload"],
+            "source": profile.framework_label,
+        }
+        payload["notes"].append("Framework-native task configuration was captured, but not as an explicit intent object.")
     else:
-        payload["notes"].append("Baseline mode does not persist an explicit intent object.")
+        payload["notes"].append("This mode does not persist an explicit intent object.")
     return payload
 
 
 def build_action(task: dict[str, Any], mode: str, context: dict[str, str], policy: dict[str, Any]) -> dict[str, Any]:
+    profile = get_mode_profile(mode)
+    authorization_state = policy["status"]
+    if not profile.policy_checked:
+        authorization_state = {
+            "baseline": "unchecked",
+            "external_baseline": "framework_executed",
+            "no_governance": "untracked",
+        }.get(mode, policy["status"])
+
+    policy_bundle: dict[str, Any] = {
+        "checked": policy["checked"],
+        "checkpoint_id": policy["checkpoint_id"] if profile.policy_visible else "not_recorded",
+        "budget_policy": policy["budget_policy"] if profile.policy_visible else {"status": "not_recorded"},
+        "approval_policy": policy["approval_policy"] if profile.policy_visible else {"status": "not_recorded"},
+        "decision": {
+            "status": policy["status"],
+            "budget_within_limit": policy["budget_within_limit"],
+            "approval_satisfied": policy["approval_satisfied"],
+            "estimated_cost_usd": policy["estimated_cost_usd"],
+            "estimated_tokens": policy["estimated_tokens"],
+            "reasons": policy["reasons"],
+        },
+    }
+    if not profile.policy_visible:
+        policy_bundle["decision"] = {
+            "status": policy["status"],
+            "reasons": policy["reasons"],
+        }
+
     return {
         "schema_version": SCHEMA_VERSION,
         "file_type": "action",
@@ -170,21 +220,8 @@ def build_action(task: dict[str, Any], mode: str, context: dict[str, str], polic
             "parameters": task["input_payload"],
             "side_effect_class": task["input_payload"]["side_effect_class"],
         },
-        "authorization_state": policy["status"],
-        "policy": {
-            "checked": policy["checked"],
-            "checkpoint_id": policy["checkpoint_id"],
-            "budget_policy": policy["budget_policy"],
-            "approval_policy": policy["approval_policy"],
-            "decision": {
-                "status": policy["status"],
-                "budget_within_limit": policy["budget_within_limit"],
-                "approval_satisfied": policy["approval_satisfied"],
-                "estimated_cost_usd": policy["estimated_cost_usd"],
-                "estimated_tokens": policy["estimated_tokens"],
-                "reasons": policy["reasons"],
-            },
-        },
+        "authorization_state": authorization_state,
+        "policy": policy_bundle,
     }
 
 
@@ -195,6 +232,7 @@ def build_result(
     policy: dict[str, Any],
     status: str,
 ) -> dict[str, Any]:
+    profile = get_mode_profile(mode)
     summary = {
         "completed": f"Completed deterministic local run for {task['title']}.",
         "blocked_budget": f"Blocked by budget policy before execution for {task['title']}.",
@@ -215,11 +253,12 @@ def build_result(
             "simulated_response": build_simulated_response(task, status),
             "artifact_directory": context["run_dir"],
             "expected_artifacts": EXPORTED_FILES,
+            "runtime_surface": profile.framework_label,
         },
         "policy_outcome_ref": "action.json#/policy/decision",
         "execution_trace_ref": "trace.json",
         "evidence_refs": EXPORTED_FILES,
-        "notes": policy["reasons"],
+        "notes": policy["reasons"] + list(profile.notes),
     }
 
 
@@ -251,24 +290,28 @@ def build_trace(
     status: str,
     subject_digests: dict[str, str],
 ) -> dict[str, Any]:
+    profile = get_mode_profile(mode)
     performed = status in {"completed", "tamper_detected"} and not (
-        mode == "evidence_chain" and policy["status"] in {"blocked_budget", "blocked_approval"}
+        profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}
     )
     integrity = build_integrity(task, mode, status, policy, subject_digests, context["run_id"])
 
-    steps = [
-        {"step": "task_loaded", "at": stable_timestamp(context["task_id"], mode, 0), "detail": task["title"]},
-        {
-            "step": "policy_evaluated",
-            "at": stable_timestamp(context["task_id"], mode, 1),
-            "detail": policy["status"],
-        },
-        {
-            "step": "action_processed",
-            "at": stable_timestamp(context["task_id"], mode, 2),
-            "detail": task["input_payload"]["operation"],
-        },
-    ]
+    if mode == "external_baseline":
+        steps = build_external_baseline_steps(task, mode, context, status)
+    else:
+        steps = [
+            {"step": "task_loaded", "at": stable_timestamp(context["task_id"], mode, 0), "detail": task["title"]},
+            {
+                "step": "policy_evaluated",
+                "at": stable_timestamp(context["task_id"], mode, 1),
+                "detail": policy["status"],
+            },
+            {
+                "step": "action_processed",
+                "at": stable_timestamp(context["task_id"], mode, 2),
+                "detail": task["input_payload"]["operation"],
+            },
+        ]
     if performed:
         steps.append(
             {
@@ -289,7 +332,7 @@ def build_trace(
         {
             "step": "evidence_written",
             "at": stable_timestamp(context["task_id"], mode, 4),
-            "detail": "receipt.json" if mode == "evidence_chain" else "trace-only placeholders",
+            "detail": "receipt.json" if profile.receipt_exported else f"{profile.trace_style} placeholders",
         }
     )
 
@@ -299,7 +342,7 @@ def build_trace(
         "task_id": context["task_id"],
         "mode": context["mode"],
         "run_id": context["run_id"],
-        "trace_style": "trace_only" if mode == "baseline" else "evidence_chain",
+        "trace_style": profile.trace_style,
         "executed_steps": steps,
         "execution": {
             "attempted": True,
@@ -308,15 +351,10 @@ def build_trace(
             "deterministic_seed": context["run_id"],
             "started_at": stable_timestamp(context["task_id"], mode, 0),
             "finished_at": stable_timestamp(context["task_id"], mode, 5),
+            "framework": profile.framework_label,
         },
         "integrity": integrity,
-        "evidence_produced": [
-            "action.json",
-            "result.json",
-            "trace.json",
-        ]
-        if mode == "baseline"
-        else EXPORTED_FILES,
+        "evidence_produced": EXPORTED_FILES if profile.receipt_exported else ["action.json", "result.json", "trace.json"],
     }
 
 
@@ -328,7 +366,8 @@ def build_integrity(
     subject_digests: dict[str, str],
     run_id: str,
 ) -> dict[str, Any]:
-    if mode == "baseline":
+    profile = get_mode_profile(mode)
+    if not profile.integrity_checked:
         return {
             "checked": False,
             "method": "none",
@@ -336,7 +375,7 @@ def build_integrity(
             "subject_digests": {},
             "expected_digests": {},
             "checkpoints": [],
-            "notes": ["Baseline mode does not emit execution-integrity evidence."],
+            "notes": ["This mode does not emit execution-integrity evidence."],
         }
 
     expected_digests = dict(subject_digests)
@@ -346,7 +385,7 @@ def build_integrity(
         expected_digests[target_name] = mutate_digest(subject_digests[target_name])
 
     checkpoints = build_checkpoints(run_id, list(subject_digests.values()))
-    if policy["status"] in {"blocked_budget", "blocked_approval"}:
+    if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
         verification_status = "skipped_by_policy"
     elif tamper_case:
         verification_status = "tamper_detected"
@@ -381,8 +420,10 @@ def build_receipt(
     status: str,
     subject_digests: dict[str, str],
 ) -> dict[str, Any]:
-    exported = mode == "evidence_chain"
+    profile = get_mode_profile(mode)
+    exported = profile.receipt_exported
     artifacts = []
+    question_map = build_receipt_question_map(mode, exported)
     if exported:
         for name in ("intent.json", "action.json", "result.json", "trace.json"):
             artifacts.append(
@@ -395,7 +436,7 @@ def build_receipt(
 
     verification_status = "not_performed"
     if exported:
-        if policy["status"] in {"blocked_budget", "blocked_approval"}:
+        if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
             verification_status = "skipped_by_policy"
         elif task["tamper_case"]:
             verification_status = "tamper_detected"
@@ -410,18 +451,11 @@ def build_receipt(
         "run_id": context["run_id"],
         "receipt_exported": exported,
         "audit_receipt": {
-            "profile": "paper-eval-bounded-receipt-v1",
+            "profile": "paper-eval-bounded-receipt-v1" if exported else f"{profile.framework_label}-placeholder",
             "status": "exported" if exported else "not_exported",
             "scope": "bounded_run_bundle",
             "artifacts": artifacts,
-            "questions_answered": {}
-            if not exported
-            else {
-                "what_was_intended": "intent.json#/intent",
-                "what_was_authorized": "action.json#/policy/decision",
-                "what_was_executed": "trace.json#/execution",
-                "what_evidence_was_produced": "receipt.json#/audit_receipt/artifacts",
-            },
+            "questions_answered": question_map,
             "boundedness": {
                 "exported_files_count": len(EXPORTED_FILES),
                 "allowed_files": EXPORTED_FILES,
@@ -435,14 +469,58 @@ def build_receipt(
             },
             "notes": []
             if exported
-            else ["Baseline mode leaves receipt export as an empty placeholder for file-shape parity."],
+            else list(profile.notes) + ["This mode leaves receipt export as an empty placeholder for file-shape parity."],
         },
     }
 
 
+def build_external_baseline_steps(
+    task: dict[str, Any], mode: str, context: dict[str, str], status: str
+) -> list[dict[str, str]]:
+    return [
+        {
+            "step": "crew_agent_initialized",
+            "at": stable_timestamp(context["task_id"], mode, 0),
+            "detail": "research agent",
+        },
+        {
+            "step": "crew_task_dispatched",
+            "at": stable_timestamp(context["task_id"], mode, 1),
+            "detail": task["title"],
+        },
+        {
+            "step": "native_callback_logged",
+            "at": stable_timestamp(context["task_id"], mode, 2),
+            "detail": task["input_payload"]["operation"],
+        },
+        {
+            "step": "crew_task_completed",
+            "at": stable_timestamp(context["task_id"], mode, 3),
+            "detail": status,
+        },
+    ]
+
+
+def build_receipt_question_map(mode: str, exported: bool) -> dict[str, str]:
+    if not exported:
+        return {}
+
+    question_map = {
+        "what_was_intended": "intent.json#/intent",
+        "what_was_authorized": "action.json#/policy/decision",
+        "what_was_executed": "trace.json#/execution",
+        "what_evidence_was_produced": "receipt.json#/audit_receipt/artifacts",
+    }
+    if mode == "no_intent":
+        question_map.pop("what_was_intended")
+    if mode == "no_governance":
+        question_map.pop("what_was_authorized")
+    return question_map
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the deterministic paper evaluation task suite.")
-    parser.add_argument("--mode", required=True, choices=["baseline", "evidence_chain"])
+    parser.add_argument("--mode", required=True, choices=list_modes())
     parser.add_argument("--task-id", help="Optional single task id to run.")
     args = parser.parse_args()
 

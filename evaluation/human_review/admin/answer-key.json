@@ -1,0 +1,100 @@
+{
+  "bundles": [
+    {
+      "bundle_id": "bundle-001",
+      "bundle_path": "blinded_bundles/bundle-001",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": false,
+        "was_policy_checked": false,
+        "was_receipt_exported": false
+      },
+      "hidden_condition": "baseline",
+      "source_task_id": "task-001"
+    },
+    {
+      "bundle_id": "bundle-002",
+      "bundle_path": "blinded_bundles/bundle-002",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": false,
+        "was_policy_checked": false,
+        "was_receipt_exported": false
+      },
+      "hidden_condition": "baseline",
+      "source_task_id": "task-005"
+    },
+    {
+      "bundle_id": "bundle-003",
+      "bundle_path": "blinded_bundles/bundle-003",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": false,
+        "was_policy_checked": false,
+        "was_receipt_exported": false
+      },
+      "hidden_condition": "baseline",
+      "source_task_id": "task-010"
+    },
+    {
+      "bundle_id": "bundle-004",
+      "bundle_path": "blinded_bundles/bundle-004",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": false,
+        "was_policy_checked": false,
+        "was_receipt_exported": false
+      },
+      "hidden_condition": "baseline",
+      "source_task_id": "task-015"
+    },
+    {
+      "bundle_id": "bundle-005",
+      "bundle_path": "blinded_bundles/bundle-005",
+      "correct_answers": {
+        "was_execution_verified": true,
+        "was_intent_captured": true,
+        "was_policy_checked": true,
+        "was_receipt_exported": true
+      },
+      "hidden_condition": "evidence_chain",
+      "source_task_id": "task-001"
+    },
+    {
+      "bundle_id": "bundle-006",
+      "bundle_path": "blinded_bundles/bundle-006",
+      "correct_answers": {
+        "was_execution_verified": true,
+        "was_intent_captured": true,
+        "was_policy_checked": true,
+        "was_receipt_exported": true
+      },
+      "hidden_condition": "evidence_chain",
+      "source_task_id": "task-005"
+    },
+    {
+      "bundle_id": "bundle-007",
+      "bundle_path": "blinded_bundles/bundle-007",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": true,
+        "was_policy_checked": true,
+        "was_receipt_exported": true
+      },
+      "hidden_condition": "evidence_chain",
+      "source_task_id": "task-010"
+    },
+    {
+      "bundle_id": "bundle-008",
+      "bundle_path": "blinded_bundles/bundle-008",
+      "correct_answers": {
+        "was_execution_verified": false,
+        "was_intent_captured": true,
+        "was_policy_checked": true,
+        "was_receipt_exported": true
+      },
+      "hidden_condition": "evidence_chain",
+      "source_task_id": "task-015"
+    }
+  ]
+}

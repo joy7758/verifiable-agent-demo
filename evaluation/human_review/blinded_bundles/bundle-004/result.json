@@ -1,0 +1,43 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": true,
+  "mode": "baseline",
+  "notes": [
+    "Baseline mode exports a trace-only bundle without a persisted governance checkpoint.",
+    "Trace-only local control path without persisted intent, governance, integrity, or receipt."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-015/baseline",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "runtime_surface": "paper-local-baseline",
+    "simulated_response": {
+      "category": "tamper_scenario",
+      "estimated_cost_usd": 0.009,
+      "estimated_tokens": 200,
+      "operation": "tamper_sensitive_run",
+      "requested_tool": "integrity_runner",
+      "status": "completed",
+      "target": "local://action-artifact"
+    },
+    "summary": "Completed deterministic local run for Detect action digest mismatch."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-015-baseline",
+  "schema_version": "paper-eval.v1",
+  "status": "completed",
+  "task_id": "task-015"
+}
