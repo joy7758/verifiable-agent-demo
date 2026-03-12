@@ -25,6 +25,7 @@ The repository currently supports the following relevant workflows:
   \item \texttt{make eval-framework-pair},
   \item \texttt{make eval-langchain-pair},
   \item \texttt{make eval-ablation},
+  \item \texttt{make falsification-checks},
   \item \texttt{make top-journal-pack}.
 \end{itemize}
 
@@ -54,11 +55,11 @@ This outcome model is important because it treats blocked and tampered runs as f
 
 \input{tables/worked_example}
 
-\subsection{Negative-control procedure}
+\subsection{Falsification checks}
 
-To reduce the risk that the review contract merely accepts the repository's own positive cases, the artifact package also derives a small negative-control suite from the 11 evidence-chain bundles that the review script already marks as \emph{pass}. Five falsification scenarios are generated from those bundles: removing the explicit intent object, removing the persisted policy decision, forging one receipt digest, tampering with the result payload after export, and declaring a tamper outcome without a corroborating digest mismatch.
+To reduce the risk that the review contract merely accepts the repository's own positive cases, the artifact package also derives an eight-scenario falsification suite from previously reviewable bundles. Seven scenarios begin from the 11 evidence-chain bundles that the review script already marks as \emph{pass}; the eighth (\texttt{policy\_bypass\_claim}) begins from the 3 evidence-chain bundles that originally reviewed as \emph{policy\_blocked}.
 
-The source sets now cover two classes of evidence-chain outputs: 11 review-passing completed bundles and 3 independently reviewable policy-blocked bundles. Single-surface removals such as missing intent and missing policy are rebound so that the bundle stays internally consistent except for the targeted capability. Receipt forgery, payload tampering, cross-run replay mismatch, and cross-bundle receipt swap exercise the strengthened bundle-binding logic, which now recomputes bundle identity consistency and digest bindings rather than trusting stored status fields. The policy-bypass claim scenario exercises the new cross-file coherence checks by rewriting a policy-blocked bundle to claim successful completion while leaving the blocked policy decision in place. These negative controls are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can fail meaningfully.
+Single-surface removals such as missing intent and missing policy are rebound so that the mutated bundle stays internally consistent except for the targeted capability. Receipt forgery, payload tampering, cross-run replay mismatch, and cross-bundle receipt swap exercise strengthened bundle-identity and digest-binding checks rather than trusting stored status fields. The policy-bypass claim scenario exercises cross-file coherence directly by rewriting a blocked bundle to claim successful completion while leaving the persisted blocked policy decision in place. These checks are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can reject internally contradictory or transplanted artifacts.
 
 \subsection{Appendix-only reviewer workflow}
 
