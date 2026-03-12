@@ -52,6 +52,8 @@ RUN_MODE_HOURS = {
     "no_receipt": 5,
     "evidence_chain": 6,
     "external_evidence_chain": 7,
+    "langchain_baseline": 8,
+    "langchain_evidence_chain": 9,
 }
 
 

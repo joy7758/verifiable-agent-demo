@@ -120,41 +120,43 @@ Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayabilit
 
 
 def framework_pair_table() -> str:
-    modes = load_modes("framework-pair-summary.json")
-    order = ["external_baseline", "external_evidence_chain"]
-    labels = {
-        "external_baseline": "CrewAI baseline",
-        "external_evidence_chain": "CrewAI + evidence chain",
-    }
+    crewai_modes = load_modes("framework-pair-summary.json")
+    langchain_modes = load_modes("langchain-pair-summary.json")
+    entries = [
+        ("CrewAI", "CrewAI baseline", crewai_modes["external_baseline"]),
+        ("CrewAI", "CrewAI + evidence chain", crewai_modes["external_evidence_chain"]),
+        ("LangChain", "LangChain baseline", langchain_modes["langchain_baseline"]),
+        ("LangChain", "LangChain + evidence chain", langchain_modes["langchain_evidence_chain"]),
+    ]
     rows = []
-    for mode in order:
-      entry = modes[mode]
-      rows.append(
-          "    {label} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} & {explicitness} & {replayability} & {tamper} & {audit} & {integration} \\\\".format(
-              label=labels[mode],
-              intent=entry["intent_captured_true"],
-              policy=entry["policy_checked_true"],
-              verified=entry["execution_verified_true"],
-              receipt=entry["receipt_exported_true"],
-              total=entry["total_tasks"],
-              explicitness=format_score(entry["average_explicitness"]),
-              replayability=format_score(entry["average_replayability"]),
-              tamper=format_score(entry["average_tamper_sensitivity"]),
-              audit=format_score(entry["average_audit_boundedness"]),
-              integration=format_score(entry["average_integration_surface"]),
-          )
-      )
+    for framework, label, entry in entries:
+        rows.append(
+            "    {framework} & {label} & {intent}/{total} & {policy}/{total} & {verified}/{total} & {receipt}/{total} & {explicitness} & {replayability} & {tamper} & {audit} & {integration} \\\\".format(
+                framework=framework,
+                label=label,
+                intent=entry["intent_captured_true"],
+                policy=entry["policy_checked_true"],
+                verified=entry["execution_verified_true"],
+                receipt=entry["receipt_exported_true"],
+                total=entry["total_tasks"],
+                explicitness=format_score(entry["average_explicitness"]),
+                replayability=format_score(entry["average_replayability"]),
+                tamper=format_score(entry["average_tamper_sensitivity"]),
+                audit=format_score(entry["average_audit_boundedness"]),
+                integration=format_score(entry["average_integration_surface"]),
+            )
+        )
 
     return r"""
 \begin{table}[t]
 \centering
-\caption{Same-framework comparison under the live CrewAI path. The baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same runtime with the full evidence chain.}
+\caption{Same-framework paired comparisons under the live CrewAI and LangChain paths. In both frameworks the baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same runtime with the full evidence chain.}
 \label{tab:framework-pair-comparison}
 \small
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lccccccccc}
+\begin{tabular}{llccccccccc}
 \toprule
-Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
+Framework & Mode & Intent & Policy & Exec.\ verified & Receipt & Explicitness & Replayability & Tamper & Audit & Stage exposure \\
 \midrule
 """ + "\n".join(rows) + r"""
 \\

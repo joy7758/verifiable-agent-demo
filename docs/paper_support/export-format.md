@@ -13,6 +13,8 @@ Modes:
 - `baseline` is a trace-only approximation. The file set is present for deterministic comparison, but `intent_captured`, `policy.checked`, and `receipt_exported` remain false.
 - `external_baseline` is a minimal live CrewAI logging baseline. It preserves a real framework execution surface plus a raw task snapshot for replayability, but it does not claim explicit intent, governance, integrity, or receipt support.
 - `external_evidence_chain` uses the same live CrewAI runtime path as `external_baseline`, but wraps it with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
+- `langchain_baseline` is a minimal live LangChain callback/logging baseline. It preserves a real LCEL execution surface plus a raw task snapshot for replayability, but it does not claim explicit intent, governance, integrity, or receipt support.
+- `langchain_evidence_chain` uses the same live LangChain runtime path as `langchain_baseline`, but wraps it with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
 - `no_intent`, `no_governance`, `no_integrity`, and `no_receipt` are ablations that keep the same five-file contract while explicitly neutralizing one capability.
 - `evidence_chain` persists explicit intent, a governance decision, an execution-integrity result, and a bounded receipt.
 

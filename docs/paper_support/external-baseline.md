@@ -28,6 +28,7 @@ make eval-external-baseline
 Environment note:
 
 - This mode requires the repository's local `venv/bin/python`, because CrewAI is installed there rather than under the system `python3`.
+- The checked-in external-baseline artifacts were generated with `crewai 1.10.1` in that local `venv/`.
 
 Generated comparison outputs:
 

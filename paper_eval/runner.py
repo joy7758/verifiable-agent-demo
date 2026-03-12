@@ -89,32 +89,53 @@ def attach_live_runtime_if_needed(task: dict[str, Any], mode: str, context: dict
         return
     if profile.policy_enforced and policy["status"] in {"blocked_budget", "blocked_approval"}:
         context["native_runtime"] = {
-            "framework": "CrewAI",
+            "framework": framework_display_name(profile.live_framework_kind),
             "live_framework": False,
-            "agent_role": "paper evaluation agent",
+            "agent_role": framework_agent_role(profile.live_framework_kind),
             "task_description": task["title"],
             "result_text": "",
             "events": [
-                {"step": "crewai_agent_initialized", "detail": "paper evaluation agent"},
-                {"step": "crewai_policy_blocked", "detail": policy["status"]},
+                {"step": f"{profile.live_framework_kind}_initialized", "detail": framework_agent_role(profile.live_framework_kind)},
+                {"step": f"{profile.live_framework_kind}_policy_blocked", "detail": policy["status"]},
             ],
             "native_surface": {
-                "framework": "CrewAI",
+                "framework": framework_display_name(profile.live_framework_kind),
                 "blocked_before_kickoff": True,
                 "policy_status": policy["status"],
             },
         }
         return
-    context["native_runtime"] = run_live_crewai_baseline(task)
+    context["native_runtime"] = run_live_framework(task, profile.live_framework_kind)
 
 
-def run_live_crewai_baseline(task: dict[str, Any]) -> dict[str, Any]:
-    helper = ROOT_DIR / "scripts" / "crewai_live_baseline.py"
+def framework_agent_role(kind: str | None) -> str:
+    return {
+        "crewai": "paper evaluation agent",
+        "langchain": "langchain runnable chain",
+    }.get(kind, "paper evaluation runtime")
+
+
+def framework_display_name(kind: str | None) -> str:
+    return {
+        "crewai": "CrewAI",
+        "langchain": "LangChain",
+    }.get(kind, "Framework")
+
+
+def run_live_framework(task: dict[str, Any], kind: str | None) -> dict[str, Any]:
+    helper_name = {
+        "crewai": "crewai_live_baseline.py",
+        "langchain": "langchain_live_baseline.py",
+    }.get(kind)
+    if helper_name is None:
+        raise ValueError(f"unsupported live framework kind: {kind}")
+
+    helper = ROOT_DIR / "scripts" / helper_name
     venv_python = ROOT_DIR / "venv" / "bin" / "python"
     if not helper.exists():
-        raise FileNotFoundError(f"missing CrewAI baseline helper: {helper}")
+        raise FileNotFoundError(f"missing live framework helper: {helper}")
     if not venv_python.exists():
-        raise FileNotFoundError(f"missing CrewAI runtime python: {venv_python}")
+        raise FileNotFoundError(f"missing live framework runtime python: {venv_python}")
 
     completed = subprocess.run(
         [str(venv_python), str(helper)],
@@ -127,7 +148,7 @@ def run_live_crewai_baseline(task: dict[str, Any]) -> dict[str, Any]:
     try:
         return json.loads(completed.stdout)
     except json.JSONDecodeError as exc:  # pragma: no cover - defensive
-        raise RuntimeError(f"CrewAI baseline helper returned invalid JSON: {completed.stdout}") from exc
+        raise RuntimeError(f"Live framework helper returned invalid JSON: {completed.stdout}") from exc
 
 
 def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, Any]) -> dict[str, Any]:
@@ -145,9 +166,9 @@ def evaluate_policy(task: dict[str, Any], mode: str, context: dict[str, Any]) ->
     approval_satisfied = (not approval_policy.get("requires_approval")) or bool(approval_policy.get("approval_token"))
 
     if not profile.policy_checked:
-        if mode == "external_baseline":
+        if profile.uses_live_framework:
             status = "framework_default"
-            reasons = ["Minimal live CrewAI execution logs do not persist governance checkpoints or budget decisions."]
+            reasons = [f"Minimal live {framework_display_name(profile.live_framework_kind)} execution logs do not persist governance checkpoints or budget decisions."]
         elif mode == "no_governance":
             status = "not_recorded"
             reasons = ["Governance layer is ablated in this mode, so policy is neither persisted nor enforced."]
@@ -219,6 +240,7 @@ def build_intent(task: dict[str, Any], mode: str, context: dict[str, Any]) -> di
         }
         payload["notes"].append("Explicit intent object persisted before execution.")
     elif profile.carries_raw_task_snapshot:
+        framework_name = native_runtime.get("framework", framework_display_name(profile.live_framework_kind))
         payload["intent"] = {
             "framework_task_prompt": native_runtime.get("task_description", task["title"]),
             "agent_role": native_runtime.get("agent_role", "research agent"),
@@ -226,7 +248,9 @@ def build_intent(task: dict[str, Any], mode: str, context: dict[str, Any]) -> di
             "source": native_runtime.get("framework", profile.framework_label),
             "native_surface": native_runtime.get("native_surface", {}),
         }
-        payload["notes"].append("Framework-native task configuration was captured from a live CrewAI run, but not as an explicit intent object.")
+        payload["notes"].append(
+            f"Framework-native task configuration was captured from a live {framework_name} run, but not as an explicit intent object."
+        )
     else:
         payload["notes"].append("This mode does not persist an explicit intent object.")
     return payload
@@ -240,6 +264,7 @@ def build_action(task: dict[str, Any], mode: str, context: dict[str, Any], polic
         authorization_state = {
             "baseline": "unchecked",
             "external_baseline": "framework_executed",
+            "langchain_baseline": "framework_executed",
             "no_governance": "untracked",
         }.get(mode, policy["status"])
 
@@ -554,11 +579,13 @@ def build_external_baseline_steps(
     native_runtime = context.get("native_runtime", {})
     events = native_runtime.get("events")
     if not events:
+        framework = str(native_runtime.get("framework", "framework")).lower()
+        agent_role = native_runtime.get("agent_role", "paper evaluation agent")
         events = [
-            {"step": "crewai_agent_initialized", "detail": "paper evaluation agent"},
-            {"step": "crewai_task_built", "detail": task["title"]},
-            {"step": "crewai_kickoff_started", "detail": task["input_payload"]["operation"]},
-            {"step": "crewai_kickoff_finished", "detail": status},
+            {"step": f"{framework}_agent_initialized", "detail": agent_role},
+            {"step": f"{framework}_task_built", "detail": task["title"]},
+            {"step": f"{framework}_execution_started", "detail": task["input_payload"]["operation"]},
+            {"step": f"{framework}_execution_finished", "detail": status},
         ]
     steps = []
     for index, event in enumerate(events):

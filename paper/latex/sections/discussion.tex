@@ -18,7 +18,7 @@ The metrics are evidence-shape metrics rather than semantic task-quality metrics
 The harness is deterministic and local. That improves reproducibility, but it also means that the system does not exercise the nondeterminism, service failures, and integration drift of production agent stacks.
 
 \paragraph{External validity.}
-The external baseline is a minimal live CrewAI integration, not a full production benchmark. The new same-framework paired comparison strengthens the paper by showing that the evidence layer changes the review surface even when the live runtime is held fixed, but it still does not justify generalization to all framework-native logging surfaces or all production CrewAI deployments.
+The live framework baselines are minimal local integrations, not full production benchmarks. The paired comparisons now cover both CrewAI and LangChain, which strengthens the paper by showing that the evidence layer changes the review surface even when the live runtime is held fixed in two framework ecosystems. That still does not justify generalization to all framework-native logging surfaces, all production CrewAI deployments, or all LangChain-based systems.
 
 \paragraph{Appendix-only reviewer workflow.}
 The current blinded reviewer workflow is a kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not support claims about reviewer performance, statistical significance, or organizational adoption. For that reason, the main paper treats it as appendix material rather than as part of the empirical result core.
