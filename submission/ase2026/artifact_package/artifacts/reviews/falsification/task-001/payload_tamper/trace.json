@@ -1,0 +1,72 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T06:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T06:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T06:01:02Z",
+      "detail": "read_local_summary",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T06:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T06:01:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-falsified_payload_tamper",
+    "finished_at": "2026-03-01T06:01:05Z",
+    "framework": "paper-local-evidence-chain",
+    "performed": true,
+    "started_at": "2026-03-01T06:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:c8f96284a2bcc6b894bf0a68556d080688cce38121bff93ad1dec0bc87020dfc",
+      "sha256:3afa1519755d941f286acd2a0c22ab96e700e0c0988077b214ed9c8276675a51",
+      "sha256:22915ccab02c4f81b25e5ff48b3cf922bc15edf63724144a1a345fdcd3a78d6b"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:4b30c7b195f968fb7e03b6875399617a07b0f810591fb9313bd03b9b41645729",
+      "intent.json": "sha256:f984c30012e457f8c05c0f009a2530fbe68f5c36bbbaba12b91b777602504442",
+      "result.json": "sha256:cc83bdb76214a75519d239e271ee229592db128525a04c45dabc8b32bdd285f4"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:4b30c7b195f968fb7e03b6875399617a07b0f810591fb9313bd03b9b41645729",
+      "intent.json": "sha256:f984c30012e457f8c05c0f009a2530fbe68f5c36bbbaba12b91b777602504442",
+      "result.json": "sha256:cc83bdb76214a75519d239e271ee229592db128525a04c45dabc8b32bdd285f4"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "falsified_payload_tamper",
+  "run_id": "task-001-falsified_payload_tamper",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "evidence_chain"
+}

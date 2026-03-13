@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/anonymous-artifact/schemas/paper_eval/task.schema.json",
+  "title": "PaperEvalTask",
+  "type": "object",
+  "required": [
+    "task_id",
+    "category",
+    "title",
+    "goal",
+    "input_payload",
+    "expected_artifacts",
+    "budget_policy",
+    "approval_policy",
+    "tamper_case",
+    "notes"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^task-[0-9]{3}$"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "read_only_query",
+        "tool_call",
+        "budget_constrained",
+        "approval_required",
+        "tamper_scenario"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "input_payload": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "expected_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "const": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ]
+    },
+    "budget_policy": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "enforcement"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "usd_limit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "token_limit": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "enforcement": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "approval_policy": {
+      "type": "object",
+      "required": [
+        "requires_approval",
+        "approval_scope"
+      ],
+      "properties": {
+        "requires_approval": {
+          "type": "boolean"
+        },
+        "approval_scope": {
+          "type": "string"
+        },
+        "approval_token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "tamper_case": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

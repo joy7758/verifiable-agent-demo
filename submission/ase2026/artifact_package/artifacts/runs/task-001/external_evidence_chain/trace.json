@@ -1,0 +1,94 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T07:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "intent_persisted"
+    },
+    {
+      "at": "2026-03-01T07:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T07:01:02Z",
+      "detail": "paper evaluation agent",
+      "step": "crewai_agent_initialized"
+    },
+    {
+      "at": "2026-03-01T07:01:03Z",
+      "detail": "Summarize architecture path",
+      "step": "crewai_task_built"
+    },
+    {
+      "at": "2026-03-01T07:01:04Z",
+      "detail": "read_local_summary",
+      "step": "crewai_kickoff_started"
+    },
+    {
+      "at": "2026-03-01T07:01:05Z",
+      "detail": "Persona, Intent, Governance, Trace, Audit",
+      "step": "crewai_kickoff_finished"
+    },
+    {
+      "at": "2026-03-01T07:01:06Z",
+      "detail": "completed",
+      "step": "integrity_evaluated"
+    },
+    {
+      "at": "2026-03-01T07:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T07:01:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-external_evidence_chain",
+    "finished_at": "2026-03-01T07:01:05Z",
+    "framework": "CrewAI",
+    "framework_live_run": true,
+    "framework_result": "Persona, Intent, Governance, Trace, Audit",
+    "performed": true,
+    "started_at": "2026-03-01T07:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:56be32a08b730bd6c22ac44d4ef45c118148865d9bbc5feff5652445558b054c",
+      "sha256:a8d41ec3fa17b5f699bbc09bd27e5410122d4ee0df7237bffdf6b8122026419f",
+      "sha256:562dd8b9aebc22cd3cf40b41f15b29bdc91a81820d3ac2c80abd58b3ce6e0aca"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:caf940d6a30ddfeacf070873e3c7b35cb05acd216b97343f4da8a160fc155266",
+      "intent.json": "sha256:f5a087333f8d49c622c3678bd46a9e31063c937f32be9528313fda665134a6e3",
+      "result.json": "sha256:b4eec5319ef65176caa2b794c6e74d1f02b47b0bf6bc4c6a8d8cfbddd2378120"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:caf940d6a30ddfeacf070873e3c7b35cb05acd216b97343f4da8a160fc155266",
+      "intent.json": "sha256:f5a087333f8d49c622c3678bd46a9e31063c937f32be9528313fda665134a6e3",
+      "result.json": "sha256:b4eec5319ef65176caa2b794c6e74d1f02b47b0bf6bc4c6a8d8cfbddd2378120"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "external_evidence_chain",
+  "run_id": "task-001-external_evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "crewai_wrapped_evidence_chain"
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "task-005",
+  "category": "tool_call",
+  "title": "Normalize an intent payload",
+  "goal": "Call a local mock tool that normalizes an intent-like payload and export the action authorization clearly.",
+  "input_payload": {
+    "operation": "normalize_payload",
+    "requested_tool": "payload_normalizer",
+    "target": "local://intent-payload",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.006,
+    "estimated_tokens": 210,
+    "arguments": {
+      "summary": "book flight",
+      "max_steps": 2
+    }
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-tool-standard-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "tool_call",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Tests a concrete tool invocation path without adding approval or budget complexity."
+}

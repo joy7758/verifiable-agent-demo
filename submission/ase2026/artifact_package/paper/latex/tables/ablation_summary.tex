@@ -1,0 +1,23 @@
+
+\begin{table}[t]
+\centering
+\caption{Seven-mode comparison across the baseline, external baseline, four ablations, and the full evidence chain. Scores are average 0--5 values; counts report positive review verdicts across 16 tasks.}
+\label{tab:ablation-comparison}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+Mode & Explicitness & Replayability & Tamper & Audit & Stage exposure & Intent & Policy & Exec.\ verified & Receipt \\
+\midrule
+    Baseline & 1.0 & 3.0 & 0.0 & 2.0 & 1.0 & 0/16 & 0/16 & 0/16 & 0/16 \\
+    External baseline & 1.0 & 4.0 & 0.0 & 2.0 & 1.0 & 0/16 & 0/16 & 0/16 & 0/16 \\
+    No intent & 3.0 & 4.0 & 4.81 & 4.0 & 4.0 & 0/16 & 16/16 & 11/16 & 0/16 \\
+    No governance & 2.0 & 5.0 & 5.0 & 4.0 & 4.0 & 16/16 & 0/16 & 14/16 & 0/16 \\
+    No integrity & 5.0 & 5.0 & 0.0 & 5.0 & 4.0 & 16/16 & 16/16 & 0/16 & 16/16 \\
+    No receipt & 4.0 & 4.0 & 4.81 & 2.0 & 4.0 & 16/16 & 16/16 & 11/16 & 0/16 \\
+    Evidence chain & 5.0 & 5.0 & 4.81 & 5.0 & 5.0 & 16/16 & 16/16 & 11/16 & 16/16 \\
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

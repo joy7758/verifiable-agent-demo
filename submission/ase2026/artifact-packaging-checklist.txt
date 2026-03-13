@@ -1,22 +1,22 @@
 ASE 2026 Artifact Packaging Checklist
 
 Required package contents:
-- [ ] Manuscript source snapshot used to build the submission PDF
-- [ ] Task suite inputs for the 16-task controlled harness
-- [ ] Exported bundle examples for the reported conditions
-- [ ] Metric summary files used to regenerate the reported tables
-- [ ] Table-generation and manuscript-build scripts
-- [ ] Short anonymous README with reproduction steps
+- [x] Manuscript source snapshot used to build the submission PDF
+- [x] Task suite inputs for the 16-task controlled harness
+- [x] Exported bundle examples for the reported conditions
+- [x] Metric summary files used to regenerate the reported tables
+- [x] Table-generation and manuscript-build scripts
+- [x] Short anonymous README with reproduction steps
 
 Package verification:
-- [ ] Rebuild tables from the packaged summaries
+- [x] Rebuild tables from the packaged summaries
 - [ ] Rebuild the manuscript PDF from the packaged LaTeX source
-- [ ] Confirm the falsification-summary artifact is included
-- [ ] Confirm the package excludes unnecessary local caches and editor files
-- [ ] Confirm file paths are relative and portable
+- [x] Confirm the falsification-summary artifact is included
+- [x] Confirm the package excludes unnecessary local caches and editor files
+- [x] Confirm file paths are relative and portable
 
 Submission readiness:
-- [ ] Produce a single anonymous archive for reviewer download
-- [ ] Validate archive extraction on a clean machine or directory
+- [x] Produce a single anonymous archive for reviewer download
+- [x] Validate archive extraction on a clean machine or directory
 - [ ] Record checksum for the final uploaded archive
 - [ ] Reserve DOI workflow or archival destination for post-acceptance/public release

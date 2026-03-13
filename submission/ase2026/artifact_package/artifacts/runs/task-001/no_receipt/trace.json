@@ -1,0 +1,70 @@
+{
+  "evidence_produced": [
+    "action.json",
+    "result.json",
+    "trace.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T05:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T05:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T05:01:02Z",
+      "detail": "read_local_summary",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T05:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T05:01:04Z",
+      "detail": "evidence_chain_no_receipt placeholders",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-no_receipt",
+    "finished_at": "2026-03-01T05:01:05Z",
+    "framework": "paper-local-ablation",
+    "performed": true,
+    "started_at": "2026-03-01T05:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:0392571d211155ac7723f871be75a2fd7757745e9bc7c5fac776f212b7a1cc7a",
+      "sha256:32a6eae347e9b880528b7ec885c23e47de0a75605a3269d65f4bd9d0edd81490",
+      "sha256:14f03650243e8ff90513293a85b53da035c95a3f0ecd0ddd1f0b73b1bd227645"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:7b09cc2d5655f9cf118111e78725f144f5655e7c0fc4d5d383cd11dc1dd806c9",
+      "intent.json": "sha256:9120852bf78d86563184c115f435368eaac62c6cffac0b3c80f67cc508a0a691",
+      "result.json": "sha256:3f2e90c66d063a8e67789d93394695e1ce8858fea48f956787cd1607c0403019"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:7b09cc2d5655f9cf118111e78725f144f5655e7c0fc4d5d383cd11dc1dd806c9",
+      "intent.json": "sha256:9120852bf78d86563184c115f435368eaac62c6cffac0b3c80f67cc508a0a691",
+      "result.json": "sha256:3f2e90c66d063a8e67789d93394695e1ce8858fea48f956787cd1607c0403019"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "no_receipt",
+  "run_id": "task-001-no_receipt",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "evidence_chain_no_receipt"
+}

@@ -1,0 +1,46 @@
+{
+  "authorization_scope": {
+    "approval_policy_ref": "none",
+    "budget_policy_ref": "budget-none-readonly-v1",
+    "expected_exports": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ]
+  },
+  "file_type": "intent",
+  "intent": {
+    "actor_ref": "pop://personas/paper-eval-agent",
+    "category": "read_only_query",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "goal": "Answer which layers appear in the local architecture path without mutating repository state.",
+    "input_payload_snapshot": {
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "expected_answer": "Persona, Intent, Governance, Trace, Audit",
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "side_effect_class": "read_only",
+      "target": "README.md"
+    },
+    "target_ref": "runtime://paper-eval/tasks/task-001",
+    "title": "Summarize architecture path"
+  },
+  "intent_captured": true,
+  "mode": "no_receipt",
+  "notes": [
+    "Ablation mode keeps execution evidence but suppresses the bounded audit receipt export.",
+    "Explicit intent object persisted before execution."
+  ],
+  "run_id": "task-001-no_receipt",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

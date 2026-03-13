@@ -3,14 +3,15 @@ ASE 2026 Artifact Readiness Note
 Current status:
 - The manuscript now refers to an anonymized review artifact package rather than a public repository.
 - The paper includes a Data Availability Statement that explains why the public DOI is withheld during double-anonymous review.
-- The LaTeX source, metric summaries, and build scripts are organized well enough to support an anonymous package.
+- A review-ready package has been built at `submission/ase2026/artifact_package`.
+- A reviewer archive has been built at `submission/ase2026/ase2026-anonymous-artifact.zip`.
+- The packaged quick check passes: it verifies manuscript presence, metric summaries, table regeneration, and representative bundle-review outcomes.
+- Packaged text and JSON files have been sanitized to remove local absolute paths and repository-name identifiers.
 
 Remaining steps before anonymous DOI-style archival or upload:
-- Build the final anonymous archive from a clean export rather than directly from the live repository.
-- Remove identifying git metadata, remote URLs, user-specific paths, and editor artifacts from the archive.
-- Write a short anonymous artifact README with exact build and reproduction commands.
+- Upload the built anonymous archive to the submission system or venue-approved anonymous artifact location.
+- Generate and record a checksum for the exact archive that is uploaded.
 - Choose the archival path allowed by ASE 2026: anonymous reviewer download during submission, then DOI-backed public archival during camera-ready or the venue-approved artifact workflow.
-- Generate and record a checksum for the archive actually uploaded to the submission system.
 
 Known non-blockers:
 - Public DOI registration is intentionally deferred until the venue workflow permits de-anonymized release.

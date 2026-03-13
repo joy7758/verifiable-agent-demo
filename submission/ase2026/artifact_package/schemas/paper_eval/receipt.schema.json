@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/anonymous-artifact/schemas/paper_eval/receipt.schema.json",
+  "title": "PaperEvalReceipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "task_id",
+    "mode",
+    "run_id",
+    "receipt_exported",
+    "audit_receipt"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "paper-eval.v1"
+    },
+    "file_type": {
+      "const": "receipt"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "external_baseline",
+        "no_intent",
+        "no_governance",
+        "no_integrity",
+        "no_receipt",
+        "evidence_chain"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "receipt_exported": {
+      "type": "boolean"
+    },
+    "audit_receipt": {
+      "type": "object",
+      "required": [
+        "profile",
+        "status",
+        "scope",
+        "artifacts",
+        "questions_answered",
+        "boundedness",
+        "integrity_summary",
+        "notes"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path",
+              "role",
+              "sha256"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "questions_answered": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "boundedness": {
+          "type": "object",
+          "required": [
+            "exported_files_count",
+            "allowed_files",
+            "artifact_digest_count"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "exported_files_count": {
+              "type": "integer"
+            },
+            "allowed_files": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "artifact_digest_count": {
+              "type": "integer"
+            }
+          }
+        },
+        "integrity_summary": {
+          "type": "object",
+          "required": [
+            "policy_checked",
+            "execution_verified",
+            "verification_status",
+            "tamper_detected"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "policy_checked": {
+              "type": "boolean"
+            },
+            "execution_verified": {
+              "type": "boolean"
+            },
+            "verification_status": {
+              "type": "string"
+            },
+            "tamper_detected": {
+              "type": "boolean"
+            }
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,46 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": true,
+  "mode": "langchain_baseline",
+  "notes": [
+    "Minimal live LangChain execution logs do not persist governance checkpoints or budget decisions.",
+    "Minimal live LangChain LCEL execution with a deterministic local chat model.",
+    "The exported five-file bundle is normalized by the paper harness rather than emitted natively by LangChain."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-001/langchain_baseline",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "framework_result": "Persona, Intent, Governance, Trace, Audit",
+    "runtime_surface": "langchain-live-native-surface",
+    "simulated_response": {
+      "answer": "Persona, Intent, Governance, Trace, Audit",
+      "category": "read_only_query",
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "status": "completed",
+      "target": "README.md"
+    },
+    "summary": "Completed deterministic local run for Summarize architecture path."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-001-langchain_baseline",
+  "schema_version": "paper-eval.v1",
+  "status": "completed",
+  "task_id": "task-001"
+}

@@ -1,0 +1,114 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T09:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "intent_persisted"
+    },
+    {
+      "at": "2026-03-01T09:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T09:01:02Z",
+      "detail": "read_local_summary",
+      "step": "langchain_invoke_started"
+    },
+    {
+      "at": "2026-03-01T09:01:03Z",
+      "detail": "ChatPromptTemplate",
+      "step": "langchain_prompt_template_started"
+    },
+    {
+      "at": "2026-03-01T09:01:04Z",
+      "detail": "messages=[SystemMessage(content='You are a deterministic local LangChain baseline for paper evaluation.', additional_kwargs={}, response_metadata={}), HumanMess",
+      "step": "langchain_chain_finished"
+    },
+    {
+      "at": "2026-03-01T09:01:05Z",
+      "detail": "DeterministicLangChainChatModel:1",
+      "step": "langchain_chat_model_started"
+    },
+    {
+      "at": "2026-03-01T09:01:06Z",
+      "detail": "Persona, Intent, Governance, Trace, Audit",
+      "step": "langchain_llm_finished"
+    },
+    {
+      "at": "2026-03-01T09:01:07Z",
+      "detail": "Persona, Intent, Governance, Trace, Audit",
+      "step": "langchain_chain_finished"
+    },
+    {
+      "at": "2026-03-01T09:01:08Z",
+      "detail": "Persona, Intent, Governance, Trace, Audit",
+      "step": "langchain_chain_finished"
+    },
+    {
+      "at": "2026-03-01T09:01:09Z",
+      "detail": "Persona, Intent, Governance, Trace, Audit",
+      "step": "langchain_invoke_finished"
+    },
+    {
+      "at": "2026-03-01T09:01:10Z",
+      "detail": "completed",
+      "step": "integrity_evaluated"
+    },
+    {
+      "at": "2026-03-01T09:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T09:01:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-langchain_evidence_chain",
+    "finished_at": "2026-03-01T09:01:05Z",
+    "framework": "LangChain",
+    "framework_live_run": true,
+    "framework_result": "Persona, Intent, Governance, Trace, Audit",
+    "performed": true,
+    "started_at": "2026-03-01T09:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:56302d2be48e94d554276ec8c461d4c422c1710e0ca2bf059b797cf78897f395",
+      "sha256:02a9405d82d37db61e2194001a4978f92ff8aa603f8c7d02b54f7ebdb5d483a5",
+      "sha256:260ed29e51c12d21e718fcc7190a2d2012e413789d0d2457858027adb5616ed1"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:e02e9481ba5a241627ad98e911596d5f746f1051a7cb508a08d338efc32fb712",
+      "intent.json": "sha256:5d4654fef671f4e88f41d07c757ca150a0ae74f2b85c7289c6b3f5ac48f3afd2",
+      "result.json": "sha256:c300aab4cf03c247ff81c9e40f8d78b5d8db45627fbea8bbb7aed9c84de60ce1"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:e02e9481ba5a241627ad98e911596d5f746f1051a7cb508a08d338efc32fb712",
+      "intent.json": "sha256:5d4654fef671f4e88f41d07c757ca150a0ae74f2b85c7289c6b3f5ac48f3afd2",
+      "result.json": "sha256:c300aab4cf03c247ff81c9e40f8d78b5d8db45627fbea8bbb7aed9c84de60ce1"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "langchain_evidence_chain",
+  "run_id": "task-001-langchain_evidence_chain",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "langchain_wrapped_evidence_chain"
+}

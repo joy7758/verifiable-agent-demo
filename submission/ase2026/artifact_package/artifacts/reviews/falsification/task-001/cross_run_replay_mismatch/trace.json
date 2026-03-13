@@ -1,0 +1,72 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T06:02:00Z",
+      "detail": "Extract governance checkpoint references",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T06:02:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T06:02:02Z",
+      "detail": "read_governance_refs",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T06:02:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T06:02:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-002-evidence_chain",
+    "finished_at": "2026-03-01T06:02:05Z",
+    "framework": "paper-local-evidence-chain",
+    "performed": true,
+    "started_at": "2026-03-01T06:02:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:9661bc9e38d3cf468f18873e654682036a647270311150eb3e084f0401598be5",
+      "sha256:1d934f2591879a0bc3f283bd499886a02867d116430e4d020e92b3b9424feb87",
+      "sha256:0c102676987c528d3190d0e61eff5d10ac3ae29c181e0fd9054abedb7d8fe501"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:d47a49fee959295a110182032a29c2084c275c5dac50725e0922607ce3958a58",
+      "intent.json": "sha256:6509b8206310d03a3786ec03b23dde11c0d242fbe45a5d668e6734f119070058",
+      "result.json": "sha256:0053392cdfdf70ec7e8a56b2d5901d262d1a3620e463034b028c413f0d679e8b"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:d47a49fee959295a110182032a29c2084c275c5dac50725e0922607ce3958a58",
+      "intent.json": "sha256:6509b8206310d03a3786ec03b23dde11c0d242fbe45a5d668e6734f119070058",
+      "result.json": "sha256:0053392cdfdf70ec7e8a56b2d5901d262d1a3620e463034b028c413f0d679e8b"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "falsified_cross_run_replay_mismatch",
+  "run_id": "task-001-falsified_cross_run_replay_mismatch",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "evidence_chain"
+}

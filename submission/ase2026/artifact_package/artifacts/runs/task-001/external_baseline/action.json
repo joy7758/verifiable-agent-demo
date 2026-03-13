@@ -1,0 +1,40 @@
+{
+  "authorization_state": "framework_executed",
+  "file_type": "action",
+  "mode": "external_baseline",
+  "policy": {
+    "approval_policy": {
+      "status": "not_recorded"
+    },
+    "budget_policy": {
+      "status": "not_recorded"
+    },
+    "checked": false,
+    "checkpoint_id": "not_recorded",
+    "decision": {
+      "reasons": [
+        "Minimal live CrewAI execution logs do not persist governance checkpoints or budget decisions."
+      ],
+      "status": "framework_default"
+    }
+  },
+  "requested_action": {
+    "framework_runtime": "CrewAI",
+    "name": "read_local_summary",
+    "parameters": {
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "expected_answer": "Persona, Intent, Governance, Trace, Audit",
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "side_effect_class": "read_only",
+      "target": "README.md"
+    },
+    "side_effect_class": "read_only",
+    "summary": "Summarize architecture path",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "run_id": "task-001-external_baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

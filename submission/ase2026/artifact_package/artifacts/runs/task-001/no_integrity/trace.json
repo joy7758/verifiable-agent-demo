@@ -1,0 +1,62 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T04:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T04:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T04:01:02Z",
+      "detail": "read_local_summary",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T04:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T04:01:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-no_integrity",
+    "finished_at": "2026-03-01T04:01:05Z",
+    "framework": "paper-local-ablation",
+    "performed": true,
+    "started_at": "2026-03-01T04:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": false,
+    "checkpoints": [],
+    "expected_digests": {},
+    "method": "none",
+    "notes": [
+      "This mode does not emit execution-integrity evidence."
+    ],
+    "subject_digests": {},
+    "verification_status": "not_performed"
+  },
+  "mode": "no_integrity",
+  "run_id": "task-001-no_integrity",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "evidence_chain_no_integrity"
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "task-015",
+  "category": "tamper_scenario",
+  "title": "Detect action digest mismatch",
+  "goal": "Simulate a post-authorization tamper on the action artifact and require the evidence-chain path to flag it.",
+  "input_payload": {
+    "operation": "tamper_sensitive_run",
+    "requested_tool": "integrity_runner",
+    "target": "local://action-artifact",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.009,
+    "estimated_tokens": 200
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "integrity-check-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": {
+    "tamper_target": "action",
+    "tamper_method": "digest_mismatch",
+    "description": "The expected action digest is modified before verification."
+  },
+  "notes": "Measures whether the integrity layer can bind authorization to the executed artifact."
+}

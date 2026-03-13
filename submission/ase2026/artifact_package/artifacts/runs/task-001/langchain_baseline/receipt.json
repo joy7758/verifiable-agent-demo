@@ -1,0 +1,37 @@
+{
+  "audit_receipt": {
+    "artifacts": [],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 0,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": false,
+      "policy_checked": false,
+      "tamper_detected": false,
+      "verification_status": "not_performed"
+    },
+    "notes": [
+      "Minimal live LangChain LCEL execution with a deterministic local chat model.",
+      "The exported five-file bundle is normalized by the paper harness rather than emitted natively by LangChain.",
+      "This mode leaves receipt export as an empty placeholder for file-shape parity."
+    ],
+    "profile": "langchain-live-native-surface-placeholder",
+    "questions_answered": {},
+    "scope": "bounded_run_bundle",
+    "status": "not_exported"
+  },
+  "file_type": "receipt",
+  "mode": "langchain_baseline",
+  "receipt_exported": false,
+  "run_id": "task-001-langchain_baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

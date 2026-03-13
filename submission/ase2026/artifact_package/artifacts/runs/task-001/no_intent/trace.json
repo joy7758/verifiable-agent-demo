@@ -1,0 +1,72 @@
+{
+  "evidence_produced": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "executed_steps": [
+    {
+      "at": "2026-03-01T02:01:00Z",
+      "detail": "Summarize architecture path",
+      "step": "task_loaded"
+    },
+    {
+      "at": "2026-03-01T02:01:01Z",
+      "detail": "approved",
+      "step": "policy_evaluated"
+    },
+    {
+      "at": "2026-03-01T02:01:02Z",
+      "detail": "read_local_summary",
+      "step": "action_processed"
+    },
+    {
+      "at": "2026-03-01T02:01:03Z",
+      "detail": "repo_reader",
+      "step": "execution_performed"
+    },
+    {
+      "at": "2026-03-01T02:01:04Z",
+      "detail": "receipt.json",
+      "step": "evidence_written"
+    }
+  ],
+  "execution": {
+    "attempted": true,
+    "deterministic_seed": "task-001-no_intent",
+    "finished_at": "2026-03-01T02:01:05Z",
+    "framework": "paper-local-ablation",
+    "performed": true,
+    "started_at": "2026-03-01T02:01:00Z",
+    "tool_ref": "runtime://paper-eval/repo_reader"
+  },
+  "file_type": "trace",
+  "integrity": {
+    "checked": true,
+    "checkpoints": [
+      "sha256:c544b8b97bcafb331cb954798a4e9215c9b4d2bc9af72b63cf68d99c079ebbd5",
+      "sha256:295d6cbb1191fa05373593f611ea916ba6c1952150225f8dc51c54862e0dc8fc",
+      "sha256:44b163b765a15d45cedf262a72b3386da4ac4696ec785e69b98ff34187d3e026"
+    ],
+    "expected_digests": {
+      "action.json": "sha256:0c17823e0fe011a3123bdb4547a8cf9c1d2e418c0f25c93dbb48f39383628eaa",
+      "intent.json": "sha256:6f231c83c2b7e63c357ac3c0b20177d93d2f915df3a5935b5923e07e6a4ed0da",
+      "result.json": "sha256:7ea1cb4988c122e7829a815f648882f0f53a33e7584efb8cd9134c57e5f7cba3"
+    },
+    "method": "sha256-checkpoint-chain",
+    "notes": [],
+    "subject_digests": {
+      "action.json": "sha256:0c17823e0fe011a3123bdb4547a8cf9c1d2e418c0f25c93dbb48f39383628eaa",
+      "intent.json": "sha256:6f231c83c2b7e63c357ac3c0b20177d93d2f915df3a5935b5923e07e6a4ed0da",
+      "result.json": "sha256:7ea1cb4988c122e7829a815f648882f0f53a33e7584efb8cd9134c57e5f7cba3"
+    },
+    "verification_status": "verified"
+  },
+  "mode": "no_intent",
+  "run_id": "task-001-no_intent",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001",
+  "trace_style": "evidence_chain_no_intent"
+}

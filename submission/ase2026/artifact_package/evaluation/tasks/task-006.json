@@ -1,0 +1,37 @@
+{
+  "task_id": "task-006",
+  "category": "tool_call",
+  "title": "Enumerate expected bundle members",
+  "goal": "Use a local mock tool to enumerate the expected bundle members for a paper review.",
+  "input_payload": {
+    "operation": "enumerate_bundle_members",
+    "requested_tool": "bundle_inspector",
+    "target": "local://run-layout",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.006,
+    "estimated_tokens": 220,
+    "arguments": {
+      "bundle": "paper-eval-run"
+    }
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-tool-standard-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "tool_call",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Lets the harness prove that even tool-only work still maps to the same export contract."
+}

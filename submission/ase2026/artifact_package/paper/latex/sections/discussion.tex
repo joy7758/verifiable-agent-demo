@@ -1,0 +1,10 @@
+\section{Discussion and Threats to Validity}
+\label{sec:discussion}
+
+The reported results support a bounded systems claim: execution evidence can be modeled as a distinct layer above runtime observability and below downstream audit interpretation. In the implemented harness, this layer improves pre-execution explicitness, preserves governance outcomes as evidence-bearing states, detects tamper scenarios as explicit review results, exports bounded receipts that a third party can inspect without reading a full trace transcript, and rejects falsified bundle variants derived from previously valid runs.
+
+The results do not show semantic correctness of model outputs, formal verification of arbitrary agent behavior, or a complete representation of any production framework. The paper should therefore be read as a reference-architecture and reference-implementation study, not as a claim of universal runtime coverage.
+
+Threats to validity remain. The metrics are evidence-shape metrics rather than semantic task-quality metrics. The harness is deterministic and local, so it does not exercise the nondeterminism, service failures, and integration drift of production agent stacks. The live framework baselines are minimal integrations, not production benchmarks, although the paired CrewAI and LangChain comparisons materially reduce the straw-baseline concern. The falsification suite also remains bounded: it strengthens adversarial validity by checking omission, replay mismatch, receipt swap, policy-bypass claims, payload tampering, and false tamper claims, but it does not cover open-ended attacks or broader live-service adversaries. Persona projection likewise remains the least validated stage and is treated here as an architectural precondition rather than an independently established causal factor.
+
+Despite these limits, the reference path is useful for software engineering practice. It suggests that agentic systems need a distinction between \emph{runtime telemetry}, which helps operators observe a system, and \emph{execution evidence}, which helps reviewers verify what the system claimed to do.

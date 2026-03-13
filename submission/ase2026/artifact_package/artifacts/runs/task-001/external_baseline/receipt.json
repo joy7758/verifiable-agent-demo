@@ -1,0 +1,37 @@
+{
+  "audit_receipt": {
+    "artifacts": [],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 0,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": false,
+      "policy_checked": false,
+      "tamper_detected": false,
+      "verification_status": "not_performed"
+    },
+    "notes": [
+      "Minimal live CrewAI execution with a deterministic local mock LLM.",
+      "The exported five-file bundle is still normalized by the paper harness rather than emitted natively by CrewAI.",
+      "This mode leaves receipt export as an empty placeholder for file-shape parity."
+    ],
+    "profile": "crewai-live-native-surface-placeholder",
+    "questions_answered": {},
+    "scope": "bounded_run_bundle",
+    "status": "not_exported"
+  },
+  "file_type": "receipt",
+  "mode": "external_baseline",
+  "receipt_exported": false,
+  "run_id": "task-001-external_baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

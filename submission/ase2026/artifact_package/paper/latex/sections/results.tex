@@ -1,0 +1,36 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Baselines and paired comparisons}
+
+Table~\ref{tab:ablation-comparison} provides the quantitative anchor for the local trace baseline, the external baseline, the four ablations, and the full evidence chain. Within the current exported-bundle contract, the evidence-chain configuration improves every evaluated evidence-shape dimension over the trace-oriented baseline. Intent capture, policy checking, and receipt export move from zero positive review verdicts in the baseline to 16 of 16 tasks in the evidence chain. The reported \emph{execution verified} count is 11 of 16 because the full suite also contains 3 reviewable policy-blocked outcomes and 2 explicit tamper-detected outcomes.
+
+The local trace baseline reaches replayability 3.0 but leaves explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure at 1.0, 0.0, 2.0, and 1.0. The minimal live CrewAI baseline raises replayability to 4.0 by preserving a richer execution surface, but it still leaves the missing evidence semantics unresolved. These baseline results support the paper's narrower claim: observability surfaces can improve inspectability without recovering the bounded review contract.
+
+Table~\ref{tab:framework-pair-comparison} tightens the argument by keeping the live runtime fixed inside two framework ecosystems. In both CrewAI and LangChain, the baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same live path with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
+
+\input{tables/framework_pair_comparison}
+
+The paired result is consistent across both frameworks. The default CrewAI and LangChain baselines each remain at 1.0 explicitness, 4.0 replayability, 0.0 tamper sensitivity, 2.0 audit boundedness, and 1.0 evidence-stage exposure. The wrapped conditions in both frameworks rise to 5.0, 5.0, 4.81, 5.0, and 5.0 while preserving the same live runtime path within their respective ecosystems. This does not eliminate all external-validity concerns, because both integrations remain minimal and local, but it materially reduces the claim that the paper only wins by comparing a custom local harness against a single weaker proxy.
+
+\subsection{Ablation results}
+
+Table~\ref{tab:ablation-comparison} summarizes the seven-mode comparison. The ablations show targeted degradation rather than uniform collapse.
+
+\input{tables/ablation_summary}
+
+Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0. Removing governance lowers explicitness to 2.0, eliminates policy-checked reviews, and changes the suite behavior by allowing formerly blocked tasks to complete. Removing integrity preserves explicitness and audit boundedness but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
+
+Taken together, the ablations indicate that each stage contributes a distinct review function. The evidence chain therefore behaves as a layered architecture rather than as a single monolithic switch.
+
+\subsection{Falsification resistance}
+
+Table~\ref{tab:falsification-summary} reports the strengthened negative-control suite. Seven scenarios are derived from the 11 evidence-chain bundles that originally reviewed as \emph{pass}, and one scenario is derived from the 3 evidence-chain bundles that originally reviewed as \emph{policy\_blocked}. Every derived bundle is downgraded to \emph{partial}, yielding a 1.0 detection rate across all eight falsification scenarios.
+
+\input{tables/falsification_summary}
+
+The pattern of failure is selective rather than indiscriminate. Missing intent clears only the intent verdict. Missing policy clears only the policy verdict. Receipt forgery and receipt swap each clear only the receipt verdict, while payload tampering breaks execution verification and receipt verification together because the recomputed digests no longer match the stored bundle. Cross-run replay mismatch clears execution verification while leaving receipt binding intact, which separates replay-chain integrity from receipt binding. A false \texttt{tamper\_detected} claim is also rejected in all 11 pass-derived cases.
+
+The policy-bypass claim scenario is the strongest new check. In all 3 source bundles, intent capture, policy persistence, execution verification, and receipt export still remain individually positive after falsification, but the bundle is nonetheless rejected because the claimed completed outcome contradicts the persisted blocked policy decision. This shows that the review contract is no longer limited to field presence and digest recomputation; it now also rejects cross-file contradictions that would otherwise masquerade as valid evidence.
+
+These checks do not solve the external-benchmark problem, but they do tighten one internal-validity concern. The study is no longer only scoring architecture-aligned positives against architecture-aligned metrics; it also demonstrates that the same review contract rejects malformed, transplanted, or over-claimed bundles derived from previously valid runs.

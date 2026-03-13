@@ -1,0 +1,105 @@
+\section{Method}
+\label{sec:method}
+
+The goal of this work is to define and evaluate a minimal execution evidence architecture for agentic software systems. The target problem is narrower than model correctness and broader than debugging: how should runtime artifacts be organized so that an independent reviewer can determine whether intent was captured, policy was checked, execution was verified, and evidence was exported? The method therefore centers on exported artifact contracts rather than hidden runtime state.
+
+\subsection{Execution evidence architecture}
+
+We define the architecture as a five-stage evidence chain:
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item persona projection,
+  \item intent/action/result objects,
+  \item governance checkpoint,
+  \item execution-integrity validation,
+  \item bounded audit receipt.
+\end{enumerate}
+
+Persona projection provides the actor boundary but is treated here as an architectural precondition rather than a separate empirical target. Intent/action/result objects expose the requested task, operational step, and terminal state. Governance persistence makes blocked runs evidence-bearing instead of silently absent. Execution-integrity validation records replay- or tamper-relevant status. The bounded receipt compresses the run into a stable review surface. Together these stages convert framework-specific observability into a portable evidence bundle. Figure~\ref{fig:evidence-architecture} summarizes the path.
+
+\begin{figure}[t]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, align=center, text width=2.05cm, minimum height=1.1cm, fill=blue!5, font=\small},
+  widebox/.style={draw, rounded corners, align=center, text width=4.8cm, minimum height=1.1cm, fill=green!6, font=\small},
+  arr/.style={-{Stealth[length=2mm]}, thick}
+]
+\node[box] (persona) at (0, 0) {Persona\\projection};
+\node[box] (iar) at (2.7, 0) {Intent, action,\\result objects};
+\node[box] (gov) at (5.4, 0) {Governance\\checkpoint};
+\node[box] (integrity) at (8.1, 0) {Execution-integrity\\validation};
+\node[box] (receipt) at (10.8, 0) {Bounded audit\\receipt};
+\node[widebox] (bundle) at (5.4, -2.0) {Stable five-file bundle\\\texttt{intent.json}, \texttt{action.json}, \texttt{result.json}, \texttt{trace.json}, \texttt{receipt.json}};
+\node[widebox] (review) at (5.4, -3.9) {Independent review surface\\intent captured, policy checked, execution verified, receipt exported};
+\draw[arr] (persona) -- (iar);
+\draw[arr] (iar) -- (gov);
+\draw[arr] (gov) -- (integrity);
+\draw[arr] (integrity) -- (receipt);
+\draw[arr] (receipt.south) |- (bundle.east);
+\draw[arr] (bundle) -- (review);
+\end{tikzpicture}
+}
+\caption{Five-stage architectural view. The controlled evaluation in this paper directly validates the latter four evidence-preserving stages while treating persona projection as an architectural precondition.}
+\Description{A five-stage execution evidence pipeline from persona projection through intent, governance, integrity validation, and bounded receipt export into a stable five-file bundle reviewed by four independent checks.}
+\label{fig:evidence-architecture}
+\end{figure}
+
+\subsection{Reference path}
+
+The architecture is instantiated as a composable reference path in a submitted artifact package omitted here for double-blind review. The implementation keeps the evaluation logic centered in a deterministic local harness so that every condition is reproducible from the included task specifications and scripts.
+
+For every task run, the harness exports exactly five JSON files:
+
+\begin{itemize}
+  \item \texttt{intent.json},
+  \item \texttt{action.json},
+  \item \texttt{result.json},
+  \item \texttt{trace.json},
+  \item \texttt{receipt.json}.
+\end{itemize}
+
+These files are written under the stable layout \texttt{artifacts/runs/<task\_id>/<mode>/}. The contract is shared across all conditions, including baselines and ablations, which makes evidence shape directly comparable.
+
+\subsection{Task suite}
+
+The evaluation harness includes 16 machine-readable tasks grouped into five categories:
+
+\begin{itemize}
+  \item four read-only query tasks,
+  \item four tool-call tasks,
+  \item three budget-constrained tasks,
+  \item three approval-required tasks,
+  \item two tamper scenarios.
+\end{itemize}
+
+The mix of task classes is important because an evidence architecture should represent both positive and negative execution paths. In particular, the budget, approval, and tamper tasks test whether blocked and invalid runs appear as explicit outcomes rather than as absent output.
+
+\subsection{Experimental conditions}
+
+We evaluate ten experimental conditions: a local trace-oriented baseline; two minimal live framework baselines (\texttt{external\_baseline} for CrewAI and \texttt{langchain\_baseline} for LangChain); two same-framework wrapped paths that preserve the live runtime while adding the evidence layer; the full evidence-chain condition; and four single-stage ablations (\texttt{no\_intent}, \texttt{no\_governance}, \texttt{no\_integrity}, and \texttt{no\_receipt}). The live framework baselines preserve framework-native execution evidence but not explicit governance, integrity, or receipt semantics. The paired wrapped modes isolate the effect of the evidence layer while holding the underlying runtime fixed.
+
+\subsection{Review logic and metrics}
+
+A third-party review script consumes a run directory and answers four yes/no questions:
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item was intent captured,
+  \item was policy checked,
+  \item was execution verified,
+  \item was a receipt exported.
+\end{enumerate}
+
+The script emits machine-readable verdicts, an overall status, missing-field explanations, and a short summary. It also recomputes bundle identity consistency and stored digests rather than trusting exported status labels alone. This review step operationalizes the minimum independent inspection workflow that the architecture is intended to support.
+
+We compare conditions using five deterministic, rule-based metrics derived from actual generated artifacts:
+
+\begin{itemize}
+  \item \textbf{explicitness}: whether intent, policy, and outcome are directly inspectable;
+  \item \textbf{replayability}: whether the run preserves enough structure for replay-oriented checking;
+  \item \textbf{tamper sensitivity}: whether integrity-relevant violations appear as explicit outcomes;
+  \item \textbf{audit boundedness}: whether the review surface is compact and purpose-oriented;
+  \item \textbf{evidence-stage exposure}: how completely the harness exposes the intended evidence stages (field name: \texttt{integration\_surface}).
+\end{itemize}
+
+Some parts of these metrics are directly measurable from the exported fields, while others are scored by transparent 0--5 rules documented in the submitted artifact package. The method does not report semantic-quality scores or invented empirical values.

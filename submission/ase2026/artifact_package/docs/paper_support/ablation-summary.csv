@@ -1,0 +1,8 @@
+mode,total_tasks,intent_captured_true,policy_checked_true,execution_verified_true,receipt_exported_true,overall_pass_or_policy_blocked,average_explicitness,average_replayability,average_tamper_sensitivity,average_audit_boundedness,average_integration_surface
+baseline,16,0,0,0,0,0,1.0,3.0,0.0,2.0,1.0
+external_baseline,16,0,0,0,0,0,1.0,4.0,0.0,2.0,1.0
+no_intent,16,0,16,11,0,0,3.0,4.0,4.81,4.0,4.0
+no_governance,16,16,0,14,0,0,2.0,5.0,5.0,4.0,4.0
+no_integrity,16,16,16,0,16,0,5.0,5.0,0.0,5.0,4.0
+no_receipt,16,16,16,11,0,0,4.0,4.0,4.81,2.0,4.0
+evidence_chain,16,16,16,11,16,14,5.0,5.0,4.81,5.0,5.0

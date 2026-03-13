@@ -1,0 +1,19 @@
+\section{Introduction}
+
+Agentic software systems increasingly execute software tasks, invoke tools, consume budgets, and produce outputs that matter beyond the runtime boundary. As these systems move from demos to operational workflows, the engineering question is no longer only whether an agent can complete a task. It is also whether the resulting run can be independently reviewed, replayed, and trusted by a third party.
+
+Current practice usually answers this need with observability artifacts such as logs, callback streams, trace records, and framework-specific execution histories. These artifacts are valuable for debugging and operational visibility, but they are not the same as execution evidence. A trace can show that something happened without making the requested action explicit, without preserving a governance decision, without exposing whether execution integrity was checked, and without exporting a bounded receipt that a reviewer can inspect without reconstructing the full runtime context.
+
+We call this mismatch the \emph{execution evidence gap}. An operator may be able to inspect a log and infer what likely happened, but an independent reviewer still lacks a stable artifact contract for answering four basic questions: was intent captured, was policy checked, was execution verified, and was a receipt exported? When those questions are left implicit, a run can be observable without being verifiable.
+
+This paper presents an execution evidence architecture for agentic software systems. The proposal is not a new orchestration framework. Instead, it is a composable systems layer that links five stages of runtime semantics: persona projection, intent/action/result objects, governance checkpoints, execution-integrity validation, and bounded audit receipts. The architecture makes runs exportable as reviewable evidence bundles while directly evaluating only the latter four evidence-preserving stages.
+
+We instantiate the design in a submitted artifact package omitted here for double-blind review. The artifact package includes a deterministic 16-task suite, a unified five-file export contract, a third-party review script, a trace-oriented baseline, minimal live CrewAI and LangChain baselines, same-framework paired comparisons, four ablations, and an eight-scenario falsification suite. Within the current exported-bundle contract, the evidence-chain configuration improves every evaluated evidence-shape metric over the trace-oriented baseline, while the live framework baselines primarily improve replayability without recovering the missing evidence semantics.
+
+The contributions are threefold:
+
+\begin{itemize}
+  \item It formulates execution evidence as a software systems problem that is distinct from runtime observability.
+  \item It defines a five-stage execution evidence architecture while directly evaluating the latter four evidence-preserving stages as an operational review contract.
+  \item It implements an artifact-grounded evaluation with live-framework baselines, paired comparisons, ablations, and falsification checks showing that bounded reviewability is not recovered by observability surfaces alone.
+\end{itemize}

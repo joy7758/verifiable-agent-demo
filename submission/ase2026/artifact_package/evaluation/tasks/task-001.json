@@ -1,0 +1,35 @@
+{
+  "task_id": "task-001",
+  "category": "read_only_query",
+  "title": "Summarize architecture path",
+  "goal": "Answer which layers appear in the local architecture path without mutating repository state.",
+  "input_payload": {
+    "operation": "read_local_summary",
+    "requested_tool": "repo_reader",
+    "target": "README.md",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.003,
+    "estimated_tokens": 120,
+    "expected_answer": "Persona, Intent, Governance, Trace, Audit"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-none-readonly-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Covers the lowest-risk read path used as the control case for explicit intent capture."
+}

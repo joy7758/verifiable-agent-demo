@@ -1,0 +1,61 @@
+{
+  "audit_receipt": {
+    "artifacts": [
+      {
+        "path": "intent.json",
+        "role": "intent",
+        "sha256": "sha256:092c66d62d60484c0861e480134c271c003ac44576ad812bcd6bef40f4f02457"
+      },
+      {
+        "path": "action.json",
+        "role": "action",
+        "sha256": "sha256:8f97e57d01854ad8703492b2f9054f3cef214c3fae89fbdf2dd3582a5eaaaaf2"
+      },
+      {
+        "path": "result.json",
+        "role": "result",
+        "sha256": "sha256:f9f88af28925797814a4c725b864367f0b6da37f0061bea4ae1de997d138f2a0"
+      },
+      {
+        "path": "trace.json",
+        "role": "trace",
+        "sha256": "sha256:2f8437d6b5a05883afdb0cf221dc3941ba6ea6dc34b484d11983777c91c46053"
+      }
+    ],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 4,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": true,
+      "policy_checked": true,
+      "tamper_detected": false,
+      "verification_status": "verified"
+    },
+    "notes": [
+      "Falsification check replaced the trace with one from a different run without rebinding its integrity chain."
+    ],
+    "profile": "paper-eval-bounded-receipt-v1",
+    "questions_answered": {
+      "what_evidence_was_produced": "receipt.json#/audit_receipt/artifacts",
+      "what_was_authorized": "action.json#/policy/decision",
+      "what_was_executed": "trace.json#/execution",
+      "what_was_intended": "intent.json#/intent"
+    },
+    "scope": "bounded_run_bundle",
+    "status": "exported"
+  },
+  "file_type": "receipt",
+  "mode": "falsified_cross_run_replay_mismatch",
+  "receipt_exported": true,
+  "run_id": "task-001-falsified_cross_run_replay_mismatch",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

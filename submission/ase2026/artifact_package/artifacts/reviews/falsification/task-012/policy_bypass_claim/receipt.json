@@ -1,0 +1,61 @@
+{
+  "audit_receipt": {
+    "artifacts": [
+      {
+        "path": "intent.json",
+        "role": "intent",
+        "sha256": "sha256:4b453329af7a2abf23b9d9920b11cad69c88e47cd8af63ce4422d3d42b51738e"
+      },
+      {
+        "path": "action.json",
+        "role": "action",
+        "sha256": "sha256:6a5cd3c4fe832bce9f5b68d5c3a6b35f09fd3f91d059cfda0bdd5126f3f5fc2a"
+      },
+      {
+        "path": "result.json",
+        "role": "result",
+        "sha256": "sha256:2c58a3e95beedad3dfa5c9d2c377e26e98a88e6f358f3fa78f19f1f402bc2992"
+      },
+      {
+        "path": "trace.json",
+        "role": "trace",
+        "sha256": "sha256:baeafb4bcccb1a28a9bc4aa74bbc80b77d1f67df8c6577860ce975f3570f4653"
+      }
+    ],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 4,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": true,
+      "policy_checked": true,
+      "tamper_detected": false,
+      "verification_status": "verified"
+    },
+    "notes": [
+      "Falsification check rewrote a blocked bundle to claim successful execution without changing the policy decision."
+    ],
+    "profile": "paper-eval-bounded-receipt-v1",
+    "questions_answered": {
+      "what_evidence_was_produced": "receipt.json#/audit_receipt/artifacts",
+      "what_was_authorized": "action.json#/policy/decision",
+      "what_was_executed": "trace.json#/execution",
+      "what_was_intended": "intent.json#/intent"
+    },
+    "scope": "bounded_run_bundle",
+    "status": "exported"
+  },
+  "file_type": "receipt",
+  "mode": "falsified_policy_bypass_claim",
+  "receipt_exported": true,
+  "run_id": "task-012-falsified_policy_bypass_claim",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-012"
+}

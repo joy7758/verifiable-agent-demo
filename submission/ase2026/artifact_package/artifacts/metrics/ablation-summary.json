@@ -1,0 +1,3280 @@
+{
+  "description": "Generated from actual artifacts across baseline, external baseline, four ablations, and the full evidence chain.",
+  "modes": [
+    {
+      "average_audit_boundedness": 2.0,
+      "average_explicitness": 1.0,
+      "average_integration_surface": 1.0,
+      "average_replayability": 3.0,
+      "average_tamper_sensitivity": 0.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 0,
+      "mode": "baseline",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 0,
+      "receipt_exported_true": 0,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 2.0,
+      "average_explicitness": 1.0,
+      "average_integration_surface": 1.0,
+      "average_replayability": 4.0,
+      "average_tamper_sensitivity": 0.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 0,
+      "mode": "external_baseline",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 0,
+      "receipt_exported_true": 0,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 4.0,
+      "average_explicitness": 3.0,
+      "average_integration_surface": 4.0,
+      "average_replayability": 4.0,
+      "average_tamper_sensitivity": 4.81,
+      "execution_verified_true": 11,
+      "intent_captured_true": 0,
+      "mode": "no_intent",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 16,
+      "receipt_exported_true": 0,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 4.0,
+      "average_explicitness": 2.0,
+      "average_integration_surface": 4.0,
+      "average_replayability": 5.0,
+      "average_tamper_sensitivity": 5.0,
+      "execution_verified_true": 14,
+      "intent_captured_true": 16,
+      "mode": "no_governance",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 0,
+      "receipt_exported_true": 0,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 5.0,
+      "average_explicitness": 5.0,
+      "average_integration_surface": 4.0,
+      "average_replayability": 5.0,
+      "average_tamper_sensitivity": 0.0,
+      "execution_verified_true": 0,
+      "intent_captured_true": 16,
+      "mode": "no_integrity",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 16,
+      "receipt_exported_true": 16,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 2.0,
+      "average_explicitness": 4.0,
+      "average_integration_surface": 4.0,
+      "average_replayability": 4.0,
+      "average_tamper_sensitivity": 4.81,
+      "execution_verified_true": 11,
+      "intent_captured_true": 16,
+      "mode": "no_receipt",
+      "overall_pass_or_policy_blocked": 0,
+      "policy_checked_true": 16,
+      "receipt_exported_true": 0,
+      "total_tasks": 16
+    },
+    {
+      "average_audit_boundedness": 5.0,
+      "average_explicitness": 5.0,
+      "average_integration_surface": 5.0,
+      "average_replayability": 5.0,
+      "average_tamper_sensitivity": 4.81,
+      "execution_verified_true": 11,
+      "intent_captured_true": 16,
+      "mode": "evidence_chain",
+      "overall_pass_or_policy_blocked": 14,
+      "policy_checked_true": 16,
+      "receipt_exported_true": 16,
+      "total_tasks": 16
+    }
+  ],
+  "per_task": [
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-001/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-001/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-001/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-001/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-001/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-001/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-001/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-001"
+      },
+      "task_id": "task-001"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-002/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-002/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-002/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-002/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-002/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-002/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-002/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-002"
+      },
+      "task_id": "task-002"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-003/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-003/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-003/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-003/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-003/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-003/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-003/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-003"
+      },
+      "task_id": "task-003"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-004/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-004/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-004/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-004/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-004/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-004/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "read_only_query",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-004/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-004"
+      },
+      "task_id": "task-004"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-005/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-005/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-005/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-005/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-005/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-005/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-005/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-005"
+      },
+      "task_id": "task-005"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-006/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-006/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-006/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-006/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-006/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-006/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-006/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-006"
+      },
+      "task_id": "task-006"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-007/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-007/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-007/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-007/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-007/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-007/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-007/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-007"
+      },
+      "task_id": "task-007"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-008/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-008/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-008/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-008/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-008/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-008/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "tool_call",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-008/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-008"
+      },
+      "task_id": "task-008"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-009/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-009/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-009/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-009/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-009/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-009/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-009/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-009"
+      },
+      "task_id": "task-009"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-010/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-010/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_intent",
+      "result_status": "blocked_budget",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-010/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-010/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "blocked_budget",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-010/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_receipt",
+      "result_status": "blocked_budget",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-010/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 4
+      },
+      "mode": "evidence_chain",
+      "result_status": "blocked_budget",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy"
+        ],
+        "mode": "evidence_chain",
+        "overall_status": "policy_blocked",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-010/evidence_chain",
+        "summary": "Run was intentionally blocked by policy with status blocked_budget, and the block remains independently reviewable.",
+        "task_id": "task-010"
+      },
+      "task_id": "task-010"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-011/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-011/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-011/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-011/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-011/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-011/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "budget_constrained",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-011/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-011"
+      },
+      "task_id": "task-011"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-012/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-012/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_intent",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-012/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-012/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-012/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_receipt",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-012/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 4
+      },
+      "mode": "evidence_chain",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy"
+        ],
+        "mode": "evidence_chain",
+        "overall_status": "policy_blocked",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-012/evidence_chain",
+        "summary": "Run was intentionally blocked by policy with status blocked_approval, and the block remains independently reviewable.",
+        "task_id": "task-012"
+      },
+      "task_id": "task-012"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-013/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-013/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-013/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-013/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-013/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-013/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [],
+        "mode": "evidence_chain",
+        "overall_status": "pass",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-013/evidence_chain",
+        "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+        "task_id": "task-013"
+      },
+      "task_id": "task-013"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-014/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-014/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_intent",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-014/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": true,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-014/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-014/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 4
+      },
+      "mode": "no_receipt",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-014/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "approval_required",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 4
+      },
+      "mode": "evidence_chain",
+      "result_status": "blocked_approval",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: skipped_by_policy"
+        ],
+        "mode": "evidence_chain",
+        "overall_status": "policy_blocked",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-014/evidence_chain",
+        "summary": "Run was intentionally blocked by policy with status blocked_approval, and the block remains independently reviewable.",
+        "task_id": "task-014"
+      },
+      "task_id": "task-014"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-015/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-015/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-015/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-015/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-015/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-015/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected"
+        ],
+        "mode": "evidence_chain",
+        "overall_status": "tamper_detected",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-015/evidence_chain",
+        "summary": "Integrity verification independently corroborated a tamper condition.",
+        "task_id": "task-015"
+      },
+      "task_id": "task-015"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 3,
+        "tamper_sensitivity": 0
+      },
+      "mode": "baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-016/baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 1,
+        "integration_surface": 1,
+        "replayability": 4,
+        "tamper_sensitivity": 0
+      },
+      "mode": "external_baseline",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "policy not explicitly checked",
+          "execution verification status: not_performed",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "external_baseline",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-016/external_baseline",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 3,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_intent",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": false,
+        "missing_or_failed_checks": [
+          "intent not explicitly captured",
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_intent",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-016/no_intent",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 4,
+        "explicitness": 2,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_governance",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "policy not explicitly checked",
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests",
+          "receipt does not answer all four review questions"
+        ],
+        "mode": "no_governance",
+        "overall_status": "partial",
+        "policy_checked": false,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-016/no_governance",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 4,
+        "replayability": 5,
+        "tamper_sensitivity": 0
+      },
+      "mode": "no_integrity",
+      "result_status": "completed",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: not_performed"
+        ],
+        "mode": "no_integrity",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-016/no_integrity",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 2,
+        "explicitness": 4,
+        "integration_surface": 4,
+        "replayability": 4,
+        "tamper_sensitivity": 5
+      },
+      "mode": "no_receipt",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected",
+          "receipt not exported with verifiable artifact digests"
+        ],
+        "mode": "no_receipt",
+        "overall_status": "partial",
+        "policy_checked": true,
+        "receipt_exported": false,
+        "run_dir": "artifacts/runs/task-016/no_receipt",
+        "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    },
+    {
+      "category": "tamper_scenario",
+      "metrics": {
+        "audit_boundedness": 5,
+        "explicitness": 5,
+        "integration_surface": 5,
+        "replayability": 5,
+        "tamper_sensitivity": 5
+      },
+      "mode": "evidence_chain",
+      "result_status": "tamper_detected",
+      "review": {
+        "execution_verified": false,
+        "intent_captured": true,
+        "missing_or_failed_checks": [
+          "execution verification status: tamper_detected"
+        ],
+        "mode": "evidence_chain",
+        "overall_status": "tamper_detected",
+        "policy_checked": true,
+        "receipt_exported": true,
+        "run_dir": "artifacts/runs/task-016/evidence_chain",
+        "summary": "Integrity verification independently corroborated a tamper condition.",
+        "task_id": "task-016"
+      },
+      "task_id": "task-016"
+    }
+  ],
+  "title": "Top-Journal Mode Comparison"
+}

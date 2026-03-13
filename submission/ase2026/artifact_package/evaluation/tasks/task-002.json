@@ -1,0 +1,35 @@
+{
+  "task_id": "task-002",
+  "category": "read_only_query",
+  "title": "Extract governance checkpoint references",
+  "goal": "Find the local governance checkpoint references described in the repository documentation.",
+  "input_payload": {
+    "operation": "read_governance_refs",
+    "requested_tool": "repo_reader",
+    "target": "docs/architecture.md",
+    "side_effect_class": "read_only",
+    "estimated_cost_usd": 0.004,
+    "estimated_tokens": 160,
+    "expected_answer": "governor checkpoint references"
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "budget-none-readonly-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": false,
+    "approval_scope": "none",
+    "approval_token": null
+  },
+  "tamper_case": null,
+  "notes": "Measures whether documentation queries still emit the same five-file export contract."
+}

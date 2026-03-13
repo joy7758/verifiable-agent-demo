@@ -1,0 +1,34 @@
+{
+  "task_id": "task-013",
+  "category": "approval_required",
+  "title": "Write approved release note",
+  "goal": "Model a privileged write path that is allowed only when an approval token is explicitly present.",
+  "input_payload": {
+    "operation": "write_release_note",
+    "requested_tool": "approved_writer",
+    "target": "local://release-note",
+    "side_effect_class": "state_change",
+    "estimated_cost_usd": 0.011,
+    "estimated_tokens": 240
+  },
+  "expected_artifacts": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "budget_policy": {
+    "policy_id": "approval-only-v1",
+    "usd_limit": null,
+    "token_limit": null,
+    "enforcement": "informational"
+  },
+  "approval_policy": {
+    "requires_approval": true,
+    "approval_scope": "repo_write",
+    "approval_token": "approval-demo-013"
+  },
+  "tamper_case": null,
+  "notes": "Positive control for approval: the evidence-chain path should show explicit approval satisfaction."
+}

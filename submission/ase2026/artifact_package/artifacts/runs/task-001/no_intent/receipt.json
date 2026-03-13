@@ -1,0 +1,58 @@
+{
+  "audit_receipt": {
+    "artifacts": [
+      {
+        "path": "intent.json",
+        "role": "intent",
+        "sha256": "sha256:6f231c83c2b7e63c357ac3c0b20177d93d2f915df3a5935b5923e07e6a4ed0da"
+      },
+      {
+        "path": "action.json",
+        "role": "action",
+        "sha256": "sha256:0c17823e0fe011a3123bdb4547a8cf9c1d2e418c0f25c93dbb48f39383628eaa"
+      },
+      {
+        "path": "result.json",
+        "role": "result",
+        "sha256": "sha256:7ea1cb4988c122e7829a815f648882f0f53a33e7584efb8cd9134c57e5f7cba3"
+      },
+      {
+        "path": "trace.json",
+        "role": "trace",
+        "sha256": "sha256:49f5361148dd97d606821dbff1234f3d1bfde0be7905fd5261ef119866682fcd"
+      }
+    ],
+    "boundedness": {
+      "allowed_files": [
+        "intent.json",
+        "action.json",
+        "result.json",
+        "trace.json",
+        "receipt.json"
+      ],
+      "artifact_digest_count": 4,
+      "exported_files_count": 5
+    },
+    "integrity_summary": {
+      "execution_verified": true,
+      "policy_checked": true,
+      "tamper_detected": false,
+      "verification_status": "verified"
+    },
+    "notes": [],
+    "profile": "paper-eval-bounded-receipt-v1",
+    "questions_answered": {
+      "what_evidence_was_produced": "receipt.json#/audit_receipt/artifacts",
+      "what_was_authorized": "action.json#/policy/decision",
+      "what_was_executed": "trace.json#/execution"
+    },
+    "scope": "bounded_run_bundle",
+    "status": "exported"
+  },
+  "file_type": "receipt",
+  "mode": "no_intent",
+  "receipt_exported": true,
+  "run_id": "task-001-no_intent",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

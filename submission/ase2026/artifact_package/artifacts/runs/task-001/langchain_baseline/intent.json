@@ -1,0 +1,47 @@
+{
+  "authorization_scope": {
+    "approval_policy_ref": "none",
+    "budget_policy_ref": "budget-none-readonly-v1",
+    "expected_exports": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ]
+  },
+  "file_type": "intent",
+  "intent": {
+    "agent_role": "langchain runnable chain",
+    "framework_task_prompt": "Task title: Summarize architecture path\nGoal: Answer which layers appear in the local architecture path without mutating repository state.\nCategory: read_only_query\nInput payload: {\"estimated_cost_usd\": 0.003, \"estimated_tokens\": 120, \"expected_answer\": \"Persona, Intent, Governance, Trace, Audit\", \"operation\": \"read_local_summary\", \"requested_tool\": \"repo_reader\", \"side_effect_class\": \"read_only\", \"target\": \"README.md\"}\nReturn the expected concise outcome only.",
+    "input_payload_snapshot": {
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "expected_answer": "Persona, Intent, Governance, Trace, Audit",
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "side_effect_class": "read_only",
+      "target": "README.md"
+    },
+    "native_surface": {
+      "callbacks_recorded": true,
+      "expected_output": "Persona, Intent, Governance, Trace, Audit",
+      "framework": "LangChain",
+      "mock_local_llm": true,
+      "pipeline": "ChatPromptTemplate|SimpleChatModel|StrOutputParser",
+      "task_prompt": "Task title: Summarize architecture path\nGoal: Answer which layers appear in the local architecture path without mutating repository state.\nCategory: read_only_query\nInput payload: {\"estimated_cost_usd\": 0.003, \"estimated_tokens\": 120, \"expected_answer\": \"Persona, Intent, Governance, Trace, Audit\", \"operation\": \"read_local_summary\", \"requested_tool\": \"repo_reader\", \"side_effect_class\": \"read_only\", \"target\": \"README.md\"}\nReturn the expected concise outcome only.",
+      "tool_usage_declared": "repo_reader"
+    },
+    "source": "LangChain"
+  },
+  "intent_captured": false,
+  "mode": "langchain_baseline",
+  "notes": [
+    "Minimal live LangChain LCEL execution with a deterministic local chat model.",
+    "The exported five-file bundle is normalized by the paper harness rather than emitted natively by LangChain.",
+    "Framework-native task configuration was captured from a live LangChain run, but not as an explicit intent object."
+  ],
+  "run_id": "task-001-langchain_baseline",
+  "schema_version": "paper-eval.v1",
+  "task_id": "task-001"
+}

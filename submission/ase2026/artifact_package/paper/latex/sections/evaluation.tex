@@ -1,0 +1,12 @@
+\section{Evaluation Setup}
+\label{sec:evaluation}
+
+All measurements in this draft come from the submitted artifact package. The evaluation asks whether execution evidence should be treated as a distinct systems layer rather than as an extension of runtime logging. The task suite is intentionally heterogeneous: read-only and tool-call tasks cover ordinary successful runs, budget and approval tasks exercise policy gating, and tamper scenarios exercise integrity-sensitive outcomes. Because the same 16 task specifications are used in every condition, score differences are attributable to the exported evidence surface rather than to different workloads.
+
+The review script distinguishes among several outcome classes. A run may be marked \emph{pass} when all four evidence questions are satisfied, \emph{policy\_blocked} when a checkpoint blocks the task but still leaves reviewable evidence, \emph{tamper\_detected} when the integrity layer detects mismatch, or \emph{partial} when one or more evidence-chain capabilities are missing. In the full evidence chain, the artifact summaries show 11 review-passing completed runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite.
+
+\subsection{Falsification checks}
+
+To reduce the risk that the review contract merely accepts the study's own positive cases, the artifact package also derives an eight-scenario falsification suite from previously reviewable bundles. Seven scenarios begin from the 11 evidence-chain bundles that the review script already marks as \emph{pass}; the eighth (\texttt{policy\_bypass\_claim}) begins from the 3 evidence-chain bundles that originally reviewed as \emph{policy\_blocked}.
+
+Single-surface removals such as missing intent and missing policy are rebound so that the mutated bundle stays internally consistent except for the targeted capability. Receipt forgery, payload tampering, cross-run replay mismatch, and cross-bundle receipt swap exercise strengthened bundle-identity and digest-binding checks rather than trusting stored status fields. The policy-bypass claim scenario exercises cross-file coherence directly by rewriting a blocked bundle to claim successful completion while leaving the persisted blocked policy decision in place. These checks are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can reject internally contradictory or transplanted artifacts.

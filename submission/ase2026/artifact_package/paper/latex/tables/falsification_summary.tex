@@ -1,0 +1,24 @@
+
+\begin{table}[t]
+\centering
+\caption{Negative-control bundle checks derived from review-passing and policy-blocked evidence-chain runs. Each scenario is re-reviewed with the same independent bundle contract used in the main study.}
+\label{tab:falsification-summary}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llcccccc}
+\toprule
+Scenario & Source & Targeted failure & Detected & Intent & Policy & Exec.\ verified & Receipt \\
+\midrule
+    Missing intent & Pass & Intent & 11/11 & 0/11 & 11/11 & 11/11 & 11/11 \\
+    Missing policy & Pass & Policy & 11/11 & 11/11 & 0/11 & 11/11 & 11/11 \\
+    Forged receipt & Pass & Receipt & 11/11 & 11/11 & 11/11 & 11/11 & 0/11 \\
+    Payload tamper & Pass & Execution + receipt & 11/11 & 11/11 & 11/11 & 0/11 & 0/11 \\
+    False tamper claim & Pass & Tamper claim & 11/11 & 11/11 & 11/11 & 0/11 & 11/11 \\
+    Cross-run replay mismatch & Pass & Replay chain & 11/11 & 11/11 & 11/11 & 0/11 & 11/11 \\
+    Cross-bundle receipt swap & Pass & Receipt binding & 11/11 & 11/11 & 11/11 & 11/11 & 0/11 \\
+    Policy bypass claim & Policy-blocked & Policy/result coherence & 3/3 & 3/3 & 3/3 & 3/3 & 3/3 \\
+\\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

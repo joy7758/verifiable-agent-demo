@@ -1,0 +1,44 @@
+{
+  "evidence_refs": [
+    "intent.json",
+    "action.json",
+    "result.json",
+    "trace.json",
+    "receipt.json"
+  ],
+  "execution_trace_ref": "trace.json",
+  "file_type": "result",
+  "goal_satisfied": true,
+  "mode": "no_receipt",
+  "notes": [
+    "Budget and approval checks passed.",
+    "Ablation mode keeps execution evidence but suppresses the bounded audit receipt export."
+  ],
+  "outputs": {
+    "artifact_directory": "artifacts/runs/task-001/no_receipt",
+    "expected_artifacts": [
+      "intent.json",
+      "action.json",
+      "result.json",
+      "trace.json",
+      "receipt.json"
+    ],
+    "runtime_surface": "paper-local-ablation",
+    "simulated_response": {
+      "answer": "Persona, Intent, Governance, Trace, Audit",
+      "category": "read_only_query",
+      "estimated_cost_usd": 0.003,
+      "estimated_tokens": 120,
+      "operation": "read_local_summary",
+      "requested_tool": "repo_reader",
+      "status": "completed",
+      "target": "README.md"
+    },
+    "summary": "Completed deterministic local run for Summarize architecture path."
+  },
+  "policy_outcome_ref": "action.json#/policy/decision",
+  "run_id": "task-001-no_receipt",
+  "schema_version": "paper-eval.v1",
+  "status": "completed",
+  "task_id": "task-001"
+}
