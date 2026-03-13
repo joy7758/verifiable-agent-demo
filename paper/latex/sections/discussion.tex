@@ -1,34 +1,10 @@
 \section{Discussion and Threats to Validity}
 \label{sec:discussion}
 
-\subsection{What the results support}
+The reported results support a bounded systems claim: execution evidence can be modeled as a distinct layer above runtime observability and below downstream audit interpretation. In the implemented harness, this layer improves pre-execution explicitness, preserves governance outcomes as evidence-bearing states, detects tamper scenarios as explicit review results, exports bounded receipts that a third party can inspect without reading a full trace transcript, and rejects falsified bundle variants derived from previously valid runs.
 
-The repository results support a bounded systems claim: execution evidence can be modeled as a distinct layer above runtime observability and below downstream audit interpretation. In the implemented harness, this layer improves pre-execution explicitness, preserves governance outcomes as evidence-bearing states, detects tamper scenarios as explicit review results, exports bounded receipts that a third party can inspect without reading a full trace transcript, and rejects several falsified bundle variants derived from previously valid runs.
+The results do not show semantic correctness of model outputs, formal verification of arbitrary agent behavior, or a complete representation of any production framework. The paper should therefore be read as a reference-architecture and reference-implementation study, not as a claim of universal runtime coverage.
 
-\subsection{What the results do not support}
+Threats to validity remain. The metrics are evidence-shape metrics rather than semantic task-quality metrics. The harness is deterministic and local, so it does not exercise the nondeterminism, service failures, and integration drift of production agent stacks. The live framework baselines are minimal integrations, not production benchmarks, although the paired CrewAI and LangChain comparisons materially reduce the straw-baseline concern. The falsification suite also remains bounded: it strengthens adversarial validity by checking omission, replay mismatch, receipt swap, policy-bypass claims, payload tampering, and false tamper claims, but it does not cover open-ended attacks or broader live-service adversaries. Persona projection likewise remains the least validated stage and is treated here as an architectural precondition rather than an independently established causal factor.
 
-The results do not show semantic correctness of model outputs. They do not provide formal verification of arbitrary agent behavior. They do not establish that the current external baseline is a complete representation of any production framework, and they do not yet provide a real human-subject study. The paper should therefore be read as a reference-architecture and reference-implementation study, not as a claim of universal runtime coverage.
-
-\subsection{Threats to validity}
-
-\paragraph{Construct validity.}
-The metrics are evidence-shape metrics rather than semantic task-quality metrics. This is deliberate, because the paper studies reviewability and verifiability surfaces. Still, the conclusions should be limited to those properties.
-
-\paragraph{Internal validity.}
-The harness is deterministic and local. That improves reproducibility, but it also means that the system does not exercise the nondeterminism, service failures, and integration drift of production agent stacks.
-
-\paragraph{External validity.}
-The live framework baselines are minimal local integrations, not full production benchmarks. The paired comparisons now cover both CrewAI and LangChain, which strengthens the paper by showing that the evidence layer changes the review surface even when the live runtime is held fixed in two framework ecosystems. That still does not justify generalization to all framework-native logging surfaces, all production CrewAI deployments, or all LangChain-based systems.
-
-\paragraph{Appendix-only reviewer workflow.}
-The current blinded reviewer workflow is a kit plus a synthetic smoke test. It demonstrates process reproducibility, but it does not support claims about reviewer performance, statistical significance, or organizational adoption. For that reason, the main paper treats it as appendix material rather than as part of the empirical result core.
-
-\paragraph{Adversarial validity.}
-The current revision is stronger than a pure positive-only harness because it now includes repository-defined falsification checks for omission, replay mismatch, receipt swap, policy-bypass claims, payload tampering, and false tamper claims against previously valid bundles. The review layer therefore fails on more than missing fields: it also fails on contradictory policy/result states, transplanted bundle fragments, and cross-file coherence violations. Remaining gaps include hidden-field omission beyond the current five-file contract, receipt-forgery strategies that evade the present bounded digest checks, open-ended adversarial campaigns authored outside the repository, and live framework falsification under nondeterministic services. Future work should target those broader attack surfaces rather than treating the current suite as exhaustive.
-
-\paragraph{Architectural scope of persona projection.}
-Persona projection is the least validated stage in the current implementation. It is retained because a review bundle still needs an actor boundary, but the present experiments do not establish an independent causal effect of persona semantics. For that reason, the paper's operational claim is intentionally narrower than the full five-stage architecture: the controlled evidence evaluation directly supports the latter four stages.
-
-\subsection{Implications for software engineering}
-
-Despite these limits, the reference path is useful. It suggests that software engineering for agentic systems should distinguish between \emph{runtime telemetry}, which helps operators watch a system, and \emph{execution evidence}, which helps reviewers verify what the system claimed to do. That distinction matters in settings where tool use, budgets, approvals, and external outputs need a compact evidence trail rather than an unbounded stream of internal events.
+Despite these limits, the reference path is useful for software engineering practice. It suggests that agentic systems need a distinction between \emph{runtime telemetry}, which helps operators observe a system, and \emph{execution evidence}, which helps reviewers verify what the system claimed to do.

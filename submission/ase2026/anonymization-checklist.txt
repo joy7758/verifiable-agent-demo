@@ -1,0 +1,21 @@
+ASE 2026 Anonymization Checklist
+
+Manuscript:
+- [x] Author names replaced with Anonymous Author(s)
+- [x] Institution replaced with Anonymous Institution
+- [x] No GitHub repository name appears in the compiled manuscript
+- [x] Artifact references use anonymous wording such as "submitted artifact package"
+- [x] No public DOI, public repository URL, or identifying archival link appears in the paper
+- [x] Data Availability Statement keeps the artifact anonymous during review
+
+Artifact package:
+- [ ] Remove author names, usernames, and personal paths from archive contents
+- [ ] Remove identifying git remotes, repository names, and issue links from README files
+- [ ] Remove PDF metadata or generated file metadata that reveals author identity
+- [ ] Check scripts for hard-coded home directories or machine-specific names
+- [ ] Verify that archive filenames are anonymous and submission-safe
+
+Final checks:
+- [ ] Open the packaged PDF and artifact archive from a clean directory
+- [ ] Search packaged text for author names, organization names, and repo URLs
+- [ ] Confirm submission-form metadata is not duplicated inside the anonymous files

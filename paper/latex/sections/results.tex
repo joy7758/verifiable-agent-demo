@@ -1,29 +1,17 @@
 \section{Results}
 \label{sec:results}
 
-\subsection{Baseline versus full evidence chain}
+\subsection{Baselines and paired comparisons}
 
-Table~\ref{tab:main-comparison} reports the main baseline comparison. The full evidence chain improves every measured dimension over the trace-oriented baseline. Intent capture, policy checking, and receipt export all move from zero observed positive reviews in the baseline to 16 of 16 tasks in the evidence chain. The repository metric records \emph{execution verified} as 11 of 16, but that count should be read in two layers: among the 13 runs that reached the execution stage, 11 completed with verification success and 2 ended as explicit tamper-detected outcomes; the remaining 3 tasks are reviewable policy-blocked outcomes rather than missing bundles.
+Table~\ref{tab:ablation-comparison} provides the quantitative anchor for the local trace baseline, the external baseline, the four ablations, and the full evidence chain. Within the current exported-bundle contract, the evidence-chain configuration improves every evaluated evidence-shape dimension over the trace-oriented baseline. Intent capture, policy checking, and receipt export move from zero positive review verdicts in the baseline to 16 of 16 tasks in the evidence chain. The reported \emph{execution verified} count is 11 of 16 because the full suite also contains 3 reviewable policy-blocked outcomes and 2 explicit tamper-detected outcomes.
 
-\input{tables/main_comparison}
+The local trace baseline reaches replayability 3.0 but leaves explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure at 1.0, 0.0, 2.0, and 1.0. The minimal live CrewAI baseline raises replayability to 4.0 by preserving a richer execution surface, but it still leaves the missing evidence semantics unresolved. These baseline results support the paper's narrower claim: observability surfaces can improve inspectability without recovering the bounded review contract.
 
-The metric changes are large. Average explicitness rises from 1.0 to 5.0, replayability from 3.0 to 5.0, tamper sensitivity from 0.0 to 4.81, audit boundedness from 2.0 to 5.0, and evidence-stage exposure from 1.0 to 5.0. This pattern supports the paper's narrower claim: within a stable exported-bundle contract, the evidence-chain surface preserves review questions that the trace-oriented surface does not explicitly retain.
-
-\subsection{External baseline comparison}
-
-Table~\ref{tab:external-comparison} compares the minimal live CrewAI baseline with the full evidence chain. The external baseline improves replayability relative to the local baseline, reaching an average score of 4.0, because a real CrewAI runtime now produces the task execution surface that is later normalized into the five-file bundle. However, it still leaves explicit intent capture, policy persistence, integrity verification, and receipt export absent. As a result, explicitness, tamper sensitivity, audit boundedness, and evidence-stage exposure remain at 1.0, 0.0, 2.0, and 1.0 respectively.
-
-\input{tables/external_comparison}
-
-This comparison only partially addresses the straw-baseline concern. Because the baseline is a minimal live integration rather than a full production benchmark, the result should be read as evidence that a framework-native default logging surface still leaves major evidence gaps by default, not as a definitive benchmark against every production framework.
-
-\subsection{Same-framework paired comparisons}
-
-Table~\ref{tab:framework-pair-comparison} tightens the external-baseline argument by keeping the live runtime fixed inside two framework ecosystems. The repository now reports one paired comparison for CrewAI and one for LangChain. In each case, the baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same live execution path with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
+Table~\ref{tab:framework-pair-comparison} tightens the argument by keeping the live runtime fixed inside two framework ecosystems. In both CrewAI and LangChain, the baseline preserves only the default framework-shaped observability surface, while the paired condition wraps that same live path with explicit intent capture, governance persistence, integrity validation, and bounded receipt export.
 
 \input{tables/framework_pair_comparison}
 
-The paired result is consistent across both frameworks. The default CrewAI and LangChain baselines each remain at 1.0 explicitness, 4.0 replayability, 0.0 tamper sensitivity, 2.0 audit boundedness, and 1.0 evidence-stage exposure. The wrapped conditions in both frameworks rise to 5.0, 5.0, 4.81, 5.0, and 5.0 while preserving the same live runtime path within their respective ecosystems. This does not eliminate all external-validity concerns, because both integrations remain minimal and local, but it materially reduces the claim that the paper only wins by comparing a custom local harness against a single weaker framework proxy.
+The paired result is consistent across both frameworks. The default CrewAI and LangChain baselines each remain at 1.0 explicitness, 4.0 replayability, 0.0 tamper sensitivity, 2.0 audit boundedness, and 1.0 evidence-stage exposure. The wrapped conditions in both frameworks rise to 5.0, 5.0, 4.81, 5.0, and 5.0 while preserving the same live runtime path within their respective ecosystems. This does not eliminate all external-validity concerns, because both integrations remain minimal and local, but it materially reduces the claim that the paper only wins by comparing a custom local harness against a single weaker proxy.
 
 \subsection{Ablation results}
 
@@ -31,7 +19,7 @@ Table~\ref{tab:ablation-comparison} summarizes the seven-mode comparison. The ab
 
 \input{tables/ablation_summary}
 
-Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0. Under the strengthened review contract it also clears all positive receipt-export verdicts, because the bounded receipt can no longer answer all four review questions once the intent surface is removed. Removing governance lowers explicitness to 2.0, eliminates all positive policy-checked reviews, and changes the task suite behavior by allowing formerly blocked tasks to complete, while tamper sensitivity remains high because integrity checks are still present. Positive receipt-review verdicts also drop to 0 of 16 in that mode, because the bundle can no longer substantiate what was authorized. Removing integrity leaves explicitness and audit boundedness at evidence-chain levels, but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
+Removing intent capture lowers explicitness from 5.0 to 3.0 and evidence-stage exposure from 5.0 to 4.0. Removing governance lowers explicitness to 2.0, eliminates policy-checked reviews, and changes the suite behavior by allowing formerly blocked tasks to complete. Removing integrity preserves explicitness and audit boundedness but drives tamper sensitivity and execution verification to 0.0 and 0 of 16. Removing receipt export preserves most other capabilities but drops audit boundedness from 5.0 to 2.0 and receipt-exported reviews from 16 of 16 to 0 of 16.
 
 Taken together, the ablations indicate that each stage contributes a distinct review function. The evidence chain therefore behaves as a layered architecture rather than as a single monolithic switch.
 
@@ -41,12 +29,8 @@ Table~\ref{tab:falsification-summary} reports the strengthened negative-control 
 
 \input{tables/falsification_summary}
 
-The pattern of failure is selective rather than indiscriminate. Removing the intent object clears only the intent verdict while leaving policy, execution verification, and receipt export positive in all 11 pass-derived bundles. Removing the persisted policy decision clears only the policy verdict. Forging a receipt digest and swapping in a receipt from another bundle both clear only the receipt verdict, showing that receipt binding is checked independently of execution verification. Tampering with the result payload after export breaks execution verification and receipt verification together because the recomputed digests no longer match the stored bundle. Replacing the trace with one from another run clears execution verification while leaving the receipt correctly rebound to the mutated bundle, which separates replay-chain integrity from receipt binding. Declaring a tamper outcome without a corroborating digest mismatch is also rejected in all 11 cases, showing that the review script does not merely trust a \texttt{tamper\_detected} label.
+The pattern of failure is selective rather than indiscriminate. Missing intent clears only the intent verdict. Missing policy clears only the policy verdict. Receipt forgery and receipt swap each clear only the receipt verdict, while payload tampering breaks execution verification and receipt verification together because the recomputed digests no longer match the stored bundle. Cross-run replay mismatch clears execution verification while leaving receipt binding intact, which separates replay-chain integrity from receipt binding. A false \texttt{tamper\_detected} claim is also rejected in all 11 pass-derived cases.
 
 The policy-bypass claim scenario is the strongest new check. In all 3 source bundles, intent capture, policy persistence, execution verification, and receipt export still remain individually positive after falsification, but the bundle is nonetheless rejected because the claimed completed outcome contradicts the persisted blocked policy decision. This shows that the review contract is no longer limited to field presence and digest recomputation; it now also rejects cross-file contradictions that would otherwise masquerade as valid evidence.
 
-These checks do not solve the external-benchmark problem, but they do tighten one internal-validity concern. The repository is no longer only scoring architecture-aligned positives against architecture-aligned metrics; it also demonstrates that the same review contract rejects malformed, transplanted, or over-claimed bundles derived from previously valid runs.
-
-\subsection{Appendix-only reviewer note}
-
-The artifact package includes a blinded reviewer workflow, but its checked-in outputs are synthetic smoke-test artifacts rather than human-subject results. We therefore exclude it from the main result claims and retain it only as appendix-level protocol scaffolding; the details appear in Appendix~\ref{sec:appendix-human-review}.
+These checks do not solve the external-benchmark problem, but they do tighten one internal-validity concern. The study is no longer only scoring architecture-aligned positives against architecture-aligned metrics; it also demonstrates that the same review contract rejects malformed, transplanted, or over-claimed bundles derived from previously valid runs.

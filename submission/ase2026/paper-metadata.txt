@@ -1,4 +1,20 @@
-Agentic software systems are increasingly expected to invoke tools, consume budgets, and produce externally consequential outputs, yet most current runtimes still expose execution primarily through logs and traces. Those artifacts are useful for observability, but they do not by themselves provide a bounded, reviewable, and independently checkable account of what was intended, what was authorized, what was executed, and what evidence was exported. This paper frames that mismatch as an execution evidence problem rather than a logging problem.
+Title:
+From Observability to Verifiability: An Execution Evidence Architecture for Agentic Software Systems
+
+Category:
+Technical Research Paper
+
+Primary area:
+AI and Software Engineering
+
+Secondary area:
+Testing and Analysis
+
+Keywords:
+agentic software systems; execution evidence; audit receipts; verifiability; runtime governance
+
+Abstract:
+Agentic software systems increasingly invoke tools, consume budgets, and produce externally consequential outputs, yet most current runtimes still expose execution primarily through logs and traces. Those artifacts are useful for observability, but they do not by themselves provide a bounded, independently reviewable account of what was intended, authorized, executed, and exported. We frame this mismatch as an execution-evidence problem rather than a logging problem.
 
 We present an execution evidence architecture for agentic software systems and instantiate it as a reproducible reference path in a submitted artifact package omitted here for double-blind review. The architecture links five stages of runtime semantics: persona projection, intent/action/result objects, governance checkpointing, execution-integrity validation, and bounded audit receipts. The controlled evaluation directly tests the latter four evidence-preserving stages through a deterministic 16-task suite, a unified five-file export contract, a third-party bundle review script, minimal live CrewAI and LangChain baselines, paired same-framework comparisons in both frameworks with and without the evidence layer, four architectural ablations, and a small falsification suite for negative controls.
 

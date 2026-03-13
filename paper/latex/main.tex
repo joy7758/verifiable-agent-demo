@@ -1,45 +1,41 @@
-\documentclass[11pt]{article}
+\documentclass[sigconf,review,anonymous]{acmart}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage[a4paper,margin=1in]{geometry}
+\setcopyright{none}
+\settopmatter{printacmref=true,printfolios=true}
+\pagestyle{plain}
+
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{enumitem}
-\usepackage[numbers,sort&compress]{natbib}
 \usepackage{tikz}
-\usepackage{hyperref}
 \usepackage{xcolor}
 
 \usetikzlibrary{arrows.meta,positioning}
+\citestyle{acmnumeric}
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.4em}
 
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue!50!black,
-  urlcolor=blue!50!black,
-  citecolor=blue!50!black
-}
-
-\setlist[itemize]{leftmargin=1.5em}
-\setlength{\parskip}{0.4em}
-\setlength{\parindent}{0pt}
+\acmConference[ASE 2026]{The 41st IEEE/ACM International Conference on Automated Software Engineering}{12--16 October 2026}{Munich, Germany}
+\acmBooktitle{The 41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)}
 \title{From Observability to Verifiability: An Execution Evidence Architecture for Agentic Software Systems}
-\author{Anonymous Submission}
-\date{March 2026}
+\author{Anonymous Author(s)}
+\affiliation{\institution{Anonymous Institution}}
 
 \begin{document}
-
-\maketitle
 
 \begin{abstract}
 \input{abstract}
 \end{abstract}
 
-\noindent\textbf{Keywords.} agentic software systems, execution evidence, audit receipts, verifiability, runtime governance
+\ccsdesc[500]{Software and its engineering~Software testing and debugging}
+\ccsdesc[500]{Software and its engineering~Software creation and management}
+\ccsdesc[300]{Software and its engineering~Formal software verification}
+\ccsdesc[300]{Computing methodologies~Artificial intelligence}
+\keywords{agentic software systems, execution evidence, audit receipts, verifiability, runtime governance}
+
+\maketitle
 
 \input{sections/introduction}
 \input{sections/method}
@@ -48,11 +44,9 @@
 \input{sections/related_work}
 \input{sections/discussion}
 \input{sections/conclusion}
+\input{sections/data_availability}
 
-\appendix
-\input{sections/reproduction}
-
-\bibliographystyle{plainnat}
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{refs}
 
 \end{document}

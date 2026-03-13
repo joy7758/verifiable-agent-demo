@@ -1,0 +1,3 @@
+Data Availability Statement
+
+An anonymized artifact package has been prepared for review and includes the task suite, exported bundles, metric summaries, and scripts needed to regenerate the reported tables and rebuild the manuscript. To preserve double-anonymous review, public archival metadata and DOI release are withheld at submission time. DOI-based public archival will be completed through the submission workflow or camera-ready process, subject to venue policy.

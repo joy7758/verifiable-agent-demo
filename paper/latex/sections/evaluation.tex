@@ -1,68 +1,12 @@
 \section{Evaluation Setup}
 \label{sec:evaluation}
 
-\subsection{Study goal}
+All measurements in this draft come from the submitted artifact package. The evaluation asks whether execution evidence should be treated as a distinct systems layer rather than as an extension of runtime logging. The task suite is intentionally heterogeneous: read-only and tool-call tasks cover ordinary successful runs, budget and approval tasks exercise policy gating, and tamper scenarios exercise integrity-sensitive outcomes. Because the same 16 task specifications are used in every condition, score differences are attributable to the exported evidence surface rather than to different workloads.
 
-The evaluation asks whether execution evidence should be treated as a distinct systems layer rather than as an extension of runtime logging. Concretely, we test whether the full evidence chain yields artifact bundles that are more explicit, more replayable, more tamper-sensitive, and more audit-ready than baseline observability surfaces.
-
-\subsection{Repository-grounded setup}
-
-All measurements in this draft come from the checked-in artifact package. The harness is exercised through the top-level make targets documented in the accompanying artifact notes. The evaluation sources are:
-
-\begin{itemize}
-  \item the 16-task suite under \texttt{evaluation/tasks/},
-  \item the five-file export contract under \texttt{artifacts/runs/<task\_id>/<mode>/},
-  \item comparison summaries under \texttt{artifacts/metrics/},
-  \item paper-support documentation under \texttt{docs/paper\_support/},
-  \item the human-review kit under \texttt{evaluation/human\_review/}.
-\end{itemize}
-
-The repository currently supports the following relevant workflows:
-
-\begin{itemize}
-  \item \texttt{make paper-eval},
-  \item \texttt{make eval-external-baseline},
-  \item \texttt{make eval-framework-pair},
-  \item \texttt{make eval-langchain-pair},
-  \item \texttt{make eval-ablation},
-  \item \texttt{make falsification-checks},
-  \item \texttt{make top-journal-pack}.
-\end{itemize}
-
-\subsection{Task distribution}
-
-The task suite is intentionally heterogeneous. Read-only and tool-call tasks cover ordinary successful runs. Budget-constrained and approval-required tasks exercise policy gating. Tamper scenarios exercise integrity-sensitive outcomes. Because the same 16 task specifications are used in every condition, differences in score are attributable to the exported evidence surface rather than to different workloads.
-
-\subsection{Conditions compared}
-
-The core automated comparisons are:
-
-\begin{itemize}
-  \item \textbf{baseline} versus \textbf{evidence\_chain},
-  \item \textbf{external\_baseline} versus \textbf{evidence\_chain},
-  \item \textbf{external\_baseline} versus \textbf{external\_evidence\_chain} under the same live CrewAI path,
-  \item \textbf{langchain\_baseline} versus \textbf{langchain\_evidence\_chain} under the same live LangChain path,
-  \item a seven-mode comparison across baseline, external baseline, four ablations, and the evidence chain.
-\end{itemize}
-
-The main comparison asks whether the full architecture improves over a local trace-oriented export. The external baseline comparison asks whether a minimal live framework logging surface closes the same gap. The paired same-framework comparisons ask whether preserving the framework runtime while adding the evidence layer changes the review surface in more than one framework ecosystem. The ablation study asks whether removing any one stage causes interpretable degradation.
-
-\subsection{Outcome interpretation}
-
-The review script distinguishes among several outcome classes. A run may be marked \emph{pass} when all four evidence questions are satisfied, \emph{policy\_blocked} when a budget or approval checkpoint blocks the task but still leaves reviewable evidence, \emph{tamper\_detected} when the integrity layer detects mismatch, or \emph{partial} when one or more evidence-chain capabilities are missing.
-
-This outcome model is important because it treats blocked and tampered runs as first-class results. In the full evidence chain, the artifact summaries show 11 completed and review-passing runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite. Table~\ref{tab:worked-example} gives a worked example from a policy-blocked bundle to show how a non-success outcome remains independently reviewable.
-
-\input{tables/worked_example}
+The review script distinguishes among several outcome classes. A run may be marked \emph{pass} when all four evidence questions are satisfied, \emph{policy\_blocked} when a checkpoint blocks the task but still leaves reviewable evidence, \emph{tamper\_detected} when the integrity layer detects mismatch, or \emph{partial} when one or more evidence-chain capabilities are missing. In the full evidence chain, the artifact summaries show 11 review-passing completed runs, 3 policy-blocked runs, and 2 tamper-detected runs across the 16-task suite.
 
 \subsection{Falsification checks}
 
-To reduce the risk that the review contract merely accepts the repository's own positive cases, the artifact package also derives an eight-scenario falsification suite from previously reviewable bundles. Seven scenarios begin from the 11 evidence-chain bundles that the review script already marks as \emph{pass}; the eighth (\texttt{policy\_bypass\_claim}) begins from the 3 evidence-chain bundles that originally reviewed as \emph{policy\_blocked}.
+To reduce the risk that the review contract merely accepts the study's own positive cases, the artifact package also derives an eight-scenario falsification suite from previously reviewable bundles. Seven scenarios begin from the 11 evidence-chain bundles that the review script already marks as \emph{pass}; the eighth (\texttt{policy\_bypass\_claim}) begins from the 3 evidence-chain bundles that originally reviewed as \emph{policy\_blocked}.
 
 Single-surface removals such as missing intent and missing policy are rebound so that the mutated bundle stays internally consistent except for the targeted capability. Receipt forgery, payload tampering, cross-run replay mismatch, and cross-bundle receipt swap exercise strengthened bundle-identity and digest-binding checks rather than trusting stored status fields. The policy-bypass claim scenario exercises cross-file coherence directly by rewriting a blocked bundle to claim successful completion while leaving the persisted blocked policy decision in place. These checks are reported separately from the main baseline and ablation comparisons because they do not measure runtime quality; they measure whether the independent review contract can reject internally contradictory or transplanted artifacts.
-
-\subsection{Appendix-only reviewer workflow}
-
-The artifact package also includes a blinded reviewer workflow, but the current manuscript does not treat it as part of the main empirical evaluation. Its checked-in outputs are synthetic smoke-test artifacts rather than human-subject results, so we confine it to the appendix and use it only as reproducibility scaffolding.
-
-% TODO: add a compact study-design figure if a final venue benefits from one.

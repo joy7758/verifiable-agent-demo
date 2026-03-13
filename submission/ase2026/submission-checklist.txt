@@ -1,0 +1,29 @@
+ASE 2026 Submission Checklist
+
+Target track:
+- Research Papers
+- Category: Technical Research Paper
+- Primary area: AI and Software Engineering
+- Secondary area: Testing and Analysis
+
+Manuscript checks:
+- [x] Uses acmart anonymous review format: \documentclass[sigconf,review,anonymous]{acmart}
+- [x] Main body kept within 10 pages
+- [x] References kept within 2 pages
+- [x] Data Availability Statement included after Conclusions
+- [x] Double-anonymous wording reviewed across title page and body
+- [x] PDF rebuilt after ASE retargeting edits
+
+Artifact checks:
+- [x] Anonymous artifact package described in manuscript
+- [x] Data Availability Statement explains withheld public DOI during review
+- [ ] Anonymous archival package uploaded to submission system
+- [ ] DOI-based public archival reserved or scheduled per venue policy
+
+Submission-system checks:
+- [ ] Enter title, abstract, and keywords into submission form
+- [ ] Select category and research areas
+- [ ] Upload anonymous manuscript PDF
+- [ ] Upload or link anonymous artifact package as allowed by venue
+- [ ] Complete author conflicts and metadata
+- [ ] Review generated PDF proof inside the submission system

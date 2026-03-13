@@ -1,6 +1,6 @@
 \section{Reproduction Notes}
 
-The manuscript is grounded in the checked-in artifact package rather than in a separate private experiment log. The relevant source material includes:
+The manuscript is grounded in the submitted artifact package rather than in a separate private experiment log. The relevant source material includes:
 
 \begin{itemize}
   \item \texttt{docs/paper\_support/task-suite.md},
@@ -23,9 +23,9 @@ The manuscript is grounded in the checked-in artifact package rather than in a s
   \item \texttt{artifacts/human\_review/synthetic-review-summary.json}.
 \end{itemize}
 
-Within the manuscript directory, \texttt{python3} and the helper script \texttt{scripts/generate\_tables.py} regenerate the checked-in table fragments from the JSON metric summaries. The falsification suite is refreshed from the repository root via \texttt{make falsification-checks}, which updates the checked-in falsification narrative and JSON summary artifacts before the manuscript tables are rebuilt. The \texttt{make} target then builds the PDF through \texttt{latexmk}. The current bibliography is intentionally minimal rather than exhaustive; it is limited to verified standards, official framework documentation, and primary papers used to ground the present draft.
+Within the manuscript directory, \texttt{python3} and the helper script \texttt{scripts/generate\_tables.py} regenerate the included table fragments from the JSON metric summaries. The falsification suite is refreshed from the artifact root via \texttt{make falsification-checks}, which updates the included falsification narrative and JSON summary artifacts before the manuscript tables are rebuilt. The \texttt{make} target then builds the PDF through \texttt{latexmk}. The current bibliography is intentionally minimal rather than exhaustive; it is limited to verified standards, official framework documentation, and primary papers used to ground the present draft.
 
-The checked-in live-framework artifacts were generated from the repository-local virtual environment. In the current revision, the paired CrewAI comparison uses \texttt{crewai 1.10.1}, and the paired LangChain comparison uses \texttt{langchain 1.2.12}.
+The included live-framework artifacts were generated from a local virtual environment. In the current draft, the paired CrewAI comparison uses \texttt{crewai 1.10.1}, and the paired LangChain comparison uses \texttt{langchain 1.2.12}.
 
 \subsection{Worked bundle example}
 \label{sec:appendix-worked-example}
@@ -35,4 +35,4 @@ Table~\ref{tab:worked-example} illustrates the bundle surface for a policy-block
 \subsection{Appendix-only reviewer workflow note}
 \label{sec:appendix-human-review}
 
-The checked-in human-review sheet is synthetic and is included only to verify that the blinded bundle workflow, answer key, and summarizer operate end to end. The synthetic summary covers eight blinded bundle rows, split evenly between baseline and evidence-chain conditions. Both conditions reach question accuracy 0.9375 and mean confidence 3.5; mean review time is 117.5 seconds for baseline bundles and 161.5 seconds for evidence-chain bundles. These values are not used in the paper as usability evidence, are not part of the main results, and should not be interpreted as a real reviewer study.
+The included human-review sheet is synthetic and is included only to verify that the blinded bundle workflow, answer key, and summarizer operate end to end. The synthetic summary covers eight blinded bundle rows, split evenly between baseline and evidence-chain conditions. Both conditions reach question accuracy 0.9375 and mean confidence 3.5; mean review time is 117.5 seconds for baseline bundles and 161.5 seconds for evidence-chain bundles. These values are not used in the paper as usability evidence, are not part of the main results, and should not be interpreted as a real reviewer study.
