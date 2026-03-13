@@ -1,0 +1,34 @@
+ASE 2026 Conflict Preparation Template
+
+Instructions
+- Fill this file manually before entering conflicts in the submission portal.
+- Do not invent names or leave placeholders in the final portal submission.
+- Keep this file out of anonymous manuscript materials unless the venue explicitly requests it.
+
+1. Advisors / Advisees
+- Current or former doctoral advisor:
+- Current or former doctoral advisee:
+- Other formal supervisory relationships:
+
+2. Recent Collaborators
+- Coauthors within the venue's conflict window:
+- Grant or project collaborators within the conflict window:
+- Other clearly documented research collaborations:
+
+3. Same Institution
+- Current institution conflicts:
+- Planned or accepted employment conflicts, if relevant under venue policy:
+
+4. Personal / Family Conflicts
+- Family relationship conflicts:
+- Close personal relationship conflicts:
+
+5. Other Policy-Relevant Conflicts
+- Explicitly requested exclusions allowed by venue policy:
+- Other conflicts that should be disclosed under ASE rules:
+
+6. Final Check Before Portal Entry
+- Re-read the ASE conflict policy
+- Confirm spelling of names and institutions
+- Confirm the conflict list is complete
+- Confirm none of this identifying information appears in the anonymous manuscript or anonymous artifact package

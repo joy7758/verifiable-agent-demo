@@ -1,0 +1,59 @@
+ASE 2026 HotCRP / Researchr Form Draft
+
+1. Title
+From Observability to Verifiability: An Execution Evidence Architecture for Agentic Software Systems
+
+Optional shorter portal-friendly title
+From Observability to Verifiability: Execution Evidence for Agentic Software Systems
+
+2. Abstract
+Agentic software systems are increasingly expected to invoke tools, consume budgets, and produce externally consequential outputs, yet most current runtimes still expose execution primarily through logs and traces. Those artifacts are useful for observability, but they do not by themselves provide a bounded, reviewable, and independently checkable account of what was intended, what was authorized, what was executed, and what evidence was exported. This paper frames that mismatch as an execution evidence problem rather than a logging problem.
+
+We present an execution evidence architecture for agentic software systems and instantiate it as a reproducible reference path in a submitted artifact package omitted here for double-blind review. The architecture links five stages of runtime semantics: persona projection, intent/action/result objects, governance checkpointing, execution-integrity validation, and bounded audit receipts. The controlled evaluation directly tests the latter four evidence-preserving stages through a deterministic 16-task suite, a unified five-file export contract, a third-party bundle review script, minimal live CrewAI and LangChain baselines, paired same-framework comparisons in both frameworks with and without the evidence layer, four architectural ablations, and a small falsification suite for negative controls.
+
+Across the reported evaluation artifacts, the full evidence-chain configuration improves average explicitness from 1.0 to 5.0, replayability from 3.0 to 5.0, tamper sensitivity from 0.0 to 4.81, audit boundedness from 2.0 to 5.0, and evidence-stage exposure from 1.0 to 5.0 relative to the local trace-oriented baseline. The minimal live CrewAI and LangChain baselines each reach replayability 4.0, but leave the other evidence dimensions at observability-like levels. In both same-framework paired comparisons, wrapping the identical live runtime with the evidence layer raises the corresponding evidence metrics to 5.0, 5.0, 4.81, 5.0, and 5.0. Ablation results show targeted degradation when intent capture, governance persistence, integrity validation, or receipt export is removed. Under an eight-scenario falsification suite, the updated review contract rejects cross-run replay mismatches, cross-bundle receipt swaps, receipt-digest forgeries, payload tampering, false tamper claims, and policy-bypass claims, yielding a 1.0 detection rate across all derived bundles and showing that the contract is not limited to field-presence checks. In this controlled harness, the results support a bounded claim that observability surfaces and verifiability surfaces are not interchangeable.
+
+Optional shorter portal-friendly abstract
+Agentic software systems increasingly rely on logs and traces for observability, but those artifacts do not by themselves provide a bounded, independently reviewable account of what was intended, authorized, executed, and exported. We frame this as an execution-evidence problem rather than a logging problem. The paper presents a five-stage execution evidence architecture and directly evaluates the latter four evidence-preserving stages through a deterministic 16-task suite, a unified five-file export contract, a third-party bundle review script, a local trace baseline, minimal live CrewAI and LangChain baselines, same-framework paired comparisons, four ablations, and an eight-scenario falsification suite. Within the current exported-bundle contract, the evidence-chain configuration improves explicitness, replayability, tamper sensitivity, audit boundedness, and evidence-stage exposure over the trace-oriented baseline, while the live framework baselines improve replayability without recovering the missing evidence semantics. The falsification suite further shows that the review contract rejects replay mismatches, receipt swaps, payload tampering, false tamper claims, and policy-bypass claims, supporting a bounded claim that observability surfaces and verifiability surfaces are not interchangeable.
+
+3. Keywords
+agentic software systems; execution evidence; audit receipts; verifiability; runtime governance
+
+4. Category
+Technical Research Paper
+
+5. Primary area
+AI and Software Engineering
+
+6. Secondary area
+Testing and Analysis
+
+7. Concise significance statement
+The paper studies an increasingly practical software-engineering problem: modern agent runtimes are observable, but they often lack a bounded review surface that lets an independent reviewer determine what was intended, authorized, executed, and exported after a run completes.
+
+8. Concise novelty statement
+The contribution is not a new agent framework. It is a bounded execution-evidence layer: a five-stage architecture, a stable five-file review bundle, and an independent four-question review contract evaluated with live-framework baselines, same-framework paired comparisons, ablations, and falsification checks.
+
+9. Concise soundness / verifiability statement
+The empirical claim is intentionally bounded to the current exported-bundle contract. The evaluation uses a deterministic 16-task suite, rule-based metrics over generated artifacts, a third-party bundle review script, and an eight-scenario falsification suite that rejects replay mismatches, receipt swaps, tampering, and policy-bypass claims.
+
+10. Data Availability Statement
+An anonymized artifact package has been prepared for review and includes the task suite, exported bundles, metric summaries, and scripts needed to regenerate the reported tables and rebuild the manuscript. To preserve double-anonymous review, public archival metadata and DOI release are withheld at submission time. DOI-based public archival will be completed through the submission workflow or camera-ready process, subject to venue policy.
+
+11. Anonymous artifact availability summary
+An anonymized reviewer package has been prepared and validated locally. It includes the anonymous manuscript PDF, task-suite inputs, metric summaries, representative sample bundles, LaTeX table-generation scripts, bundle-review helpers, and a reviewer quick-check flow. Public archival metadata and DOI release are intentionally deferred during double-anonymous review.
+
+12. Conflict-of-interest entry template
+Fill manually. Do not paste placeholders into HotCRP.
+
+- Advisors or advisees:
+- Recent collaborators:
+- Same current institution:
+- Family or personal conflicts:
+- Other ASE policy-relevant conflicts:
+
+13. Notes on double-anonymous compliance
+- The title, abstract, and statements above are aligned with the anonymous manuscript.
+- Do not add author names, affiliations, repository URLs, or public artifact links to the form text.
+- If the portal asks for artifact availability, use anonymous wording consistent with the Data Availability Statement.
+- Conflicts must be entered separately in the portal using real names; keep them out of the manuscript and anonymous artifact.

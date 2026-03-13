@@ -1,0 +1,31 @@
+ASE 2026 Submission Portal Checklist
+
+Metadata entry
+- [ ] Paste the final submission title
+- [ ] Paste the final abstract
+- [ ] Select `Technical Research Paper`
+- [ ] Select primary area: `AI and Software Engineering`
+- [ ] Select secondary area: `Testing and Analysis`
+- [ ] Enter keywords exactly once, in the portal's expected format
+
+Files and statements
+- [ ] Upload the anonymous manuscript PDF
+- [ ] Verify that the uploaded PDF is the ASE anonymous acmart version
+- [ ] Confirm the manuscript remains within ASE page limits
+- [ ] Paste or confirm the Data Availability Statement
+- [ ] Enter the anonymous artifact availability summary, or attach the anonymous artifact package as the portal allows
+
+Conflict handling
+- [ ] Fill the conflict list manually using real names and institutions where required
+- [ ] Check advisor/advisee conflicts
+- [ ] Check recent collaborator conflicts
+- [ ] Check same-institution conflicts
+- [ ] Check personal or family conflicts
+- [ ] Re-read the venue policy before final submission
+
+Final anonymity and consistency check
+- [ ] Confirm title and abstract match the current manuscript
+- [ ] Confirm the abstract does not make claims stronger than the PDF
+- [ ] Confirm the artifact wording matches the Data Availability Statement
+- [ ] Confirm no author names, affiliations, public artifact links, or repository URLs appear in uploaded anonymous materials
+- [ ] Run one last portal preview / PDF format check before pressing submit
