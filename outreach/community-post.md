@@ -32,6 +32,7 @@ bash scripts/run_demo.sh
 
 CrewAI example:
 
-venv/bin/python crew/crew_demo.py
+bash scripts/setup_framework_venv.sh
+.venv/bin/python crew/crew_demo.py
 
 Feedback welcome.

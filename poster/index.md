@@ -30,7 +30,8 @@ bash scripts/run_demo.sh
 CrewAI example:
 
 ```bash
-venv/bin/python crew/crew_demo.py
+bash scripts/setup_framework_venv.sh
+.venv/bin/python crew/crew_demo.py
 ```
 
 Output:

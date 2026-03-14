@@ -27,7 +27,8 @@ bash scripts/run_demo.sh
 The CrewAI path is also available:
 
 ```bash
-venv/bin/python crew/crew_demo.py
+bash scripts/setup_framework_venv.sh
+.venv/bin/python crew/crew_demo.py
 ```
 
 Review surface after this step:

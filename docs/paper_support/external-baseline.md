@@ -4,13 +4,13 @@ The external baseline adds a deterministic `external_baseline` mode under `artif
 
 Design choice:
 
-- The baseline now runs a minimal live CrewAI task for each paper-eval task using the repository's local `venv/` and a deterministic mock LLM.
+- The baseline now runs a minimal live CrewAI task for each paper-eval task using a git-ignored local `.venv/` created via `scripts/setup_framework_venv.sh` and a deterministic mock LLM.
 - It preserves framework-native concepts such as agent initialization, crew task construction, crew kickoff, and task completion.
 - It still does not claim live end-to-end CrewAI governance, integrity, or bounded receipt support.
 
 What is real vs shimmed:
 
-- Real: every `external_baseline` run executes `Crew.kickoff()` through the installed CrewAI runtime in `venv/`.
+- Real: every `external_baseline` run executes `Crew.kickoff()` through the installed CrewAI runtime in `.venv/`.
 - Normalized: the five exported JSON files are still written by the paper harness after the CrewAI run so that every evaluation condition shares the same output contract.
 - Honest omission: no explicit intent object, no governance checkpoint, no integrity proof, and no bounded receipt are claimed for this mode.
 
@@ -27,8 +27,9 @@ make eval-external-baseline
 
 Environment note:
 
-- This mode requires the repository's local `venv/bin/python`, because CrewAI is installed there rather than under the system `python3`.
-- The checked-in external-baseline artifacts were generated with `crewai 1.10.1` in that local `venv/`.
+- Create the local framework environment first with `bash scripts/setup_framework_venv.sh`.
+- This mode then runs from `.venv/bin/python`, because CrewAI is installed in that local environment rather than under the system `python3`.
+- The checked-in external-baseline artifacts were generated with `crewai 1.10.1` in that local `.venv/`.
 
 Generated comparison outputs:
 

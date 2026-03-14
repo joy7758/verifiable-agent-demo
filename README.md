@@ -66,14 +66,16 @@ bash scripts/run_demo.sh
 ### Existing CrewAI demo path
 
 ```bash
-venv/bin/python crew/crew_demo.py
+bash scripts/setup_framework_venv.sh
+.venv/bin/python crew/crew_demo.py
 ```
 
 Environment notes:
 
 - Python 3 is sufficient for the minimal local path.
-- The CrewAI path uses the local `venv/` already present in this repository.
-- CrewAI currently requires Python `<3.14`; the current working example uses Python 3.13.
+- The optional CrewAI and LangChain paths should run from a git-ignored local `.venv/` created by `scripts/setup_framework_venv.sh`.
+- The pinned framework helper environment currently uses `crewai 1.10.1`, `langchain 1.2.12`, and `langchain-core 1.2.18`.
+- CrewAI currently requires Python `<3.14`.
 - Both demo paths use deterministic local mock data and do not require external API calls.
 
 ## Paper Evaluation Harness

@@ -32,7 +32,8 @@ Implementation notes:
 
 Environment note:
 
-- This mode requires `langchain` in the repository `venv/`. The checked-in artifacts were generated with `langchain 1.2.12` in the same local environment that carries `crewai 1.10.1` for the CrewAI pair.
+- Create the local framework environment first with `bash scripts/setup_framework_venv.sh`.
+- This mode requires `langchain` in the repository `.venv/`. The checked-in artifacts were generated with `langchain 1.2.12` in the same local environment that carries `crewai 1.10.1` for the CrewAI pair.
 
 Limits:
 
