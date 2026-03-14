@@ -85,6 +85,12 @@ Environment notes:
 - CrewAI currently requires Python `<3.14`.
 - Both demo paths use deterministic local mock data and do not require external API calls.
 
+## Repository Automation
+
+- The Mermaid render workflow opens PRs to `main` only through a dedicated GitHub App.
+- Configure repository variable `PROTOCOL_BOT_APP_ID` and repository secret `PROTOCOL_BOT_PRIVATE_KEY` under `Settings -> Secrets and variables -> Actions`.
+- The default repository `GITHUB_TOKEN` remains read-only and is not used for auto-PR promotion.
+
 ## Paper Evaluation Harness
 
 This repository now includes a paper-ready evaluation harness for
