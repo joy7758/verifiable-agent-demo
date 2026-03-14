@@ -1,0 +1,34 @@
+name: Verifiable Agent Gate
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.11"
+
+      - name: Verify deterministic sample bundle
+        run: |
+          python scripts/refresh_demo_samples.py --verify
+
+      - name: Syntax check tracked Python files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git ls-files -z '*.py' | xargs -0 -r -n 100 python -m py_compile
