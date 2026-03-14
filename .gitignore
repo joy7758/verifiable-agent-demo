@@ -2,5 +2,9 @@ __pycache__/
 *.pyc
 venv/
 .venv/
+artifacts/demo_output/
 artifacts/runs/
 artifacts/reviews/
+.vscode/
+.DS_Store
+**/.DS_Store
