@@ -2,13 +2,13 @@ name: Render Mermaid Diagrams
 
 on:
   push:
+    branches: ["main"]
     paths:
       - "docs/**/*.mmd"
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   render-mermaid:
@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -40,14 +42,66 @@ jobs:
               -p docs/figures/puppeteer-config.json
           done
 
+      - name: Detect rendered diagram changes
+        id: rendered_changes
+        run: |
+          if git diff --quiet -- docs; then
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+            echo "No rendered diagram changes detected."
+            exit 0
+          fi
+
+          echo "changed=true" >> "${GITHUB_OUTPUT}"
+          echo "Rendered diagram changes detected."
+
+      - name: Require protocol bot configuration
+        if: steps.rendered_changes.outputs.changed == 'true'
+        env:
+          PROTOCOL_BOT_APP_ID: ${{ vars.PROTOCOL_BOT_APP_ID }}
+          PROTOCOL_BOT_PRIVATE_KEY: ${{ secrets.PROTOCOL_BOT_PRIVATE_KEY }}
+        run: |
+          missing=()
+          [[ -n "${PROTOCOL_BOT_APP_ID}" ]] || missing+=("PROTOCOL_BOT_APP_ID")
+          [[ -n "${PROTOCOL_BOT_PRIVATE_KEY}" ]] || missing+=("PROTOCOL_BOT_PRIVATE_KEY")
+
+          if [[ ${#missing[@]} -eq 0 ]]; then
+            exit 0
+          fi
+
+          {
+            echo "## Auto PR blocked"
+            echo ""
+            echo "Rendered Mermaid diagram updates require the protocol bot GitHub App."
+            echo "Missing Actions configuration:"
+            for key in "${missing[@]}"; do
+              echo "- \`${key}\`"
+            done
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+          echo "Missing protocol bot configuration: ${missing[*]}" >&2
+          exit 1
+
+      - name: Create protocol bot token
+        id: protocol_bot
+        if: steps.rendered_changes.outputs.changed == 'true'
+        uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42
+        with:
+          app-id: ${{ vars.PROTOCOL_BOT_APP_ID }}
+          private-key: ${{ secrets.PROTOCOL_BOT_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Create pull request for rendered SVG
+        if: steps.rendered_changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
         with:
-          token: ${{ github.token }}
+          token: ${{ steps.protocol_bot.outputs.token }}
+          branch-token: ${{ steps.protocol_bot.outputs.token }}
           commit-message: "docs: render mermaid diagrams"
           title: "docs: render mermaid diagrams"
           body: |
             Automated SVG refresh for Mermaid source changes.
+          base: "main"
           branch: "ci/render-mermaid-diagrams"
           delete-branch: true
           add-paths: |
