@@ -1,15 +1,15 @@
 # Shortest Validation Loop
 
-This document compresses the demo into the smallest review loop that still maps to real files in the repository. The current loop is a working draft and a bounded verification surface, not the whole stack.
+This document compresses the demo into the smallest review loop that still maps to deterministic sample files in the repository. The current loop is a working draft and a bounded verification surface, not the whole stack.
 
 ## Step 1: apply persona context
 
 The minimal path applies persona context by loading the local object in `integration/pop_adapter.py` before the action runs.
 
-Practical entry point:
+Practical entry point for refreshing the tracked sample bundle:
 
 ```bash
-python3 -m demo.agent
+python3 scripts/refresh_demo_samples.py
 ```
 
 Review surface after this step:
@@ -18,10 +18,10 @@ Review surface after this step:
 
 ## Step 2: emit intent and action objects
 
-The bounded action is first expressed as interaction objects in `demo/agent.py`. The wrapper script keeps the loop short:
+The bounded action is first expressed as interaction objects in `demo/agent.py`. The sample refresh script keeps the repository copy deterministic:
 
 ```bash
-bash scripts/run_demo.sh
+python3 scripts/refresh_demo_samples.py
 ```
 
 The CrewAI path is also available:
@@ -29,6 +29,12 @@ The CrewAI path is also available:
 ```bash
 bash scripts/setup_framework_venv.sh
 .venv/bin/python crew/crew_demo.py
+```
+
+The live local demo wrapper writes to `artifacts/demo_output/`:
+
+```bash
+bash scripts/run_demo.sh
 ```
 
 Review surface after this step:
@@ -42,7 +48,7 @@ The runtime executes a deterministic local task after the interaction objects ar
 
 ## Step 4: emit trace, result, and evidence
 
-The demo writes its review artifacts into the repository:
+The tracked sample bundle writes its review artifacts into the repository:
 
 - `interaction/result.json`
 - `evidence/example_audit.json`
@@ -68,7 +74,7 @@ python3 -m json.tool evidence/example_audit.json
 For the CrewAI path:
 
 ```bash
-python3 -m json.tool evidence/crew_demo_audit.json
+python3 -m json.tool artifacts/demo_output/crewai/evidence/crew_demo_audit.json
 ```
 
 ## Step 6: independently verify the result

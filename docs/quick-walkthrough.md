@@ -1,6 +1,6 @@
 # Quick Walkthrough
 
-This demo is meant to be readable in a few minutes. The artifacts below already exist in the repository and show the five-layer flow.
+This demo is meant to be readable in a few minutes. The artifacts below are deterministic tracked samples in the repository and show the five-layer flow.
 
 ## 1. Persona attached
 

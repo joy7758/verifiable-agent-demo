@@ -37,7 +37,7 @@ bash scripts/setup_framework_venv.sh
 Output:
 
 ```text
-evidence/example_audit.json
+artifacts/demo_output/evidence/example_audit.json
 ```
 
 ---

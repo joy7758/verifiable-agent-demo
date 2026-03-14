@@ -1,0 +1,24 @@
+{
+  "artifacts": {
+    "evidence/example_audit.json": {
+      "sha256": "35829c6902f4911b968929bb2d6c49db7067c7f031d351b3e4707836e5d2ab7f"
+    },
+    "evidence/result.json": {
+      "sha256": "75b0dfd2ad57a613d0a568bcbd015a83370464507b128a34ba8e93967c64e038"
+    },
+    "interaction/action.json": {
+      "sha256": "e871b1df5d8f5a632fbfb21c584343583e31c5309db0cd49be61699cfda1d380"
+    },
+    "interaction/intent.json": {
+      "sha256": "387034ad5cf1610bce4a0ba71e7c0676681e06326ea6d23be3d3833160d765c5"
+    },
+    "interaction/result.json": {
+      "sha256": "75b0dfd2ad57a613d0a568bcbd015a83370464507b128a34ba8e93967c64e038"
+    }
+  },
+  "generated_by": "scripts/refresh_demo_samples.py",
+  "sample_kind": "repo_tracked_generated_bundle",
+  "sample_task": "test task",
+  "sample_timestamp": 1773261564.422378,
+  "schema": "verifiable-agent-demo-sample-manifest-v1"
+}

@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+import argparse
 import json
 import os
 import sys
@@ -25,6 +28,16 @@ from integration.intent_adapter import (
 from integration.pop_adapter import load_persona
 
 
+DEFAULT_OUTPUT_ROOT = "artifacts/demo_output/crewai"
+
+
+def _join_ref(output_root: Path, relative_path: str) -> str:
+    relative = Path(relative_path)
+    if output_root in {Path(""), Path(".")}:
+        return relative.as_posix()
+    return (output_root / relative).as_posix()
+
+
 class MockCrewAILLM(BaseLLM):
     def __init__(self):
         super().__init__(model="mock-crewai-local", provider="custom")
@@ -46,11 +59,22 @@ class MockCrewAILLM(BaseLLM):
         )
 
 
-def run_crewai_demo():
+def run_crewai_demo(
+    *,
+    output_root: str = DEFAULT_OUTPUT_ROOT,
+    timestamp: float | None = None,
+) -> tuple[str, dict[str, object]]:
     persona = load_persona()
     correlation_id = "crew-demo-001"
     llm = MockCrewAILLM()
+    output_base = Path(output_root)
     set_suppress_tracing_messages(True)
+
+    intent_path = _join_ref(output_base, "interaction/intent.json")
+    action_path = _join_ref(output_base, "interaction/action.json")
+    interaction_result_path = _join_ref(output_base, "interaction/result.json")
+    evidence_audit_path = _join_ref(output_base, "evidence/crew_demo_audit.json")
+    evidence_result_path = _join_ref(output_base, "evidence/result.json")
 
     agent = Agent(
         role="research agent",
@@ -77,8 +101,8 @@ def run_crewai_demo():
             "framework": "CrewAI",
         },
     )
-    write_json_artifact(intent_object, "interaction/intent.json")
-    write_json_artifact(action_object, "interaction/action.json")
+    write_json_artifact(intent_object, intent_path)
+    write_json_artifact(action_object, action_path)
 
     crew = Crew(
         agents=[agent],
@@ -94,7 +118,7 @@ def run_crewai_demo():
         task=task.description,
         result=result_text,
         persona=persona,
-        timestamp=time.time(),
+        timestamp=time.time() if timestamp is None else timestamp,
         agent_id="crew-demo-agent-001",
         framework="CrewAI",
         trace=[
@@ -102,40 +126,63 @@ def run_crewai_demo():
             "CrewAI agent executed task",
             "audit evidence generated",
         ],
-        evidence_path="evidence/crew_demo_audit.json",
+        evidence_path=evidence_audit_path,
         metadata={
             "llm_model": llm.model,
             "task_description": task.description,
             "expected_output": task.expected_output,
-            "intent_ref": "interaction/intent.json",
-            "action_ref": "interaction/action.json",
+            "intent_ref": intent_path,
+            "action_ref": action_path,
             "governance_checkpoint_ref": "governor://checkpoints/demo-local-001",
             "correlation_id": correlation_id,
         },
     )
-    write_audit_record(audit, "evidence/crew_demo_audit.json")
+    write_audit_record(audit, evidence_audit_path)
 
     result_object = build_result(
         persona,
         correlation_id,
         output_refs=["artifact://demo/task-result/crew-demo-001"],
         evidence_refs=[
-            "evidence/crew_demo_audit.json",
-            "evidence/result.json",
+            evidence_audit_path,
+            evidence_result_path,
         ],
     )
-    write_json_artifact(result_object, "interaction/result.json")
-    write_json_artifact(result_object, "evidence/result.json")
+    write_json_artifact(result_object, interaction_result_path)
+    write_json_artifact(result_object, evidence_result_path)
 
     return result_text, {
         "intent": intent_object,
         "action": action_object,
         "result": result_object,
         "audit": audit,
+        "paths": {
+            "intent": intent_path,
+            "action": action_path,
+            "interaction_result": interaction_result_path,
+            "audit": evidence_audit_path,
+            "evidence_result": evidence_result_path,
+        },
     }
 
 
-if __name__ == "__main__":
-    result_text, audit = run_crewai_demo()
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run the deterministic CrewAI demo.")
+    parser.add_argument("--output-root", default=DEFAULT_OUTPUT_ROOT)
+    parser.add_argument("--timestamp", type=float, default=None)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    result_text, audit = run_crewai_demo(
+        output_root=args.output_root,
+        timestamp=args.timestamp,
+    )
     print(result_text)
     print(json.dumps(audit, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

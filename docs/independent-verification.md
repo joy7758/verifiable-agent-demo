@@ -7,16 +7,24 @@ It is the minimal audit artifact for the shortest validation loop.
 
 ## How to view it
 
-Generate or refresh the artifact:
+Refresh the tracked sample bundle:
 
 ```bash
-bash scripts/run_demo.sh
+python3 scripts/refresh_demo_samples.py
+python3 scripts/refresh_demo_samples.py --verify
 ```
 
 Inspect it:
 
 ```bash
 python3 -m json.tool evidence/example_audit.json
+```
+
+For a live local run that does not mutate the tracked sample bundle:
+
+```bash
+bash scripts/run_demo.sh
+python3 -m json.tool artifacts/demo_output/evidence/example_audit.json
 ```
 
 ## What a reviewer needs to check

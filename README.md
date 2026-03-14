@@ -36,11 +36,15 @@ This demo is a guided path across layers. It is not the normative specification 
 
 ## Expected Artifacts
 
+Repo-tracked sample bundle:
 - `interaction/intent.json`
 - `interaction/action.json`
 - `interaction/result.json`
 - `evidence/example_audit.json`
 - `evidence/result.json`
+- `evidence/sample-manifest.json`
+
+Additional tracked example:
 - `evidence/crew_demo_audit.json`
 
 Current concrete examples in this repository include:
@@ -63,6 +67,8 @@ python3 -m demo.agent
 bash scripts/run_demo.sh
 ```
 
+This local wrapper writes fresh output under `artifacts/demo_output/`.
+
 ### Existing CrewAI demo path
 
 ```bash
@@ -73,6 +79,7 @@ bash scripts/setup_framework_venv.sh
 Environment notes:
 
 - Python 3 is sufficient for the minimal local path.
+- Refresh the tracked deterministic sample bundle with `python3 scripts/refresh_demo_samples.py`.
 - The optional CrewAI and LangChain paths should run from a git-ignored local `.venv/` created by `scripts/setup_framework_venv.sh`.
 - The pinned framework helper environment currently uses `crewai 1.10.1`, `langchain 1.2.12`, and `langchain-core 1.2.18`.
 - CrewAI currently requires Python `<3.14`.

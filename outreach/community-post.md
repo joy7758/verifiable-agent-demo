@@ -35,4 +35,8 @@ CrewAI example:
 bash scripts/setup_framework_venv.sh
 .venv/bin/python crew/crew_demo.py
 
+Live output:
+
+artifacts/demo_output/evidence/example_audit.json
+
 Feedback welcome.
