@@ -34,6 +34,10 @@ This repository does not claim a full Token Governor integration. It demonstrate
 
 This demo is a guided path across layers. It is not the normative specification for each layer, and it points outward to the canonical repositories for those layers: [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture), [persona-object-protocol](https://github.com/joy7758/persona-object-protocol), [agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol), [token-governor](https://github.com/joy7758/token-governor), and [aro-audit](https://github.com/joy7758/aro-audit).
 
+## Execution Evidence Demo Note
+
+See [docs/execution-evidence-demo-note.md](docs/execution-evidence-demo-note.md).
+
 ## Expected Artifacts
 
 Repo-tracked sample bundle:
