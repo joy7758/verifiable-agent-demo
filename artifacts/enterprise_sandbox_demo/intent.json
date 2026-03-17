@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0-draft",
+  "object_type": "agent_intent",
+  "scenario": "整理客户拜访记录 → 生成周报 → 发起审批",
+  "intent": {
+    "operation": "customer_visit_weekly_report_approval",
+    "summary": "整理客户拜访记录，生成周报，并发起审批。"
+  },
+  "constraints": {
+    "network_access": "proxy_only",
+    "approval_required": true,
+    "snapshot_required": true
+  },
+  "actor_ref": "pop://personas/enterprise-operator"
+}

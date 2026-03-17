@@ -1,0 +1,66 @@
+{
+  "accepted_states": [
+    {
+      "x": 0,
+      "y": 0
+    },
+    {
+      "x": 1,
+      "y": 1
+    },
+    {
+      "x": 2,
+      "y": 2
+    },
+    {
+      "x": 3,
+      "y": 3
+    },
+    {
+      "x": 4,
+      "y": 4
+    },
+    {
+      "x": 5,
+      "y": 5
+    }
+  ],
+  "checkpoints": [
+    "789fd6d405cdf6366c87d75634a216312522cef2e903a9be4026ce1842f2555b",
+    "b4c380bf00cb98d7ffd166f55ad177b434ac108a8da96e5345a9a1a72ffafb47",
+    "a213b066e1b254643efac7ee395c14744f5c5f0aee4a2b577644243681c0034d",
+    "a602daad5b0d6cab05f67ac1c52b2cddb0b4aeecd0f5c4e5f1208c8d5bc3744c",
+    "359bef56e121c946a7fd4e1a8656a1a380bcc238bc7370732420239f984e796a",
+    "bbaf187c2814eb3a4e845b1340c5b77f7cb50534da7a5cfbcad97e5e7ea33813"
+  ],
+  "drift_event": {
+    "attempted_state": {
+      "x": 10,
+      "y": 5
+    },
+    "drift": 5,
+    "rollback_state": {
+      "x": 5,
+      "y": 5
+    }
+  },
+  "drifts": [
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "final_checkpoint": "bbaf187c2814eb3a4e845b1340c5b77f7cb50534da7a5cfbcad97e5e7ea33813",
+  "initial_state": {
+    "x": 0,
+    "y": 0
+  },
+  "metadata": {
+    "id": "medo-001",
+    "name": "fdo-kernel-mvk"
+  },
+  "object_id": "d3a3fba1628192b7db359a0d1fa15e0525345434a6bcef95d7dd186847363250",
+  "threshold": 3,
+  "transition_count": 5
+}

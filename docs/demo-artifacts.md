@@ -19,4 +19,15 @@ Each artifact represents one layer or one handoff in the broader architecture.
 
 Live local runs write fresh artifacts under `artifacts/demo_output/`.
 
+## Enterprise sandbox artifact chain
+
+The fixed enterprise sandbox scenario writes a single reviewer-facing directory:
+
+- `artifacts/enterprise_sandbox_demo/intent.json`
+- `artifacts/enterprise_sandbox_demo/policy.json`
+- `artifacts/enterprise_sandbox_demo/trace.jsonl`
+- `artifacts/enterprise_sandbox_demo/sep.bundle.json`
+- `artifacts/enterprise_sandbox_demo/replay_verdict.json`
+- `artifacts/enterprise_sandbox_demo/audit_receipt.json`
+
 The demo is illustrative rather than exhaustive.

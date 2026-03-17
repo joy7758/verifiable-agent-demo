@@ -4,6 +4,14 @@ The minimal end-to-end demonstration for the Digital Biosphere Architecture stac
 
 This repository connects persona, interaction semantics, governance context, execution traceability, and audit evidence into one walkthrough. It is a demo and reference path rather than a general-purpose framework.
 
+Shared doctrine:
+
+**Sandbox controls execution; portable evidence verifies execution.**
+
+1. Governance decides what should be allowed.
+2. Execution integrity proves what actually happened.
+3. Audit evidence exports artifacts for independent review.
+
 ```mermaid
 flowchart LR
     Persona["Persona (POP)"] --> Intent["Intent Object (AIP)"]
@@ -29,6 +37,10 @@ flowchart LR
 - Audit Evidence Layer -> ARO-style exported evidence artifacts
 
 This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack, with explicit governance checkpoint references in the emitted interaction and result objects.
+
+It now also includes one fixed enterprise sandbox artifact chain for the
+scenario `整理客户拜访记录 → 生成周报 → 发起审批`, while still not claiming a
+general full-stack Token Governor integration.
 
 ## How to read this demo
 
@@ -72,6 +84,22 @@ bash scripts/run_demo.sh
 ```
 
 This local wrapper writes fresh output under `artifacts/demo_output/`.
+
+### Enterprise sandbox artifact chain
+
+```bash
+python3 examples/enterprise_sandbox_demo/run.py
+```
+
+This writes a reviewer-facing directory under `artifacts/enterprise_sandbox_demo/`
+containing:
+
+- `intent.json`
+- `policy.json`
+- `trace.jsonl`
+- `sep.bundle.json`
+- `replay_verdict.json`
+- `audit_receipt.json`
 
 ### Existing CrewAI demo path
 
