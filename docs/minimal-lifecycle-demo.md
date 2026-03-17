@@ -10,12 +10,11 @@ Lifecycle Receipt semantics defined in the sibling protocol repositories.
 
 The script emits:
 
-- one `lifecycle_object`
-- four lifecycle receipts: `init`, `activate`, `fork`, `terminate`
-- one verifier summary
-
-`merge` is kept as a document sample in this round so the runnable path stays
-small.
+- one parent `lifecycle_object`
+- one child `lifecycle_object`
+- five lifecycle receipts: `init`, `activate`, `fork`, `merge`, `terminate`
+- one machine-readable verifier summary
+- one human-readable verifier summary
 
 ## Run steps
 
@@ -29,62 +28,56 @@ python3 scripts/minimal_lifecycle_demo.py
 
 The script writes to `artifacts/lifecycle_demo/`:
 
-- `artifacts/lifecycle_demo/lifecycle_object.json`
+- `artifacts/lifecycle_demo/objects/parent.lifecycle_object.json`
+- `artifacts/lifecycle_demo/objects/child.lifecycle_object.json`
 - `artifacts/lifecycle_demo/receipts/init.receipt.json`
 - `artifacts/lifecycle_demo/receipts/activate.receipt.json`
 - `artifacts/lifecycle_demo/receipts/fork.receipt.json`
+- `artifacts/lifecycle_demo/receipts/merge.receipt.json`
 - `artifacts/lifecycle_demo/receipts/terminate.receipt.json`
 - `artifacts/lifecycle_demo/verify.json`
+- `artifacts/lifecycle_demo/verify.txt`
 
 ## Expected output
 
 Expected console output is close to:
 
 ```text
-Wrote lifecycle object to artifacts/lifecycle_demo/lifecycle_object.json
-Wrote 4 receipts to artifacts/lifecycle_demo/receipts
-Wrote verifier output to artifacts/lifecycle_demo/verify.json
-Verification status: ok (4 receipts checked)
+Wrote lifecycle objects to artifacts/lifecycle_demo/objects
+Wrote 5 receipts to artifacts/lifecycle_demo/receipts
+Wrote verifier outputs to artifacts/lifecycle_demo/verify.json and artifacts/lifecycle_demo/verify.txt
+Verification status: ok (5 receipts checked)
 ```
 
 The verifier summary should report:
 
 - `status: "ok"`
-- `verified_transitions: ["init", "activate", "fork", "terminate"]`
-- `final_state: "TERMINATED"`
-- `merge_mode: "document_sample_only"`
+- `verified_transitions: ["init", "activate", "fork", "merge", "terminate"]`
+- `parent_final_state: "ACTIVE"`
+- `child_final_state: "TERMINATED"`
+- `merge_mode: "runnable_transition"`
+- `checks.merged_branch_closed: "ok"`
 
 ## What the verifier checks
 
 The verifier in this demo is intentionally small. It checks:
 
-- the transition sequence matches the minimal lifecycle rules
+- the transition sequence matches the minimal lifecycle rules across parent and child
 - each receipt hash recomputes against the protected transition fields
-- each receipt links to the prior receipt hash
-- the final `lifecycle_object` agrees with the last receipt
+- each receipt links to the prior receipt hash for the right subject
+- parent and child share lineage continuity across the fork
+- the child branch merges into an existing parent target
+- a merged branch only closes with `terminate`, not by returning to `ACTIVE`
+- both final `lifecycle_object` files agree with the last accepted receipts
 
 This is enough for a reviewable lifecycle walkthrough without turning the demo
 repository into another full protocol implementation.
 
-## Merge sample
-
-If a merge were included, the receipt shape would stay the same and only change
-the transition semantics:
-
-```json
-{
-  "transition_type": "merge",
-  "subject_instance_id": "agent-alpha-child",
-  "related_instance_id": "agent-alpha",
-  "prior_state": "ACTIVE",
-  "next_state": "MERGED"
-}
-```
-
-That sample stays document-only in this round so the runnable loop remains:
+The runnable loop in this round is:
 
 - born
 - active
 - fork
-- terminate
+- merge
+- terminate-after-merge
 - verify
