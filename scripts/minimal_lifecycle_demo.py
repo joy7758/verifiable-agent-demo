@@ -31,7 +31,7 @@ def _canonical_json(value: Any) -> bytes:
         value,
         sort_keys=True,
         separators=(",", ":"),
-        ensure_ascii=True,
+        ensure_ascii=False,
     ).encode("utf-8")
 
 
