@@ -1,0 +1,377 @@
+{
+  "event_types": [
+    "policy.decision",
+    "sandbox.enter",
+    "snapshot.create",
+    "network.request",
+    "network.response",
+    "approval.start",
+    "approval.result"
+  ],
+  "events": [
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "4e1d1f1742e54eaa261046c082f64e3ba437de4d8a120a77110022bc7627ae40",
+      "event_hash": "b1a37d6fc4045df864ce71a95eeaa59f82fb13ee808f4e08c6b90692fda645f1",
+      "event_id": "f66511da-dd62-41cf-a4ef-04117a4bcf0a",
+      "event_type": "policy.decision",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": null,
+      "result_ref": "policy.json",
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "governance",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "token_governor",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.123790+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "9413cfc64b0a3074a5ecda60d573c9f3a18a158f14fd9a33ddfbf3b8b2dd812c",
+      "event_hash": "1003b5e4678d552348d40f6fbbd5b87bc668530e67845544e090beea2b33c11d",
+      "event_id": "160c0534-094b-4fd8-867a-ad4afde5d32d",
+      "event_type": "sandbox.enter",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "b1a37d6fc4045df864ce71a95eeaa59f82fb13ee808f4e08c6b90692fda645f1",
+      "result_ref": null,
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "sandbox",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "mvk",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.124357+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "ae6f7a41c15806ae87ee7f823a4d446bd77360165ba09266d708c4abf9d907e2",
+      "event_hash": "2170843df59f2f3b7b5557f2fbd8f425f9c2c7001310c043770ed6dfb389c003",
+      "event_id": "fdb8c14d-7777-497d-8f0e-3a02f0b0fb93",
+      "event_type": "snapshot.create",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "1003b5e4678d552348d40f6fbbd5b87bc668530e67845544e090beea2b33c11d",
+      "result_ref": null,
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "snapshot",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "mvk",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.125655+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "a267adbe1c5c0c16471ebe90de343ccf6db63767492ba1893a45db02d8d18606",
+      "event_hash": "44bdcb403c18b85274b886558f1eaa3e1c93d083c2dc8999c27aac2f58d449fb",
+      "event_id": "c2462a9c-1ba8-4bdc-97ca-d911516b3f2b",
+      "event_type": "network.request",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "2170843df59f2f3b7b5557f2fbd8f425f9c2c7001310c043770ed6dfb389c003",
+      "result_ref": "policy.json",
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "network",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "runtime",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.126853+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "c23228e46248696542c6349a950a4763605d026bbe8e2908274b270e1a0cac76",
+      "event_hash": "e579c66f1e5830136d4482170213661b13ec11ea21094a66b7baab0eb8fbf373",
+      "event_id": "81224206-8ecf-425b-b543-d2f0c8bf7473",
+      "event_type": "network.response",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "44bdcb403c18b85274b886558f1eaa3e1c93d083c2dc8999c27aac2f58d449fb",
+      "result_ref": "policy.json",
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "network",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "runtime",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.128049+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "39ffa40d0cd06d97eb5fa507f92e30fa7338c3ca744ebb6b9a5c1e112fa47412",
+      "event_hash": "4ebc6edda46f3ea7c1646f32e205946db5170486f38b6bc56cc949e5331db95b",
+      "event_id": "b7675d9c-9b94-472d-a72a-78234acd65a4",
+      "event_type": "approval.start",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "e579c66f1e5830136d4482170213661b13ec11ea21094a66b7baab0eb8fbf373",
+      "result_ref": null,
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "approval",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "runtime",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.129234+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    },
+    {
+      "action_ref": "policy.json",
+      "actor_identity": {
+        "actor": "employee:alice",
+        "department": "sales"
+      },
+      "chain_hash": "6adb5ef66b3a086dc58ba82dd57c5142a6b8289f99d1a99f08fa7dc3e14a09a4",
+      "event_hash": "699c1fa20de2fa8f35c22d1ce3f512784943060dc3c13400496d74a62dd04f11",
+      "event_id": "3de6d546-ff68-4c5f-8af8-3a03c5e309e6",
+      "event_type": "approval.result",
+      "intent_ref": "intent.json",
+      "network_proxy_meta": {
+        "endpoint": "https://proxy.enterprise.internal",
+        "proxy_id": "proxy-demo-001",
+        "status": "proxyed"
+      },
+      "permission_intersection": [
+        "read",
+        "write"
+      ],
+      "policy_decision": {
+        "allowed_permissions": [
+          "read",
+          "write"
+        ],
+        "decision": "allow_with_approval",
+        "decision_reason": "report generation is allowed, final dispatch requires approval"
+      },
+      "previous_event_hash": "4ebc6edda46f3ea7c1646f32e205946db5170486f38b6bc56cc949e5331db95b",
+      "result_ref": "audit_receipt.json",
+      "sandbox_context": {
+        "ancestor_span_ids": [],
+        "component": "approval",
+        "control_plane": {
+          "id": "agent-os",
+          "version": "2026.03"
+        },
+        "environment": "enterprise-agent-os",
+        "name": null,
+        "parent_span_id": null,
+        "sandbox_id": "sandbox-demo-001",
+        "source": "runtime",
+        "source_event_type": null,
+        "span_id": null,
+        "tags": []
+      },
+      "signature_ref": "sig://enterprise-demo/001",
+      "snapshot_ref": "kernel_bundle.json",
+      "timestamp": "2026-03-17T17:28:20.130568+00:00",
+      "verifier_ref": "mvk://sep-replay"
+    }
+  ],
+  "filters": {},
+  "generated_at": "2026-03-17T17:28:20.132295+00:00",
+  "kernel_bundle_path": "kernel_bundle.json",
+  "latest_chain_hash": "6adb5ef66b3a086dc58ba82dd57c5142a6b8289f99d1a99f08fa7dc3e14a09a4",
+  "profile": "sandbox-evidence-profile",
+  "record_count": 7,
+  "schema_version": "0.1.0"
+}
