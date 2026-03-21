@@ -92,7 +92,6 @@ bash scripts/run_demo.sh
 make killer-demo
 python3 -m http.server --directory docs 8000
 ```
-
 ### Enterprise sandbox artifact chain
 
 ```bash
