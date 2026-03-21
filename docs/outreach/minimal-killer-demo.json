@@ -1,0 +1,156 @@
+{
+  "baseline_summary": {
+    "missing_capabilities": [
+      "intent not explicitly captured",
+      "policy not explicitly checked",
+      "execution verification not performed",
+      "receipt not exported with verifiable artifact digests"
+    ],
+    "missing_capability_counts": {
+      "execution verification not performed": 16,
+      "intent not explicitly captured": 16,
+      "policy not explicitly checked": 16,
+      "receipt not exported with verifiable artifact digests": 16
+    },
+    "mode": "baseline",
+    "overall_status_counts": {
+      "partial": 16
+    },
+    "receipt_digest_count_range": [
+      0,
+      0
+    ],
+    "source_path": "artifacts/metrics/comparison-summary.json",
+    "tasks_seen": 16
+  },
+  "evidence_chain_summary": {
+    "added_capabilities": [
+      "intent captured",
+      "policy checked",
+      "execution verified or explicitly blocked/tamper-detected",
+      "bounded receipt exported"
+    ],
+    "capability_counts": {
+      "bounded receipt exported": 16,
+      "execution verified or explicitly blocked/tamper-detected": 16,
+      "intent captured": 16,
+      "policy checked": 16
+    },
+    "mode": "evidence_chain",
+    "overall_status_counts": {
+      "pass": 11,
+      "policy_blocked": 3,
+      "tamper_detected": 2
+    },
+    "receipt_digest_count_range": [
+      4,
+      4
+    ],
+    "source_path": "artifacts/metrics/comparison-summary.json",
+    "tasks_seen": 16,
+    "verification_status_counts": {
+      "skipped_by_policy": 3,
+      "tamper_detected": 2,
+      "verified": 11
+    }
+  },
+  "one_completed_case": {
+    "baseline": {
+      "artifact_digest_count": 0,
+      "artifact_roles_with_digests": [],
+      "category": "read_only_query",
+      "execution_verified": false,
+      "goal": null,
+      "intent_captured": false,
+      "mode": "baseline",
+      "overall_status": "partial",
+      "policy_checked": false,
+      "policy_reason": "Baseline mode exports a trace-only bundle without a persisted governance checkpoint.",
+      "receipt_exported": false,
+      "result_status": "completed",
+      "review_summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
+      "run_dir": "artifacts/runs/task-001/baseline",
+      "task_id": "task-001",
+      "title": "Summarize architecture path",
+      "verification_status": "not_performed"
+    },
+    "category": "read_only_query",
+    "evidence_chain": {
+      "artifact_digest_count": 4,
+      "artifact_roles_with_digests": [
+        "intent",
+        "action",
+        "result",
+        "trace"
+      ],
+      "category": "read_only_query",
+      "execution_verified": true,
+      "goal": "Answer which layers appear in the local architecture path without mutating repository state.",
+      "intent_captured": true,
+      "mode": "evidence_chain",
+      "overall_status": "pass",
+      "policy_checked": true,
+      "policy_reason": "Budget and approval checks passed.",
+      "receipt_exported": true,
+      "result_status": "completed",
+      "review_summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
+      "run_dir": "artifacts/runs/task-001/evidence_chain",
+      "task_id": "task-001",
+      "title": "Summarize architecture path",
+      "verification_status": "verified"
+    },
+    "takeaway": "Both runs finish, but only the evidence-chain run leaves explicit intent, policy, verification, and receipt evidence.",
+    "task_id": "task-001",
+    "title": "Summarize architecture path"
+  },
+  "one_policy_blocked_case": {
+    "artifact_digest_count": 4,
+    "artifact_roles_with_digests": [
+      "intent",
+      "action",
+      "result",
+      "trace"
+    ],
+    "category": "budget_constrained",
+    "execution_verified": false,
+    "goal": "Trigger a deterministic budget overflow so the evidence-chain path can block the run explicitly.",
+    "intent_captured": true,
+    "mode": "evidence_chain",
+    "overall_status": "policy_blocked",
+    "policy_checked": true,
+    "policy_reason": "Budget policy would be exceeded.",
+    "receipt_exported": true,
+    "result_status": "blocked_budget",
+    "review_summary": "Run was intentionally blocked by policy with status blocked_budget, and the block remains independently reviewable.",
+    "run_dir": "artifacts/runs/task-010/evidence_chain",
+    "takeaway": "The run is blocked before completion, but the policy decision and bounded receipt still make the stop independently reviewable.",
+    "task_id": "task-010",
+    "title": "Budget overflow review",
+    "verification_status": "skipped_by_policy"
+  },
+  "one_tamper_detected_case": {
+    "artifact_digest_count": 4,
+    "artifact_roles_with_digests": [
+      "intent",
+      "action",
+      "result",
+      "trace"
+    ],
+    "category": "tamper_scenario",
+    "execution_verified": false,
+    "goal": "Simulate a post-authorization tamper on the action artifact and require the evidence-chain path to flag it.",
+    "intent_captured": true,
+    "mode": "evidence_chain",
+    "overall_status": "tamper_detected",
+    "policy_checked": true,
+    "policy_reason": "Budget and approval checks passed.",
+    "receipt_exported": true,
+    "result_status": "tamper_detected",
+    "review_summary": "Integrity verification independently corroborated a tamper condition.",
+    "run_dir": "artifacts/runs/task-015/evidence_chain",
+    "takeaway": "The evidence chain does not just log a failure. It records a digest-backed receipt showing that tamper was detected.",
+    "task_id": "task-015",
+    "title": "Detect action digest mismatch",
+    "verification_status": "tamper_detected"
+  }
+}
