@@ -85,6 +85,14 @@ bash scripts/run_demo.sh
 
 This local wrapper writes fresh output under `artifacts/demo_output/`.
 
+### Fastest external demo path
+
+```bash
+bash scripts/run_demo.sh
+make killer-demo
+python3 -m http.server --directory docs 8000
+```
+
 ### Enterprise sandbox artifact chain
 
 ```bash

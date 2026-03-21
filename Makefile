@@ -1,6 +1,9 @@
 PYTHON ?= python3
 
-.PHONY: eval-baseline eval-evidence eval-external-baseline eval-framework-pair eval-langchain-pair eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
+.PHONY: killer-demo eval-baseline eval-evidence eval-external-baseline eval-framework-pair eval-langchain-pair eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
+
+killer-demo:
+	$(PYTHON) scripts/export_minimal_killer_demo.py
 
 eval-baseline:
 	$(PYTHON) scripts/run_paper_eval.py --mode baseline
