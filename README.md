@@ -141,6 +141,9 @@ containing:
 - `replay_verdict.json`
 - `audit_receipt.json`
 
+The receipt is now checked through the canonical ARO surface
+`aro_audit.receipt_validation` with the `minimal` profile.
+
 ### Existing CrewAI demo path
 
 ```bash

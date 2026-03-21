@@ -113,9 +113,30 @@ except ImportError:  # pragma: no cover - compatibility for post-sep agent-evide
         }
 
 try:
-    from validator import validate_enterprise_sandbox_receipt_data
-except ImportError:  # pragma: no cover - local workspace dependency
-    validate_enterprise_sandbox_receipt_data = None
+    from aro_audit.receipt_validation import ValidationResult as _ReceiptValidationResult
+    from aro_audit.receipt_validation import validate_receipt as _validate_receipt
+    _RECEIPT_VALIDATION_IMPORT_ERROR = None
+except ImportError as exc:  # pragma: no cover - local workspace dependency
+    _RECEIPT_VALIDATION_IMPORT_ERROR = str(exc)
+
+    @dataclass(frozen=True)
+    class _ReceiptValidationResult:
+        valid: bool
+        profile: str
+        reason: str
+        errors: tuple[str, ...] = ()
+
+    def _validate_receipt(
+        path_or_obj: str | Path | dict[str, Any],
+        profile: str = "minimal",
+    ) -> _ReceiptValidationResult:
+        message = f"missing aro_audit.receipt_validation: {_RECEIPT_VALIDATION_IMPORT_ERROR}"
+        return _ReceiptValidationResult(
+            valid=False,
+            profile=profile,
+            reason=message,
+            errors=(message,),
+        )
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> Path:
@@ -357,6 +378,15 @@ def _build_audit_receipt(
     return receipt
 
 
+def _summarize_receipt_validation(receipt: dict[str, Any]) -> dict[str, Any]:
+    result = _validate_receipt(receipt, profile="minimal")
+    return {
+        "receipt_valid": result.valid,
+        "receipt_validation_profile": result.profile,
+        "receipt_validation_reason": result.reason,
+    }
+
+
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     intent_path = _write_json(OUTPUT_DIR / "intent.json", _build_intent())
@@ -380,36 +410,30 @@ def main() -> None:
         kernel_bundle_path=kernel_bundle_path,
         replay_verdict=replay_verdict,
     )
-    receipt_ok = None
-    if validate_enterprise_sandbox_receipt_data is not None:
-        receipt_ok, receipt_errors = validate_enterprise_sandbox_receipt_data(receipt)
-        if not receipt_ok:
-            raise SystemExit(
-                "enterprise sandbox receipt validation failed: "
-                + "; ".join(receipt_errors)
-            )
     _write_json(OUTPUT_DIR / "audit_receipt.json", receipt)
+    receipt_validation = _summarize_receipt_validation(receipt)
 
-    print(
-        json.dumps(
-            {
-                "scenario": SCENARIO,
-                "output_dir": str(OUTPUT_DIR),
-                "artifacts": [
-                    "intent.json",
-                    "policy.json",
-                    "trace.jsonl",
-                    "sep.bundle.json",
-                    "replay_verdict.json",
-                    "audit_receipt.json",
-                ],
-                "replay_verdict": replay_verdict.get("verdict"),
-                "receipt_valid": receipt_ok,
-            },
-            indent=2,
-            ensure_ascii=False,
+    summary = {
+        "scenario": SCENARIO,
+        "output_dir": str(OUTPUT_DIR),
+        "artifacts": [
+            "intent.json",
+            "policy.json",
+            "trace.jsonl",
+            "sep.bundle.json",
+            "replay_verdict.json",
+            "audit_receipt.json",
+        ],
+        "replay_verdict": replay_verdict.get("verdict"),
+        **receipt_validation,
+    }
+
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    if not receipt_validation["receipt_valid"]:
+        raise SystemExit(
+            "enterprise sandbox receipt validation failed: "
+            + receipt_validation["receipt_validation_reason"]
         )
-    )
 
 
 if __name__ == "__main__":
