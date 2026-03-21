@@ -40,71 +40,71 @@
   },
   "event_chain": [
     {
-      "event_id": "92a468a4-d4d3-4ac3-99fc-fc7c2bb148a0",
+      "event_id": "e09b7294-ed45-4280-ae68-44de6e48cfb2",
       "event_type": "policy.decision",
-      "event_hash": "sha256:faa9ed896094c15d7f789cf87e17e393870576bc5c1c571caece236945de6640",
+      "event_hash": "sha256:81517226d4f564d568421de27960b6a6dc45846a0da794f84ab2204ea0924299",
       "previous_event_hash": null,
-      "chain_hash": "sha256:e08aca4309aaa8b40abaa7f8b40e83955c1694002cc39c91c3d70f7cb6ad8b7e",
+      "chain_hash": "sha256:a58639ff67b10c3974cb150f5d0ae1c11966d8d070dfb71c13e0165fd8fa723d",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "3351248f-a2b5-44e9-aa82-b4b1d6ca9680",
+      "event_id": "0a14a4c2-dbc2-441d-9239-86d2cfdd5da9",
       "event_type": "sandbox.enter",
-      "event_hash": "sha256:6035f2bc44ab1bd2d02dea3f2da530e01fc4ee254e07648bf0ae6d5a39a0be62",
-      "previous_event_hash": "sha256:faa9ed896094c15d7f789cf87e17e393870576bc5c1c571caece236945de6640",
-      "chain_hash": "sha256:b87986219c06a0b53e75c756c6bf8672ce46f7f7b0a01e482efc7f705a2e7be6",
+      "event_hash": "sha256:22343fbe53761dd8e36458c77ece7eabc2509ecebf6f9c1ccebcc5573f69e2fd",
+      "previous_event_hash": "sha256:81517226d4f564d568421de27960b6a6dc45846a0da794f84ab2204ea0924299",
+      "chain_hash": "sha256:6139eafd0e14dafe0af13e9d94d3d82f2cc5483c74f11b4e8d7d8e997eaa3288",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "853c524f-d35a-4fe7-86cb-86e0bf1e70f9",
+      "event_id": "b8b9296d-1f99-45be-af40-06d18bca32b8",
       "event_type": "snapshot.create",
-      "event_hash": "sha256:81728fdc6680cbd8ebda77fdf47a14fbd9d6f20e65d62c20d9a2f47aed2b08b4",
-      "previous_event_hash": "sha256:6035f2bc44ab1bd2d02dea3f2da530e01fc4ee254e07648bf0ae6d5a39a0be62",
-      "chain_hash": "sha256:1c92cb6a7671c05a6bd99e3e415cc452deddd8a18f9cedb78ca638e66a0be07e",
+      "event_hash": "sha256:0f0ff12244fb13ebc05467f5965bbbb281ea895ac8bdfd08552f4634c125df98",
+      "previous_event_hash": "sha256:22343fbe53761dd8e36458c77ece7eabc2509ecebf6f9c1ccebcc5573f69e2fd",
+      "chain_hash": "sha256:dea71019ca01580ce78b6425150730cafcfb7211c697d2d9fa15e04236f1453f",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "39fbb57e-bcd4-4f48-8989-2893ba83ec29",
+      "event_id": "fb5dd4fb-7481-4fc3-b41f-11f85b85df0c",
       "event_type": "network.request",
-      "event_hash": "sha256:9ddb7a5f7cf240ed2c2035129608a396a1249713ac212c14110232beec694d98",
-      "previous_event_hash": "sha256:81728fdc6680cbd8ebda77fdf47a14fbd9d6f20e65d62c20d9a2f47aed2b08b4",
-      "chain_hash": "sha256:7cc5a90f9b648e5a1773988b1c442b388a229e6192d10be35c099d59556cf2c4",
+      "event_hash": "sha256:af4bede1731286c5a54ce9884efe9bb1c16bc91a2c0495d7c874ba5fbb7c34d5",
+      "previous_event_hash": "sha256:0f0ff12244fb13ebc05467f5965bbbb281ea895ac8bdfd08552f4634c125df98",
+      "chain_hash": "sha256:fa8a532a7aceae22ec71af9fb72ec6dc39a7146b33f060902e6acb13aefea857",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "ea07cabe-c8eb-46c2-aac0-230cb7e8dbcb",
+      "event_id": "8ed3ee57-be44-4755-9866-4603bd486cab",
       "event_type": "network.response",
-      "event_hash": "sha256:c9dfb663e1043184b13034829541018c6a0790a743742f1fb5ef39cdb9124323",
-      "previous_event_hash": "sha256:9ddb7a5f7cf240ed2c2035129608a396a1249713ac212c14110232beec694d98",
-      "chain_hash": "sha256:27b7de061432e48deaa144af25757340cf9a36fb8421e9d2d9a4eff30b966aec",
+      "event_hash": "sha256:172087776e69765ef79ac51bda541f608ae6ca382d5ada85ebd8b1e15edcf0dd",
+      "previous_event_hash": "sha256:af4bede1731286c5a54ce9884efe9bb1c16bc91a2c0495d7c874ba5fbb7c34d5",
+      "chain_hash": "sha256:974675780e3ad1f360442c096a1706df24d128887a362a699263346a256e9a8c",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "0c514a0e-bc4b-451f-8bbe-a2ec6899ba1f",
+      "event_id": "b42a19ee-8ce3-4464-8112-8ab53f07dc0a",
       "event_type": "approval.start",
-      "event_hash": "sha256:4b46346309018458d45e0977f4c73ca4bcfcdbd47f067d8bef9a6c534934d6fa",
-      "previous_event_hash": "sha256:c9dfb663e1043184b13034829541018c6a0790a743742f1fb5ef39cdb9124323",
-      "chain_hash": "sha256:65751e4b34213dde5b648f3b10267a45c02aa82a5a54b4c75bee65641660f069",
+      "event_hash": "sha256:e2fc88bb4cb906509bbac3dc973c2d1460a59e7ebb494f21390aab805687c126",
+      "previous_event_hash": "sha256:172087776e69765ef79ac51bda541f608ae6ca382d5ada85ebd8b1e15edcf0dd",
+      "chain_hash": "sha256:b476a503db3943532ccb96e26e65789dd13be4d3ea18643d44d326cb867e48ef",
       "event_ref": "trace.jsonl"
     },
     {
-      "event_id": "0e755d14-f7ad-4d12-9266-4982c9445a51",
+      "event_id": "d6bfb1c3-d2f1-49f3-bc63-9c7c11c598d3",
       "event_type": "approval.result",
-      "event_hash": "sha256:028c886deb48bb052135dd2e0f89968fc4de664b2a74757718f6c0ab2d4f7aa1",
-      "previous_event_hash": "sha256:4b46346309018458d45e0977f4c73ca4bcfcdbd47f067d8bef9a6c534934d6fa",
-      "chain_hash": "sha256:0ca8429f2447e9ae87985bf266d94c0955a128bc4b3c215c141dab0cdc0cc4be",
+      "event_hash": "sha256:a47594a78facd8e3a86966ba28dace9fc584fdc70720af3a613e4070a0b529aa",
+      "previous_event_hash": "sha256:e2fc88bb4cb906509bbac3dc973c2d1460a59e7ebb494f21390aab805687c126",
+      "chain_hash": "sha256:279359256e359fd12898faa58f82d400c0546e38237c3e09f3ee77a22848ae64",
       "event_ref": "trace.jsonl"
     }
   ],
   "hashes": {
-    "event_hash": "sha256:028c886deb48bb052135dd2e0f89968fc4de664b2a74757718f6c0ab2d4f7aa1",
-    "previous_event_hash": "sha256:4b46346309018458d45e0977f4c73ca4bcfcdbd47f067d8bef9a6c534934d6fa",
-    "chain_hash": "sha256:0ca8429f2447e9ae87985bf266d94c0955a128bc4b3c215c141dab0cdc0cc4be"
+    "event_hash": "sha256:a47594a78facd8e3a86966ba28dace9fc584fdc70720af3a613e4070a0b529aa",
+    "previous_event_hash": "sha256:e2fc88bb4cb906509bbac3dc973c2d1460a59e7ebb494f21390aab805687c126",
+    "chain_hash": "sha256:279359256e359fd12898faa58f82d400c0546e38237c3e09f3ee77a22848ae64"
   },
   "verifier_ref": "mvk://sep-replay",
   "signature_ref": {
     "signature_id": "sig-demo-001",
     "signer": "enterprise-security",
-    "signature": "sha256:fe9f9ab7db1604c0a0b8bea39b942eab6c6c9bcc90fefa8a38bbe82075dbd35e"
+    "signature": "sha256:b903faf7b3a5c9d8a745d5670c45c4b78efccc827785b8ef2302d1c8f1c4551c"
   }
 }

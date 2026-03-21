@@ -12,7 +12,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-001/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -32,7 +32,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-002/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -52,7 +52,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-003/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -72,7 +72,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-004/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -92,7 +92,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-005/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -112,7 +112,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-006/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -132,7 +132,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-007/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -152,7 +152,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-008/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -172,7 +172,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-009/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -192,7 +192,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-011/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -212,7 +212,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/missing_intent",
+        "run_dir": "artifacts/reviews/falsification/task-013/missing_intent",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -232,7 +232,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-001/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -252,7 +252,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-002/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -272,7 +272,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-003/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -292,7 +292,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-004/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -312,7 +312,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-005/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -332,7 +332,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-006/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -352,7 +352,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-007/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -372,7 +372,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-008/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -392,7 +392,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-009/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -412,7 +412,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-011/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -432,7 +432,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/missing_policy",
+        "run_dir": "artifacts/reviews/falsification/task-013/missing_policy",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -453,7 +453,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-001/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -474,7 +474,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-002/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -495,7 +495,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-003/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -516,7 +516,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-004/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -537,7 +537,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-005/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -558,7 +558,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-006/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -579,7 +579,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-007/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -600,7 +600,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-008/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -621,7 +621,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-009/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -642,7 +642,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-011/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -663,7 +663,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/forged_receipt",
+        "run_dir": "artifacts/reviews/falsification/task-013/forged_receipt",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -687,7 +687,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-001/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -711,7 +711,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-002/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -735,7 +735,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-003/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -759,7 +759,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-004/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -783,7 +783,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-005/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -807,7 +807,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-006/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -831,7 +831,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-007/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -855,7 +855,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-008/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -879,7 +879,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-009/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -903,7 +903,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-011/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -927,7 +927,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/payload_tamper",
+        "run_dir": "artifacts/reviews/falsification/task-013/payload_tamper",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -948,7 +948,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-001/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -969,7 +969,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-002/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -990,7 +990,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-003/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -1011,7 +1011,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-004/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -1032,7 +1032,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-005/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -1053,7 +1053,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-006/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -1074,7 +1074,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-007/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -1095,7 +1095,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-008/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -1116,7 +1116,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-009/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -1137,7 +1137,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-011/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -1158,7 +1158,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/false_tamper_claim",
+        "run_dir": "artifacts/reviews/falsification/task-013/false_tamper_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -1185,7 +1185,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-001/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -1212,7 +1212,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-002/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -1239,7 +1239,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-003/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -1267,7 +1267,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-004/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -1295,7 +1295,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-005/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -1323,7 +1323,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-006/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -1351,7 +1351,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-007/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -1379,7 +1379,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-008/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -1406,7 +1406,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-009/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -1434,7 +1434,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-011/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -1462,7 +1462,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/cross_run_replay_mismatch",
+        "run_dir": "artifacts/reviews/falsification/task-013/cross_run_replay_mismatch",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -1486,7 +1486,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-001/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-001/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -1510,7 +1510,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-002/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-002/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -1534,7 +1534,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-003/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-003/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -1558,7 +1558,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-004/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-004/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -1582,7 +1582,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-005/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-005/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -1606,7 +1606,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-006/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-006/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -1630,7 +1630,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-007/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-007/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -1654,7 +1654,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-008/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-008/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -1678,7 +1678,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-009/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-009/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -1702,7 +1702,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-011/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-011/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -1726,7 +1726,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-013/cross_bundle_receipt_swap",
+        "run_dir": "artifacts/reviews/falsification/task-013/cross_bundle_receipt_swap",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -1750,7 +1750,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-010/policy_bypass_claim",
+        "run_dir": "artifacts/reviews/falsification/task-010/policy_bypass_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-010"
       },
@@ -1774,7 +1774,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-012/policy_bypass_claim",
+        "run_dir": "artifacts/reviews/falsification/task-012/policy_bypass_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-012"
       },
@@ -1798,7 +1798,7 @@
         "overall_status": "partial",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/reviews/falsification/task-014/policy_bypass_claim",
+        "run_dir": "artifacts/reviews/falsification/task-014/policy_bypass_claim",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-014"
       },

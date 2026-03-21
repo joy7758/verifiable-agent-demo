@@ -1,5 +1,5 @@
 {
-  "answer_key": "/Users/zhangbin/GitHub/verifiable-agent-demo/evaluation/human_review/admin/answer-key.json",
+  "answer_key": "evaluation/human_review/admin/answer-key.json",
   "by_condition": [
     {
       "bundle_reviews": 4,
@@ -39,7 +39,7 @@
   "row_count": 8,
   "sheet_count": 1,
   "source_sheets": [
-    "/Users/zhangbin/GitHub/verifiable-agent-demo/evaluation/human_review/examples/synthetic_review_sheet.csv"
+    "evaluation/human_review/examples/synthetic_review_sheet.csv"
   ],
   "synthetic_example": true
 }

@@ -55,7 +55,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-001/external_baseline",
+        "run_dir": "artifacts/runs/task-001/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-001"
       },
@@ -80,7 +80,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-001/evidence_chain",
+        "run_dir": "artifacts/runs/task-001/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-001"
       },
@@ -110,7 +110,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-002/external_baseline",
+        "run_dir": "artifacts/runs/task-002/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-002"
       },
@@ -135,7 +135,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-002/evidence_chain",
+        "run_dir": "artifacts/runs/task-002/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-002"
       },
@@ -165,7 +165,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-003/external_baseline",
+        "run_dir": "artifacts/runs/task-003/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-003"
       },
@@ -190,7 +190,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-003/evidence_chain",
+        "run_dir": "artifacts/runs/task-003/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-003"
       },
@@ -220,7 +220,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-004/external_baseline",
+        "run_dir": "artifacts/runs/task-004/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-004"
       },
@@ -245,7 +245,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-004/evidence_chain",
+        "run_dir": "artifacts/runs/task-004/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-004"
       },
@@ -275,7 +275,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-005/external_baseline",
+        "run_dir": "artifacts/runs/task-005/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-005"
       },
@@ -300,7 +300,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-005/evidence_chain",
+        "run_dir": "artifacts/runs/task-005/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-005"
       },
@@ -330,7 +330,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-006/external_baseline",
+        "run_dir": "artifacts/runs/task-006/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-006"
       },
@@ -355,7 +355,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-006/evidence_chain",
+        "run_dir": "artifacts/runs/task-006/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-006"
       },
@@ -385,7 +385,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-007/external_baseline",
+        "run_dir": "artifacts/runs/task-007/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-007"
       },
@@ -410,7 +410,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-007/evidence_chain",
+        "run_dir": "artifacts/runs/task-007/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-007"
       },
@@ -440,7 +440,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-008/external_baseline",
+        "run_dir": "artifacts/runs/task-008/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-008"
       },
@@ -465,7 +465,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-008/evidence_chain",
+        "run_dir": "artifacts/runs/task-008/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-008"
       },
@@ -495,7 +495,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-009/external_baseline",
+        "run_dir": "artifacts/runs/task-009/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-009"
       },
@@ -520,7 +520,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-009/evidence_chain",
+        "run_dir": "artifacts/runs/task-009/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-009"
       },
@@ -550,7 +550,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-010/external_baseline",
+        "run_dir": "artifacts/runs/task-010/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-010"
       },
@@ -577,7 +577,7 @@
         "overall_status": "policy_blocked",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-010/evidence_chain",
+        "run_dir": "artifacts/runs/task-010/evidence_chain",
         "summary": "Run was intentionally blocked by policy with status blocked_budget, and the block remains independently reviewable.",
         "task_id": "task-010"
       },
@@ -607,7 +607,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-011/external_baseline",
+        "run_dir": "artifacts/runs/task-011/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-011"
       },
@@ -632,7 +632,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-011/evidence_chain",
+        "run_dir": "artifacts/runs/task-011/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-011"
       },
@@ -662,7 +662,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-012/external_baseline",
+        "run_dir": "artifacts/runs/task-012/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-012"
       },
@@ -689,7 +689,7 @@
         "overall_status": "policy_blocked",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-012/evidence_chain",
+        "run_dir": "artifacts/runs/task-012/evidence_chain",
         "summary": "Run was intentionally blocked by policy with status blocked_approval, and the block remains independently reviewable.",
         "task_id": "task-012"
       },
@@ -719,7 +719,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-013/external_baseline",
+        "run_dir": "artifacts/runs/task-013/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-013"
       },
@@ -744,7 +744,7 @@
         "overall_status": "pass",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-013/evidence_chain",
+        "run_dir": "artifacts/runs/task-013/evidence_chain",
         "summary": "Intent, policy, execution verification, and receipt export are all present and independently corroborated.",
         "task_id": "task-013"
       },
@@ -774,7 +774,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-014/external_baseline",
+        "run_dir": "artifacts/runs/task-014/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-014"
       },
@@ -801,7 +801,7 @@
         "overall_status": "policy_blocked",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-014/evidence_chain",
+        "run_dir": "artifacts/runs/task-014/evidence_chain",
         "summary": "Run was intentionally blocked by policy with status blocked_approval, and the block remains independently reviewable.",
         "task_id": "task-014"
       },
@@ -831,7 +831,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-015/external_baseline",
+        "run_dir": "artifacts/runs/task-015/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-015"
       },
@@ -858,7 +858,7 @@
         "overall_status": "tamper_detected",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-015/evidence_chain",
+        "run_dir": "artifacts/runs/task-015/evidence_chain",
         "summary": "Integrity verification independently corroborated a tamper condition.",
         "task_id": "task-015"
       },
@@ -888,7 +888,7 @@
         "overall_status": "partial",
         "policy_checked": false,
         "receipt_exported": false,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-016/external_baseline",
+        "run_dir": "artifacts/runs/task-016/external_baseline",
         "summary": "Bundle is reviewable but one or more evidence-chain checks are missing, inconsistent, or unverifiable.",
         "task_id": "task-016"
       },
@@ -915,7 +915,7 @@
         "overall_status": "tamper_detected",
         "policy_checked": true,
         "receipt_exported": true,
-        "run_dir": "/Users/zhangbin/GitHub/verifiable-agent-demo/artifacts/runs/task-016/evidence_chain",
+        "run_dir": "artifacts/runs/task-016/evidence_chain",
         "summary": "Integrity verification independently corroborated a tamper condition.",
         "task_id": "task-016"
       },

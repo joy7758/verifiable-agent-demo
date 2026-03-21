@@ -1,24 +1,11 @@
 {
-  "verdict": "REPLAY_PASS",
+  "verdict": "VERIFIED: Causally Closed Object",
   "returncode": 0,
-  "stdout": "REPLAY_PASS",
+  "stdout": "VERIFIED: Causally Closed Object",
   "stderr": "",
   "sep_verify": {
-    "ok": true,
-    "profile": "sandbox-evidence-profile",
-    "schema_version": "0.1.0",
-    "record_count": 7,
-    "latest_chain_hash": "0ca8429f2447e9ae87985bf266d94c0955a128bc4b3c215c141dab0cdc0cc4be",
-    "recommended_event_types": [
-      "policy.decision",
-      "sandbox.enter",
-      "sandbox.exit",
-      "snapshot.create",
-      "network.request",
-      "network.response",
-      "approval.start",
-      "approval.result"
-    ],
-    "issues": []
+    "verified": true,
+    "mode": "compat-sep-v1",
+    "event_count": 7
   }
 }
