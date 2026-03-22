@@ -1,3 +1,14 @@
+<!-- language-switch:start -->
+<p>
+  <a href="./README.md">
+    <img src="https://img.shields.io/badge/English-Current-1f883d?style=for-the-badge" alt="English">
+  </a>
+  <a href="./README.zh-CN.md">
+    <img src="https://img.shields.io/badge/Chinese-Switch-0f172a?style=for-the-badge" alt="Chinese">
+  </a>
+</p>
+<!-- language-switch:end -->
+
 # Verifiable Agent Demo
 
 The minimal end-to-end demonstration for the Digital Biosphere Architecture stack.
@@ -72,8 +83,8 @@ flowchart LR
 This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack, with explicit governance checkpoint references in the emitted interaction and result objects.
 
 It now also includes one fixed enterprise sandbox artifact chain for the
-scenario `整理客户拜访记录 → 生成周报 → 发起审批`, while still not claiming a
-general full-stack Token Governor integration.
+scenario `organize client visit notes -> generate weekly report -> request approval`,
+while still not claiming a general full-stack Token Governor integration.
 
 ## How to read this demo
 
