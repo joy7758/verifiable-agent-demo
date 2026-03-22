@@ -6,6 +6,7 @@ import os
 import shutil
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -26,12 +27,116 @@ for repo_name in ("agent-evidence", "aro-audit"):
         sys.path.insert(0, str(candidate))
 
 from agent_evidence import EvidenceRecorder, LocalEvidenceStore
-from agent_evidence.sep import export_sep_bundle, verify_sep_bundle
 
 try:
-    from validator import validate_enterprise_sandbox_receipt_data
-except ImportError:  # pragma: no cover - local workspace dependency
-    validate_enterprise_sandbox_receipt_data = None
+    from agent_evidence.sep import export_sep_bundle, verify_sep_bundle
+except ImportError:  # pragma: no cover - compatibility for post-sep agent-evidence
+    @dataclass
+    class _CompatSepEvent:
+        event_id: str
+        event_type: str
+        event_hash: str
+        previous_event_hash: str | None
+        chain_hash: str
+
+    @dataclass
+    class _CompatSepBundle:
+        events: list[_CompatSepEvent]
+
+    def export_sep_bundle(
+        envelopes: list[Any],
+        output_path: Path,
+        *,
+        kernel_bundle_path: str,
+    ) -> _CompatSepBundle:
+        events = [
+            _CompatSepEvent(
+                event_id=envelope.event.event_id,
+                event_type=envelope.event.event_type,
+                event_hash=envelope.hashes.event_hash,
+                previous_event_hash=envelope.hashes.previous_event_hash,
+                chain_hash=envelope.hashes.chain_hash,
+            )
+            for envelope in envelopes
+        ]
+        payload = {
+            "schema_version": "compat-sep-v1",
+            "kernel_bundle_path": kernel_bundle_path,
+            "event_count": len(events),
+            "events": [
+                {
+                    "event_id": event.event_id,
+                    "event_type": event.event_type,
+                    "event_hash": event.event_hash,
+                    "previous_event_hash": event.previous_event_hash,
+                    "chain_hash": event.chain_hash,
+                }
+                for event in events
+            ],
+        }
+        output_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        return _CompatSepBundle(events=events)
+
+    def verify_sep_bundle(path: Path) -> dict[str, Any]:
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            events = list(payload["events"])
+        except (OSError, json.JSONDecodeError, KeyError, TypeError):
+            return {"verified": False, "mode": "compat-sep-v1", "reason": "invalid_bundle"}
+
+        previous_hash = None
+        for index, event in enumerate(events):
+            if not isinstance(event, dict):
+                return {
+                    "verified": False,
+                    "mode": "compat-sep-v1",
+                    "reason": f"invalid_event_{index}",
+                }
+            if not event.get("event_hash") or not event.get("chain_hash"):
+                return {
+                    "verified": False,
+                    "mode": "compat-sep-v1",
+                    "reason": f"missing_hashes_{index}",
+                }
+            if event.get("previous_event_hash") != previous_hash:
+                return {
+                    "verified": False,
+                    "mode": "compat-sep-v1",
+                    "reason": f"broken_previous_hash_{index}",
+                }
+            previous_hash = event["event_hash"]
+
+        return {
+            "verified": True,
+            "mode": "compat-sep-v1",
+            "event_count": len(events),
+        }
+
+try:
+    from aro_audit.receipt_validation import ValidationResult as _ReceiptValidationResult
+    from aro_audit.receipt_validation import validate_receipt as _validate_receipt
+    _RECEIPT_VALIDATION_IMPORT_ERROR = None
+except ImportError as exc:  # pragma: no cover - local workspace dependency
+    _RECEIPT_VALIDATION_IMPORT_ERROR = str(exc)
+
+    @dataclass(frozen=True)
+    class _ReceiptValidationResult:
+        valid: bool
+        profile: str
+        reason: str
+        errors: tuple[str, ...] = ()
+
+    def _validate_receipt(
+        path_or_obj: str | Path | dict[str, Any],
+        profile: str = "minimal",
+    ) -> _ReceiptValidationResult:
+        message = f"missing aro_audit.receipt_validation: {_RECEIPT_VALIDATION_IMPORT_ERROR}"
+        return _ReceiptValidationResult(
+            valid=False,
+            profile=profile,
+            reason=message,
+            errors=(message,),
+        )
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> Path:
@@ -95,7 +200,7 @@ def _build_policy() -> dict[str, Any]:
 
 
 def _copy_kernel_bundle(output_dir: Path) -> Path:
-    source = WORKSPACE_ROOT / "fdo-kernel-mvk" / "audit_bundle.json"
+    source = WORKSPACE_ROOT / "fdo-kernel-mvk" / "examples" / "output" / "audit_bundle.json"
     target = output_dir / "kernel_bundle.json"
     shutil.copyfile(source, target)
     return target
@@ -181,10 +286,10 @@ def _record_sep_trace(trace_path: Path, intent_path: Path, policy_path: Path) ->
     return {"record_count": len(store.list())}
 
 
-def _mvk_replay(sep_bundle_path: Path) -> dict[str, Any]:
+def _mvk_replay(bundle_path: Path) -> dict[str, Any]:
     mvk_root = WORKSPACE_ROOT / "fdo-kernel-mvk"
     result = subprocess.run(
-        [sys.executable, str(mvk_root / "mvk.py"), "--sep-replay", str(sep_bundle_path)],
+        [sys.executable, "-m", "kernel.verify", str(bundle_path)],
         capture_output=True,
         text=True,
         cwd=str(mvk_root),
@@ -273,6 +378,15 @@ def _build_audit_receipt(
     return receipt
 
 
+def _summarize_receipt_validation(receipt: dict[str, Any]) -> dict[str, Any]:
+    result = _validate_receipt(receipt, profile="minimal")
+    return {
+        "receipt_valid": result.valid,
+        "receipt_validation_profile": result.profile,
+        "receipt_validation_reason": result.reason,
+    }
+
+
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     intent_path = _write_json(OUTPUT_DIR / "intent.json", _build_intent())
@@ -287,7 +401,7 @@ def main() -> None:
         kernel_bundle_path="kernel_bundle.json",
     )
     sep_verify = verify_sep_bundle(OUTPUT_DIR / "sep.bundle.json")
-    replay_verdict = _mvk_replay(OUTPUT_DIR / "sep.bundle.json")
+    replay_verdict = _mvk_replay(kernel_bundle_path)
     replay_verdict["sep_verify"] = sep_verify
     _write_json(OUTPUT_DIR / "replay_verdict.json", replay_verdict)
 
@@ -296,36 +410,30 @@ def main() -> None:
         kernel_bundle_path=kernel_bundle_path,
         replay_verdict=replay_verdict,
     )
-    receipt_ok = None
-    if validate_enterprise_sandbox_receipt_data is not None:
-        receipt_ok, receipt_errors = validate_enterprise_sandbox_receipt_data(receipt)
-        if not receipt_ok:
-            raise SystemExit(
-                "enterprise sandbox receipt validation failed: "
-                + "; ".join(receipt_errors)
-            )
     _write_json(OUTPUT_DIR / "audit_receipt.json", receipt)
+    receipt_validation = _summarize_receipt_validation(receipt)
 
-    print(
-        json.dumps(
-            {
-                "scenario": SCENARIO,
-                "output_dir": str(OUTPUT_DIR),
-                "artifacts": [
-                    "intent.json",
-                    "policy.json",
-                    "trace.jsonl",
-                    "sep.bundle.json",
-                    "replay_verdict.json",
-                    "audit_receipt.json",
-                ],
-                "replay_verdict": replay_verdict.get("verdict"),
-                "receipt_valid": receipt_ok,
-            },
-            indent=2,
-            ensure_ascii=False,
+    summary = {
+        "scenario": SCENARIO,
+        "output_dir": str(OUTPUT_DIR),
+        "artifacts": [
+            "intent.json",
+            "policy.json",
+            "trace.jsonl",
+            "sep.bundle.json",
+            "replay_verdict.json",
+            "audit_receipt.json",
+        ],
+        "replay_verdict": replay_verdict.get("verdict"),
+        **receipt_validation,
+    }
+
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    if not receipt_validation["receipt_valid"]:
+        raise SystemExit(
+            "enterprise sandbox receipt validation failed: "
+            + receipt_validation["receipt_validation_reason"]
         )
-    )
 
 
 if __name__ == "__main__":

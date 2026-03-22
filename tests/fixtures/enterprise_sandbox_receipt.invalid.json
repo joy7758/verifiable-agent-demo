@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "enterprise_sandbox_receipt",
+  "receipt_id": "urn:enterprise-sandbox-receipt:test-invalid",
+  "actor_identity": "employee:alice",
+  "intent_ref": "intent.json",
+  "action_ref": "policy.json",
+  "result_ref": "replay_verdict.json",
+  "permission_intersection": [
+    "read",
+    "write"
+  ],
+  "policy_decision": {
+    "policy_id": "policy://enterprise-sandbox-demo",
+    "decision": "allow_with_approval",
+    "allowed_permissions": [
+      "read",
+      "write"
+    ],
+    "decision_reason": "report generation is allowed, final dispatch requires approval"
+  },
+  "sandbox_context": {
+    "sandbox_id": "sandbox-demo-001",
+    "environment": "enterprise-agent-os",
+    "control_plane": {
+      "id": "agent-os",
+      "version": "2026.03"
+    }
+  },
+  "network_proxy_meta": {
+    "proxy_id": "proxy-demo-001",
+    "status": "proxied",
+    "endpoint": "https://proxy.enterprise.internal"
+  },
+  "snapshot_ref": {
+    "snapshot_id": "snapshot-demo-001",
+    "snapshot_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "previous_snapshot_hash": null,
+    "storage": "kernel_bundle.json"
+  },
+  "event_chain": [
+    {
+      "event_id": "event-001",
+      "event_type": "policy.decision",
+      "event_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "previous_event_hash": null,
+      "chain_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "event_ref": "trace.jsonl"
+    },
+    {
+      "event_id": "event-002",
+      "event_type": "approval.result",
+      "event_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "previous_event_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "chain_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "event_ref": "trace.jsonl"
+    }
+  ],
+  "hashes": {
+    "event_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "previous_event_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "chain_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "verifier_ref": "mvk://sep-replay",
+  "signature_ref": {
+    "signature_id": "sig-demo-001",
+    "signer": "enterprise-security",
+    "signature": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  }
+}

@@ -1,8 +1,52 @@
+<!-- language-switch:start -->
+<p>
+  <a href="./README.md">
+    <img src="https://img.shields.io/badge/English-Current-1f883d?style=for-the-badge" alt="English">
+  </a>
+  <a href="./README.zh-CN.md">
+    <img src="https://img.shields.io/badge/Chinese-Switch-0f172a?style=for-the-badge" alt="Chinese">
+  </a>
+</p>
+<!-- language-switch:end -->
+
 # Verifiable Agent Demo
 
 The minimal end-to-end demonstration for the Digital Biosphere Architecture stack.
 
 This repository connects persona, interaction semantics, governance context, execution traceability, and audit evidence into one walkthrough. It is a demo and reference path rather than a general-purpose framework.
+
+## Role
+
+`verifiable-agent-demo` is the guided walkthrough surface across the five-layer stack. It exists to show one compact path from persona and intent through governance, execution integrity, and audit artifacts.
+
+## Not this repo
+
+- not the canonical theory hub
+- not the canonical runtime implementation
+- not the benchmark suite
+- not the primary paper or submission repository
+
+## Start here
+
+- [docs/quick-walkthrough.md](docs/quick-walkthrough.md)
+- [docs/interaction-flow.md](docs/interaction-flow.md)
+- [docs/shortest-validation-loop.md](docs/shortest-validation-loop.md)
+
+## Depends on
+
+- [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
+- [persona-object-protocol](https://github.com/joy7758/persona-object-protocol)
+- [agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol)
+- [token-governor](https://github.com/joy7758/token-governor)
+- [fdo-kernel-mvk](https://github.com/joy7758/fdo-kernel-mvk)
+- [aro-audit](https://github.com/joy7758/aro-audit)
+- [agent-evidence](https://github.com/joy7758/agent-evidence)
+
+## Status
+
+- active walkthrough demo
+- research annexes remain secondary to the demo path
+- not a canonical implementation repo
 
 Shared doctrine:
 
@@ -39,8 +83,8 @@ flowchart LR
 This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack, with explicit governance checkpoint references in the emitted interaction and result objects.
 
 It now also includes one fixed enterprise sandbox artifact chain for the
-scenario `整理客户拜访记录 → 生成周报 → 发起审批`, while still not claiming a
-general full-stack Token Governor integration.
+scenario `organize client visit notes -> generate weekly report -> request approval`,
+while still not claiming a general full-stack Token Governor integration.
 
 ## How to read this demo
 
@@ -108,6 +152,9 @@ containing:
 - `replay_verdict.json`
 - `audit_receipt.json`
 
+The receipt is now checked through the canonical ARO surface
+`aro_audit.receipt_validation` with the `minimal` profile.
+
 ### Existing CrewAI demo path
 
 ```bash
@@ -130,7 +177,7 @@ Environment notes:
 - Configure repository variable `PROTOCOL_BOT_APP_ID` and repository secret `PROTOCOL_BOT_PRIVATE_KEY` under `Settings -> Secrets and variables -> Actions`.
 - The default repository `GITHUB_TOKEN` remains read-only and is not used for auto-PR promotion.
 
-## Paper Evaluation Harness
+## Research Evaluation Annex
 
 This repository now includes a paper-ready evaluation harness for
 `Execution Evidence Architecture for Agentic Software Systems: From Intent Objects to Verifiable Audit Receipts`.
@@ -176,7 +223,7 @@ Generated outputs:
 - `docs/paper_support/falsification-summary.md`
 - `artifacts/human_review/synthetic-review-summary.json`
 
-## English LaTeX Manuscript Draft
+## Research Manuscript Draft
 
 The repository also includes a manuscript draft grounded in the current implemented harness and checked-in metrics:
 
