@@ -19,6 +19,31 @@
 - 不是基准套件
 - 不是主要论文或提交仓库
 
+## 最快的可运行路径
+
+这个仓库证明这条路径，`agent-evidence` 是证据基底，`aro-audit` 是审计控制面。
+
+最快的本地运行：
+
+```bash
+python3 -m demo.agent
+```
+
+最快的企业沙盒工件链：
+
+```bash
+python3 examples/enterprise_sandbox_demo/run.py
+```
+
+这个沙盒运行会写出 `artifacts/enterprise_sandbox_demo/`，其中包含：
+
+- `intent.json`
+- `policy.json`
+- `trace.jsonl`
+- `sep.bundle.json`
+- `replay_verdict.json`
+- `audit_receipt.json`
+
 ## 从这里开始
 
 - [文档/quick-walkthrough.md](docs/quick-walkthrough.md)
@@ -108,12 +133,6 @@ flowchart LR
 
 ## 运行演示
 
-### 最快的本地路径
-
-```bash
-python3 -m demo.agent
-```
-
 ### 脚本化包装器
 
 ```bash
@@ -129,24 +148,9 @@ bash scripts/run_demo.sh
 make killer-demo
 python3 -m http.server --directory docs 8000
 ```
-### 企业沙盒神器链
 
-```bash
-python3 examples/enterprise_sandbox_demo/run.py
-```
-
-这会在 `artifacts/enterprise_sandbox_demo/` 下写入一个面向审阅者的目录
-包含：
-
-- `intent.json`
-- `policy.json`
-- `trace.jsonl`
-- `sep.bundle.json`
-- `replay_verdict.json`
-- `audit_receipt.json`
-
-现在通过规范的 ARO 界面检查回执
-`aro_audit.receipt_validation` 具有 `minimal` 配置文件。
+企业沙盒工件链的回执现在通过规范的 ARO 界面
+`aro_audit.receipt_validation` 以 `minimal` 配置文件进行检查。
 
 ### 现有的 CrewAI 演示路径
 

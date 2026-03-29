@@ -19,6 +19,32 @@ This repository connects persona, interaction semantics, governance context, exe
 - not the benchmark suite
 - not the primary paper or submission repository
 
+## Fastest runnable path
+
+This repo proves the path, `agent-evidence` is the evidence substrate, and
+`aro-audit` is the audit control plane.
+
+Fastest local run:
+
+```bash
+python3 -m demo.agent
+```
+
+Fastest enterprise sandbox artifact chain:
+
+```bash
+python3 examples/enterprise_sandbox_demo/run.py
+```
+
+The sandbox run writes `artifacts/enterprise_sandbox_demo/` with:
+
+- `intent.json`
+- `policy.json`
+- `trace.jsonl`
+- `sep.bundle.json`
+- `replay_verdict.json`
+- `audit_receipt.json`
+
 ## Start here
 
 - [docs/quick-walkthrough.md](docs/quick-walkthrough.md)
@@ -108,12 +134,6 @@ Current concrete examples in this repository include:
 
 ## Run the Demo
 
-### Fastest local path
-
-```bash
-python3 -m demo.agent
-```
-
 ### Scripted wrapper
 
 ```bash
@@ -129,24 +149,9 @@ bash scripts/run_demo.sh
 make killer-demo
 python3 -m http.server --directory docs 8000
 ```
-### Enterprise sandbox artifact chain
 
-```bash
-python3 examples/enterprise_sandbox_demo/run.py
-```
-
-This writes a reviewer-facing directory under `artifacts/enterprise_sandbox_demo/`
-containing:
-
-- `intent.json`
-- `policy.json`
-- `trace.jsonl`
-- `sep.bundle.json`
-- `replay_verdict.json`
-- `audit_receipt.json`
-
-The receipt is now checked through the canonical ARO surface
-`aro_audit.receipt_validation` with the `minimal` profile.
+The receipt for the enterprise sandbox chain is checked through the canonical
+ARO surface `aro_audit.receipt_validation` with the `minimal` profile.
 
 ### Existing CrewAI demo path
 
