@@ -4,20 +4,15 @@
 
 # Verifiable Agent Demo
 
-The minimal end-to-end demonstration for the Digital Biosphere Architecture stack.
+This repository is the walkthrough demo for the execution-evidence path.
 
-This repository connects persona, interaction semantics, governance context, execution traceability, and audit evidence into one walkthrough. It is a demo and reference path rather than a general-purpose framework.
+It is the guided walkthrough surface across the stack, not the canonical architecture hub and not the canonical evidence-profile spec.
 
-## Role
+## Navigation
 
-`verifiable-agent-demo` is the guided walkthrough surface across the five-layer stack. It exists to show one compact path from persona and intent through governance, execution integrity, and audit artifacts.
-
-## Not this repo
-
-- not the canonical theory hub
-- not the canonical runtime implementation
-- not the benchmark suite
-- not the primary paper or submission repository
+- Architecture -> [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
+- Evidence -> [agent-evidence](https://github.com/joy7758/agent-evidence)
+- Audit -> [aro-audit](https://github.com/joy7758/aro-audit)
 
 ## Fastest runnable path
 
