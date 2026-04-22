@@ -1,37 +1,67 @@
-<!-- language-switch:start -->
-[English](./README.md) | [中文](./README.zh-CN.md)
-<!-- language-switch:end -->
+# verifiable-agent-demo
 
-# Verifiable Agent Demo
+一个最小可运行 demo，展示 AI / Agent 工作流如何从 intent 生成 trace、evidence bundle、replay verdict 和 audit receipt。<br>
+A minimal runnable demo for auditable AI agent workflows.
 
-This repository is the walkthrough demo for the execution-evidence path.
+This repository is the walkthrough demo for the execution-evidence path. It is the guided walkthrough surface across the stack, not the canonical architecture hub and not the canonical evidence-profile spec.
 
-It is the guided walkthrough surface across the stack, not the canonical architecture hub and not the canonical evidence-profile spec.
+## What this demo shows
+
+这个仓库不是理论入口，而是“能跑出来”的可信 AI 工作流演示。它把一次 Agent 执行拆成可以复核的 artifact chain：
+
+- intent 输入：说明 Agent 要做什么
+- policy / rule reference：说明执行前参考了什么规则或治理约束
+- execution trace：记录执行过程和事件链
+- evidence bundle：把执行证据打包为可交付对象
+- replay / verification result：给出复核或回放结果
+- audit receipt：把本次执行的关键证据收束成审计收据
+
+核心目标不是让 AI 回答更多内容，而是让一次 AI / Agent 执行过程可追踪、可复核、可审计。
 
 ## Navigation
 
-- Architecture -> [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
 - Evidence -> [agent-evidence](https://github.com/joy7758/agent-evidence)
+- Architecture -> [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
 - Audit -> [aro-audit](https://github.com/joy7758/aro-audit)
+- Governance -> [token-governor](https://github.com/joy7758/token-governor)
 
-## Fastest runnable path
+## Quick Start
 
-This repo proves the path, `agent-evidence` is the evidence substrate, and
-`aro-audit` is the audit control plane.
-
-Fastest local run:
+### 1. 最小本地路径
 
 ```bash
 python3 -m demo.agent
 ```
 
-Fastest enterprise sandbox artifact chain:
+默认输出写入 `artifacts/demo_output/`，包括：
+
+- `interaction/intent.json`
+- `interaction/action.json`
+- `interaction/result.json`
+- `evidence/example_audit.json`
+- `evidence/result.json`
+
+### 2. 脚本包装路径
+
+```bash
+bash scripts/run_demo.sh
+```
+
+这个 wrapper 会刷新 `artifacts/demo_output/` 下的本地 demo 输出。
+
+### 3. Enterprise sandbox artifact chain
 
 ```bash
 python3 examples/enterprise_sandbox_demo/run.py
 ```
 
-The sandbox run writes `artifacts/enterprise_sandbox_demo/` with:
+这个路径展示从 intent 到 audit receipt 的更完整闭环，输出目录为 `artifacts/enterprise_sandbox_demo/`。
+
+The receipt for the enterprise sandbox chain is checked through the canonical ARO surface `aro_audit.receipt_validation` with the `minimal` profile.
+
+## Generated Artifacts
+
+Enterprise sandbox demo 会生成：
 
 - `intent.json`
 - `policy.json`
@@ -40,27 +70,35 @@ The sandbox run writes `artifacts/enterprise_sandbox_demo/` with:
 - `replay_verdict.json`
 - `audit_receipt.json`
 
-## Start here
+这些 artifact 对应一条最小审计链：意图输入、策略约束、执行轨迹、证据包、回放判断、审计收据。
 
-- [docs/quick-walkthrough.md](docs/quick-walkthrough.md)
-- [docs/interaction-flow.md](docs/interaction-flow.md)
-- [docs/shortest-validation-loop.md](docs/shortest-validation-loop.md)
+## Why it matters
 
-## Depends on
+很多 Agent demo 只展示“模型能完成任务”。`verifiable-agent-demo` 展示的是另一件事：任务完成之后，是否还能说明它为什么被允许执行、执行时发生了什么、输出能否被复核，以及审计者能拿到什么证据。
 
-- [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
-- [persona-object-protocol](https://github.com/joy7758/persona-object-protocol)
-- [agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol)
-- [token-governor](https://github.com/joy7758/token-governor)
-- [fdo-kernel-mvk](https://github.com/joy7758/fdo-kernel-mvk)
-- [aro-audit](https://github.com/joy7758/aro-audit)
-- [agent-evidence](https://github.com/joy7758/agent-evidence)
+这正是可信 AI / Agent Evidence / LangChain 工作流进入生产流程时需要补上的部分。
 
-## Status
+## Screenshots / GIF
 
-- active walkthrough demo
-- research annexes remain secondary to the demo path
-- not a canonical implementation repo
+真实截图和 GIF 后续手动补充，不在仓库里生成假图。
+
+计划补充路径：
+
+- `assets/demo-run.gif`
+- `assets/artifact-chain.png`
+- `assets/audit-receipt.png`
+
+See [assets/README.md](./assets/README.md) for the capture checklist.
+
+## For hiring managers
+
+这个仓库证明我能把 AI Agent 工作流从 PoC 做成可交付、可复核、可审计的最小闭环：有 intent、有规则、有 trace、有 evidence bundle、有 replay verdict、有 audit receipt。
+
+## Current scope
+
+`verifiable-agent-demo` 是执行证据路径的 walkthrough demo。它不是 canonical architecture hub、不是 canonical evidence-profile spec，也不是 audit control plane。
+
+如果你只想看能跑的闭环，从本 README 的 Quick Start 开始。如果你想看 evidence profile 和 validator，去 [agent-evidence](https://github.com/joy7758/agent-evidence)。如果你想看更完整的架构地图，去 [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)。
 
 Shared doctrine:
 
@@ -78,66 +116,9 @@ flowchart LR
     Trace --> Audit["Audit Evidence (ARO)"]
 ```
 
-## What this demo proves
+## Existing demo paths
 
-- a portable persona-oriented entry point can be projected into runtime
-- explicit intent and action objects can be emitted before execution
-- result objects can be emitted after execution
-- execution steps can be recorded as inspectable evidence
-- audit-facing artifacts can be exported as bounded outputs
-
-## Architecture Path in this Demo
-
-- Persona Layer -> POP-aligned persona context carried into the run
-- Interaction Layer -> intent, action, and result objects emitted under `interaction/`
-- Governance Layer -> referenced as the control checkpoint for runtime policy and budget constraints
-- Execution Integrity Layer -> runtime execution trace and verifiable execution context
-- Audit Evidence Layer -> ARO-style exported evidence artifacts
-
-This repository does not claim a full Token Governor integration. It demonstrates a minimal aligned path across the broader stack, with explicit governance checkpoint references in the emitted interaction and result objects.
-
-It now also includes one fixed enterprise sandbox artifact chain for the
-scenario `organize client visit notes -> generate weekly report -> request approval`,
-while still not claiming a general full-stack Token Governor integration.
-
-## How to read this demo
-
-This demo is a guided path across layers. It is not the normative specification for each layer, and it points outward to the canonical repositories for those layers: [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture), [persona-object-protocol](https://github.com/joy7758/persona-object-protocol), [agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol), [token-governor](https://github.com/joy7758/token-governor), and [aro-audit](https://github.com/joy7758/aro-audit).
-
-## Execution Evidence Demo Note
-
-See [docs/execution-evidence-demo-note.md](docs/execution-evidence-demo-note.md).
-
-## Expected Artifacts
-
-Repo-tracked sample bundle:
-- `interaction/intent.json`
-- `interaction/action.json`
-- `interaction/result.json`
-- `evidence/example_audit.json`
-- `evidence/result.json`
-- `evidence/sample-manifest.json`
-
-Additional tracked example:
-- `evidence/crew_demo_audit.json`
-
-Current concrete examples in this repository include:
-
-- `docs/quick-walkthrough.md`
-- `docs/interaction-flow.md`
-- `docs/shortest-validation-loop.md`
-
-## Run the Demo
-
-### Scripted wrapper
-
-```bash
-bash scripts/run_demo.sh
-```
-
-This local wrapper writes fresh output under `artifacts/demo_output/`.
-
-### Fastest external demo path
+Fastest external demo path:
 
 ```bash
 bash scripts/run_demo.sh
@@ -145,10 +126,7 @@ make killer-demo
 python3 -m http.server --directory docs 8000
 ```
 
-The receipt for the enterprise sandbox chain is checked through the canonical
-ARO surface `aro_audit.receipt_validation` with the `minimal` profile.
-
-### Existing CrewAI demo path
+Existing CrewAI demo path:
 
 ```bash
 bash scripts/setup_framework_venv.sh
@@ -164,16 +142,18 @@ Environment notes:
 - CrewAI currently requires Python `<3.14`.
 - Both demo paths use deterministic local mock data and do not require external API calls.
 
-## Repository Automation
+## Documentation
 
-- The Mermaid render workflow opens PRs to `main` only through a dedicated GitHub App.
-- Configure repository variable `PROTOCOL_BOT_APP_ID` and repository secret `PROTOCOL_BOT_PRIVATE_KEY` under `Settings -> Secrets and variables -> Actions`.
-- The default repository `GITHUB_TOKEN` remains read-only and is not used for auto-PR promotion.
+- [Quick walkthrough](docs/quick-walkthrough.md)
+- [Interaction flow](docs/interaction-flow.md)
+- [Shortest validation loop](docs/shortest-validation-loop.md)
+- [Execution evidence demo note](docs/execution-evidence-demo-note.md)
+- [Demo artifacts](docs/demo-artifacts.md)
+- [Independent verification](docs/independent-verification.md)
 
-## Research Evaluation Annex
+## Research evaluation annex
 
-This repository now includes a paper-ready evaluation harness for
-`Execution Evidence Architecture for Agentic Software Systems: From Intent Objects to Verifiable Audit Receipts`.
+The repository also includes a paper-ready evaluation harness for `Execution Evidence Architecture for Agentic Software Systems: From Intent Objects to Verifiable Audit Receipts`.
 
 Primary entry points:
 
@@ -190,62 +170,13 @@ Primary entry points:
 - `make paper-eval`
 - `make top-journal-pack`
 
-Supporting material:
+The evaluation material is useful for deeper technical review, but it is secondary to the runnable demo path above.
 
-- [Task Suite](docs/paper_support/task-suite.md)
-- [Export Format](docs/paper_support/export-format.md)
-- [Review Workflow](docs/paper_support/review-workflow.md)
-- [Comparison Workflow](docs/paper_support/comparison-workflow.md)
-- [External Baseline](docs/paper_support/external-baseline.md)
-- [Same-Framework Comparison](docs/paper_support/same-framework-comparison.md)
-- [LangChain Comparison](docs/paper_support/langchain-comparison.md)
-- [Ablation Study](docs/paper_support/ablation-study.md)
-- [Human Review Study](docs/paper_support/human-review-study.md)
-- [Falsification Workflow](docs/paper_support/falsification-workflow.md)
-
-Generated outputs:
-
-- `artifacts/runs/<task_id>/<mode>/`
-- `docs/paper_support/comparison-summary.md`
-- `docs/paper_support/comparison-summary.csv`
-- `artifacts/metrics/comparison-summary.json`
-- `docs/paper_support/external-baseline-summary.md`
-- `docs/paper_support/framework-pair-summary.md`
-- `docs/paper_support/langchain-pair-summary.md`
-- `docs/paper_support/ablation-summary.md`
-- `docs/paper_support/falsification-summary.md`
-- `artifacts/human_review/synthetic-review-summary.json`
-
-## Research Manuscript Draft
-
-The repository also includes a manuscript draft grounded in the current implemented harness and checked-in metrics:
-
-- [paper/latex/README.md](paper/latex/README.md)
-- `paper/latex/main.tex`
-- `paper/latex/main.pdf` after local compilation
-
-## Related Repositories
-
-- [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture) - system overview and canonical architecture hub
-- [persona-object-protocol](https://github.com/joy7758/persona-object-protocol) - portable persona object layer
-- [agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol) - semantic interaction layer
-- [token-governor](https://github.com/joy7758/token-governor) - runtime governance and budget-policy control layer
-- [aro-audit](https://github.com/joy7758/aro-audit) - audit evidence and conformance-oriented verification layer
-
-## Minimal Reference Surface
+## Minimal reference surface
 
 - `interaction/` for explicit interaction objects
 - `evidence/` for audit and result artifacts
 - `demo/` and `crew/` for runnable entry points
-- `integration/` for persona and intent adapters
+- `integration/` for persona, intent, and ARO adapters
+- `examples/enterprise_sandbox_demo/` for the intent-to-receipt artifact chain
 - `docs/spec/` for schema notes and example payloads
-
-## Further Reading
-
-- [Quick Walkthrough](docs/quick-walkthrough.md)
-- [Interaction Flow](docs/interaction-flow.md)
-- [Shortest Validation Loop](docs/shortest-validation-loop.md)
-- [Independent Verification](docs/independent-verification.md)
-- [Architecture](docs/architecture.md)
-- [Demo Artifacts](docs/demo-artifacts.md)
-<!-- render-refresh: 20260311T205242Z -->
