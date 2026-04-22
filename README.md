@@ -80,13 +80,14 @@ Enterprise sandbox demo 会生成：
 
 ## Screenshots / GIF
 
-真实截图和 GIF 后续手动补充，不在仓库里生成假图。
+Audit evidence demo output:
 
-计划补充路径：
+![Audit evidence output from python3 -m demo.agent](assets/audit-receipt.png)
+
+Planned follow-up captures:
 
 - `assets/demo-run.gif`
 - `assets/artifact-chain.png`
-- `assets/audit-receipt.png`
 
 See [assets/README.md](./assets/README.md) for the capture checklist.
 
