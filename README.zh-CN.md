@@ -4,20 +4,21 @@
 
 # 可验证代理演示
 
-数字生物圈架构堆栈的最小端到端演示。
+这个仓库是 Digital Biosphere Architecture 中 execution-evidence 路径的 walkthrough demo。
 
-该仓库将角色、交互语义、治理上下文、执行可追溯性和审计证据连接到一个演练中。它是一个演示和参考路径，而不是一个通用框架。
+它不是 canonical architecture hub，不是 canonical evidence-profile spec，也不是 audit control plane。
 
 ## 角色
 
-`verifiable-agent-demo` 是跨越五层堆栈的引导演练表面。它的存在是为了展示从角色和意图到治理、执行完整性和审计工件的一条紧凑路径。
+`verifiable-agent-demo` 是 execution-evidence 路径的引导演练表面。它展示了一条从 persona 和 intent 出发，经过 governance、execution integrity、具体 evidence packaging，最终到 post-execution review 的紧凑路径。
 
 ## 不是这个仓库
 
-- 不是规范理论中心
-- 不是规范的运行时实现
+- 不是 canonical architecture hub
+- 不是 canonical evidence-profile spec
+- 不是 audit control plane
+- 不是具体的 evidence package
 - 不是基准套件
-- 不是主要论文或提交仓库
 
 ## 最快的可运行路径
 
@@ -46,6 +47,9 @@ python3 examples/enterprise_sandbox_demo/run.py
 
 ## 从这里开始
 
+- architecture context -> [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)
+- concrete evidence package -> [agent-evidence](https://github.com/joy7758/agent-evidence)
+- post-execution review -> [aro-audit](https://github.com/joy7758/aro-audit)
 - [文档/quick-walkthrough.md](docs/quick-walkthrough.md)
 - [文档/交互流.md](docs/interaction-flow.md)
 - [文档/最短验证循环.md](docs/shortest-validation-loop.md)
@@ -53,18 +57,18 @@ python3 examples/enterprise_sandbox_demo/run.py
 ## 取决于
 
 - [数字生物圈架构](https://github.com/joy7758/digital-biosphere-architecture)
+- [代理证据](https://github.com/joy7758/agent-evidence)
+- [aro-审计](https://github.com/joy7758/aro-audit)
 - [角色对象协议](https://github.com/joy7758/persona-object-protocol)
 - [智能体意图协议](https://github.com/joy7758/agent-intent-protocol)
 - [代币监管者](https://github.com/joy7758/token-governor)
 - [fdo-内核-mvk](https://github.com/joy7758/fdo-kernel-mvk)
-- [aro-审计](https://github.com/joy7758/aro-audit)
-- [代理证据](https://github.com/joy7758/agent-evidence)
 
 ## 地位
 
 - 主动演练演示
 - 研究附件对于演示路径来说仍然是次要的
-- 不是规范的实施仓库
+- 不是 canonical entry 仓库
 
 共同的教义：
 
@@ -106,7 +110,7 @@ flowchart LR
 
 ## 如何阅读此演示
 
-该演示是跨层的引导路径。它不是每一层的规范规范，它向外指向这些层的规范仓库：[数字生物圈架构](https://github.com/joy7758/digital-biosphere-architecture)、[角色对象协议](https://github.com/joy7758/persona-object-protocol)、[智能体意图协议](https://github.com/joy7758/agent-intent-protocol)、 [代币调控器](https://github.com/joy7758/token-governor)和[aro-审计](https://github.com/joy7758/aro-audit)。
+这个 demo 是最短的引导演练，不是 architecture、evidence package 或 audit layer 的 canonical entry。系统上下文请看 [digital-biosphere-architecture](https://github.com/joy7758/digital-biosphere-architecture)，具体 evidence package 请看 [agent-evidence](https://github.com/joy7758/agent-evidence)，执行后审阅请看 [aro-audit](https://github.com/joy7758/aro-audit)。如果你要看分层定义，请继续到 [persona-object-protocol](https://github.com/joy7758/persona-object-protocol)、[agent-intent-protocol](https://github.com/joy7758/agent-intent-protocol)、[token-governor](https://github.com/joy7758/token-governor) 和 [fdo-kernel-mvk](https://github.com/joy7758/fdo-kernel-mvk)。
 
 ## 执行证据演示说明
 
@@ -151,6 +155,45 @@ python3 -m http.server --directory docs 8000
 
 企业沙盒工件链的回执现在通过规范的 ARO 界面
 `aro_audit.receipt_validation` 以 `minimal` 配置文件进行检查。
+
+## MVK -> AEP bridge 演示路径
+
+`verifiable-agent-demo` 仍然是引导演示入口。`fdo-kernel-mvk` 负责证明执行完整性，包括 deterministic execution、replay validation 和 tamper detection。`agent-evidence` 负责 evidence packaging、signed export、offline verification 和 review pack。
+
+新的 MVK -> AEP bridge 路径把 `fdo-kernel-mvk` 的 `audit_bundle.json` 导出为 AEP-compatible bundle，然后交给 `agent-evidence` 做验证、签名导出、打包和审阅交接。
+
+最短跨仓库路径：
+
+```bash
+cd ../fdo-kernel-mvk
+make demo
+make verify-demo
+make export-aep
+make verify-aep
+
+agent-evidence verify-bundle --bundle-dir mvk-aep-bundle
+```
+
+从本仓库运行的本地 wrapper：
+
+```bash
+make mvk-aep-bridge-dry-run
+make mvk-aep-bridge-demo
+```
+
+`make mvk-aep-bridge-demo` 默认需要相邻克隆：
+
+```text
+../fdo-kernel-mvk
+```
+
+也可以覆盖路径：
+
+```bash
+MVK_REPO=/path/to/fdo-kernel-mvk make mvk-aep-bridge-demo
+```
+
+该演示不会 vendor 或 import `fdo-kernel-mvk` / `agent-evidence`。MVK bridge bundle 是本地、未签名的；signed export、signature verification 和 review pack 仍然属于 `agent-evidence`。
 
 ### 现有的 CrewAI 演示路径
 
@@ -249,6 +292,7 @@ bash scripts/setup_framework_venv.sh
 - [快速演练](docs/quick-walkthrough.md)
 - [交互流程](docs/interaction-flow.md)
 - [最短验证循环](docs/shortest-validation-loop.md)
+- [MVK -> Agent Evidence bridge walkthrough](docs/mvk-aep-bridge-walkthrough.md)
 - [独立验证](docs/independent-verification.md)
 - [架构](docs/architecture.md)
 - [演示文物](docs/demo-artifacts.md)
