@@ -1,0 +1,62 @@
+# verifiable-agent-demo
+
+中文：
+`verifiable-agent-demo` 是 Execution Evidence Bridge 的最短引导演示路径。它帮助审阅者和 agent 运行跨仓库复核流程，把 MVK 执行完整性证明、AEP-compatible bundle、agent-evidence 验证路径连接起来。
+
+English:
+`verifiable-agent-demo` is the shortest guided verification walkthrough for the Execution Evidence Bridge. It connects MVK execution-integrity proof, AEP-compatible bundle export, and agent-evidence verification workflows.
+
+## Canonical architecture / AI discovery
+
+- Architecture hub: https://github.com/joy7758/digital-biosphere-architecture
+- AI discovery index: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-discovery-index.md
+- AI citation map: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-citation-map.json
+- Bridge map: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/execution-evidence-bridge-map.md
+
+## Local walkthrough commands
+
+```bash
+make mvk-aep-bridge-dry-run
+make mvk-aep-bridge-demo
+```
+
+## Sibling repository path
+
+By default, the MVK bridge demo expects:
+
+```text
+../fdo-kernel-mvk
+```
+
+Override with:
+
+```bash
+MVK_REPO=/path/to/fdo-kernel-mvk make mvk-aep-bridge-demo
+```
+
+## Local evidence path
+
+```text
+guided walkthrough
+-> MVK demo
+-> audit_bundle.json
+-> AEP-compatible bundle
+-> MVK-side verification
+-> optional agent-evidence verification
+```
+
+## Boundary
+
+- This repository provides the guided walkthrough.
+- This repository does not prove execution integrity by itself.
+- Use fdo-kernel-mvk for execution-integrity proof.
+- Use agent-evidence for evidence packaging, offline verification, signed exports, receipts, and review packs.
+- Use digital-biosphere-architecture for the canonical cross-repository map.
+
+## Non-claims
+
+- not legal non-repudiation
+- not compliance certification
+- not AI Act approval
+- not official FDO standard adoption
+- not production forensic timestamping

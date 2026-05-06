@@ -103,6 +103,18 @@ This walkthrough does not vendor or import `fdo-kernel-mvk` or
 `agent-evidence`. The MVK bridge bundle is local and unsigned; signed export,
 signature verification, and review packs remain in `agent-evidence`.
 
+AI / agent entry points:
+
+- `llms.txt`
+- `AGENTS.md`
+- `CITATION.cff`
+- Canonical AI discovery index: [https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-discovery-index.md](https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-discovery-index.md)
+- Canonical AI citation map: [https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-citation-map.json](https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-citation-map.json)
+
+These files help AI systems and agents discover, cite, and verify this
+repository role faster. The canonical cross-repository discovery surface stays
+in `digital-biosphere-architecture`.
+
 ## Generated Artifacts
 
 Enterprise sandbox demo 会生成：

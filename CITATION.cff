@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this guided verification walkthrough, please cite it as part of the Execution Evidence Bridge."
+title: "verifiable-agent-demo"
+authors:
+  - family-names: "joy7758"
+repository-code: "https://github.com/joy7758/verifiable-agent-demo"
+abstract: "Guided verification walkthrough for the Execution Evidence Bridge. It provides the shortest runnable cross-repository path connecting MVK execution-integrity proof, AEP-compatible bundle export, and agent-evidence verification workflows."
+keywords:
+  - AI evidence
+  - verifiable AI
+  - execution evidence
+  - guided walkthrough
+  - offline verification
+  - agent evidence
