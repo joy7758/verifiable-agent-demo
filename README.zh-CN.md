@@ -195,6 +195,16 @@ MVK_REPO=/path/to/fdo-kernel-mvk make mvk-aep-bridge-demo
 
 该演示不会 vendor 或 import `fdo-kernel-mvk` / `agent-evidence`。MVK bridge bundle 是本地、未签名的；signed export、signature verification 和 review pack 仍然属于 `agent-evidence`。
 
+## AI / agent 入口
+
+- `llms.txt`
+- `AGENTS.md`
+- `CITATION.cff`
+- 主索引：digital-biosphere-architecture 的 `docs/ai-discovery-index.md`
+- 引用地图：digital-biosphere-architecture 的 `docs/ai-citation-map.json`
+
+这些文件用于帮助 AI / agent 更快发现、引用和复核本仓库角色，不是新的宣传材料。权威跨仓库索引仍然放在 `digital-biosphere-architecture`。
+
 ### 现有的 CrewAI 演示路径
 
 ```bash
