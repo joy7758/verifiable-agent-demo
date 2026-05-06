@@ -1,9 +1,15 @@
 PYTHON ?= python3
 
-.PHONY: killer-demo eval-baseline eval-evidence eval-external-baseline eval-framework-pair eval-langchain-pair eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
+.PHONY: killer-demo mvk-aep-bridge-demo mvk-aep-bridge-dry-run eval-baseline eval-evidence eval-external-baseline eval-framework-pair eval-langchain-pair eval-ablation falsification-checks review-sample compare human-review-kit paper-eval top-journal-pack
 
 killer-demo:
 	$(PYTHON) scripts/export_minimal_killer_demo.py
+
+mvk-aep-bridge-demo:
+	bash scripts/run_mvk_aep_bridge_demo.sh
+
+mvk-aep-bridge-dry-run:
+	bash scripts/run_mvk_aep_bridge_demo.sh --dry-run
 
 eval-baseline:
 	$(PYTHON) scripts/run_paper_eval.py --mode baseline

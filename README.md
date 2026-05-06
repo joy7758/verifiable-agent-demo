@@ -59,6 +59,50 @@ python3 examples/enterprise_sandbox_demo/run.py
 
 The receipt for the enterprise sandbox chain is checked through the canonical ARO surface `aro_audit.receipt_validation` with the `minimal` profile.
 
+## MVK -> AEP bridge path
+
+This repository remains the guided walkthrough demo. The execution-integrity
+proof lives in [fdo-kernel-mvk](https://github.com/joy7758/fdo-kernel-mvk),
+which now provides a local bridge from `audit_bundle.json` to an Agent Evidence
+Profile-compatible bundle. [agent-evidence](https://github.com/joy7758/agent-evidence)
+can then verify, sign, package, and prepare reviewer handoff workflows for that
+evidence.
+
+Shortest cross-repo path:
+
+```bash
+cd ../fdo-kernel-mvk
+make demo
+make verify-demo
+make export-aep
+make verify-aep
+
+agent-evidence verify-bundle --bundle-dir mvk-aep-bundle
+```
+
+Local wrapper commands from this repository:
+
+```bash
+make mvk-aep-bridge-dry-run
+make mvk-aep-bridge-demo
+```
+
+`make mvk-aep-bridge-demo` expects a sibling MVK clone by default:
+
+```text
+../fdo-kernel-mvk
+```
+
+Override it when needed:
+
+```bash
+MVK_REPO=/path/to/fdo-kernel-mvk make mvk-aep-bridge-demo
+```
+
+This walkthrough does not vendor or import `fdo-kernel-mvk` or
+`agent-evidence`. The MVK bridge bundle is local and unsigned; signed export,
+signature verification, and review packs remain in `agent-evidence`.
+
 ## Generated Artifacts
 
 Enterprise sandbox demo 会生成：
@@ -148,6 +192,7 @@ Environment notes:
 - [Quick walkthrough](docs/quick-walkthrough.md)
 - [Interaction flow](docs/interaction-flow.md)
 - [Shortest validation loop](docs/shortest-validation-loop.md)
+- [MVK -> Agent Evidence bridge walkthrough](docs/mvk-aep-bridge-walkthrough.md)
 - [Execution evidence demo note](docs/execution-evidence-demo-note.md)
 - [Demo artifacts](docs/demo-artifacts.md)
 - [Independent verification](docs/independent-verification.md)

@@ -90,3 +90,6 @@ The reviewer does not need to understand the whole system. They only need to che
 - `audit.evidence_path` matches the file being reviewed
 
 For a compact reviewer guide, see [independent-verification.md](independent-verification.md).
+
+For the cross-repo execution-integrity handoff, see
+[mvk-aep-bridge-walkthrough.md](mvk-aep-bridge-walkthrough.md).
