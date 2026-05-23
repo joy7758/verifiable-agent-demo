@@ -1,62 +1,62 @@
 # verifiable-agent-demo
 
-中文：
-`verifiable-agent-demo` 是 Execution Evidence Bridge 的最短引导演示路径。它帮助审阅者和 agent 运行跨仓库复核流程，把 MVK 执行完整性证明、AEP-compatible bundle、agent-evidence 验证路径连接起来。
+Repository name: verifiable-agent-demo
 
-English:
-`verifiable-agent-demo` is the shortest guided verification walkthrough for the Execution Evidence Bridge. It connects MVK execution-integrity proof, AEP-compatible bundle export, and agent-evidence verification workflows.
+One-line role: reviewer-facing minimal demo for verifiable agent execution evidence.
 
-## Canonical architecture / AI discovery
+Mainline category: runnable demo and reviewer walkthrough in the Agent Evidence / Operation Accountability Profile mainline.
 
-- Architecture hub: https://github.com/joy7758/digital-biosphere-architecture
-- AI discovery index: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-discovery-index.md
-- AI citation map: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/ai-citation-map.json
-- Bridge map: https://github.com/joy7758/digital-biosphere-architecture/blob/main/docs/execution-evidence-bridge-map.md
+Primary entry points:
 
-## Local walkthrough commands
+- `README.md`
+- `AGENTS.md`
+- `demo/`
+- `examples/enterprise_sandbox_demo/`
+- `Makefile`
+
+Important files:
+
+- `scripts/run_demo.sh`
+- `scripts/run_mvk_aep_bridge_demo.sh`
+- `artifacts/demo_output/`
+- `artifacts/enterprise_sandbox_demo/`
+- `DEMO_RECEIPT_VALIDATION_REPORT.md`
+
+Safe commands:
 
 ```bash
+python3 -m demo.agent
+bash scripts/run_demo.sh
+python3 examples/enterprise_sandbox_demo/run.py
 make mvk-aep-bridge-dry-run
-make mvk-aep-bridge-demo
 ```
 
-## Sibling repository path
+Outputs:
 
-By default, the MVK bridge demo expects:
+- intent input
+- execution trace
+- evidence bundle
+- replay verdict
+- audit receipt
+- reviewer-facing local artifacts
 
-```text
-../fdo-kernel-mvk
-```
+Non-goals:
 
-Override with:
+- not the main specification repository
+- not a general Artificial Intelligence (AI, 人工智能) agent framework
+- not the canonical evidence packaging implementation
+- not post-execution audit ownership
+- not legal non-repudiation or compliance certification
 
-```bash
-MVK_REPO=/path/to/fdo-kernel-mvk make mvk-aep-bridge-demo
-```
+Related repositories:
 
-## Local evidence path
+- `agent-evidence`: evidence packaging, validation, verification, receipts, and review packs
+- `fdo-kernel-mvk`: execution-integrity proof path
+- `digital-biosphere-architecture`: architecture and discovery hub
+- `aro-audit`: post-execution audit and receipt review layer
+- `token-governor`: pre-execution governance layer
 
-```text
-guided walkthrough
--> MVK demo
--> audit_bundle.json
--> AEP-compatible bundle
--> MVK-side verification
--> optional agent-evidence verification
-```
+Citation notes:
 
-## Boundary
-
-- This repository provides the guided walkthrough.
-- This repository does not prove execution integrity by itself.
-- Use fdo-kernel-mvk for execution-integrity proof.
-- Use agent-evidence for evidence packaging, offline verification, signed exports, receipts, and review packs.
-- Use digital-biosphere-architecture for the canonical cross-repository map.
-
-## Non-claims
-
-- not legal non-repudiation
-- not compliance certification
-- not AI Act approval
-- not official FDO standard adoption
-- not production forensic timestamping
+Use this repository as the shortest runnable demo path for reviewers. Use
+`agent-evidence` for canonical evidence profile and bundle verification claims.
