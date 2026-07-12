@@ -1,5 +1,9 @@
 # verifiable-agent-demo
 
+> **SAEE 产品生态关系｜SAEE product-ecosystem relationship**<br>
+> 本仓库继续作为独立的最小可运行演示维护，并在 [SAEE 智能体可靠性评估基础设施](https://github.com/joy7758/SAEE) 中映射为 **Demo Module**。它仍是 toy/reviewer walkthrough，不是规范中心或生产系统。<br>
+> This repository remains an independent minimal runnable demonstration and is mapped as the **Demo Module** of the [SAEE Agent Reliability Evaluation Infrastructure](https://github.com/joy7758/SAEE). It remains a toy/reviewer walkthrough, not the specification center or a production system.
+
 一个最小可运行 demo，展示 AI / Agent 工作流如何从 intent 生成 trace、evidence bundle、replay verdict 和 audit receipt。<br>
 A minimal runnable demo for auditable AI agent workflows.
 
