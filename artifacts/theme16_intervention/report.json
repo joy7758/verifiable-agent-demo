@@ -1,0 +1,141 @@
+{
+  "acknowledgement_only_comparator_mismatches": 5,
+  "cases": [
+    {
+      "acknowledged": false,
+      "cancel_applied_tick": null,
+      "case_id": "C0",
+      "commitment_tick": 10,
+      "decision_tick": null,
+      "evidence_digest": "sha256:05089cab783b831af369e2f00813f3e92eff68865493859b2c7e653f6b31b328",
+      "expected": {
+        "effect": "EXECUTED",
+        "intervention": "NOT_REQUESTED"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "EXECUTED",
+        "intervention": "NOT_REQUESTED"
+      },
+      "response_margin_ticks": null
+    },
+    {
+      "acknowledged": true,
+      "cancel_applied_tick": 9,
+      "case_id": "C1",
+      "commitment_tick": 10,
+      "decision_tick": 9,
+      "evidence_digest": "sha256:cad7ce466b0292cb5fd5beb2fcf6c084496f05d6aeb02dbb373d9e0e1344b8db",
+      "expected": {
+        "effect": "CANCELLED",
+        "intervention": "EFFECTIVE"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "CANCELLED",
+        "intervention": "EFFECTIVE"
+      },
+      "response_margin_ticks": 1
+    },
+    {
+      "acknowledged": true,
+      "cancel_applied_tick": null,
+      "case_id": "C2",
+      "commitment_tick": 10,
+      "decision_tick": 9,
+      "evidence_digest": "sha256:abf3f90801390e06adedd1909fde0cc5b4e0eb210fee125ba5afdb63a9e6cbe1",
+      "expected": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "response_margin_ticks": null
+    },
+    {
+      "acknowledged": true,
+      "cancel_applied_tick": null,
+      "case_id": "C3",
+      "commitment_tick": 10,
+      "decision_tick": 9,
+      "evidence_digest": "sha256:d4d97bbef8aed6a5c2f67b034377bd0326bec20e9322c256e37a95a75dc1b529",
+      "expected": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "response_margin_ticks": null
+    },
+    {
+      "acknowledged": true,
+      "cancel_applied_tick": null,
+      "case_id": "C4",
+      "commitment_tick": 10,
+      "decision_tick": 10,
+      "evidence_digest": "sha256:dc453fd93c0bdba9b2316fd74a3b0f039a6b363502f293e620115c94420896c2",
+      "expected": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "EXECUTED",
+        "intervention": "INEFFECTIVE"
+      },
+      "response_margin_ticks": null
+    },
+    {
+      "acknowledged": true,
+      "cancel_applied_tick": null,
+      "case_id": "C5",
+      "commitment_tick": 10,
+      "decision_tick": 9,
+      "evidence_digest": "sha256:c7ee423e559f71e6d74e9cd876ab4267f670a43adf194e88199f4e7cf44756ff",
+      "expected": {
+        "effect": "UNKNOWN",
+        "intervention": "NOT_ESTABLISHED"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "UNKNOWN",
+        "intervention": "NOT_ESTABLISHED"
+      },
+      "response_margin_ticks": null
+    },
+    {
+      "acknowledged": false,
+      "cancel_applied_tick": 9,
+      "case_id": "C6",
+      "commitment_tick": 10,
+      "decision_tick": 9,
+      "evidence_digest": "sha256:458373d306a02e08d7661cb97cb8a20b25a722ecf514405c75b4803a396fa7db",
+      "expected": {
+        "effect": "CANCELLED",
+        "intervention": "EFFECTIVE"
+      },
+      "matches": true,
+      "observed": {
+        "effect": "CANCELLED",
+        "intervention": "EFFECTIVE"
+      },
+      "response_margin_ticks": 1
+    }
+  ],
+  "cases_digest": "sha256:0a56e0cfedf9dcd03392ab80e3466bd225b2655765817d26800eb4c20ed4fc5b",
+  "claims": "local logical-clock operational fixture only; no human capacity or wall-clock guarantee",
+  "clock": "synthetic logical ticks; not seconds or human response time",
+  "human_participants": 0,
+  "matches": 7,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "production_services": 0,
+  "profile": "theme16-local-cancellation-v0.1",
+  "python": "3.12.14",
+  "total": 7
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "C2",
+  "comparison": "MATCH",
+  "evidence_digest": "sha256:abf3f90801390e06adedd1909fde0cc5b4e0eb210fee125ba5afdb63a9e6cbe1",
+  "evidence_status": "LOCALLY_CAPTURED",
+  "execution_verdict": {
+    "effect": "EXECUTED",
+    "intervention": "INEFFECTIVE"
+  },
+  "human_decision": {
+    "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+    "human_authentication": "NOT_TESTED",
+    "response": "CANCEL",
+    "tick": 9,
+    "version": "action-v1"
+  },
+  "signature": null
+}

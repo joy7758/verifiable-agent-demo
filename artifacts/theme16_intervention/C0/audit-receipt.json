@@ -1,0 +1,12 @@
+{
+  "case_id": "C0",
+  "comparison": "MATCH",
+  "evidence_digest": "sha256:05089cab783b831af369e2f00813f3e92eff68865493859b2c7e653f6b31b328",
+  "evidence_status": "LOCALLY_CAPTURED",
+  "execution_verdict": {
+    "effect": "EXECUTED",
+    "intervention": "NOT_REQUESTED"
+  },
+  "human_decision": null,
+  "signature": null
+}

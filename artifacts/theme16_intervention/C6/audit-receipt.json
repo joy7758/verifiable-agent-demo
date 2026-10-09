@@ -1,0 +1,18 @@
+{
+  "case_id": "C6",
+  "comparison": "MATCH",
+  "evidence_digest": "sha256:458373d306a02e08d7661cb97cb8a20b25a722ecf514405c75b4803a396fa7db",
+  "evidence_status": "LOCALLY_CAPTURED",
+  "execution_verdict": {
+    "effect": "CANCELLED",
+    "intervention": "EFFECTIVE"
+  },
+  "human_decision": {
+    "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+    "human_authentication": "NOT_TESTED",
+    "response": "CANCEL",
+    "tick": 9,
+    "version": "action-v1"
+  },
+  "signature": null
+}
