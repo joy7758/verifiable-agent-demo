@@ -66,13 +66,19 @@ def assess(evidence: dict) -> dict:
     intent = evidence["intent"]
     if observed["digest"] != intent["action_digest"] or observed["deadline"] != intent["commitment_tick"]:
         return {"effect": "UNKNOWN", "intervention": "NOT_ESTABLISHED"}
+    cancellation_matches = bool(
+        decision and decision.get("response") == "CANCEL"
+        and decision.get("action_digest") == intent["action_digest"]
+        and decision.get("version") == intent["action"]["version"]
+        and type(decision.get("tick")) is int and decision["tick"] >= 0)
     if observed["status"] == "EXECUTED" and observed["value"] == 1 and observed["committed"] == intent["commitment_tick"]:
-        return {"effect": "EXECUTED", "intervention": "INEFFECTIVE" if decision else "NOT_REQUESTED"}
-    if (decision and decision["action_digest"] == intent["action_digest"]
-            and observed["status"] == "CANCELLED" and observed["value"] == 0
+        attribution = "INEFFECTIVE" if cancellation_matches else "NOT_ESTABLISHED" if decision is not None else "NOT_REQUESTED"
+        return {"effect": "EXECUTED", "intervention": attribution}
+    if (observed["status"] == "CANCELLED" and observed["value"] == 0
             and observed["committed"] is None and observed["applied"] is not None
-            and decision["tick"] <= observed["applied"] < intent["commitment_tick"]):
-        return {"effect": "CANCELLED", "intervention": "EFFECTIVE"}
+            and observed["applied"] < intent["commitment_tick"]):
+        attribution = "EFFECTIVE" if cancellation_matches and decision["tick"] <= observed["applied"] else "NOT_ESTABLISHED"
+        return {"effect": "CANCELLED", "intervention": attribution}
     return {"effect": "UNKNOWN", "intervention": "NOT_ESTABLISHED"}
 
 

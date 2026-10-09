@@ -53,6 +53,6 @@ The full public [TSB Circular 179](https://www.itu.int/md/T25-TSB-CIR-0179/en), 
 
 ### Validation boundary / 验证边界
 
-New operational campaign: 7/7 expected/observed matches; the intentionally defective acknowledgement-only comparator mismatches 5/7. Five counter-control tests pass, and the original non-curative approval regression still passes. The public Digital Cell seven tests also pass. A broader demo test discovery was attempted and failed importing existing receipt tests because `aro_audit` is not installed; no claim of full-suite success is made. No private component or paid service was used to repair this environment. These results establish local synthetic discrimination only, not product superiority or general matrix sufficiency.
+New operational campaign: 7/7 expected/observed matches; the intentionally defective acknowledgement-only comparator mismatches 5/7. Eight counter-control tests pass, and the original non-curative approval regression still passes. The public Digital Cell seven tests also pass. A broader demo test discovery was attempted and failed importing existing receipt tests because `aro_audit` is not installed; no claim of full-suite success is made. No private component or paid service was used to repair this environment. These results establish local synthetic discrimination only, not product superiority or general matrix sufficiency.
 
-中文：新操作小样7/7预期与观察一致，故意错误的“仅靠确认”对照5/7误判；5项反例检查通过，原“批准不能修复相反证据”回归仍通过，公开数字细胞7项也通过。尝试扩大到演示仓库全套测试时，已有回执测试因未安装aro_audit（审计库）无法导入；不声称全套通过，不用私有组件或付费服务填补环境。结果仅表明本地合成区分能力，不证明产品优越或矩阵普遍充分。
+中文：新操作小样7/7预期与观察一致，故意错误的“仅靠确认”对照5/7误判；8项反例检查通过，原“批准不能修复相反证据”回归仍通过，公开数字细胞7项也通过。尝试扩大到演示仓库全套测试时，已有回执测试因未安装aro_audit（审计库）无法导入；不声称全套通过，不用私有组件或付费服务填补环境。结果仅表明本地合成区分能力，不证明产品优越或矩阵普遍充分。

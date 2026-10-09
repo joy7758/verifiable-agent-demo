@@ -110,7 +110,7 @@ These are test-local acceptance conditions offered for review, not universal req
 
 **Measurable metric / 可测指标:** Expected/observed match count; false positive cancellation under the acknowledgement-only comparator; actual cancellation application tick and remaining logical margin where observed. / 预期与观察一致数量；仅依赖确认的错误对照的取消假成功；可观察时记录实际取消应用时刻及逻辑余量。
 
-**Executed result / 已运行结果:** 7/7 matches; acknowledgement-only comparator 5/7 mismatches; five counter-control tests and original one-case approval regression pass. Positive cancellation margin is one synthetic tick, not one second. / 7/7一致，仅靠确认对照5/7误判；5项反例测试及原1项批准回归通过。及时取消的余量是1个合成逻辑单位，不是1秒。
+**Executed result / 已运行结果:** 7/7 matches; acknowledgement-only comparator 5/7 mismatches; eight counter-control tests and original one-case approval regression pass. Positive cancellation margin is one synthetic tick, not one second. / 7/7一致，仅靠确认对照5/7误判；8项反例测试及原1项批准回归通过。及时取消的余量是1个合成逻辑单位，不是1秒。
 
 ## 7. Duplication check / 避免重复核查
 

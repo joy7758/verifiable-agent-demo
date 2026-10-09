@@ -13,8 +13,8 @@ SPEC.loader.exec_module(MODULE)
 class InterventionEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.evidence = {
-            "intent": {"action_digest": "D1", "commitment_tick": 10},
-            "decision": {"action_digest": "D1", "tick": 9},
+            "intent": {"action_digest": "D1", "commitment_tick": 10, "action": {"version": "v1"}},
+            "decision": {"response": "CANCEL", "action_digest": "D1", "tick": 9, "version": "v1"},
             "acknowledgement": {"received": True},
             "observation": {"digest": "D1", "deadline": 10, "status": "CANCELLED",
                             "value": 0, "committed": None, "applied": 9},
@@ -40,6 +40,19 @@ class InterventionEvidenceTests(unittest.TestCase):
     def test_inconsistent_boundary_observation_cannot_establish_success(self):
         self.evidence["observation"]["applied"] = 10
         self.assertEqual(MODULE.assess(self.evidence)["intervention"], "NOT_ESTABLISHED")
+
+    def test_other_action_decision_cannot_be_attributed_to_execution(self):
+        self.evidence["decision"]["action_digest"] = "OTHER_ACTION"
+        self.evidence["observation"].update(status="EXECUTED", value=1, committed=10, applied=None)
+        self.assertEqual(MODULE.assess(self.evidence), {"effect": "EXECUTED", "intervention": "NOT_ESTABLISHED"})
+
+    def test_approval_cannot_be_attributed_as_cancellation(self):
+        self.evidence["decision"]["response"] = "APPROVE"
+        self.assertEqual(MODULE.assess(self.evidence), {"effect": "CANCELLED", "intervention": "NOT_ESTABLISHED"})
+
+    def test_other_version_decision_cannot_be_attributed_as_cancellation(self):
+        self.evidence["decision"]["version"] = "v0"
+        self.assertEqual(MODULE.assess(self.evidence), {"effect": "CANCELLED", "intervention": "NOT_ESTABLISHED"})
 
 
 if __name__ == "__main__":
