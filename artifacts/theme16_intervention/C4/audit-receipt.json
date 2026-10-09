@@ -1,0 +1,18 @@
+{
+  "case_id": "C4",
+  "comparison": "MATCH",
+  "evidence_digest": "sha256:dc453fd93c0bdba9b2316fd74a3b0f039a6b363502f293e620115c94420896c2",
+  "evidence_status": "LOCALLY_CAPTURED",
+  "execution_verdict": {
+    "effect": "EXECUTED",
+    "intervention": "INEFFECTIVE"
+  },
+  "human_decision": {
+    "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+    "human_authentication": "NOT_TESTED",
+    "response": "CANCEL",
+    "tick": 10,
+    "version": "action-v1"
+  },
+  "signature": null
+}

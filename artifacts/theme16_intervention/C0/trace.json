@@ -1,0 +1,34 @@
+{
+  "acknowledgement": {
+    "received": false,
+    "scope": "RECEIPT_ONLY"
+  },
+  "decision": null,
+  "execution_confirmation": null,
+  "intent": {
+    "action": {
+      "operation": "set_local_value",
+      "target": "isolated-local-row",
+      "value": 1,
+      "version": "action-v1"
+    },
+    "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+    "authority_applicability": "ASSUMED_CURRENT_FOR_SYNTHETIC_CANCEL",
+    "commitment_tick": 10,
+    "evidence_presented": {
+      "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+      "commitment_tick": 10
+    },
+    "governing_reference": "theme16-local-cancellation-v0.1"
+  },
+  "observation": {
+    "applied": null,
+    "committed": 10,
+    "deadline": 10,
+    "digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+    "status": "EXECUTED",
+    "value": 1
+  },
+  "observation_scope": "one local terminal row; trusted same-host fixture",
+  "observation_tick": 20
+}

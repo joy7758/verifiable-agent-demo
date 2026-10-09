@@ -1,0 +1,16 @@
+{
+  "profile": "theme16-local-cancellation-v0.1",
+  "clock": "synthetic logical ticks; not seconds or human response time",
+  "commitment_tick": 10,
+  "terminal_observation_tick": 20,
+  "boundary_rule": "commit before processing any cancellation received at tick >= 10",
+  "cases": [
+    {"id":"C0","decision_tick":null,"delivery_tick":null,"drop_delivery":false,"acknowledgement":false,"observe":true,"expected":{"effect":"EXECUTED","intervention":"NOT_REQUESTED"}},
+    {"id":"C1","decision_tick":9,"delivery_tick":9,"drop_delivery":false,"acknowledgement":true,"observe":true,"expected":{"effect":"CANCELLED","intervention":"EFFECTIVE"}},
+    {"id":"C2","decision_tick":9,"delivery_tick":11,"drop_delivery":false,"acknowledgement":true,"observe":true,"expected":{"effect":"EXECUTED","intervention":"INEFFECTIVE"}},
+    {"id":"C3","decision_tick":9,"delivery_tick":9,"drop_delivery":true,"acknowledgement":true,"observe":true,"expected":{"effect":"EXECUTED","intervention":"INEFFECTIVE"}},
+    {"id":"C4","decision_tick":10,"delivery_tick":10,"drop_delivery":false,"acknowledgement":true,"observe":true,"expected":{"effect":"EXECUTED","intervention":"INEFFECTIVE"}},
+    {"id":"C5","decision_tick":9,"delivery_tick":9,"drop_delivery":false,"acknowledgement":true,"observe":false,"expected":{"effect":"UNKNOWN","intervention":"NOT_ESTABLISHED"}},
+    {"id":"C6","decision_tick":9,"delivery_tick":9,"drop_delivery":false,"acknowledgement":false,"observe":true,"expected":{"effect":"CANCELLED","intervention":"EFFECTIVE"}}
+  ]
+}

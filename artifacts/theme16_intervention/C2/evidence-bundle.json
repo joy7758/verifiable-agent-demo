@@ -1,0 +1,47 @@
+{
+  "digest": "sha256:abf3f90801390e06adedd1909fde0cc5b4e0eb210fee125ba5afdb63a9e6cbe1",
+  "evidence": {
+    "acknowledgement": {
+      "received": true,
+      "scope": "RECEIPT_ONLY"
+    },
+    "decision": {
+      "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+      "human_authentication": "NOT_TESTED",
+      "response": "CANCEL",
+      "tick": 9,
+      "version": "action-v1"
+    },
+    "execution_confirmation": {
+      "applied_tick": null,
+      "reason": "TOO_LATE_OR_TERMINAL",
+      "received_tick": 11
+    },
+    "intent": {
+      "action": {
+        "operation": "set_local_value",
+        "target": "isolated-local-row",
+        "value": 1,
+        "version": "action-v1"
+      },
+      "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+      "authority_applicability": "ASSUMED_CURRENT_FOR_SYNTHETIC_CANCEL",
+      "commitment_tick": 10,
+      "evidence_presented": {
+        "action_digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+        "commitment_tick": 10
+      },
+      "governing_reference": "theme16-local-cancellation-v0.1"
+    },
+    "observation": {
+      "applied": null,
+      "committed": 10,
+      "deadline": 10,
+      "digest": "sha256:9239200e2173854cd3b9c79c425237d255ff1e12825bce0ea2d2ea00f08cad8a",
+      "status": "EXECUTED",
+      "value": 1
+    },
+    "observation_scope": "one local terminal row; trusted same-host fixture",
+    "observation_tick": 20
+  }
+}

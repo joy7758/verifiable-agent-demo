@@ -1,0 +1,132 @@
+{
+  "recorded_at_utc": "2026-10-09T01:40:41.081256+00:00",
+  "base_commit": "9988e7a2ee3544b233abf07394c0fcd57a63be92",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "examples/theme16_intervention/run.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"matches\": 7, \"total\": 7, \"ack_only_mismatches\": 5}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_theme16_intervention.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_acknowledgement_change_does_not_change_effect (test_theme16_intervention.InterventionEvidenceTests.test_acknowledgement_change_does_not_change_effect) ... ok\ntest_approval_cannot_be_attributed_as_cancellation (test_theme16_intervention.InterventionEvidenceTests.test_approval_cannot_be_attributed_as_cancellation) ... ok\ntest_inconsistent_boundary_observation_cannot_establish_success (test_theme16_intervention.InterventionEvidenceTests.test_inconsistent_boundary_observation_cannot_establish_success) ... ok\ntest_missing_readback_stays_unknown (test_theme16_intervention.InterventionEvidenceTests.test_missing_readback_stays_unknown) ... ok\ntest_other_action_decision_cannot_be_attributed_to_execution (test_theme16_intervention.InterventionEvidenceTests.test_other_action_decision_cannot_be_attributed_to_execution) ... ok\ntest_other_version_decision_cannot_be_attributed_as_cancellation (test_theme16_intervention.InterventionEvidenceTests.test_other_version_decision_cannot_be_attributed_as_cancellation) ... ok\ntest_positive_ack_does_not_overwrite_actual_execution (test_theme16_intervention.InterventionEvidenceTests.test_positive_ack_does_not_overwrite_actual_execution) ... ok\ntest_unrelated_readback_cannot_establish_success (test_theme16_intervention.InterventionEvidenceTests.test_unrelated_readback_cannot_establish_success) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_fgtida_theme16_noncurative_approval.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_satisfied_human_approval_does_not_override_action_tamper_detection (test_fgtida_theme16_noncurative_approval.NonCurativeHumanApprovalTests.test_satisfied_human_approval_does_not_override_action_tamper_detection) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nOK\n"
+    }
+  ],
+  "independent_hash_and_expected_outcome_check": "7/7 local files verified with standard library; no separate human review",
+  "source_sha256": {
+    "examples/theme16_intervention/cases.json": "6c61e7464a3fccec53c5a689afeb179a14f4f7f48f9b3d099235d3c3f849f3cc",
+    "examples/theme16_intervention/run.py": "4beb43a5d7aa053c2897e83a6168adb2d3521824dd857e377a410607f86a77a4",
+    "examples/theme16_intervention/README.md": "270ee1d6dc28b530a136f1c7679200919c92fbfd4a18dc5cb74cd55d67897667",
+    "tests/test_theme16_intervention.py": "6238cfd38d6fb08885a0fb1e070a7f4557cc37db548330c5ab26f4c288351fa2",
+    "docs/outreach/fgtida-theme16-intervention-review.md": "20e74ba65f2f50dec3c946325c60ac8a9228d4c8b9bb9e0e86acb1f75d53c1a6",
+    "docs/outreach/fgtida-theme16-intervention-submission.md": "10252d0f6350f3302dd2e63c93b106e5d7341765be2f0824b22df9b389e5a62a"
+  },
+  "broader_suite": {
+    "command": "python -m unittest discover -s tests -v",
+    "result": "FAILED_IMPORT_EXISTING_RECEIPT_TEST",
+    "reason": "aro_audit not installed"
+  },
+  "prior_digital_cell_tests": "7/7 rerun in public titmas-demo, separately recorded in review note",
+  "review_fix": {
+    "source": "https://github.com/joy7758/verifiable-agent-demo/pull/71#discussion_r4225829355",
+    "status": "FIXED_AND_LOCAL_TESTS_PASS",
+    "change": "Validate cancellation response, action and version before attribution; preserve observed effect when attribution unknown",
+    "counter_control_tests": 8
+  },
+  "prior_execution_record": {
+    "recorded_at_utc": "2026-10-09T01:36:36.555795+00:00",
+    "base_commit": "9988e7a2ee3544b233abf07394c0fcd57a63be92",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "runs": [
+      {
+        "command": [
+          "python",
+          "examples/theme16_intervention/run.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"matches\": 7, \"total\": 7, \"ack_only_mismatches\": 5}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_theme16_intervention.py",
+          "-v"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "test_acknowledgement_change_does_not_change_effect (test_theme16_intervention.InterventionEvidenceTests.test_acknowledgement_change_does_not_change_effect) ... ok\ntest_inconsistent_boundary_observation_cannot_establish_success (test_theme16_intervention.InterventionEvidenceTests.test_inconsistent_boundary_observation_cannot_establish_success) ... ok\ntest_missing_readback_stays_unknown (test_theme16_intervention.InterventionEvidenceTests.test_missing_readback_stays_unknown) ... ok\ntest_positive_ack_does_not_overwrite_actual_execution (test_theme16_intervention.InterventionEvidenceTests.test_positive_ack_does_not_overwrite_actual_execution) ... ok\ntest_unrelated_readback_cannot_establish_success (test_theme16_intervention.InterventionEvidenceTests.test_unrelated_readback_cannot_establish_success) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_fgtida_theme16_noncurative_approval.py",
+          "-v"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "test_satisfied_human_approval_does_not_override_action_tamper_detection (test_fgtida_theme16_noncurative_approval.NonCurativeHumanApprovalTests.test_satisfied_human_approval_does_not_override_action_tamper_detection) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nOK\n"
+      }
+    ],
+    "independent_hash_and_expected_outcome_check": "7/7 local files verified with standard library; no separate human review",
+    "source_sha256": {
+      "examples/theme16_intervention/cases.json": "6c61e7464a3fccec53c5a689afeb179a14f4f7f48f9b3d099235d3c3f849f3cc",
+      "examples/theme16_intervention/run.py": "b6367cbe0db811d3fd891545c9cb7840b60b69844017f0495e947149e2a8b46f",
+      "examples/theme16_intervention/README.md": "270ee1d6dc28b530a136f1c7679200919c92fbfd4a18dc5cb74cd55d67897667",
+      "tests/test_theme16_intervention.py": "430b17af5d10a0a64bfe3fa53f359b1d0a43c5068cba2dec4cbfce18d943fda9",
+      "docs/outreach/fgtida-theme16-intervention-review.md": "75d22b61e5cc89cbe6d3b1bb0f0b7e876c1dade3a27e25698fd5d691eac9e912",
+      "docs/outreach/fgtida-theme16-intervention-submission.md": "b0968104b93e80b052f4cdc77328f1e964615280846878933d8369a4d2ea1313"
+    },
+    "broader_suite": {
+      "command": "python -m unittest discover -s tests -v",
+      "result": "FAILED_IMPORT_EXISTING_RECEIPT_TEST",
+      "reason": "aro_audit not installed"
+    },
+    "prior_digital_cell_tests": "7/7 rerun in public titmas-demo, separately recorded in review note"
+  }
+}
